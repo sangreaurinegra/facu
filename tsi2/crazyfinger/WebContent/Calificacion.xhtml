@@ -1,0 +1,147 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <rich:panel>
+        <f:facet name="header">Calificacion Details</f:facet>
+
+
+        <s:decorate id="comentario" template="layout/display.xhtml">
+            <ui:define name="label">Comentario</ui:define>
+            <h:outputText value="#{calificacionHome.instance.comentario}"/>
+        </s:decorate>
+
+        <s:decorate id="puntaje" template="layout/display.xhtml">
+            <ui:define name="label">Puntaje</ui:define>
+            <h:outputText value="#{calificacionHome.instance.puntaje}"/>
+        </s:decorate>
+
+        <div style="clear:both"/>
+
+    </rich:panel>
+
+    <div class="actionButtons">
+
+        <s:button view="/CalificacionEdit.xhtml"
+                    id="edit"
+                 value="Edit"/>
+
+        <s:button view="/#{empty calificacionFrom ? 'CalificacionList' : calificacionFrom}.xhtml"
+                    id="done"
+                 value="Done"/>
+
+    </div>
+
+    <rich:tabPanel switchType="ajax">
+
+    <rich:tab>
+        <f:facet name="label">
+            <h:panelGroup><h:graphicImage value="/img/manytoone.gif" style="vertical-align: middle; padding-right: 4px;"/>Servicio</h:panelGroup>
+        </f:facet>
+    <div class="association" id="servicioParent">
+
+        <h:outputText value="There is no servicio associated with this calificacion."
+                   rendered="#{calificacionHome.instance.servicio == null}"/>
+
+        <rich:dataTable var="_servicio"
+                   value="#{calificacionHome.instance.servicio}"
+                rendered="#{calificacionHome.instance.servicio != null}"
+              rowClasses="rvgRowOne,rvgRowTwo"
+                      id="servicioTable">
+            <h:column>
+                <f:facet name="header">Id servicio</f:facet>
+                <h:outputText value="#{_servicio.idServicio}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Costo</f:facet>
+                <h:outputText value="#{_servicio.costo}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Lugar id lugar</f:facet>
+                <h:outputText value="#{_servicio.lugar.idLugar}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                <h:outputText value="#{_servicio.nombre}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Tipo</f:facet>
+                <h:outputText value="#{_servicio.tipo}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Url</f:facet>
+                <h:outputText value="#{_servicio.url}"/>
+            </h:column>
+            <h:column styleClass="action">
+                <f:facet name="header">Action</f:facet>
+                <s:link id="viewservicio"
+                     value="View"
+                      view="/Servicio.xhtml">
+                    <f:param name="servicioIdServicio"
+                           value="#{_servicio.idServicio}"/>
+                </s:link>
+            </h:column>
+        </rich:dataTable>
+
+    </div>
+    </rich:tab>
+
+    <rich:tab>
+        <f:facet name="label">
+            <h:panelGroup><h:graphicImage value="/img/manytoone.gif" style="vertical-align: middle; padding-right: 4px;"/>Usuario</h:panelGroup>
+        </f:facet>
+    <div class="association" id="usuarioParent">
+
+        <h:outputText value="There is no usuario associated with this calificacion."
+                   rendered="#{calificacionHome.instance.usuario == null}"/>
+
+        <rich:dataTable var="_usuario"
+                   value="#{calificacionHome.instance.usuario}"
+                rendered="#{calificacionHome.instance.usuario != null}"
+              rowClasses="rvgRowOne,rvgRowTwo"
+                      id="usuarioTable">
+            <h:column>
+                <f:facet name="header">Id usuario</f:facet>
+                <h:outputText value="#{_usuario.idUsuario}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                <h:outputText value="#{_usuario.nombre}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Openid</f:facet>
+                <h:outputText value="#{_usuario.openid}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Pared id pared</f:facet>
+                <h:outputText value="#{_usuario.pared.idPared}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Password</f:facet>
+                <h:outputText value="#{_usuario.password}"/>
+            </h:column>
+            <h:column styleClass="action">
+                <f:facet name="header">Action</f:facet>
+                <s:link id="viewusuario"
+                     value="View"
+                      view="/Usuario.xhtml">
+                    <f:param name="usuarioIdUsuario"
+                           value="#{_usuario.idUsuario}"/>
+                </s:link>
+            </h:column>
+        </rich:dataTable>
+
+    </div>
+    </rich:tab>
+</rich:tabPanel>
+</ui:define>
+
+</ui:composition>

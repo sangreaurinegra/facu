@@ -1,0 +1,81 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+<rich:panel>
+        <f:facet name="header">Compra List (#{empty compraList.resultList ? 0 : (compraList.paginated ? compraList.resultCount : compraList.resultList.size)})</f:facet>
+    <div class="results" id="compraList">
+
+    <h:outputText value="El usuario no tiene compras."
+               rendered="#{empty compraList.listaCompras(usuario.nombre)}"/>
+
+    <rich:dataTable id="compraList"
+                var="_compra"
+              value="#{compraList.listaCompras(usuario.nombre)}"
+           rendered="#{not empty compraList.listaCompras(usuario.nombre)}">
+        <h:column>
+            <f:facet name="header">
+                <ui:include src="layout/sort.xhtml">
+                    <ui:param name="entityList" value="#{compraList}"/>
+                    <ui:param name="propertyLabel" value="Id compra"/>
+                    <ui:param name="propertyPath" value="compra.idCompra"/>
+                </ui:include>
+            </f:facet>
+            <h:outputText value="#{_compra.idCompra}"/>
+        </h:column>
+        
+        <h:column>
+            <f:facet name="header">
+                <ui:include src="layout/sort.xhtml">
+                    <ui:param name="entityList" value="#{compraList}"/>
+                    <ui:param name="propertyLabel" value="Usuario Comprador"/>
+                    <ui:param name="propertyPath" value="compra.usuario.nombre"/>
+                </ui:include>
+            </f:facet>
+            <h:outputText value="#{_compra.usuario.nombre}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <ui:include src="layout/sort.xhtml">
+                    <ui:param name="entityList" value="#{compraList}"/>
+                    <ui:param name="propertyLabel" value="Id Paquete Turistico Comprado"/>
+                    <ui:param name="propertyPath" value="compra.paqueteTuristico.idPaqueteturistico"/>
+                </ui:include>
+            </f:facet>
+            <h:outputText value="#{_compra.paqueteTuristico.idPaqueteturistico}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <ui:include src="layout/sort.xhtml">
+                    <ui:param name="entityList" value="#{compraList}"/>
+                    <ui:param name="propertyLabel" value="Paquete Turistico Comprado"/>
+                    <ui:param name="propertyPath" value="compra.paqueteTuristico.nombre"/>
+                </ui:include>
+            </f:facet>
+            <h:outputText value="#{_compra.paqueteTuristico.nombre}"/>
+        </h:column>
+    </rich:dataTable>
+
+		<div class="actionButtons">
+            <s:button propagation="end"
+                               id="volver"
+                            value="Volver"
+                             view="/PaqueteturisticoList.xhtml"/>
+        </div>
+
+    </div>
+    </rich:panel>
+
+    
+
+</ui:define>
+
+</ui:composition>

@@ -1,0 +1,231 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <rich:panel>
+        <f:facet name="header">Nodo Details</f:facet>
+
+
+        <s:decorate id="estado" template="layout/display.xhtml">
+            <ui:define name="label">Estado</ui:define>
+            <h:outputText value="#{nodoHome.instance.estado}"/>
+        </s:decorate>
+
+        <s:decorate id="orden" template="layout/display.xhtml">
+            <ui:define name="label">Orden</ui:define>
+            <h:outputText value="#{nodoHome.instance.orden}"/>
+        </s:decorate>
+
+        <div style="clear:both"/>
+
+    </rich:panel>
+
+    <div class="actionButtons">
+
+        <s:button view="/NodoEdit.xhtml"
+                    id="edit"
+                 value="Edit"/>
+
+        <s:button view="/#{empty nodoFrom ? 'NodoList' : nodoFrom}.xhtml"
+                    id="done"
+                 value="Done"/>
+
+    </div>
+
+    <rich:tabPanel switchType="ajax">
+
+    <rich:tab>
+        <f:facet name="label">
+            <h:panelGroup><h:graphicImage value="/img/manytoone.gif" style="vertical-align: middle; padding-right: 4px;"/>Estadia</h:panelGroup>
+        </f:facet>
+    <div class="association" id="estadiaParent">
+
+        <h:outputText value="There is no estadia associated with this nodo."
+                   rendered="#{nodoHome.instance.estadia == null}"/>
+
+        <rich:dataTable var="_estadia"
+                   value="#{nodoHome.instance.estadia}"
+                rendered="#{nodoHome.instance.estadia != null}"
+              rowClasses="rvgRowOne,rvgRowTwo"
+                      id="estadiaTable">
+            <h:column>
+                <f:facet name="header">Id estadia</f:facet>
+                <h:outputText value="#{_estadia.idEstadia}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Alojamiento id servicio</f:facet>
+                <h:outputText value="#{_estadia.alojamiento.idServicio}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Costototal</f:facet>
+                <h:outputText value="#{_estadia.costototal}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Fecha desde</f:facet>
+                <h:outputText value="#{_estadia.fechaDesde}">
+                    <s:convertDateTime type="date" dateStyle="short"/>
+                </h:outputText>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Fecha hasta</f:facet>
+                <h:outputText value="#{_estadia.fechaHasta}">
+                    <s:convertDateTime type="date" dateStyle="short"/>
+                </h:outputText>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Nodo id nodo</f:facet>
+                <h:outputText value="#{_estadia.nodo.idNodo}"/>
+            </h:column>
+            <h:column styleClass="action">
+                <f:facet name="header">Action</f:facet>
+                <s:link id="viewestadia"
+                     value="View"
+                      view="/Estadia.xhtml">
+                    <f:param name="estadiaIdEstadia"
+                           value="#{_estadia.idEstadia}"/>
+                </s:link>
+            </h:column>
+        </rich:dataTable>
+
+    </div>
+    </rich:tab>
+
+    <rich:tab>
+        <f:facet name="label">
+            <h:panelGroup><h:graphicImage value="/img/manytoone.gif" style="vertical-align: middle; padding-right: 4px;"/>Lugar</h:panelGroup>
+        </f:facet>
+    <div class="association" id="lugarParent">
+
+        <h:outputText value="There is no lugar associated with this nodo."
+                   rendered="#{nodoHome.instance.lugar == null}"/>
+
+        <rich:dataTable var="_lugar"
+                   value="#{nodoHome.instance.lugar}"
+                rendered="#{nodoHome.instance.lugar != null}"
+              rowClasses="rvgRowOne,rvgRowTwo"
+                      id="lugarTable">
+            <h:column>
+                <f:facet name="header">Id lugar</f:facet>
+                <h:outputText value="#{_lugar.idLugar}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Latitud</f:facet>
+                <h:outputText value="#{_lugar.latitud}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Longitud</f:facet>
+                <h:outputText value="#{_lugar.longitud}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                <h:outputText value="#{_lugar.nombre}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Url</f:facet>
+                <h:outputText value="#{_lugar.url}"/>
+            </h:column>
+            <h:column styleClass="action">
+                <f:facet name="header">Action</f:facet>
+                <s:link id="viewlugar"
+                     value="View"
+                      view="/Lugar.xhtml">
+                    <f:param name="lugarIdLugar"
+                           value="#{_lugar.idLugar}"/>
+                </s:link>
+            </h:column>
+        </rich:dataTable>
+
+    </div>
+    </rich:tab>
+
+    <rich:tab>
+        <f:facet name="label">
+            <h:panelGroup><h:graphicImage value="/img/manytoone.gif" style="vertical-align: middle; padding-right: 4px;"/>Pasaje llegada</h:panelGroup>
+        </f:facet>
+    <div class="association" id="pasajeLlegadaParent">
+
+        <h:outputText value="There is no pasajeLlegada associated with this nodo."
+                   rendered="#{nodoHome.instance.pasajeLlegada == null}"/>
+
+        <rich:dataTable var="_pasaje"
+                   value="#{nodoHome.instance.pasajeLlegada}"
+                rendered="#{nodoHome.instance.pasajeLlegada != null}"
+              rowClasses="rvgRowOne,rvgRowTwo"
+                      id="pasajeLlegadaTable">
+            <h:column>
+                <f:facet name="header">Id pasaje</f:facet>
+                <h:outputText value="#{_pasaje.idPasaje}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Fecha</f:facet>
+                <h:outputText value="#{_pasaje.fecha}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Traslado id traslado</f:facet>
+                <h:outputText value="#{_pasaje.traslado.idTraslado}"/>
+            </h:column>
+            <h:column styleClass="action">
+                <f:facet name="header">Action</f:facet>
+                <s:link id="viewpasaje"
+                     value="View"
+                      view="/Pasaje.xhtml">
+                    <f:param name="pasajeIdPasaje"
+                           value="#{_pasaje.idPasaje}"/>
+                </s:link>
+            </h:column>
+        </rich:dataTable>
+
+    </div>
+    </rich:tab>
+
+    <rich:tab>
+        <f:facet name="label">
+            <h:panelGroup><h:graphicImage value="/img/manytoone.gif" style="vertical-align: middle; padding-right: 4px;"/>Pasaje salida</h:panelGroup>
+        </f:facet>
+    <div class="association" id="pasajeSalidaParent">
+
+        <h:outputText value="There is no pasajeSalida associated with this nodo."
+                   rendered="#{nodoHome.instance.pasajeSalida == null}"/>
+
+        <rich:dataTable var="_pasaje"
+                   value="#{nodoHome.instance.pasajeSalida}"
+                rendered="#{nodoHome.instance.pasajeSalida != null}"
+              rowClasses="rvgRowOne,rvgRowTwo"
+                      id="pasajeSalidaTable">
+            <h:column>
+                <f:facet name="header">Id pasaje</f:facet>
+                <h:outputText value="#{_pasaje.idPasaje}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Fecha</f:facet>
+                <h:outputText value="#{_pasaje.fecha}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Traslado id traslado</f:facet>
+                <h:outputText value="#{_pasaje.traslado.idTraslado}"/>
+            </h:column>
+            <h:column styleClass="action">
+                <f:facet name="header">Action</f:facet>
+                <s:link id="viewpasaje"
+                     value="View"
+                      view="/Pasaje.xhtml">
+                    <f:param name="pasajeIdPasaje"
+                           value="#{_pasaje.idPasaje}"/>
+                </s:link>
+            </h:column>
+        </rich:dataTable>
+
+    </div>
+    </rich:tab>
+</rich:tabPanel>
+</ui:define>
+
+</ui:composition>

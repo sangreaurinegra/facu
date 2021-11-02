@@ -1,0 +1,179 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <h:form id="estadiaSearch" styleClass="edit">
+
+        <rich:simpleTogglePanel label="Estadia Search Filter" switchType="ajax">
+
+            <s:decorate template="layout/display.xhtml">
+                <ui:define name="label">Match</ui:define>
+                <h:selectOneRadio id="logic" value="#{estadiaList.restrictionLogicOperator}" styleClass="radio">
+                    <f:selectItem itemLabel="All" itemValue="and"/>
+                    <f:selectItem itemLabel="Any" itemValue="or"/>
+                </h:selectOneRadio>
+            </s:decorate>
+
+        </rich:simpleTogglePanel>
+
+        <div class="actionButtons">
+            <h:commandButton id="search" value="Search" action="/EstadiaList.xhtml"/>
+            <s:button id="reset" value="Reset" includePageParams="false"/>
+        </div>
+
+    </h:form>
+
+    <rich:panel>
+        <f:facet name="header">Estadia Search Results (#{empty estadiaList.resultList ? 0 : (estadiaList.paginated ? estadiaList.resultCount : estadiaList.resultList.size)})</f:facet>
+    <div class="results" id="estadiaList">
+
+    <h:outputText value="The estadia search returned no results."
+               rendered="#{empty estadiaList.resultList}"/>
+
+    <rich:dataTable id="estadiaList"
+                var="_estadia"
+              value="#{estadiaList.resultList}"
+           rendered="#{not empty estadiaList.resultList}">
+        <h:column>
+            <f:facet name="header">
+                <ui:include src="layout/sort.xhtml">
+                    <ui:param name="entityList" value="#{estadiaList}"/>
+                    <ui:param name="propertyLabel" value="Id estadia"/>
+                    <ui:param name="propertyPath" value="estadia.idEstadia"/>
+                </ui:include>
+            </f:facet>
+            <h:outputText value="#{_estadia.idEstadia}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <ui:include src="layout/sort.xhtml">
+                    <ui:param name="entityList" value="#{estadiaList}"/>
+                    <ui:param name="propertyLabel" value="Alojamiento id servicio"/>
+                    <ui:param name="propertyPath" value="estadia.alojamiento.idServicio"/>
+                </ui:include>
+            </f:facet>
+            <h:outputText value="#{_estadia.alojamiento.idServicio}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <ui:include src="layout/sort.xhtml">
+                    <ui:param name="entityList" value="#{estadiaList}"/>
+                    <ui:param name="propertyLabel" value="Costototal"/>
+                    <ui:param name="propertyPath" value="estadia.costototal"/>
+                </ui:include>
+            </f:facet>
+            <h:outputText value="#{_estadia.costototal}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <ui:include src="layout/sort.xhtml">
+                    <ui:param name="entityList" value="#{estadiaList}"/>
+                    <ui:param name="propertyLabel" value="Fecha desde"/>
+                    <ui:param name="propertyPath" value="estadia.fechaDesde"/>
+                </ui:include>
+            </f:facet>
+            <h:outputText value="#{_estadia.fechaDesde}">
+                <s:convertDateTime type="date" dateStyle="short"/>
+            </h:outputText>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <ui:include src="layout/sort.xhtml">
+                    <ui:param name="entityList" value="#{estadiaList}"/>
+                    <ui:param name="propertyLabel" value="Fecha hasta"/>
+                    <ui:param name="propertyPath" value="estadia.fechaHasta"/>
+                </ui:include>
+            </f:facet>
+            <h:outputText value="#{_estadia.fechaHasta}">
+                <s:convertDateTime type="date" dateStyle="short"/>
+            </h:outputText>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <ui:include src="layout/sort.xhtml">
+                    <ui:param name="entityList" value="#{estadiaList}"/>
+                    <ui:param name="propertyLabel" value="Nodo id nodo"/>
+                    <ui:param name="propertyPath" value="estadia.nodo.idNodo"/>
+                </ui:include>
+            </f:facet>
+            <h:outputText value="#{_estadia.nodo.idNodo}"/>
+        </h:column>
+        <rich:column styleClass="action">
+            <f:facet name="header">Action</f:facet>
+            <s:link view="/#{empty from ? 'Estadia' : from}.xhtml"
+                   value="#{empty from ? 'View' : 'Select'}"
+             propagation="#{empty from ? 'none' : 'default'}"
+                      id="estadiaViewId">
+                <f:param name="estadiaIdEstadia"
+                        value="#{_estadia.idEstadia}"/>
+            </s:link>
+            #{' '}
+            <s:link view="/EstadiaEdit.xhtml"
+                   value="Edit"
+             propagation="none"
+                      id="estadiaEdit"
+                rendered="#{empty from}">
+                <f:param name="estadiaIdEstadia"
+                        value="#{_estadia.idEstadia}"/>
+            </s:link>
+        </rich:column>
+    </rich:dataTable>
+
+    </div>
+    </rich:panel>
+
+    <div class="tableControl">
+
+        <s:link view="/EstadiaList.xhtml"
+            rendered="#{estadiaList.previousExists}"
+               value="#{messages.left}#{messages.left} First Page"
+                  id="firstPage">
+          <f:param name="firstResult" value="0"/>
+        </s:link>
+
+        <s:link view="/EstadiaList.xhtml"
+            rendered="#{estadiaList.previousExists}"
+               value="#{messages.left} Previous Page"
+                  id="previousPage">
+            <f:param name="firstResult"
+                    value="#{estadiaList.previousFirstResult}"/>
+        </s:link>
+
+        <s:link view="/EstadiaList.xhtml"
+            rendered="#{estadiaList.nextExists}"
+               value="Next Page #{messages.right}"
+                  id="nextPage">
+            <f:param name="firstResult"
+                    value="#{estadiaList.nextFirstResult}"/>
+        </s:link>
+
+        <s:link view="/EstadiaList.xhtml"
+            rendered="#{estadiaList.nextExists}"
+               value="Last Page #{messages.right}#{messages.right}"
+                  id="lastPage">
+            <f:param name="firstResult"
+                    value="#{estadiaList.lastFirstResult}"/>
+        </s:link>
+
+    </div>
+
+    <s:div styleClass="actionButtons" rendered="#{empty from}">
+        <s:button view="/EstadiaEdit.xhtml"
+                    id="create"
+           propagation="none"
+                 value="Create estadia">
+            <f:param name="estadiaIdEstadia"/>
+        </s:button>
+    </s:div>
+
+</ui:define>
+
+</ui:composition>

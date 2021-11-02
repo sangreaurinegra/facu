@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="http://jboss.com/products/seam/pages"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://jboss.com/products/seam/pages http://jboss.com/products/seam/pages-2.2.xsd">
+
+   <param name="nodoFrom"/>
+   <param name="nodoIdNodo" value="#{nodoHome.nodoIdNodo}"/>
+   <param name="estadiaFrom"/>
+   <param name="estadiaIdEstadia" value="#{estadiaHome.estadiaIdEstadia}"/>
+   <param name="alojamientoFrom"/>
+   <param name="alojamientoIdServicio" value="#{alojamientoHome.alojamientoIdServicio}"/>
+
+
+   <param name="lugarFrom"/>
+   <param name="lugarIdLugar" value="#{lugarHome.lugarIdLugar}"/>
+
+   <param name="pasajeFrom"/>
+   <param name="pasajeIdPasaje" value="#{pasajeHome.pasajeIdPasaje}"/>
+   <param name="trasladoFrom"/>
+   <param name="trasladoIdTraslado" value="#{trasladoHome.trasladoIdTraslado}"/>
+   <param name="mediotransporteFrom"/>
+   <param name="mediotransporteIdMediotransporte" value="#{mediotransporteHome.mediotransporteIdMediotransporte}"/>
+
+
+
+
+
+</page>

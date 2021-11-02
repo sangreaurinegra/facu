@@ -1,0 +1,213 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:a="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+
+    <h:form id="usuario" styleClass="edit" enctype="multipart/form-data">
+
+        <rich:panel>
+            <f:facet name="header">#{usuarioHome.managed ? 'Edit' : 'Add'} Usuario</f:facet>
+
+
+  			<s:decorate id="fotoUsuarioActual" template="layout/edit.xhtml">
+				<s:graphicImage width="80px" height="60px"
+					value="#{usuarioHome.instance.image ne null ? usuarioHome.instance.image : '/img/silueta_persona.jpeg'}"
+					alt="/img/error.gif" />
+			</s:decorate>
+            
+            <s:decorate id="fotoUsuario" template="layout/edit.xhtml">
+                <ui:define name="label">Foto</ui:define>
+                <s:fileUpload id="image" accept="image/*"
+						data="#{usuarioHome.instance.image}"
+						contentType="#{usuarioHome.instance.imageContentType}" />
+            </s:decorate>
+
+            <s:decorate id="nombreField" template="layout/edit.xhtml">
+                <ui:define name="label">Nombre</ui:define>
+                <h:inputText id="openid"
+                       required="true"
+                           size="50"
+                      maxlength="250"
+                              value="#{usuarioHome.instance.nombre}">
+                	<a:support event="onblur" reRender="nombreField" bypassUpdates="true" ajaxSingle="true"/>
+                </h:inputText>
+            </s:decorate>
+
+
+            <s:decorate id="openidField" template="layout/edit.xhtml">
+                <ui:define name="label">Openid</ui:define>
+                <h:inputText id="openid"
+                       required="true"
+                           size="50"
+                      maxlength="250"
+                              value="#{usuarioHome.instance.openid}">
+                	<a:support event="onblur" reRender="openidField" bypassUpdates="true" ajaxSingle="true"/>
+                </h:inputText>
+            </s:decorate>
+
+			<s:decorate id="tituloParedField" template="layout/edit.xhtml">
+                <ui:define name="label">Titulo de la Pared</ui:define>
+                <h:inputText id="tituloPared"
+                       required="true"
+                           size="50"
+                      maxlength="50"
+                          value="#{usuarioHome.instance.pared.titulo}">
+                    <a:support event="onblur" reRender="tituloParedField" bypassUpdates="true" ajaxSingle="true"/>
+                </h:inputText>
+            </s:decorate>
+			
+			<s:decorate id="pais" template="layout/edit.xhtml">
+                <ui:define name="label">Pais</ui:define>
+                <h:inputText id="paisCombo"
+                       required="true"
+                           size="50"
+                      maxlength="50"
+                          value="#{usuarioHome.instance.pais}">
+                    <a:support event="onblur" reRender="pais" bypassUpdates="true" ajaxSingle="true"/>
+                </h:inputText>
+            </s:decorate>
+            
+            <s:decorate id="ciudad" template="layout/edit.xhtml">
+                <ui:define name="label">Ciudad</ui:define>
+                <h:inputText id="ciudadCombo"
+                       required="true"
+                           size="50"
+                      maxlength="50"
+                          value="#{usuarioHome.instance.ciudad}">
+                    <a:support event="onblur" reRender="ciudad" bypassUpdates="true" ajaxSingle="true"/>
+                </h:inputText>
+            </s:decorate>
+            
+             <s:decorate id="fechaNacimiento" template="layout/edit.xhtml">
+                <ui:define name="label">Fecha Nacimiento</ui:define>
+                
+	    	 		<rich:calendar value="#{usuarioHome.instance.fechaNacimiento}"	    	 			
+                        locale="es"
+                        popup="true"
+                        datePattern="dd/MM/yyyy"
+                        showApplyButton="false" cellWidth="24px" cellHeight="22px" style="width:200px">
+                       
+                    </rich:calendar>               
+            	
+            </s:decorate>
+            
+            <s:decorate id="sexo" template="layout/edit.xhtml">
+                <ui:define name="label">Sexo</ui:define>
+                <h:inputText id="sexoCombo"
+                       required="true"
+                           size="50"
+                      maxlength="50"
+                          value="#{usuarioHome.instance.sexo}">
+                    <a:support event="onblur" reRender="sexo" bypassUpdates="true" ajaxSingle="true"/>
+                </h:inputText>
+            </s:decorate>
+            
+            <s:decorate id="estadoCivil" template="layout/edit.xhtml">
+                <ui:define name="label">Estado Civil</ui:define>
+                <h:inputText id="estadoCivilCombo"
+                       required="true"
+                           size="50"
+                      maxlength="50"
+                          value="#{usuarioHome.instance.estadoCivil}">
+                    <a:support event="onblur" reRender="estadoCivil" bypassUpdates="true" ajaxSingle="true"/>
+                </h:inputText>
+            </s:decorate>
+            
+          
+
+            <div style="clear:both">
+                <span class="required">*</span>
+                required fields
+            </div>
+
+        </rich:panel>
+
+        <div class="actionButtons">
+
+            <h:commandButton id="save"
+                          value="Save"
+                         action="#{usuarioHome.persist}"
+                       disabled="#{!usuarioHome.wired}"
+                       rendered="#{!usuarioHome.managed}"/>
+
+            <h:commandButton id="update"
+                          value="Save"
+                         action="#{usuarioHome.update}"
+                       rendered="#{usuarioHome.managed}"/>
+
+            <h:commandButton id="delete"
+                          value="Delete"
+                         action="#{usuarioHome.remove}"
+                      immediate="true"
+                       rendered="#{usuarioHome.managed}"/>
+
+            <s:button id="cancelEdit"
+                   value="Cancel"
+             propagation="end"
+                    view="/Usuario.xhtml"
+                rendered="#{usuarioHome.managed}"/>
+
+            <s:button id="cancelAdd"
+                   value="Cancel"
+             propagation="end"
+                    view="/#{empty usuarioFrom ? 'UsuarioList' : usuarioFrom}.xhtml"
+                rendered="#{!usuarioHome.managed}"/>
+
+        </div>
+    </h:form>
+
+<rich:tabPanel switchType="ajax">
+
+    <rich:tab label="Calificacions">
+        <h:form styleClass="association" id="calificacionsChildren">
+
+            <h:outputText value="There are no calificacions associated with this usuario."
+                       rendered="#{empty usuarioHome.calificacions}"/>
+
+            <rich:dataTable value="#{usuarioHome.calificacions}"
+                           var="_calificacion"
+                      rendered="#{not empty usuarioHome.calificacions}"
+                    rowClasses="rvgRowOne,rvgRowTwo"
+                            id="calificacionsTable">
+                <rich:column sortBy="#{_calificacion.idCalificacion}">
+                    <f:facet name="header">Id calificacion</f:facet>
+                    <h:outputText value="#{_calificacion.idCalificacion}"/>
+                </rich:column>
+                <rich:column sortBy="#{_calificacion.comentario}">
+                    <f:facet name="header">Comentario</f:facet>
+                    <h:outputText value="#{_calificacion.comentario}"/>
+                </rich:column>
+                <rich:column sortBy="#{_calificacion.puntaje}">
+                    <f:facet name="header">Puntaje</f:facet>
+                    <h:outputText value="#{_calificacion.puntaje}"/>
+                </rich:column>
+            </rich:dataTable>
+
+        </h:form>
+
+        <f:subview rendered="#{usuarioHome.managed}" id="calificacions">
+        <div class="actionButtons">
+            <s:button id="addcalificacion"
+                   value="Add calificacion"
+                    view="/CalificacionEdit.xhtml"
+             propagation="none">
+                 <f:param name="usuarioIdUsuario"
+                         value="#{usuarioHome.instance.idUsuario}"/>
+                 <f:param name="calificacionFrom" value="Usuario"/>
+            </s:button>
+        </div>
+        </f:subview>
+    </rich:tab>
+</rich:tabPanel>
+</ui:define>
+
+</ui:composition>

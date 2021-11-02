@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:a4j="http://richfaces.org/a4j">
+	
+      <body onload="#{sesionChat.actualizarChat(param.idOrigen,param.idDestino)}" >
+      
+      <script type="text/javascript">
+	
+		 function disableEnterKey(e)
+		 {
+		      var key;     
+		      if(window.event)
+		           key = window.event.keyCode; //IE
+		      else
+		           key = e.which; //firefox     
+
+			  if (key==13) {
+
+					if(e.stopPropagation)
+						e.stopPropagation();
+
+					if(e.preventDefault)
+						e.preventDefault();
+									
+					e.cancelBubble = true;
+					e.returnValue = false;
+
+					document.getElementById("enviar").click();	  
+			  }
+		           
+		      return (key != 13);
+		 } 
+
+	  </script> 
+      
+      <a4j:region>
+      <h:form>
+            <a4j:poll id="poll" interval="1000" enabled="true" reRender="panelChat,enviar" />
+      </h:form>
+	  </a4j:region>
+
+		<a4j:form id="a4jForm"  >
+		<rich:panel id="panelPadre">
+			<f:facet name="header">
+				<h:outputText value="Chat con #{sesionChat.usuarioDestino.nombre}" />
+			</f:facet>
+			
+			<table width="400">
+				<tbody>
+					<tr>
+						<td height="200px">
+						
+							<a4j:outputPanel id="panelChat">  
+									
+								 <ui:repeat value="#{sesionChat.obtenerMensajes()}" var="msg">  
+								  <h:outputText value="#{msg}" escape="false" />  
+								  <br/>  
+								 </ui:repeat>  
+									
+							</a4j:outputPanel>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</rich:panel>
+		</a4j:form>
+
+
+		
+		<a4j:form action="#" >
+		
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<a4j:commandButton id="enviar" value="Enviar"  action="#{sesionChat.enviarMensaje()}"  reRender="panelChat,txt"/>
+						</td>
+						<td>
+							<h:inputText value="#{sesionChat.inputMensaje}" id="txt" style=" width : 723px;"  onkeypress="disableEnterKey(event)"  />
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		
+		</a4j:form>
+
+
+	  </body>
+</html>

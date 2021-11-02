@@ -1,0 +1,45 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:a="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:c="http://java.sun.com/jstl/core"
+    template="layout/template.xhtml">
+
+    <ui:define name="body" onload='#{feedBean.cargar(param.link)}' >
+
+        <table border="0" width="96%" cellpadding="4" cellspacing="0" height="416">
+        <tr>
+        
+        <td valign="top" width="264" height="408">
+		<c:forEach items="#{feedBean.noticias}" var="noticia"  >
+			
+			<a href="#{crazydomain}verFeedEntry.seam?key=#{noticia.clave}" >
+					<h1 style="background-color:#6495ed;">#{noticia.titulo}</h1> 
+			</a>
+			<ul style="background-color:#e0ffff;">  
+				<h:outputText value="#{noticia.descriptionOrSummaryText}"  escape="false" />
+				
+			</ul> 
+
+			
+			<u1>
+				<li>links : #{noticia.links2html()}</li>
+			</u1>
+			<u1>
+				<li>#{noticia.pubDate}</li>
+			</u1>
+			
+			
+		</c:forEach>
+		</td>
+		
+		</tr>
+		</table>
+
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,166 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:a="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <h:form id="pared" styleClass="edit">
+
+        <rich:panel>
+            <f:facet name="header">#{paredHome.managed ? 'Edit' : 'Add'} Pared</f:facet>
+
+
+
+
+            <s:decorate id="tituloField" template="layout/edit.xhtml">
+                <ui:define name="label">Titulo</ui:define>
+                <h:inputText id="titulo"
+                       required="true"
+                           size="50"
+                      maxlength="50"
+                          value="#{paredHome.instance.titulo}">
+                    <a:support event="onblur" reRender="tituloField" bypassUpdates="true" ajaxSingle="true"/>
+                </h:inputText>
+            </s:decorate>
+
+
+            <div style="clear:both">
+                <span class="required">*</span>
+                required fields
+            </div>
+
+        </rich:panel>
+
+        <div class="actionButtons">
+
+            <h:commandButton id="save"
+                          value="Save"
+                         action="#{paredHome.persist}"
+                       disabled="#{!paredHome.wired}"
+                       rendered="#{!paredHome.managed}"/>
+
+            <h:commandButton id="update"
+                          value="Save"
+                         action="#{paredHome.update}"
+                       rendered="#{paredHome.managed}"/>
+
+            <h:commandButton id="delete"
+                          value="Delete"
+                         action="#{paredHome.remove}"
+                      immediate="true"
+                       rendered="#{paredHome.managed}"/>
+
+            <s:button id="cancelEdit"
+                   value="Cancel"
+             propagation="end"
+                    view="/Pared.xhtml"
+                rendered="#{paredHome.managed}"/>
+
+            <s:button id="cancelAdd"
+                   value="Cancel"
+             propagation="end"
+                    view="/#{empty paredFrom ? 'ParedList' : paredFrom}.xhtml"
+                rendered="#{!paredHome.managed}"/>
+
+        </div>
+    </h:form>
+
+<rich:tabPanel switchType="ajax">
+
+    <rich:tab label="Medias">
+        <h:form styleClass="association" id="mediasChildren">
+
+            <h:outputText value="There are no medias associated with this pared."
+                       rendered="#{empty paredHome.medias}"/>
+
+            <rich:dataTable value="#{paredHome.medias}"
+                           var="_media"
+                      rendered="#{not empty paredHome.medias}"
+                    rowClasses="rvgRowOne,rvgRowTwo"
+                            id="mediasTable">
+                <rich:column sortBy="#{_media.idMedia}">
+                    <f:facet name="header">Media</f:facet>
+                     <s:graphicImage width="80px" height="60px"
+					value="#{_media.image ne null ? _media.image : '/img/error.gif'}"
+					alt="[profile image]" rendered="#{_media.tipomedia == 'FOTO'}"/>
+					<h:outputText escape="false" value="#{_media.url}" rendered="#{_media.tipomedia == 'VIDEO'}"/>
+                </rich:column>
+                <rich:column sortBy="#{_media.datosextras}">
+                    <f:facet name="header">Datosextras</f:facet>
+                    <h:outputText value="#{_media.datosextras}"/>
+                </rich:column>
+                <rich:column sortBy="#{_media.url}">
+                    <f:facet name="header">Url</f:facet>
+                    <h:outputText value="#{_media.url}"/>
+                </rich:column>
+            </rich:dataTable>
+
+        </h:form>
+
+        <f:subview rendered="#{paredHome.managed}" id="medias">
+        <div class="actionButtons">
+            <s:button id="addmedia"
+                   value="Add media"
+                    view="/MediaEdit.xhtml"
+             propagation="none">
+                 <f:param name="paredIdPared"
+                         value="#{paredHome.instance.idPared}"/>
+                 <f:param name="mediaFrom" value="Pared"/>
+            </s:button>
+        </div>
+        </f:subview>
+    </rich:tab>
+
+    <rich:tab label="Usuario">
+    <div class="association" id="usuarioParent">
+
+        <h:outputText value="There is no usuario associated with this pared."
+                   rendered="#{paredHome.instance.usuario == null}"/>
+
+        <rich:dataTable var="_usuario"
+                   value="#{paredHome.instance.usuario}"
+                rendered="#{paredHome.instance.usuario != null}"
+              rowClasses="rvgRowOne,rvgRowTwo"
+                      id="usuarioTable">
+            <h:column>
+                <f:facet name="header">Id usuario</f:facet>
+                <h:outputText value="#{_usuario.idUsuario}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                <h:outputText value="#{_usuario.nombre}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Openid</f:facet>
+                <h:outputText value="#{_usuario.openid}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Pared id pared</f:facet>
+                <h:outputText value="#{_usuario.pared.idPared}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Password</f:facet>
+                <h:outputText value="#{_usuario.password}"/>
+            </h:column>
+        </rich:dataTable>
+
+        <div class="actionButtons">
+            <s:button id="#{paredHome.instance.usuario != null ? 'changeParent' : 'selectParent'}" value="#{paredHome.instance.usuario != null ? 'Change' : 'Select'} usuario"
+                       view="/UsuarioList.xhtml">
+                <f:param name="from" value="ParedEdit"/>
+            </s:button>
+        </div>
+
+    </div>
+    </rich:tab>
+</rich:tabPanel>
+</ui:define>
+
+</ui:composition>

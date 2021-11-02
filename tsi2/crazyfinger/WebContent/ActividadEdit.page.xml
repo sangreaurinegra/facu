@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="http://jboss.com/products/seam/pages"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://jboss.com/products/seam/pages http://jboss.com/products/seam/pages-2.2.xsd"
+      no-conversation-view-id="/ActividadList.xhtml"
+      login-required="true">
+
+   <begin-conversation join="true" flush-mode="MANUAL"/>
+
+   <action execute="#{actividadHome.wire}"/>
+
+   <param name="actividadFrom"/>
+   <param name="actividadIdActividad" value="#{actividadHome.actividadIdActividad}"/>
+   <param name="lugarFrom"/>
+   <param name="lugarIdLugar" value="#{lugarHome.lugarIdLugar}"/>
+
+   <param name="puntoturisticoFrom"/>
+   <param name="puntoturisticoIdPuntoturistico" value="#{puntoturisticoHome.puntoturisticoIdPuntoturistico}"/>
+
+
+
+   <navigation from-action="#{actividadHome.persist}">
+      <rule if-outcome="persisted">
+         <end-conversation/>
+         <redirect view-id="/Actividad.xhtml"/>
+      </rule>
+   </navigation>
+
+   <navigation from-action="#{actividadHome.update}">
+      <rule if-outcome="updated">
+         <end-conversation/>
+         <redirect view-id="/Actividad.xhtml"/>
+      </rule>
+   </navigation>
+
+   <navigation from-action="#{actividadHome.remove}">
+      <rule if-outcome="removed">
+         <end-conversation/>
+         <redirect view-id="/ActividadList.xhtml"/>
+      </rule>
+   </navigation>
+
+</page>

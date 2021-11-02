@@ -1,0 +1,132 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:a="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <h:form id="entry" styleClass="edit">
+
+        <rich:panel>
+            <f:facet name="header">#{entryHome.managed ? 'Edit' : 'Add'} Entry</f:facet>
+
+				
+				<s:decorate id="tipoentryDecor" template="layout/edit.xhtml">
+				<h:selectOneMenu value="#{entryHome.instance.feed}" required="true">
+      				<s:selectItems value="#{feedList.resultList}"
+      				var="_feed" 
+      				label="#{_feed.title}" 
+      				noSelectionLabel="Please Select..." />
+      				<s:convertEntity />
+				</h:selectOneMenu>
+				</s:decorate>
+				
+
+            <s:decorate id="authorField" template="layout/edit.xhtml">
+                <ui:define name="label">Author</ui:define>
+                <h:inputTextarea id="author"
+                               cols="80"
+                               rows="3"
+                              value="#{entryHome.instance.author}"/>
+            </s:decorate>
+
+
+            <s:decorate id="linkField" template="layout/edit.xhtml">
+                <ui:define name="label">Link</ui:define>
+                <h:inputTextarea id="link"
+                               cols="80"
+                               rows="3"
+                              value="#{entryHome.instance.link}"/>
+            </s:decorate>
+
+
+            <s:decorate id="publishedField" template="layout/edit.xhtml">
+                <ui:define name="label">Published</ui:define>
+                <rich:calendar id="published"
+                          value="#{entryHome.instance.published}" datePattern="MM/dd/yyyy" />
+            </s:decorate>
+
+
+            <s:decorate id="summaryField" template="layout/edit.xhtml">
+                <ui:define name="label">Summary</ui:define>
+                <h:inputTextarea id="summary"
+                               cols="80"
+                               rows="3"
+                              value="#{entryHome.instance.summary}"/>
+            </s:decorate>
+
+
+            <s:decorate id="titleField" template="layout/edit.xhtml">
+                <ui:define name="label">Title</ui:define>
+                <h:inputTextarea id="title"
+                               cols="80"
+                               rows="3"
+                              value="#{entryHome.instance.title}"/>
+            </s:decorate>
+
+
+            <s:decorate id="uidField" template="layout/edit.xhtml">
+                <ui:define name="label">Uid</ui:define>
+                <h:inputTextarea id="uid"
+                               cols="80"
+                               rows="3"
+                              value="#{entryHome.instance.uid}"/>
+            </s:decorate>
+
+
+            <s:decorate id="updatedField" template="layout/edit.xhtml">
+                <ui:define name="label">Updated</ui:define>
+                <rich:calendar id="updated"
+                          value="#{entryHome.instance.updated}" datePattern="MM/dd/yyyy" />
+            </s:decorate>
+
+            <div style="clear:both">
+                <span class="required">*</span>
+                required fields
+            </div>
+
+        </rich:panel>
+
+        <div class="actionButtons">
+
+            <h:commandButton id="save"
+                          value="Save"
+                         action="#{entryHome.persist}"
+                       disabled="#{!entryHome.wired}"
+                       rendered="#{!entryHome.managed}"/>
+
+            <h:commandButton id="update"
+                          value="Save"
+                         action="#{entryHome.update}"
+                       rendered="#{entryHome.managed}"/>
+
+            <h:commandButton id="delete"
+                          value="Delete"
+                         action="#{entryHome.remove}"
+                      immediate="true"
+                       rendered="#{entryHome.managed}"/>
+
+            <s:button id="cancelEdit"
+                   value="Cancel"
+             propagation="end"
+                    view="/Entry.xhtml"
+                rendered="#{entryHome.managed}"/>
+
+            <s:button id="cancelAdd"
+                   value="Cancel"
+             propagation="end"
+                    view="/#{empty entryFrom ? 'EntryList' : entryFrom}.xhtml"
+                rendered="#{!entryHome.managed}"/>
+
+        </div>
+    </h:form>
+
+</ui:define>
+
+</ui:composition>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="http://jboss.com/products/seam/pages"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://jboss.com/products/seam/pages http://jboss.com/products/seam/pages-2.2.xsd">
+
+   <param name="firstResult" value="#{actividadList.firstResult}"/>
+   <param name="sort" value="#{actividadList.orderColumn}"/>
+   <param name="dir" value="#{actividadList.orderDirection}"/>
+   <param name="logic" value="#{actividadList.restrictionLogicOperator}"/>
+
+   <param name="from"/>
+   <param name="detalle" value="#{actividadList.actividad.detalle}"/>
+   <param name="nombre" value="#{actividadList.actividad.nombre}"/>
+   <param name="tipo" value="#{actividadList.actividad.tipo}"/>
+   <param name="url" value="#{actividadList.actividad.url}"/>
+
+</page>

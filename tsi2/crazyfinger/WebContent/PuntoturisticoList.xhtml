@@ -1,0 +1,192 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:a="http://richfaces.org/a4j"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <h:form id="puntoturisticoSearch" styleClass="edit">
+
+        <rich:simpleTogglePanel label="Puntoturistico Search Filter" switchType="ajax">
+
+            <s:decorate template="layout/display.xhtml">
+                <ui:define name="label">Nombre</ui:define>
+                <h:inputText id="nombre" value="#{puntoturisticoList.nombre}"/>
+            </s:decorate>
+            
+            <s:decorate template="layout/display.xhtml">
+                <ui:define name="label">Ciudad</ui:define>
+                <h:inputText id="nombre" value="#{puntoturisticoList.ciudad}"/>
+            </s:decorate>
+            
+            <s:decorate template="layout/display.xhtml">
+                <ui:define name="label">Pais</ui:define>
+                <h:inputText id="nombre" value="#{puntoturisticoList.pais}"/>
+            </s:decorate>
+
+            <s:decorate template="layout/display.xhtml">
+                <ui:define name="label">Match</ui:define>
+                <h:selectOneRadio id="logic" value="#{puntoturisticoList.restrictionLogicOperator}" styleClass="radio">
+                    <f:selectItem itemLabel="All" itemValue="and"/>
+                    <f:selectItem itemLabel="Any" itemValue="or"/>
+                </h:selectOneRadio>
+            </s:decorate>
+
+        </rich:simpleTogglePanel>
+
+        <div class="actionButtons">
+        	
+            <h:commandButton id="search" value="Buscar" action="/PuntoturisticoList.xhtml"/>
+        </div>
+
+    </h:form>
+
+    <rich:panel>
+        <f:facet name="header">Puntos turisticos</f:facet>
+    <div class="results" id="puntoturisticoList">
+
+    <h:outputText value="No se encontraron puntos turisticos."
+               rendered="#{empty puntoturisticoList.lista}"/>
+
+    <rich:dataTable id="puntoturisticoList"
+                var="_puntoturistico"
+              value="#{puntoturisticoList.lista}"
+           rendered="#{not empty puntoturisticoList.lista}">
+        <h:column>
+            <f:facet name="header">
+                <ui:include src="layout/sort.xhtml">
+                    <ui:param name="entityList" value="#{puntoturisticoList}"/>
+                    <ui:param name="propertyLabel" value="Nombre"/>
+                    <ui:param name="propertyPath" value="puntoturistico.nombre"/>
+                </ui:include>
+            </f:facet>
+            <h:outputText value="#{_puntoturistico.nombre}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <ui:include src="layout/sort.xhtml">
+                    <ui:param name="entityList" value="#{puntoturisticoList}"/>
+                    <ui:param name="propertyLabel" value="Detalle"/>
+                    <ui:param name="propertyPath" value="puntoturistico.detalle"/>
+                </ui:include>
+            </f:facet>
+            <h:outputText value="#{_puntoturistico.detalle}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <ui:include src="layout/sort.xhtml">
+                    <ui:param name="entityList" value="#{puntoturisticoList}"/>
+                    <ui:param name="propertyLabel" value="Latitud"/>
+                    <ui:param name="propertyPath" value="puntoturistico.latitud"/>
+                </ui:include>
+            </f:facet>
+            <h:outputText value="#{_puntoturistico.latitud}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <ui:include src="layout/sort.xhtml">
+                    <ui:param name="entityList" value="#{puntoturisticoList}"/>
+                    <ui:param name="propertyLabel" value="Longitud"/>
+                    <ui:param name="propertyPath" value="puntoturistico.longitud"/>
+                </ui:include>
+            </f:facet>
+            <h:outputText value="#{_puntoturistico.longitud}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <ui:include src="layout/sort.xhtml">
+                    <ui:param name="entityList" value="#{puntoturisticoList}"/>
+                    <ui:param name="propertyLabel" value="Ciudad"/>
+                    <ui:param name="propertyPath" value="puntoturistico.lugar.nombre"/>
+                </ui:include>
+            </f:facet>
+            <h:outputText value="#{_puntoturistico.lugar.nombre}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <ui:include src="layout/sort.xhtml">
+                    <ui:param name="entityList" value="#{puntoturisticoList}"/>
+                    <ui:param name="propertyLabel" value="Pais"/>
+                    <ui:param name="propertyPath" value="puntoturistico.lugar.pais"/>
+                </ui:include>
+            </f:facet>
+            <h:outputText value="#{_puntoturistico.lugar.pais}"/>
+        </h:column>
+        
+        <rich:column styleClass="action">
+            <f:facet name="header">Accion</f:facet>
+            <s:link view="/#{empty from ? 'Puntoturistico' : from}.xhtml"
+                   value="#{empty from ? 'View' : 'Select'}"
+             propagation="#{empty from ? 'none' : 'default'}"
+                      id="puntoturisticoViewId">
+                <f:param name="puntoturisticoIdPuntoturistico"
+                        value="#{_puntoturistico.idPuntoturistico}"/>
+            </s:link>
+            #{' '}
+            <s:link view="/PuntoturisticoEdit.xhtml"
+                   value="Edit"
+             propagation="none"
+                      id="puntoturisticoEdit"
+                rendered="#{empty from and usuario.nombre == 'admin'}">
+                <f:param name="puntoturisticoIdPuntoturistico"
+                        value="#{_puntoturistico.idPuntoturistico}"/>
+            </s:link>
+        </rich:column>
+    </rich:dataTable>
+
+    </div>
+    </rich:panel>
+
+    <div class="tableControl">
+
+        <s:link view="/PuntoturisticoList.xhtml"
+            rendered="#{puntoturisticoList.previousExists}"
+               value="#{messages.left}#{messages.left} First Page"
+                  id="firstPage">
+          <f:param name="firstResult" value="0"/>
+        </s:link>
+
+        <s:link view="/PuntoturisticoList.xhtml"
+            rendered="#{puntoturisticoList.previousExists}"
+               value="#{messages.left} Previous Page"
+                  id="previousPage">
+            <f:param name="firstResult"
+                    value="#{puntoturisticoList.previousFirstResult}"/>
+        </s:link>
+
+        <s:link view="/PuntoturisticoList.xhtml"
+            rendered="#{puntoturisticoList.nextExists}"
+               value="Next Page #{messages.right}"
+                  id="nextPage">
+            <f:param name="firstResult"
+                    value="#{puntoturisticoList.nextFirstResult}"/>
+        </s:link>
+
+        <s:link view="/PuntoturisticoList.xhtml"
+            rendered="#{puntoturisticoList.nextExists}"
+               value="Last Page #{messages.right}#{messages.right}"
+                  id="lastPage">
+            <f:param name="firstResult"
+                    value="#{puntoturisticoList.lastFirstResult}"/>
+        </s:link>
+
+    </div>
+
+    <s:div styleClass="actionButtons" rendered="#{empty from}">
+        <s:button view="/PuntoturisticoEdit.xhtml"
+                    id="create"
+           propagation="none"
+                 value="Create puntoturistico">
+            <f:param name="puntoturisticoIdPuntoturistico"/>
+        </s:button>
+    </s:div>
+
+</ui:define>
+
+</ui:composition>

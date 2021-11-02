@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="http://jboss.com/products/seam/pages"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://jboss.com/products/seam/pages http://jboss.com/products/seam/pages-2.2.xsd"
+      no-conversation-view-id="/CalificacionList.xhtml"
+      login-required="true">
+
+   <begin-conversation join="true" flush-mode="MANUAL"/>
+
+   <action execute="#{calificacionHome.wire}"/>
+
+   <param name="calificacionFrom"/>
+   <param name="calificacionIdCalificacion" value="#{calificacionHome.calificacionIdCalificacion}"/>
+   <param name="servicioFrom"/>
+   <param name="servicioIdServicio" value="#{servicioHome.servicioIdServicio}"/>
+   <param name="lugarFrom"/>
+   <param name="lugarIdLugar" value="#{lugarHome.lugarIdLugar}"/>
+
+
+   <param name="usuarioFrom"/>
+   <param name="usuarioIdUsuario" value="#{usuarioHome.usuarioIdUsuario}"/>
+   <param name="paredFrom"/>
+   <param name="paredIdPared" value="#{paredHome.paredIdPared}"/>
+
+
+
+
+   <navigation from-action="#{calificacionHome.persist}">
+      <rule if-outcome="persisted">
+         <end-conversation/>
+         <redirect view-id="/Calificacion.xhtml"/>
+      </rule>
+   </navigation>
+
+   <navigation from-action="#{calificacionHome.update}">
+      <rule if-outcome="updated">
+         <end-conversation/>
+         <redirect view-id="/Calificacion.xhtml"/>
+      </rule>
+   </navigation>
+
+   <navigation from-action="#{calificacionHome.remove}">
+      <rule if-outcome="removed">
+         <end-conversation/>
+         <redirect view-id="/CalificacionList.xhtml"/>
+      </rule>
+   </navigation>
+
+</page>

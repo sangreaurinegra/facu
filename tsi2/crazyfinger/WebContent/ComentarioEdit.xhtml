@@ -1,0 +1,167 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:a="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <h:form id="comentario" styleClass="edit">
+
+        <rich:panel>
+            <f:facet name="header">#{comentarioHome.managed ? 'Edit' : 'Add'} Comentario</f:facet>
+
+
+
+
+            <s:decorate id="mensajeField" template="layout/edit.xhtml">
+                <ui:define name="label">Mensaje</ui:define>
+                <h:inputTextarea id="mensaje"
+                               cols="80"
+                               rows="3"
+                           required="true"
+                              value="#{comentarioHome.instance.mensaje}"/>
+            </s:decorate>
+
+
+            <div style="clear:both">
+                <span class="required">*</span>
+                required fields
+            </div>
+
+        </rich:panel>
+
+        <div class="actionButtons">
+
+            <h:commandButton id="save"
+                          value="Save"
+                         action="#{comentarioHome.persist}"
+                       disabled="#{!comentarioHome.wired}"
+                       rendered="#{!comentarioHome.managed}"/>
+
+            <h:commandButton id="update"
+                          value="Save"
+                         action="#{comentarioHome.update}"
+                       rendered="#{comentarioHome.managed}"/>
+
+            <h:commandButton id="delete"
+                          value="Delete"
+                         action="#{comentarioHome.remove}"
+                      immediate="true"
+                       rendered="#{comentarioHome.managed}"/>
+
+            <s:button id="cancelEdit"
+                   value="Cancel"
+             propagation="end"
+                    view="/Comentario.xhtml"
+                rendered="#{comentarioHome.managed}"/>
+
+            <s:button id="cancelAdd"
+                   value="Cancel"
+             propagation="end"
+                    view="/#{empty comentarioFrom ? 'ComentarioList' : comentarioFrom}.xhtml"
+                rendered="#{!comentarioHome.managed}"/>
+
+        </div>
+    </h:form>
+
+<rich:tabPanel switchType="ajax">
+
+    <rich:tab label="Media">
+    <div class="association" id="mediaParent">
+
+        <h:outputText value="There is no media associated with this comentario."
+                   rendered="#{comentarioHome.instance.media == null}"/>
+
+        <rich:dataTable var="_media"
+                   value="#{comentarioHome.instance.media}"
+                rendered="#{comentarioHome.instance.media != null}"
+              rowClasses="rvgRowOne,rvgRowTwo"
+                      id="mediaTable">
+            <h:column>
+                <f:facet name="header">Id media</f:facet>
+                <h:outputText value="#{_media.idMedia}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Datosextras</f:facet>
+                <h:outputText value="#{_media.datosextras}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Lugar id lugar</f:facet>
+                <h:outputText value="#{_media.lugar.idLugar}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Pared id pared</f:facet>
+                <h:outputText value="#{_media.pared.idPared}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Url</f:facet>
+                <h:outputText value="#{_media.url}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Usuario id usuario</f:facet>
+                <h:outputText value="#{_media.usuario.idUsuario}"/>
+            </h:column>
+        </rich:dataTable>
+
+        <div class="actionButtons">
+            <s:button id="#{comentarioHome.instance.media != null ? 'changeParent' : 'selectParent'}" value="#{comentarioHome.instance.media != null ? 'Change' : 'Select'} media"
+                       view="/MediaList.xhtml">
+                <f:param name="from" value="ComentarioEdit"/>
+            </s:button>
+        </div>
+
+    </div>
+    </rich:tab>
+
+    <rich:tab label="Usuario *" labelClass="required">
+    <div class="association" id="usuarioParent">
+
+        <h:outputText value="There is no usuario associated with this comentario."
+                   rendered="#{comentarioHome.instance.usuario == null}"/>
+
+        <rich:dataTable var="_usuario"
+                   value="#{comentarioHome.instance.usuario}"
+                rendered="#{comentarioHome.instance.usuario != null}"
+              rowClasses="rvgRowOne,rvgRowTwo"
+                      id="usuarioTable">
+            <h:column>
+                <f:facet name="header">Id usuario</f:facet>
+                <h:outputText value="#{_usuario.idUsuario}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                <h:outputText value="#{_usuario.nombre}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Openid</f:facet>
+                <h:outputText value="#{_usuario.openid}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Pared id pared</f:facet>
+                <h:outputText value="#{_usuario.pared.idPared}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Password</f:facet>
+                <h:outputText value="#{_usuario.password}"/>
+            </h:column>
+        </rich:dataTable>
+
+        <div class="actionButtons">
+            <s:button id="#{comentarioHome.instance.usuario != null ? 'changeParent' : 'selectParent'}" value="#{comentarioHome.instance.usuario != null ? 'Change' : 'Select'} usuario"
+                       view="/UsuarioList.xhtml">
+                <f:param name="from" value="ComentarioEdit"/>
+            </s:button>
+        </div>
+
+    </div>
+    </rich:tab>
+</rich:tabPanel>
+</ui:define>
+
+</ui:composition>

@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:a4j="http://richfaces.org/a4j">
+	
+      <body onload="#{conversacion.actualizarChat(param.idOrigen,param.idDestino)}">
+      
+      <a4j:region>
+      <h:form>
+            <a4j:poll id="poll" interval="1000" enabled="true" reRender="a4jForm" />
+      </h:form>
+	  </a4j:region>
+      
+		<rich:panel >
+		<f:facet name="header">
+			<h:outputText value="Chat con #{conversacion.usuarioDestino.nombre}" />
+		</f:facet>
+		<a4j:form id="a4jForm">
+			<a4j:region>
+				<rich:panel id="panelChat" style=" height : 157px;">
+			 		<ui:repeat value="#{conversacion.obtenerMensajes()}" var="msg">
+						<h:outputText value="#{msg}" />
+					</ui:repeat>
+				</rich:panel>
+			</a4j:region>
+		</a4j:form>
+		<a4j:form>
+			<h:commandButton action="#{conversacion.enviarMensaje()}" value="Enviar"/>
+			<h:inputText value="#{conversacion.inputMensaje}" style=" width : 723px;"/>
+			
+		</a4j:form>
+		</rich:panel>
+	  </body>
+</html>

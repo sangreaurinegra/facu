@@ -1,0 +1,124 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:a="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <h:form id="proyectoviaje" styleClass="edit">
+
+        <rich:panel>
+            <f:facet name="header">#{proyectoviajeHome.managed ? 'Edit' : 'Add'} Proyectoviaje</f:facet>
+
+
+
+            <s:decorate id="descripcionField" template="layout/edit.xhtml">
+                <ui:define name="label">Descripcion</ui:define>
+                <h:inputTextarea id="descripcion"
+                               cols="80"
+                               rows="3"
+                           required="true"
+                              value="#{proyectoviajeHome.instance.descripcion}"/>
+            </s:decorate>
+
+
+
+            <div style="clear:both">
+                <span class="required">*</span>
+                required fields
+            </div>
+
+        </rich:panel>
+
+        <div class="actionButtons">
+
+            <h:commandButton id="save"
+                          value="Guardar"
+                         action="#{proyectoviajeHome.persist}"
+                       disabled="#{!proyectoviajeHome.wired}"
+                       rendered="#{!proyectoviajeHome.managed}"/>
+
+            <h:commandButton id="update"
+                          value="Save"
+                         action="#{proyectoviajeHome.update}"
+                       rendered="#{proyectoviajeHome.managed}"/>
+
+            <h:commandButton id="delete"
+                          value="Delete"
+                         action="#{proyectoviajeHome.remove}"
+                      immediate="true"
+                       rendered="#{proyectoviajeHome.managed}"/>
+
+            <s:button id="cancelEdit"
+                   value="Cancel"
+             propagation="end"
+                    view="/Proyectoviaje.xhtml"
+                rendered="#{proyectoviajeHome.managed}"/>
+
+            <s:button id="cancelAdd"
+                   value="Cancel"
+             propagation="end"
+                    view="/#{empty proyectoviajeFrom ? 'ProyectoviajeList' : proyectoviajeFrom}.xhtml"
+                rendered="#{!proyectoviajeHome.managed}"/>
+
+        </div>
+    </h:form>
+
+<rich:tabPanel switchType="ajax">
+
+    <rich:tab label="Itinerario">
+	    <s:button id="addnodopt"
+	           value="Ver itinerario"
+	            view="/itinerario.xhtml"
+	     propagation="none">
+	         <f:param name="proyectoviajeIdProyectoviaje"
+	                 value="#{proyectoviajeHome.instance.idProyectoviaje}"/>
+	         <f:param name="nodoptFrom" value="Proyectoviaje"/>
+	    </s:button>
+    </rich:tab>
+
+    <rich:tab label="Invidatos" labelClass="required">
+    <div class="association" id="usuarioParent">
+
+        <rich:dataTable var="_inv"
+                   value="#{proyectoviajeHome.invitaciones}"
+                rendered="#{proyectoviajeHome.invitaciones != null &amp;&amp; proyectoviajeHome.invitaciones.size > 0}"
+              rowClasses="rvgRowOne,rvgRowTwo"
+                      id="usuarioTable">
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                <h:outputText value="#{_inv.usuarioInvitado.nombre}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Fecha invitado</f:facet>
+                <h:outputText value="#{_inv.fecha}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Estado</f:facet>
+                <h:outputText value="#{_inv.textoEstado()}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Fecha Aceptacion</f:facet>
+                <h:outputText rendered="#{_inv.fechaAceptado != null}" value="#{_inv.fechaAceptado}"/>
+            </h:column>
+        </rich:dataTable>
+
+    </div>
+   
+    <h:form>
+        <h:commandButton value="Invitar amigos" action="/invitacionProyecto.xhtml" >
+        	<f:param name="proyectoviajeIdProyectoviaje"
+	                            value="#{proyectoviajeHome.proyectoviajeIdProyectoviaje}"/>
+        </h:commandButton>
+    </h:form>
+    </rich:tab>
+</rich:tabPanel>
+</ui:define>
+
+</ui:composition>

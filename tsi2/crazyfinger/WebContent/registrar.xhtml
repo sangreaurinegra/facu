@@ -1,0 +1,72 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:a="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <h:form id="usuario" styleClass="edit" enctype="multipart/form-data">
+
+        <rich:panel>
+            <f:facet name="header">Registro de Usuario</f:facet>
+
+            <s:decorate id="nombreField" template="layout/edit.xhtml">
+                <ui:define name="label">Nombre</ui:define>
+                <h:inputText id="nombre"
+                       required="true"
+                           size="50"
+                      maxlength="50"
+                          value="#{registrarBean.nuevo.nombre}">
+                    <a:support event="onblur" reRender="nombreField" bypassUpdates="true" ajaxSingle="true"/>
+                </h:inputText>
+            </s:decorate>
+
+
+            <s:decorate id="openidField" template="layout/edit.xhtml">
+                <ui:define name="label">Openid</ui:define>
+                <h:inputText id="openid"
+                       required="true"
+                           size="50"
+                      maxlength="250"
+                              value="#{registrarBean.nuevo.openid}">
+                	<a:support event="onblur" reRender="nombreField" bypassUpdates="true" ajaxSingle="true"/>
+                </h:inputText>
+            </s:decorate>
+
+			<s:decorate id="tituloParedField" template="layout/edit.xhtml">
+                <ui:define name="label">Titulo de la Pared</ui:define>
+                <h:inputText id="tituloPared"
+                       required="true"
+                           size="50"
+                      maxlength="50"
+                          value="#{registrarBean.pared.titulo}">
+                    <a:support event="onblur" reRender="tituloParedField" bypassUpdates="true" ajaxSingle="true"/>
+                </h:inputText>
+            </s:decorate>
+            
+
+            <div style="clear:both">
+                <span class="required">*</span>
+                required fields
+            </div>
+
+        </rich:panel>
+
+        <div class="actionButtons">
+
+            <h:commandButton id="save"
+                          value="Registrar"
+                         action="#{registrarBean.registrar}"/>
+
+        </div>
+    </h:form>
+
+</ui:define>
+
+</ui:composition>

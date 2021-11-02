@@ -1,0 +1,143 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <rich:panel>
+        <f:facet name="header">Solicitud Details</f:facet>
+
+
+        <s:decorate id="estado" template="layout/display.xhtml">
+            <ui:define name="label">Estado</ui:define>
+            <h:outputText value="#{solicitudHome.instance.estado}"/>
+        </s:decorate>
+
+        <s:decorate id="mensaje" template="layout/display.xhtml">
+            <ui:define name="label">Mensaje</ui:define>
+            <h:outputText value="#{solicitudHome.instance.mensaje}"/>
+        </s:decorate>
+
+        <div style="clear:both"/>
+
+    </rich:panel>
+
+    <div class="actionButtons">
+
+        <s:button view="/SolicitudEdit.xhtml"
+                    id="edit"
+                 value="Edit"/>
+
+        <s:button view="/#{empty solicitudFrom ? 'SolicitudList' : solicitudFrom}.xhtml"
+                    id="done"
+                 value="Done"/>
+
+    </div>
+
+    <rich:tabPanel switchType="ajax">
+
+    <rich:tab>
+        <f:facet name="label">
+            <h:panelGroup><h:graphicImage value="/img/manytoone.gif" style="vertical-align: middle; padding-right: 4px;"/>Usuario by solicitado</h:panelGroup>
+        </f:facet>
+    <div class="association" id="usuarioBySolicitadoParent">
+
+        <h:outputText value="There is no usuarioBySolicitado associated with this solicitud."
+                   rendered="#{solicitudHome.instance.usuarioBySolicitado == null}"/>
+
+        <rich:dataTable var="_usuario"
+                   value="#{solicitudHome.instance.usuarioBySolicitado}"
+                rendered="#{solicitudHome.instance.usuarioBySolicitado != null}"
+              rowClasses="rvgRowOne,rvgRowTwo"
+                      id="usuarioBySolicitadoTable">
+            <h:column>
+                <f:facet name="header">Id usuario</f:facet>
+                <h:outputText value="#{_usuario.idUsuario}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                <h:outputText value="#{_usuario.nombre}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Openid</f:facet>
+                <h:outputText value="#{_usuario.openid}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Pared id pared</f:facet>
+                <h:outputText value="#{_usuario.pared.idPared}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Password</f:facet>
+                <h:outputText value="#{_usuario.password}"/>
+            </h:column>
+            <h:column styleClass="action">
+                <f:facet name="header">Action</f:facet>
+                <s:link id="viewusuario"
+                     value="View"
+                      view="/Usuario.xhtml">
+                    <f:param name="usuarioIdUsuario"
+                           value="#{_usuario.idUsuario}"/>
+                </s:link>
+            </h:column>
+        </rich:dataTable>
+
+    </div>
+    </rich:tab>
+
+    <rich:tab>
+        <f:facet name="label">
+            <h:panelGroup><h:graphicImage value="/img/manytoone.gif" style="vertical-align: middle; padding-right: 4px;"/>Usuario by solicitante</h:panelGroup>
+        </f:facet>
+    <div class="association" id="usuarioBySolicitanteParent">
+
+        <h:outputText value="There is no usuarioBySolicitante associated with this solicitud."
+                   rendered="#{solicitudHome.instance.usuarioBySolicitante == null}"/>
+
+        <rich:dataTable var="_usuario"
+                   value="#{solicitudHome.instance.usuarioBySolicitante}"
+                rendered="#{solicitudHome.instance.usuarioBySolicitante != null}"
+              rowClasses="rvgRowOne,rvgRowTwo"
+                      id="usuarioBySolicitanteTable">
+            <h:column>
+                <f:facet name="header">Id usuario</f:facet>
+                <h:outputText value="#{_usuario.idUsuario}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                <h:outputText value="#{_usuario.nombre}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Openid</f:facet>
+                <h:outputText value="#{_usuario.openid}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Pared id pared</f:facet>
+                <h:outputText value="#{_usuario.pared.idPared}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Password</f:facet>
+                <h:outputText value="#{_usuario.password}"/>
+            </h:column>
+            <h:column styleClass="action">
+                <f:facet name="header">Action</f:facet>
+                <s:link id="viewusuario"
+                     value="View"
+                      view="/Usuario.xhtml">
+                    <f:param name="usuarioIdUsuario"
+                           value="#{_usuario.idUsuario}"/>
+                </s:link>
+            </h:column>
+        </rich:dataTable>
+
+    </div>
+    </rich:tab>
+</rich:tabPanel>
+</ui:define>
+
+</ui:composition>

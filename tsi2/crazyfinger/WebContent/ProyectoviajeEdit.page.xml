@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="http://jboss.com/products/seam/pages"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://jboss.com/products/seam/pages http://jboss.com/products/seam/pages-2.2.xsd"
+      no-conversation-view-id="/ProyectoviajeList.xhtml"
+      login-required="true">
+
+   <begin-conversation join="true" flush-mode="MANUAL"/>
+
+   <action execute="#{proyectoviajeHome.wire}"/>
+
+   <param name="proyectoviajeFrom"/>
+   <param name="proyectoviajeIdProyectoviaje" value="#{proyectoviajeHome.proyectoviajeIdProyectoviaje}"/>
+   <param name="usuarioFrom"/>
+   <param name="usuarioIdUsuario" value="#{usuarioHome.usuarioIdUsuario}"/>
+   <param name="paredFrom"/>
+   <param name="paredIdPared" value="#{paredHome.paredIdPared}"/>
+
+
+
+
+   <navigation from-action="#{proyectoviajeHome.persist}">
+      <rule if-outcome="persisted">
+         <end-conversation/>
+         <redirect view-id="/ProyectoviajeEdit.xhtml">
+         	<param name="proyectoviajeIdProyectoviaje" value="#{proyectoviajeHome.proyectoviajeIdProyectoviaje}"/>
+         </redirect>
+      </rule>
+   </navigation>
+
+   <navigation from-action="#{proyectoviajeHome.update}">
+      <rule if-outcome="updated">
+         <end-conversation/>
+         <redirect view-id="/ProyectoviajeEdit.xhtml">
+         	<param name="proyectoviajeIdProyectoviaje" value="#{proyectoviajeHome.proyectoviajeIdProyectoviaje}"/>
+         </redirect>
+      </rule>
+   </navigation>
+
+   <navigation from-action="#{proyectoviajeHome.remove}">
+      <rule if-outcome="removed">
+         <end-conversation/>
+         <redirect view-id="/ProyectoviajeList.xhtml"/>
+      </rule>
+   </navigation>
+
+</page>

@@ -1,0 +1,271 @@
+<rich:toolBar
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://java.sun.com/jstl/core"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich">
+    <rich:toolBarGroup>
+        <h:outputText value="#{projectName}:"/>
+        <s:link id="menuHomeId" view="/home.xhtml" value="Home" propagation="none"/>
+    </rich:toolBarGroup>
+    <rich:dropDownMenu showDelay="250" hideDelay="0" submitMode="none" rendered="#{usuario != null and usuario.nombre != 'admin'}">
+        <f:facet name="label">Listados</f:facet>
+	<rich:menuItem>
+    	<s:link view="/AlojamientoList.xhtml"
+           	value="Hoteles"
+           	id="AlojamientoId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/PaqueteturisticoList.xhtml"
+           	value="Paquetes turisticos"
+           	id="PaqueteturisticoIdUsuario"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/CalificacionList.xhtml"
+           	value="Calificacion List"
+           	id="CalificacionId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/MediaList.xhtml"
+           	value="Fotos y videos"
+           	id="MediaId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+
+	<rich:menuItem>
+    	<s:link view="/ComentarioList.xhtml"
+           	value="Comentarios"
+           	id="ComentarioId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+
+    </rich:dropDownMenu>
+    
+    <rich:dropDownMenu showDelay="250" hideDelay="0" submitMode="none" rendered="#{usuario != null and usuario.nombre != 'admin'}">
+        <f:facet name="label">Busquedas...</f:facet>
+		<rich:menuItem>
+	    	<s:link view="/PuntoturisticoList.xhtml"
+	           	value="Puntos turisticos"
+	           	id="PuntoturisticoIdu"
+				includePageParams="false"
+	     		propagation="none"/>
+	     </rich:menuItem>
+	     <rich:menuItem>
+	    	<s:link view="/TrasladoList.xhtml"
+	           	value="Traslados"
+	           	id="TrasladoIdu"
+				includePageParams="false"
+	     		propagation="none"/>
+	     </rich:menuItem>
+		<rich:menuItem>
+	    	<s:link view="/LugarList.xhtml"
+	           	value="Lugares"
+	           	id="LugarIdu"
+				includePageParams="false"
+	     		propagation="none"/>
+	     </rich:menuItem>
+	     <rich:menuItem>
+	    	<s:link view="/ActividadList.xhtml"
+	           	value="Actividades"
+	           	id="ActividadIdu"
+				includePageParams="false"
+	     		propagation="none"/>
+	     </rich:menuItem>	
+
+    </rich:dropDownMenu>
+    
+     <rich:dropDownMenu showDelay="250" hideDelay="0" submitMode="none" rendered="#{usuario != null and usuario.nombre == 'admin'}">
+        <f:facet name="label">Administracion Usuarios</f:facet>
+        <rich:menuItem>
+           	<s:link view="/UsuarioList.xhtml"
+           	value="Usuario List"
+           	id="UsuarioId"
+			includePageParams="false"
+     		propagation="none"/>
+     	</rich:menuItem>
+		<rich:menuItem>
+    	<s:link view="/ParedList.xhtml"
+           	value=" Lista de Paredes"
+           	id="ParedId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+     	<rich:menuItem>
+    	<s:link view="/ProyectoviajeList.xhtml"
+           	value="Proyectos de viaje"
+           	id="ProyectoviajeId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/SolicitudList.xhtml"
+           	value="Solicitudes de amistad"
+           	id="SolicitudId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+		
+    </rich:dropDownMenu>
+    
+    <rich:dropDownMenu showDelay="250" hideDelay="0" submitMode="none" rendered="#{usuario != null and usuario.nombre == 'admin'}">
+        <f:facet name="label">Administracion Noticias</f:facet>
+
+		<rich:menuItem>
+    	<s:link view="/FeedList.xhtml"
+           	value="Feed List"
+           	id="FeedId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/EntryList.xhtml"
+           	value="Entry List"
+           	id="EntryId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+     <rich:menuItem>
+    	<s:link view="/noticiasList.xhtml"
+           	value="Noticias"
+           	id="NoticiasId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+     
+     
+    </rich:dropDownMenu>
+    
+    <rich:dropDownMenu showDelay="250" hideDelay="0" submitMode="none" rendered="#{usuario != null and usuario.nombre == 'admin'}">
+        <f:facet name="label">Administracion Viajes</f:facet>
+		<rich:menuItem>
+	    	<s:link view="/alojamientoParser.xhtml"
+	           	value="Importacion de hoteles"
+	           	id="alojamientoParserId"
+				includePageParams="false"
+	     		propagation="none"/>
+	     </rich:menuItem>
+	
+		<rich:menuItem>
+	    	<s:link view="/PaqueteturisticoList.xhtml"
+	           	value="Paquetes turisticos"
+	           	id="PaqueteturisticoId"
+				includePageParams="false"
+	     		propagation="none"/>
+	     </rich:menuItem>
+		<rich:menuItem>
+	    	<s:link view="/PuntoturisticoList.xhtml"
+	           	value="Puntos turisticos"
+	           	id="PuntoturisticoId"
+				includePageParams="false"
+	     		propagation="none"/>
+	     </rich:menuItem>
+	     	<rich:menuItem>
+	    	<s:link view="/MediotransporteList.xhtml"
+	           	value="Mediotransporte List"
+	           	id="MediotransporteId"
+				includePageParams="false"
+	     		propagation="none"/>
+	     </rich:menuItem>
+	     <rich:menuItem>
+	    	<s:link view="/TrasladoList.xhtml"
+	           	value="Traslados"
+	           	id="TrasladoId"
+				includePageParams="false"
+	     		propagation="none"/>
+	     </rich:menuItem>
+		<rich:menuItem>
+	    	<s:link view="/LugarList.xhtml"
+	           	value="Lugares"
+	           	id="LugarId"
+				includePageParams="false"
+	     		propagation="none"/>
+	     </rich:menuItem>
+	     <rich:menuItem>
+	    	<s:link view="/ActividadList.xhtml"
+	           	value="Actividad List"
+	           	id="ActividadId"
+				includePageParams="false"
+	     		propagation="none"/>
+	     </rich:menuItem>
+	     <rich:menuItem>
+	    	<s:link view="/EstadiaList.xhtml"
+	           	value="Estadia List"
+	           	id="EstadiaId"
+				includePageParams="false"
+	     		propagation="none"/>
+	     </rich:menuItem>
+		<rich:menuItem>
+	    	<s:link view="/PasajeList.xhtml"
+	           	value="Pasaje List"
+	           	id="PasajeId"
+				includePageParams="false"
+	     		propagation="none"/>
+	     </rich:menuItem>
+	     
+	     <rich:menuItem>
+	    	<s:link view="/NodoList.xhtml"
+	           	value="Nodo List"
+	           	id="NodoId"
+				includePageParams="false"
+	     		propagation="none"/>
+	     </rich:menuItem>
+	     <rich:menuItem>
+	    	<s:link view="/ServicioList.xhtml"
+	           	value="Servicio List"
+	           	id="ServicioId"
+				includePageParams="false"
+	     		propagation="none"/>
+	     </rich:menuItem>
+    </rich:dropDownMenu>
+    
+    <c:if test="#{usuario!=null and usuario.nombre != 'admin'}">
+    <a4j:region>
+	      <h:form>
+	            <a4j:poll id="poll" interval="30000000" enabled="true" reRender="richMenu" action="#{chatBean.cargarUsuario(openid.validatedId)}"/>
+	      </h:form>
+	</a4j:region>
+    
+         <h:form id="formCtos"> 
+	    <rich:dropDownMenu id="richMenu">
+	        <f:facet name="label">
+	            <h:panelGroup>
+	
+	                <h:outputText value="#{chatBean.tituloChat()}"  style="#{chatBean.styleTituloChat()}"/>
+	
+	            </h:panelGroup>
+	        </f:facet>
+	        <c:forEach var="cto" items="#{chatBean.contactos}" >
+	            
+	           
+						<rich:menuItem submitMode="ajax" value="#{chatBean.nombreParaUsuario(cto)}"  
+										ajaxSingle="true" styleClass="menuLink" 
+										style="#{chatBean.styleParaUsuario(cto)}" 
+										onclick='window.open("/crazyfinger/Chat.seam?idOrigen=#{chatBean.usuario.idUsuario}&amp;idDestino=#{cto.idUsuario}","Window","menubar=no,width=400,height=350,toolbar=no");' ></rich:menuItem> 
+
+	            
+	        </c:forEach>
+		</rich:dropDownMenu>
+		</h:form>
+    </c:if>
+   
+    <!-- @newMenuItem@ -->
+    <rich:toolBarGroup location="right">
+    	<s:link view="/Usuario.xhtml" rendered="#{identity.loggedIn}" propagation="none">
+        	<h:outputText id="menuWelcomeId" value="#{credentials.username}" rendered="#{identity.loggedIn}"/>
+        </s:link>
+        <s:link id="menuLoginId" view="/login.xhtml" value="Entrar" rendered="#{not identity.loggedIn}" propagation="none"/>
+        <s:link id="menuRegistrarId" view="/registrar.xhtml" value="Nuevo Usuario" rendered="#{not identity.loggedIn}" propagation="none"/>
+        <s:link id="menuLogoutId" view="/home.xhtml" action="#{identity.logout}" value="Salir" rendered="#{identity.loggedIn}" propagation="none"/>
+    </rich:toolBarGroup>
+</rich:toolBar>

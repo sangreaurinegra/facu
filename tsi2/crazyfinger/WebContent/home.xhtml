@@ -1,0 +1,61 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:a="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+    <ui:define name="body">
+
+        <h1>Welcome to CrazyFinguer!</h1>
+        <table cellspacing="10" cellpadding="10" border="0">
+		
+    		<td align="left" valign="top" rowspan="4" width="75%"> 
+
+        <rich:panel>
+            <h:panelGrid columns="3">
+                <h:graphicImage value="/img/crazyglobo.gif" alt="Seam logo" styleClass="picture"/>
+                <s:div styleClass="info">
+                    <p><strong>Gr5 !</strong></p>
+                    <ul class="bullets">
+                        <li>Dedo</li>
+                        <li>Ale</li>
+                        <li>Maxi</li>
+                        <li>Gabriel</li>
+                    </ul>
+                </s:div>
+
+               
+              	<!-- a:poll interval="1000" reRender="rssnoticias" />
+               	
+               <iframe name="rssnoticias" src="http://localhost:8080/crazyfinger/rssnoticias.seam" width="400" height="900" marginwidth="0" scrolling="yes" frameborder="0">
+               </iframe>
+               
+               
+       			<a:poll interval="1000" reRender="rsspaquetes" />
+               
+                <iframe name="rsspaquetes" src="http://localhost:8080/crazyfinger/rsspaquetes.seam" width="400" height="900" marginwidth="0" scrolling="yes" frameborder="0">
+               </iframe>
+               -->
+            </h:panelGrid>
+        </rich:panel>
+        
+		</td>
+    			<td align="right" title="FEEDS" >
+	                <s:div styleClass="info" >
+					  <!-- f:facet name="header">
+	    					<h:outputText value="FEEDS"/>
+	  				  </f:facet>   -->
+	                  <h:form>
+	                     <a:include viewId="verFeeds.xhtml" />
+	                  </h:form>
+					</s:div>
+    		 
+    		</td>
+    	</table>
+    </ui:define>
+</ui:composition>

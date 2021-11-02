@@ -1,0 +1,139 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <rich:panel>
+        <f:facet name="header">noticiasList</f:facet>
+
+        <div class="results">
+
+            <h:outputText value="No noticias exists"
+                       rendered="#{empty noticiasList.resultList}"/>
+
+            <h:dataTable id="noticiasList" var="noticias"
+                      value="#{noticiasList.resultList}"
+                   rendered="#{not empty noticiasList.resultList}">
+                <h:column>
+                    <f:facet name="header">Id</f:facet>
+                    #{noticias.id}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Titulo</f:facet>
+                    <s:link id="noticiastitulo"
+                         value="#{noticias.titulo}"
+                   propagation="none"
+                         view="/noticias.xhtml">
+                        <f:param name="noticiasId"
+                                value="#{noticias.id}"/>
+                    </s:link>
+                </h:column>
+            </h:dataTable>
+
+		<rich:dataTable id="noticiasListtable"
+                var="_noticias"
+              value="#{noticiasList.resultList}"
+           rendered="#{not empty noticiasList.resultList}">
+        <h:column>
+            <f:facet name="header">
+                <ui:include src="layout/sort.xhtml">
+                    <ui:param name="entityList" value="#{noticiasList}"/>
+                    <ui:param name="propertyLabel" value="Id noticia"/>
+                    <ui:param name="propertyPath" value="noticias.id"/>
+                </ui:include>
+            </f:facet>
+            <h:outputText value="#{_noticias.id}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <ui:include src="layout/sort.xhtml">
+                    <ui:param name="noticiasList" value="#{feedList}"/>
+                    <ui:param name="propertyLabel" value="Link"/>
+                    <ui:param name="propertyPath" value="noticias.link"/>
+                </ui:include>
+            </f:facet>
+            <h:outputText value="#{_feed.link}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <ui:include src="layout/sort.xhtml">
+                    <ui:param name="entityList" value="#{feedList}"/>
+                    <ui:param name="propertyLabel" value="Subtitle"/>
+                    <ui:param name="propertyPath" value="feed.subtitle"/>
+                </ui:include>
+            </f:facet>
+            <h:outputText value="#{_feed.subtitle}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <ui:include src="layout/sort.xhtml">
+                    <ui:param name="entityList" value="#{feedList}"/>
+                    <ui:param name="propertyLabel" value="Title"/>
+                    <ui:param name="propertyPath" value="feed.title"/>
+                </ui:include>
+            </f:facet>
+            <h:outputText value="#{_feed.title}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <ui:include src="layout/sort.xhtml">
+                    <ui:param name="entityList" value="#{feedList}"/>
+                    <ui:param name="propertyLabel" value="Uid"/>
+                    <ui:param name="propertyPath" value="feed.uid"/>
+                </ui:include>
+            </f:facet>
+            <h:outputText value="#{_feed.uid}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <ui:include src="layout/sort.xhtml">
+                    <ui:param name="entityList" value="#{feedList}"/>
+                    <ui:param name="propertyLabel" value="Updated"/>
+                    <ui:param name="propertyPath" value="feed.updated"/>
+                </ui:include>
+            </f:facet>
+            <h:outputText value="#{_feed.updated}">
+                <s:convertDateTime type="date" dateStyle="short"/>
+            </h:outputText>
+        </h:column>
+        <rich:column styleClass="action">
+            <f:facet name="header">Action</f:facet>
+            <s:link view="/#{empty from ? 'Feed' : from}.xhtml"
+                   value="#{empty from ? 'View' : 'Select'}"
+             propagation="#{empty from ? 'none' : 'default'}"
+                      id="feedViewId">
+                <f:param name="feedIdFeed"
+                        value="#{_feed.idFeed}"/>
+            </s:link>
+            #{' '}
+            <s:link view="/FeedEdit.xhtml"
+                   value="Edit"
+             propagation="none"
+                      id="feedEdit"
+                rendered="#{empty from}">
+                <f:param name="feedIdFeed"
+                        value="#{_feed.idFeed}"/>
+            </s:link>
+        </rich:column>
+    </rich:dataTable>
+			
+        </div>
+
+    </rich:panel>
+
+    <div class="actionButtons">
+        <s:button id="done"
+               value="Create noticias"
+                view="/noticias.xhtml"/>
+    </div>
+
+</ui:define>
+
+</ui:composition>

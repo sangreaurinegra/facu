@@ -1,0 +1,80 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <rich:panel>
+        <f:facet name="header">Nodopv Details</f:facet>
+
+        <div style="clear:both"/>
+
+    </rich:panel>
+
+    <div class="actionButtons">
+
+        <s:button view="/NodopvEdit.xhtml"
+                    id="edit"
+                 value="Edit"/>
+
+        <s:button view="/#{empty nodopvFrom ? 'NodopvList' : nodopvFrom}.xhtml"
+                    id="done"
+                 value="Done"/>
+
+    </div>
+
+    <rich:tabPanel switchType="ajax">
+
+    <rich:tab>
+        <f:facet name="label">
+            <h:panelGroup><h:graphicImage value="/img/manytoone.gif" style="vertical-align: middle; padding-right: 4px;"/>Proyectoviaje</h:panelGroup>
+        </f:facet>
+    <div class="association" id="proyectoviajeParent">
+
+        <h:outputText value="There is no proyectoviaje associated with this nodopv."
+                   rendered="#{nodopvHome.instance.proyectoviaje == null}"/>
+
+        <rich:dataTable var="_proyectoviaje"
+                   value="#{nodopvHome.instance.proyectoviaje}"
+                rendered="#{nodopvHome.instance.proyectoviaje != null}"
+              rowClasses="rvgRowOne,rvgRowTwo"
+                      id="proyectoviajeTable">
+            <h:column>
+                <f:facet name="header">Id proyectoviaje</f:facet>
+                <h:outputText value="#{_proyectoviaje.idProyectoviaje}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Descripcion</f:facet>
+                <h:outputText value="#{_proyectoviaje.descripcion}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Estado</f:facet>
+                <h:outputText value="#{_proyectoviaje.estado}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Usuario id usuario</f:facet>
+                <h:outputText value="#{_proyectoviaje.usuario.idUsuario}"/>
+            </h:column>
+            <h:column styleClass="action">
+                <f:facet name="header">Action</f:facet>
+                <s:link id="viewproyectoviaje"
+                     value="View"
+                      view="/Proyectoviaje.xhtml">
+                    <f:param name="proyectoviajeIdProyectoviaje"
+                           value="#{_proyectoviaje.idProyectoviaje}"/>
+                </s:link>
+            </h:column>
+        </rich:dataTable>
+
+    </div>
+    </rich:tab>
+</rich:tabPanel>
+</ui:define>
+
+</ui:composition>

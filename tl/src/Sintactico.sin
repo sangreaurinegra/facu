@@ -1,0 +1,92 @@
+ 
+import java_cup.runtime.*;
+import java.io.*;
+
+// terminales
+terminal DECLARA, COMIENZO, EXCEPCION, FIN, PUNTOYCOMA;
+terminal CUANDO, O, ENTONCES, CONSTANTE, NO, NULO, ASIGNACION, NUMERO;
+terminal BOOLEANO, Y, VERDADERO, FALSO, ES, SI, SINO, PARA, EN, EXISTE, ENTRE;
+terminal ITERAR, SELECCIONAR, DESDE, DONDE, NUMEROCONSTANTE, IDENTIFICADOR;
+terminal MAS, MENOS, ASTERISCO, BARRA, MENOR, MAYOR, COMA;
+terminal PARENTESISIZQUIERDO, PARENTESISDERECHO, MENORIGUAL, MAYORIGUAL;
+terminal DISTINTO1, IGUAL, DISTINTO2;
+
+// no terminales
+non terminal plsql_block,exception_handler,variable_declaration,data_type,plsql_expression,bool_expr,bool_term,bool_factor;
+non terminal num_term,num_factor,boolean_literal,seq_of_statements,statement,assignment_statement,if_statement,loop_statement,select_statement;
+non terminal select_condition,logical_term,logical_factor,exp_simple,relational_op;
+non terminal exception_handler_list,excepciones,identificador_list_eps,constante_eps,nonulo_eps,no_eps,bool_expr_list_eps,bool_term_list_eps;
+non terminal relational_op_bool_factor_list_eps,mas_menos_num_term_list_eps,asterisco_barra_num_factor_list_eps,seq_of_statements_eps;
+non terminal sentencia_condicional,plsql_expression_list_eps,identificadores_list_eps;
+non terminal sentencia_seleccion,logical_term_list_eps,logical_factor_list_eps,relational_opsimple_list_eps,variable_declaration_list,declaraciones;
+non terminal asignaciones_list_eps,mas_menos,asterisco_barra;
+
+// gramatica
+plsql_block 			::= declaraciones //( DECLARA ( variable_declaration )+  )? 
+							COMIENZO seq_of_statements
+								excepciones //( EXCEPCION ( exception_handler )+  )? 
+							FIN PUNTOYCOMA {:System.out.println("BLOQUE"); :} ;
+declaraciones					::= | DECLARA variable_declaration_list {:System.out.println("DECLARACIONES"); :};
+variable_declaration_list	::= variable_declaration | variable_declaration variable_declaration_list;
+excepciones					::= | EXCEPCION exception_handler_list {:System.out.println("EXCEPCIONES"); :};
+exception_handler_list	::= exception_handler | exception_handler exception_handler_list;
+exception_handler 		::= CUANDO IDENTIFICADOR identificador_list_eps ENTONCES seq_of_statements {:System.out.println("EXCEPCION"); :}; //CUANDO IDENTIFICADOR( O IDENTIFICADOR )* ENTONCES 
+							//seq_of_statements ;
+identificador_list_eps	::= | O IDENTIFICADOR identificador_list_eps;
+variable_declaration 	::= IDENTIFICADOR constante_eps data_type nonulo_eps //IDENTIFICADOR ( CONSTANTE )? data_type ( NO NULO )? 
+							asignaciones_list_eps PUNTOYCOMA {:System.out.println("DECLARACION"); :}; //(ASIGNACION plsql_expression)? PUNTOYCOMA ;
+asignaciones_list_eps	::= | ASIGNACION plsql_expression ;
+constante_eps			::= | CONSTANTE;	
+nonulo_eps				::= | NO NULO;								
+data_type 				::= NUMERO | BOOLEANO ;
+plsql_expression 		::= no_eps bool_expr bool_expr_list_eps ; //( NO )? bool_expr ( O bool_expr )* ;
+bool_expr_list_eps		::= | O bool_expr bool_expr_list_eps ;
+bool_expr 				::= bool_term bool_term_list_eps ; //bool_term (Y bool_term )* ;
+bool_term_list_eps		::= | Y bool_term bool_term_list_eps ;
+bool_term 				::= bool_factor relational_op_bool_factor_list_eps ; //bool_factor ( relational_op bool_factor )* ;
+relational_op_bool_factor_list_eps	::= | relational_op bool_factor relational_op_bool_factor_list_eps ;
+bool_factor 			::= num_term mas_menos_num_term_list_eps //num_term ( ( MAS | MENOS ) num_term )*
+							| boolean_literal ;
+mas_menos_num_term_list_eps	::= |  mas_menos  num_term mas_menos_num_term_list_eps ;
+mas_menos				::= MAS | MENOS ;							
+num_term				::= num_factor  asterisco_barra_num_factor_list_eps ;//num_factor  ( ( ASTERISCO | BARRA ) num_factor )* ;
+asterisco_barra_num_factor_list_eps	::= | asterisco_barra num_factor asterisco_barra_num_factor_list_eps ;
+asterisco_barra			::= ASTERISCO | BARRA ;	
+num_factor 				::= IDENTIFICADOR | NUMEROCONSTANTE {:System.out.println("NUMERO CONSTANTE"); :} | PARENTESISIZQUIERDO plsql_expression PARENTESISDERECHO ;
+boolean_literal 		::= VERDADERO {:System.out.println("LITERAL BOOLEANO: VERDADERO"); :} | FALSO {:System.out.println("LITERAL BOOLEANO: FALSO"); :} | NULO 							{:System.out.println("LITERAL BOOLEANO: NULO"); :} ;
+seq_of_statements 		::= statement PUNTOYCOMA seq_of_statements_eps ; //statement PUNTOYCOMA ( statement PUNTOYCOMA)* ;
+seq_of_statements_eps	::= | statement PUNTOYCOMA seq_of_statements_eps ;	
+statement 				::= assignment_statement {:System.out.println("SENTENCIA DE ASIGNACION"); :}
+							| if_statement 
+							| loop_statement {:System.out.println("SENTENCIA DE ITERACION"); :}
+							| select_statement  ;
+assignment_statement 	::= IDENTIFICADOR ASIGNACION plsql_expression ;
+if_statement 			::= SI plsql_expression ENTONCES  seq_of_statements 
+							  sentencia_condicional  FIN SI ; //( SINO  seq_of_statements )?  FIN SI ;
+sentencia_condicional	::= {:System.out.println("SENTENCIA CONDICIONAL IF"); :} | SINO  seq_of_statements {:System.out.println("SENTENCIA CONDICIONAL IF-ELSE"); :};	
+loop_statement 			::= PARA IDENTIFICADOR EN PARENTESISIZQUIERDO select_statement PARENTESISDERECHO
+						   ITERAR
+							seq_of_statements 
+							FIN ITERAR ;
+select_statement 		::= SELECCIONAR plsql_expression plsql_expression_list_eps //SELECCIONAR plsql_expression ( COMA plsql_expression )*
+							DESDE IDENTIFICADOR identificadores_list_eps  // DESDE IDENTIFICADOR ( COMA IDENTIFICADOR )*
+							 sentencia_seleccion ; //( DONDE select_condition )?
+plsql_expression_list_eps	::= | COMA plsql_expression plsql_expression_list_eps ;	
+identificadores_list_eps	::= | COMA IDENTIFICADOR identificadores_list_eps ;
+sentencia_seleccion			::= {:System.out.println("SENTENCIA DE SELECCION SIN WHERE"); :} | DONDE select_condition {:System.out.println("SENTENCIA DE SELECCION CON WHERE"); :};	
+select_condition 		::= no_eps logical_term logical_term_list_eps ; // ( NO )? logical_term (O logical_term )*
+logical_term_list_eps	::= | O logical_term logical_term_list_eps ;
+logical_term 			::= logical_factor logical_factor_list_eps ; //logical_factor ( Y logical_factor )* ;
+logical_factor_list_eps	::= | Y logical_factor logical_factor_list_eps ;
+logical_factor 			::= exp_simple  relational_opsimple_list_eps //exp_simple  ( relational_op exp_simple  )*
+							 | exp_simple  ES NO NULO {:System.out.println("FACTOR LOGICO: EXPRESION SIMPLE ES NO NULO"); :} //exp_simple  ES ( NO )? NULO
+							 | exp_simple  ES NULO {:System.out.println("FACTOR LOGICO: EXPRESION SIMPLE ES NULO"); :} //exp_simple  ES ( NO )? NULO
+							 | exp_simple NO ENTRE exp_simple Y exp_simple {:System.out.println("FACTOR LOGICO: A NO ENTRE B Y C"); :} //exp_simple (NO)? ENTRE exp_simple Y exp_simple
+							 | exp_simple ENTRE exp_simple Y exp_simple {:System.out.println("FACTOR LOGICO: A ENTRE B Y C"); :} //exp_simple (NO)? ENTRE exp_simple Y exp_simple
+							 | EXISTE PARENTESISIZQUIERDO select_statement PARENTESISDERECHO {:System.out.println("FACTOR LOGICO: EXISTE X"); :}
+							 | PARENTESISIZQUIERDO select_condition PARENTESISDERECHO {:System.out.println("FACTOR LOGICO: (ENTRE PARENTESIS)"); :} ;
+relational_opsimple_list_eps ::= | relational_op exp_simple relational_opsimple_list_eps ;
+no_eps					::= | NO ;
+exp_simple 				::= NUMEROCONSTANTE {:System.out.println("NUMERO CONSTANTE"); :}
+							| IDENTIFICADOR ;
+relational_op 			::= IGUAL | DISTINTO1 | DISTINTO2 | MENOR | MAYOR | MENORIGUAL | MAYORIGUAL ;

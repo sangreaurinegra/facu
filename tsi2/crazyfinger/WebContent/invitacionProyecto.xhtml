@@ -1,0 +1,73 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a="http://richfaces.org/a4j" 
+	template="layout/template.xhtml">
+
+	<ui:define name="body">
+		<rich:panel>
+			<h:form id="invitacionProyectoForm">
+
+				<f:facet name="header">Invitados</f:facet>
+
+				<h:panelGrid columnClasses="panelc" columns="4" width="100%">
+
+					<rich:panel style="width:133px">
+						<f:facet name="header">
+							<h:outputText value="Amigos para invitar" />
+						</f:facet>
+						<h:dataTable id="src" columns="1" value="#{pvEdit.amigos}"
+							var="fm" footerClass="footerClass">
+
+							<h:column>
+								<a:outputPanel
+									style="width:100px;border:1px solid gray;padding:2px"
+									layout="block">
+									<rich:dragSupport dragIndicator=":indicator" dragType="maxi"
+										dragValue="#{fm}">
+										<rich:dndParam name="label" type="drag">
+											<h:outputText value="#{fm.usuarioBySolicitado.nombre}"></h:outputText>
+										</rich:dndParam>
+									</rich:dragSupport>
+										<h:outputText value="#{fm.usuarioBySolicitado.nombre}"></h:outputText>
+								</a:outputPanel>
+							</h:column>
+						</h:dataTable>
+					</rich:panel>
+
+					<rich:panel styleClass="dropTargetPanel">
+						<f:facet name="header">
+							<h:outputText value="Invitados" />
+						</f:facet>
+						<rich:dropSupport id="php" acceptedTypes="maxi"
+							dropValue="Elemento uno"
+							dropListener="#{pvEdit.accionDropInvitacion}"
+							reRender="phptable, src">
+						</rich:dropSupport>
+
+						<h:dataTable id="phptable" columns="1"
+							value="#{pvEdit.invitaciones}" var="fm" style="width:150px;">
+							<h:column>
+								<h:outputText value="#{fm.usuarioBySolicitado.nombre}"></h:outputText>
+
+							</h:column>
+						</h:dataTable>
+					</rich:panel>
+
+				</h:panelGrid>
+
+			</h:form>
+			<h:form>
+				<s:button value="Aceptar" action="#{pvEdit.guardarInvitaciones()}" />
+			</h:form>
+
+		</rich:panel>
+
+	</ui:define>
+
+</ui:composition>

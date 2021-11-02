@@ -1,0 +1,167 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <rich:panel>
+        <f:facet name="header">Actividad Details</f:facet>
+
+
+        <s:decorate id="detalle" template="layout/display.xhtml">
+            <ui:define name="label">Detalle</ui:define>
+            <h:outputText value="#{actividadHome.instance.detalle}"/>
+        </s:decorate>
+
+        <s:decorate id="latitud" template="layout/display.xhtml">
+            <ui:define name="label">Latitud</ui:define>
+            <h:outputText value="#{actividadHome.instance.latitud}"/>
+        </s:decorate>
+
+        <s:decorate id="longitud" template="layout/display.xhtml">
+            <ui:define name="label">Longitud</ui:define>
+            <h:outputText value="#{actividadHome.instance.longitud}"/>
+        </s:decorate>
+
+        <s:decorate id="nombre" template="layout/display.xhtml">
+            <ui:define name="label">Nombre</ui:define>
+            <h:outputText value="#{actividadHome.instance.nombre}"/>
+        </s:decorate>
+
+        <s:decorate id="tipo" template="layout/display.xhtml">
+            <ui:define name="label">Tipo</ui:define>
+            <h:outputText value="#{actividadHome.instance.tipo}"/>
+        </s:decorate>
+
+        <s:decorate id="url" template="layout/display.xhtml">
+            <ui:define name="label">Url</ui:define>
+            <h:outputText value="#{actividadHome.instance.url}"/>
+        </s:decorate>
+
+        <div style="clear:both"/>
+
+    </rich:panel>
+
+    <div class="actionButtons">
+
+        <s:button view="/ActividadEdit.xhtml"
+                    id="edit"
+                 value="Edit"/>
+
+        <s:button view="/#{empty actividadFrom ? 'ActividadList' : actividadFrom}.xhtml"
+                    id="done"
+                 value="Done"/>
+
+    </div>
+
+    <rich:tabPanel switchType="ajax">
+
+    <rich:tab>
+        <f:facet name="label">
+            <h:panelGroup><h:graphicImage value="/img/manytoone.gif" style="vertical-align: middle; padding-right: 4px;"/>Lugar</h:panelGroup>
+        </f:facet>
+    <div class="association" id="lugarParent">
+
+        <h:outputText value="There is no lugar associated with this actividad."
+                   rendered="#{actividadHome.instance.lugar == null}"/>
+
+        <rich:dataTable var="_lugar"
+                   value="#{actividadHome.instance.lugar}"
+                rendered="#{actividadHome.instance.lugar != null}"
+              rowClasses="rvgRowOne,rvgRowTwo"
+                      id="lugarTable">
+            <h:column>
+                <f:facet name="header">Id lugar</f:facet>
+                <h:outputText value="#{_lugar.idLugar}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Latitud</f:facet>
+                <h:outputText value="#{_lugar.latitud}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Longitud</f:facet>
+                <h:outputText value="#{_lugar.longitud}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                <h:outputText value="#{_lugar.nombre}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Url</f:facet>
+                <h:outputText value="#{_lugar.url}"/>
+            </h:column>
+            <h:column styleClass="action">
+                <f:facet name="header">Action</f:facet>
+                <s:link id="viewlugar"
+                     value="View"
+                      view="/Lugar.xhtml">
+                    <f:param name="lugarIdLugar"
+                           value="#{_lugar.idLugar}"/>
+                </s:link>
+            </h:column>
+        </rich:dataTable>
+
+    </div>
+    </rich:tab>
+
+    <rich:tab>
+        <f:facet name="label">
+            <h:panelGroup><h:graphicImage value="/img/manytoone.gif" style="vertical-align: middle; padding-right: 4px;"/>Puntoturistico</h:panelGroup>
+        </f:facet>
+    <div class="association" id="puntoturisticoParent">
+
+        <h:outputText value="There is no puntoturistico associated with this actividad."
+                   rendered="#{actividadHome.instance.puntoturistico == null}"/>
+
+        <rich:dataTable var="_puntoturistico"
+                   value="#{actividadHome.instance.puntoturistico}"
+                rendered="#{actividadHome.instance.puntoturistico != null}"
+              rowClasses="rvgRowOne,rvgRowTwo"
+                      id="puntoturisticoTable">
+            <h:column>
+                <f:facet name="header">Id puntoturistico</f:facet>
+                <h:outputText value="#{_puntoturistico.idPuntoturistico}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Detalle</f:facet>
+                <h:outputText value="#{_puntoturistico.detalle}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Latitud</f:facet>
+                <h:outputText value="#{_puntoturistico.latitud}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Longitud</f:facet>
+                <h:outputText value="#{_puntoturistico.longitud}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Lugar id lugar</f:facet>
+                <h:outputText value="#{_puntoturistico.lugar.idLugar}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                <h:outputText value="#{_puntoturistico.nombre}"/>
+            </h:column>
+            <h:column styleClass="action">
+                <f:facet name="header">Action</f:facet>
+                <s:link id="viewpuntoturistico"
+                     value="View"
+                      view="/Puntoturistico.xhtml">
+                    <f:param name="puntoturisticoIdPuntoturistico"
+                           value="#{_puntoturistico.idPuntoturistico}"/>
+                </s:link>
+            </h:column>
+        </rich:dataTable>
+
+    </div>
+    </rich:tab>
+</rich:tabPanel>
+</ui:define>
+
+</ui:composition>

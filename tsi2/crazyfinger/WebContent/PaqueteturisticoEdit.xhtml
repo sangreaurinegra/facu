@@ -1,0 +1,108 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:a="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <h:form id="paqueteturistico" styleClass="edit">
+
+        <rich:panel>
+            <f:facet name="header">#{paqueteturisticoHome.managed ? 'Edit' : 'Add'} Paqueteturistico</f:facet>
+
+			<s:decorate id="nombreField" template="layout/edit.xhtml">
+                <ui:define name="label">Nombre</ui:define>
+                <h:inputText id="nombre"
+                       required="true"
+                           size="50"
+                      maxlength="50"
+                          value="#{paqueteturisticoHome.instance.nombre}">
+                    <a:support event="onblur" reRender="nombreField" bypassUpdates="true" ajaxSingle="true"/>
+                </h:inputText>
+            </s:decorate>
+
+            <s:decorate id="descripcionField" template="layout/edit.xhtml">
+                <ui:define name="label">Descripcion</ui:define>
+                <h:inputTextarea id="descripcion"
+                               cols="80"
+                               rows="3"
+                           required="true"
+                              value="#{paqueteturisticoHome.instance.descripcion}"/>
+            </s:decorate>
+
+            <s:decorate id="estadoField" template="layout/edit.xhtml">
+                <ui:define name="label">Estado</ui:define>
+                <h:selectOneMenu id="estado"
+                       required="true" value="#{paqueteturisticoHome.instance.estado}">
+					<f:selectItem itemLabel="Edicion"  itemValue="0"/>
+					<f:selectItem itemLabel="Habilitado" itemValue="1"/>
+					<f:selectItem itemLabel="Anulado" itemValue="2"/>
+				</h:selectOneMenu>
+            </s:decorate>
+
+            <div style="clear:both">
+                <span class="required">*</span>
+                campos requeridos
+            </div>
+
+        </rich:panel>
+
+        <div class="actionButtons">
+
+            <h:commandButton id="save"
+                          value="Guardar"
+                         action="#{paqueteturisticoHome.persist}"
+                       disabled="#{!paqueteturisticoHome.wired}"
+                       rendered="#{!paqueteturisticoHome.managed}"/>
+
+            <h:commandButton id="update"
+                          value="Guardar"
+                         action="#{paqueteturisticoHome.update}"
+                       rendered="#{paqueteturisticoHome.managed}"/>
+
+            <h:commandButton id="delete"
+                          value="Borrar"
+                         action="#{paqueteturisticoHome.remove}"
+                      immediate="true"
+                       rendered="#{paqueteturisticoHome.managed}"/>
+
+            <s:button id="cancelEdit"
+                   value="Cancelar"
+             propagation="end"
+                    view="/Paqueteturistico.xhtml"
+                rendered="#{paqueteturisticoHome.managed}"/>
+
+            <s:button id="cancelAdd"
+                   value="Cancelar"
+             propagation="end"
+                    view="/#{empty paqueteturisticoFrom ? 'PaqueteturisticoList' : paqueteturisticoFrom}.xhtml"
+                rendered="#{!paqueteturisticoHome.managed}"/>
+
+        </div>
+    </h:form>
+
+<rich:tabPanel switchType="ajax">
+
+    <rich:tab label="Itinerario">
+
+        <div class="actionButtons">
+            <s:button id="addnodopt"
+                   value="Itinerario"
+                    view="/itinerariopt.xhtml"
+             propagation="none">
+                 <f:param name="paqueteturisticoIdPaqueteturistico"
+                         value="#{paqueteturisticoHome.instance.idPaqueteturistico}"/>
+                 <f:param name="nodoptFrom" value="Paqueteturistico"/>
+            </s:button>
+        </div>
+    </rich:tab>
+</rich:tabPanel>
+</ui:define>
+
+</ui:composition>

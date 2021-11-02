@@ -1,0 +1,131 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:a="http://richfaces.org/a4j"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+	
+		
+    <rich:panel>
+        <f:facet name="header">Elegir Ciudad</f:facet>
+    
+	    <rich:dragIndicator id="indicator" />
+	
+	    <h:form id="form">
+	
+	        <h:panelGrid columnClasses="panelc" columns="4" width="100%">
+	
+	            <rich:panel style="width:233px"> 
+	                <f:facet name="header">
+	                    <h:outputText value="Elija una ciudad" />
+	                </f:facet>
+	                <h:dataTable id="src" columns="1" value="#{itinerariopt.ciudades}"
+	                    var="fm" footerClass="footerClass">
+	
+	                    <h:column>
+	                        <a:outputPanel style="width:200px;border:1px solid gray;padding:2px" layout="block">
+	                            <rich:dragSupport dragIndicator=":indicator"
+	                                dragType="maxi" dragValue="#{fm}">
+	                                <rich:dndParam name="label" type="drag">
+	                                	<h:graphicImage value="#{fm.getUrl()}" />
+	                                	<br/> 
+	                            		<h:outputText value="#{fm.getNombre()}"></h:outputText> 
+	                                </rich:dndParam>
+	                            </rich:dragSupport>
+	                            <h:graphicImage value="#{fm.getUrl()}" />
+	                            <br/> 
+	                            <h:outputText value="#{fm.getNombre()}"></h:outputText> 
+	                        </a:outputPanel>
+	                    </h:column>
+	                    <!-- 
+	                    <f:facet name="footer">
+	                        <a:commandButton action="#{dndBean.reset}" value="Start Over" reRender="src,phptable,cftable,dnettable"/>
+	                    </f:facet>
+	                     --> 
+	                </h:dataTable>
+	            </rich:panel>
+	
+	            <rich:panel styleClass="dropTargetPanel" style="width:233px">
+	                <f:facet name="header">
+	                    <h:outputText value="Ciudad" />
+	                </f:facet>
+	                <rich:dropSupport id="php" acceptedTypes="maxi" dropValue="Elemento uno"
+	                    dropListener="#{itinerariopt.accionDropCiudad}" reRender="phptable, src">
+	                </rich:dropSupport>
+	
+	                <h:dataTable id="phptable" columns="1" value="#{itinerariopt.ciudad}" var="fm">
+	                    <h:column style="width:200px;border:1px solid gray;padding:2px">
+	                    	<h:graphicImage value="#{fm.getUrl()}" />
+	                    	<h:outputText value="#{fm.getNombre()}"></h:outputText>
+	                    </h:column>
+	                </h:dataTable>
+	            </rich:panel>
+				<!-- 
+	            <rich:panel styleClass="dropTargetPanel">
+	                <f:facet name="header">
+	                    <h:outputText value=".NET Frameworks" />
+	                </f:facet>
+	                <rich:dropSupport id="dnet" acceptedTypes="DNET" dropValue="DNET"
+	                    dropListener="#{eventBean.processDrop}" reRender="dnettable, src">
+	                </rich:dropSupport>
+	
+	                <h:dataTable id="dnettable" columns="1" value="#{dndBean.containerDNET}" var="fm">
+	                    <h:column>
+	                        <h:outputText value="#{fm.name}"></h:outputText>
+	                    </h:column>
+	                </h:dataTable>
+	
+	
+	            </rich:panel>
+	             -->
+	        </h:panelGrid>
+	
+	    </h:form>
+	    <h:form>
+	    	<rich:panel>
+	     	<f:facet name="header">Fecha del tramo</f:facet>
+	     	<h:panelGrid id="fechas" columns="2" >
+	        	<h:column>
+	    			<h:outputText value="Fecha desde:" />
+	    		</h:column>
+	    		<h:column>
+	    			<a:form>
+	    	 		<rich:calendar value="#{itinerariopt.fechaLlegada}"	    	 			
+                        locale="es"
+                        popup="true"
+                        datePattern="dd/MM/yyyy"
+                        showApplyButton="false" cellWidth="24px" cellHeight="22px" style="width:200px">
+                        <a:support event="onchanged" ajaxSingle="true"/>
+                    </rich:calendar>
+                    
+                    </a:form>
+                </h:column>
+            	<h:column>
+            		<h:outputText value="Fecha hasta:" />
+            	</h:column>
+            	<h:column>
+            		<a:form>
+            		<rich:calendar value="#{itinerariopt.fechaSalida}"
+                        locale="es"
+                        popup="true"
+                        datePattern="dd/MM/yyyy"
+                        showApplyButton="false" cellWidth="24px" cellHeight="22px" style="width:200px">
+                        <a:support event="onchanged" ajaxSingle="true"/>
+                    </rich:calendar>
+                    
+                    </a:form>
+                </h:column>
+           </h:panelGrid>
+	    </rich:panel>
+			<s:button value="Elegir llegada" action="accionTrasladoLlegada"/>
+		</h:form>
+	</rich:panel>
+</ui:define>
+
+</ui:composition>

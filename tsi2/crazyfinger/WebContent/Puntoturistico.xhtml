@@ -1,0 +1,165 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <rich:panel>
+        <f:facet name="header">Punto turistico</f:facet>
+
+
+        <s:decorate id="detalle" template="layout/display.xhtml">
+            <ui:define name="label">Detalle</ui:define>
+            <h:outputText value="#{puntoturisticoHome.instance.detalle}"/>
+        </s:decorate>
+
+        <s:decorate id="latitud" template="layout/display.xhtml">
+            <ui:define name="label">Latitud</ui:define>
+            <h:outputText value="#{puntoturisticoHome.instance.latitud}"/>
+        </s:decorate>
+
+        <s:decorate id="longitud" template="layout/display.xhtml">
+            <ui:define name="label">Longitud</ui:define>
+            <h:outputText value="#{puntoturisticoHome.instance.longitud}"/>
+        </s:decorate>
+
+        <s:decorate id="nombre" template="layout/display.xhtml">
+            <ui:define name="label">Nombre</ui:define>
+            <h:outputText value="#{puntoturisticoHome.instance.nombre}"/>
+        </s:decorate>
+
+        <div style="clear:both"/>
+
+    </rich:panel>
+
+    <div class="actionButtons">
+
+        <s:button view="/PuntoturisticoEdit.xhtml"
+                    id="edit"
+                 value="Edit"
+                 rendered="#{usuario.nombre == 'admin'}"/>
+
+        <s:button view="/#{empty puntoturisticoFrom ? 'PuntoturisticoList' : puntoturisticoFrom}.xhtml"
+                    id="done"
+                 value="Done"/>
+
+    </div>
+
+    <rich:tabPanel switchType="ajax">
+
+    <rich:tab>
+        <f:facet name="label">
+            <h:panelGroup><h:graphicImage value="/img/onetomany.gif" style="vertical-align: middle; padding-right: 4px;"/>Actividades</h:panelGroup>
+        </f:facet>
+    <h:form styleClass="association" id="actividadesChildren">
+
+        <h:outputText value="There are no actividades associated with this puntoturistico."
+                   rendered="#{empty puntoturisticoHome.actividades}"/>
+
+        <rich:dataTable value="#{puntoturisticoHome.actividades}"
+                       var="_actividad"
+                  rendered="#{not empty puntoturisticoHome.actividades}"
+                rowClasses="rvgRowOne,rvgRowTwo"
+                        id="actividadesTable">
+            <rich:column sortBy="#{_actividad.detalle}">
+                <f:facet name="header">Detalle</f:facet>
+                <h:outputText value="#{_actividad.detalle}"/>
+            </rich:column>
+            <rich:column sortBy="#{_actividad.latitud}">
+                <f:facet name="header">Latitud</f:facet>
+                <h:outputText value="#{_actividad.latitud}"/>
+            </rich:column>
+            <rich:column sortBy="#{_actividad.longitud}">
+                <f:facet name="header">Longitud</f:facet>
+                <h:outputText value="#{_actividad.longitud}"/>
+            </rich:column>
+            <rich:column sortBy="#{_actividad.nombre}">
+                <f:facet name="header">Nombre</f:facet>
+                <h:outputText value="#{_actividad.nombre}"/>
+            </rich:column>
+            <rich:column sortBy="#{_actividad.tipo}">
+                <f:facet name="header">Tipo</f:facet>
+                <h:outputText value="#{_actividad.tipo}"/>
+            </rich:column>
+            <rich:column sortBy="#{_actividad.url}">
+                <f:facet name="header">Url</f:facet>
+                <h:graphicImage value="#{_actividad.url}"/>
+            </rich:column>
+            <h:column>
+                <f:facet name="header">Action</f:facet>
+                <s:link id="selectactividad"
+                     value="Select"
+                      view="/Actividad.xhtml">
+                    <f:param name="actividadIdActividad"
+                            value="#{_actividad.idActividad}"/>
+                    <f:param name="actividadFrom" value="Puntoturistico"/>
+                </s:link>
+            </h:column>
+        </rich:dataTable>
+
+    </h:form>
+
+    <div class="actionButtons">
+        <s:button
+               value="Add actividad"
+                view="/ActividadEdit.xhtml">
+            <f:param name="puntoturisticoIdPuntoturistico"
+                    value="#{puntoturisticoHome.instance.idPuntoturistico}"/>
+            <f:param name="actividadFrom" value="Puntoturistico"/>
+        </s:button>
+    </div>
+    </rich:tab>
+
+    <rich:tab>
+        <f:facet name="label">
+            <h:panelGroup><h:graphicImage value="/img/manytoone.gif" style="vertical-align: middle; padding-right: 4px;"/>Lugar</h:panelGroup>
+        </f:facet>
+    <div class="association" id="lugarParent">
+
+        <h:outputText value="There is no lugar associated with this puntoturistico."
+                   rendered="#{puntoturisticoHome.instance.lugar == null}"/>
+
+        <rich:dataTable var="_lugar"
+                   value="#{puntoturisticoHome.instance.lugar}"
+                rendered="#{puntoturisticoHome.instance.lugar != null}"
+              rowClasses="rvgRowOne,rvgRowTwo"
+                      id="lugarTable">
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                <h:outputText value="#{_lugar.nombre}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Imagen</f:facet>
+                <h:graphicImage value="#{_lugar.url}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Latitud</f:facet>
+                <h:outputText value="#{_lugar.latitud}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Longitud</f:facet>
+                <h:outputText value="#{_lugar.longitud}"/>
+            </h:column>
+            <h:column styleClass="action">
+                <f:facet name="header">Action</f:facet>
+                <s:link id="viewlugar"
+                     value="View"
+                      view="/Lugar.xhtml">
+                    <f:param name="lugarIdLugar"
+                           value="#{_lugar.idLugar}"/>
+                </s:link>
+            </h:column>
+        </rich:dataTable>
+
+    </div>
+    </rich:tab>
+</rich:tabPanel>
+</ui:define>
+
+</ui:composition>

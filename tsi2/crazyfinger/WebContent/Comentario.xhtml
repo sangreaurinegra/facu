@@ -1,0 +1,142 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <rich:panel>
+        <f:facet name="header">Comentario Details</f:facet>
+
+
+        <s:decorate id="mensaje" template="layout/display.xhtml">
+            <ui:define name="label">Mensaje</ui:define>
+            <h:outputText value="#{comentarioHome.instance.mensaje}"/>
+        </s:decorate>
+
+        <div style="clear:both"/>
+
+    </rich:panel>
+
+    <div class="actionButtons">
+
+        <s:button view="/ComentarioEdit.xhtml"
+                    id="edit"
+                 value="Edit"/>
+
+        <s:button view="/#{empty comentarioFrom ? 'ComentarioList' : comentarioFrom}.xhtml"
+                    id="done"
+                 value="Done"/>
+
+    </div>
+
+    <rich:tabPanel switchType="ajax">
+
+    <rich:tab>
+        <f:facet name="label">
+            <h:panelGroup><h:graphicImage value="/img/manytoone.gif" style="vertical-align: middle; padding-right: 4px;"/>Media</h:panelGroup>
+        </f:facet>
+    <div class="association" id="mediaParent">
+
+        <h:outputText value="There is no media associated with this comentario."
+                   rendered="#{comentarioHome.instance.media == null}"/>
+
+        <rich:dataTable var="_media"
+                   value="#{comentarioHome.instance.media}"
+                rendered="#{comentarioHome.instance.media != null}"
+              rowClasses="rvgRowOne,rvgRowTwo"
+                      id="mediaTable">
+            <h:column>
+                <f:facet name="header">Id media</f:facet>
+                <h:outputText value="#{_media.idMedia}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Datosextras</f:facet>
+                <h:outputText value="#{_media.datosextras}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Lugar id lugar</f:facet>
+                <h:outputText value="#{_media.lugar.idLugar}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Pared id pared</f:facet>
+                <h:outputText value="#{_media.pared.idPared}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Url</f:facet>
+                <h:outputText value="#{_media.url}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Usuario id usuario</f:facet>
+                <h:outputText value="#{_media.usuario.idUsuario}"/>
+            </h:column>
+            <h:column styleClass="action">
+                <f:facet name="header">Action</f:facet>
+                <s:link id="viewmedia"
+                     value="View"
+                      view="/Media.xhtml">
+                    <f:param name="mediaIdMedia"
+                           value="#{_media.idMedia}"/>
+                </s:link>
+            </h:column>
+        </rich:dataTable>
+
+    </div>
+    </rich:tab>
+
+    <rich:tab>
+        <f:facet name="label">
+            <h:panelGroup><h:graphicImage value="/img/manytoone.gif" style="vertical-align: middle; padding-right: 4px;"/>Usuario</h:panelGroup>
+        </f:facet>
+    <div class="association" id="usuarioParent">
+
+        <h:outputText value="There is no usuario associated with this comentario."
+                   rendered="#{comentarioHome.instance.usuario == null}"/>
+
+        <rich:dataTable var="_usuario"
+                   value="#{comentarioHome.instance.usuario}"
+                rendered="#{comentarioHome.instance.usuario != null}"
+              rowClasses="rvgRowOne,rvgRowTwo"
+                      id="usuarioTable">
+            <h:column>
+                <f:facet name="header">Id usuario</f:facet>
+                <h:outputText value="#{_usuario.idUsuario}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                <h:outputText value="#{_usuario.nombre}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Openid</f:facet>
+                <h:outputText value="#{_usuario.openid}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Pared id pared</f:facet>
+                <h:outputText value="#{_usuario.pared.idPared}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Password</f:facet>
+                <h:outputText value="#{_usuario.password}"/>
+            </h:column>
+            <h:column styleClass="action">
+                <f:facet name="header">Action</f:facet>
+                <s:link id="viewusuario"
+                     value="View"
+                      view="/Usuario.xhtml">
+                    <f:param name="usuarioIdUsuario"
+                           value="#{_usuario.idUsuario}"/>
+                </s:link>
+            </h:column>
+        </rich:dataTable>
+
+    </div>
+    </rich:tab>
+</rich:tabPanel>
+</ui:define>
+
+</ui:composition>

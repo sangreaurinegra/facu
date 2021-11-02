@@ -1,0 +1,207 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:a="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <h:form id="estadia" styleClass="edit">
+
+        <rich:panel>
+            <f:facet name="header">#{estadiaHome.managed ? 'Edit' : 'Add'} Estadia</f:facet>
+
+
+
+
+            <s:decorate id="costototalField" template="layout/edit.xhtml">
+                <ui:define name="label">Costototal</ui:define>
+                <h:inputText id="costototal"
+                       required="true"
+                          value="#{estadiaHome.instance.costototal}">
+                    <a:support event="onblur" reRender="costototalField" bypassUpdates="true" ajaxSingle="true"/>
+                </h:inputText>
+            </s:decorate>
+
+
+            <s:decorate id="fechaDesdeField" template="layout/edit.xhtml">
+                <ui:define name="label">Fecha desde</ui:define>
+                <rich:calendar id="fechaDesde"
+                          value="#{estadiaHome.instance.fechaDesde}" datePattern="MM/dd/yyyy" />
+            </s:decorate>
+
+
+            <s:decorate id="fechaHastaField" template="layout/edit.xhtml">
+                <ui:define name="label">Fecha hasta</ui:define>
+                <rich:calendar id="fechaHasta"
+                          value="#{estadiaHome.instance.fechaHasta}" datePattern="MM/dd/yyyy" />
+            </s:decorate>
+
+
+
+            <div style="clear:both">
+                <span class="required">*</span>
+                required fields
+            </div>
+
+        </rich:panel>
+
+        <div class="actionButtons">
+
+            <h:commandButton id="save"
+                          value="Save"
+                         action="#{estadiaHome.persist}"
+                       disabled="#{!estadiaHome.wired}"
+                       rendered="#{!estadiaHome.managed}"/>
+
+            <h:commandButton id="update"
+                          value="Save"
+                         action="#{estadiaHome.update}"
+                       rendered="#{estadiaHome.managed}"/>
+
+            <h:commandButton id="delete"
+                          value="Delete"
+                         action="#{estadiaHome.remove}"
+                      immediate="true"
+                       rendered="#{estadiaHome.managed}"/>
+
+            <s:button id="cancelEdit"
+                   value="Cancel"
+             propagation="end"
+                    view="/Estadia.xhtml"
+                rendered="#{estadiaHome.managed}"/>
+
+            <s:button id="cancelAdd"
+                   value="Cancel"
+             propagation="end"
+                    view="/#{empty estadiaFrom ? 'EstadiaList' : estadiaFrom}.xhtml"
+                rendered="#{!estadiaHome.managed}"/>
+
+        </div>
+    </h:form>
+
+<rich:tabPanel switchType="ajax">
+
+    <rich:tab label="Alojamiento *" labelClass="required">
+    <div class="association" id="alojamientoParent">
+
+        <h:outputText value="There is no alojamiento associated with this estadia."
+                   rendered="#{estadiaHome.instance.alojamiento == null}"/>
+
+        <rich:dataTable var="_alojamiento"
+                   value="#{estadiaHome.instance.alojamiento}"
+                rendered="#{estadiaHome.instance.alojamiento != null}"
+              rowClasses="rvgRowOne,rvgRowTwo"
+                      id="alojamientoTable">
+        </rich:dataTable>
+
+        <div class="actionButtons">
+            <s:button id="#{estadiaHome.instance.alojamiento != null ? 'changeParent' : 'selectParent'}" value="#{estadiaHome.instance.alojamiento != null ? 'Change' : 'Select'} alojamiento"
+                       view="/AlojamientoList.xhtml">
+                <f:param name="from" value="EstadiaEdit"/>
+            </s:button>
+        </div>
+
+    </div>
+    </rich:tab>
+
+    <rich:tab label="Nodos">
+        <h:form styleClass="association" id="nodosChildren">
+
+            <h:outputText value="There are no nodos associated with this estadia."
+                       rendered="#{empty estadiaHome.nodos}"/>
+
+            <rich:dataTable value="#{estadiaHome.nodos}"
+                           var="_nodo"
+                      rendered="#{not empty estadiaHome.nodos}"
+                    rowClasses="rvgRowOne,rvgRowTwo"
+                            id="nodosTable">
+                <rich:column sortBy="#{_nodo.idNodo}">
+                    <f:facet name="header">Id nodo</f:facet>
+                    <h:outputText value="#{_nodo.idNodo}"/>
+                </rich:column>
+                <rich:column sortBy="#{_nodo.estado}">
+                    <f:facet name="header">Estado</f:facet>
+                    <h:outputText value="#{_nodo.estado}"/>
+                </rich:column>
+                <rich:column sortBy="#{_nodo.orden}">
+                    <f:facet name="header">Orden</f:facet>
+                    <h:outputText value="#{_nodo.orden}"/>
+                </rich:column>
+            </rich:dataTable>
+
+        </h:form>
+
+        <f:subview rendered="#{estadiaHome.managed}" id="nodos">
+        <div class="actionButtons">
+            <s:button id="addnodo"
+                   value="Add nodo"
+                    view="/NodoEdit.xhtml"
+             propagation="none">
+                 <f:param name="estadiaIdEstadia"
+                         value="#{estadiaHome.instance.idEstadia}"/>
+                 <f:param name="nodoFrom" value="Estadia"/>
+            </s:button>
+        </div>
+        </f:subview>
+    </rich:tab>
+
+    <rich:tab label="Nodo">
+    <div class="association" id="nodoParent">
+
+        <h:outputText value="There is no nodo associated with this estadia."
+                   rendered="#{estadiaHome.instance.nodo == null}"/>
+
+        <rich:dataTable var="_nodo"
+                   value="#{estadiaHome.instance.nodo}"
+                rendered="#{estadiaHome.instance.nodo != null}"
+              rowClasses="rvgRowOne,rvgRowTwo"
+                      id="nodoTable">
+            <h:column>
+                <f:facet name="header">Id nodo</f:facet>
+                <h:outputText value="#{_nodo.idNodo}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Estadia id estadia</f:facet>
+                <h:outputText value="#{_nodo.estadia.idEstadia}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Estado</f:facet>
+                <h:outputText value="#{_nodo.estado}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Lugar id lugar</f:facet>
+                <h:outputText value="#{_nodo.lugar.idLugar}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Orden</f:facet>
+                <h:outputText value="#{_nodo.orden}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Pasaje llegada id pasaje</f:facet>
+                <h:outputText value="#{_nodo.pasajeLlegada.idPasaje}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Pasaje salida id pasaje</f:facet>
+                <h:outputText value="#{_nodo.pasajeSalida.idPasaje}"/>
+            </h:column>
+        </rich:dataTable>
+
+        <div class="actionButtons">
+            <s:button id="#{estadiaHome.instance.nodo != null ? 'changeParent' : 'selectParent'}" value="#{estadiaHome.instance.nodo != null ? 'Change' : 'Select'} nodo"
+                       view="/NodoList.xhtml">
+                <f:param name="from" value="EstadiaEdit"/>
+            </s:button>
+        </div>
+
+    </div>
+    </rich:tab>
+</rich:tabPanel>
+</ui:define>
+
+</ui:composition>

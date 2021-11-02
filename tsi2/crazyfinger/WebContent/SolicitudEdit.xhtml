@@ -1,0 +1,70 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:a="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <h:form id="solicitud" styleClass="edit">
+
+        <rich:panel>
+            <f:facet name="header">Solicitud de Amistad</f:facet>
+
+
+
+            <s:decorate id="estadoField" template="layout/edit.xhtml">
+                <ui:define name="label">De:</ui:define>
+                <h:outputText id="de"                   
+                          value="#{solicitudHome.instance.usuarioBySolicitante.nombre}"/>
+                
+            </s:decorate>
+            
+            <s:decorate id="aField" template="layout/edit.xhtml">
+                <ui:define name="label">A:</ui:define>
+                <h:outputText id="a"                   
+                          value="#{solicitudHome.instance.usuarioBySolicitado.nombre}"/>
+                
+            </s:decorate>
+
+
+            <s:decorate id="mensajeField" template="layout/edit.xhtml">
+                <ui:define name="label">Mensaje:</ui:define>
+                <h:inputTextarea id="mensaje"
+                               cols="80"
+                               rows="3"
+                              value="#{solicitudHome.instance.mensaje}"/>
+            </s:decorate>
+
+            <div style="clear:both">
+                <span class="required">*</span>
+                required fields
+            </div>
+
+        </rich:panel>
+
+        <div class="actionButtons">
+
+            <h:commandButton id="save"
+                          value="Enviar solicitud"
+                         action="#{solicitudHome.persist}"
+                       disabled="#{!solicitudHome.wired}"
+                       rendered="#{!solicitudHome.managed}"/>
+
+            <s:button id="cancelEdit"
+                   value="Cancel"
+             propagation="end"
+                    view="/Solicitud.xhtml"/>
+
+
+        </div>
+    </h:form>
+
+</ui:define>
+
+</ui:composition>

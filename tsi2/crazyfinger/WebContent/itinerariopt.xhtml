@@ -1,0 +1,159 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:a="http://richfaces.org/a4j"
+    xmlns:c="http://java.sun.com/jstl/core"
+    xmlns:m="http://code.google.com/p/gmaps4jsf/"
+    template="layout/template.xhtml">
+
+<ui:define name="head">
+<script
+
+src="http://maps.google.com/maps?file=api&amp;v=2&amp;
+key=ABQIAAAA1lTT8yp5SNKPsSERj3bwPxTi_QXol2-V8JdxCgsshPh66RHMaBQfkUH3JEPbRa4aSqGVz_f187SGng"
+type="text/javascript">
+
+</script>
+</ui:define>
+
+<ui:define name="body">
+
+	<h:panelGrid columnClasses="panelc" columns="1" width="100%">
+	     
+	    <rich:panel>
+	        <f:facet name="header">Itinerario de Paquete Turistico</f:facet>		
+				<h:form id="ggmapform" >
+					<rich:panel id="gmap">
+	
+						<f:facet name="header">
+							<h:outputText value="Mapa" />
+						</f:facet>
+
+						<m:map id="mapa" jsVariable="map1" width="500px" height="500px"
+							latitude="#{ptEdit.getLatitudCentrar()}"
+							longitude="#{ptEdit.getLongitudCentrar()}">
+							
+							<c:forEach var="n" items="#{ptEdit.nodosOrdenados}">
+								<m:marker latitude="#{n.lugar.latitud}"	longitude="#{n.lugar.longitud}">								 
+								</m:marker>
+							</c:forEach>
+
+							<m:polyline>
+								<c:forEach var="n" items="#{ptEdit.nodosOrdenados}">
+									<m:point latitude="#{n.lugar.latitud}" longitude="#{n.lugar.longitud}" />
+								</c:forEach>
+							</m:polyline>
+
+							<m:mapControl name="GLargeMapControl" position="G_ANCHOR_BOTTOM_RIGHT" />
+							<m:mapControl name="GMapTypeControl"/>  
+						</m:map>
+					</rich:panel>
+				</h:form>
+	
+				<h:form id="ItinerarioForm2">    	
+					<rich:panel styleClass="dropTargetPanel">
+			              <f:facet name="header">
+			                  <h:outputText value="Itinerario del viaje" />
+			              </f:facet>
+			              <a:outputPanel id="panelnodos">	
+				              <h:dataTable id="phptable1" columns="6" value="#{ptEdit.nodosOrdenados}" var="nodo">
+				                  <h:column>
+				                  	<h:graphicImage value="#{nodo.lugar.url}" /><br />
+				                  	<h:outputText value="#{nodo.lugar.getNombre()}"></h:outputText>
+				                  </h:column>
+				                  <h:column>
+				                  	<h:outputText>Llegada:</h:outputText><br />
+				                  	<h:graphicImage value="#{nodo.pasajeLlegada.traslado.urlImagen()}" /><br />
+				                  	<h:outputText value="#{nodo.pasajeLlegada.fecha}"></h:outputText><br />
+				                  	<h:outputText value="#{nodo.pasajeLlegada.traslado.horario}"></h:outputText>
+				                  	
+				                  </h:column>
+				                  <h:column>
+				                  	<h:outputText>Salida:</h:outputText><br />
+				                  	<h:graphicImage value="#{nodo.pasajeSalida.traslado.urlImagen()}"/><br />
+				                  	<h:outputText value="#{nodo.pasajeSalida.fecha}"></h:outputText><br />
+				                  	<h:outputText value="#{nodo.pasajeSalida.traslado.horario}"></h:outputText>
+				                  	
+				                  </h:column>
+				                  <h:column>
+				                  	<h:graphicImage value="#{nodo.estadia.alojamiento.url}" /><br />
+				                  	<h:outputText value="#{nodo.estadia.alojamiento.nombre}"></h:outputText><br />
+				                  	<h:outputText>Costo estadia: U$S &nbsp;&nbsp;</h:outputText>
+				                  	<h:outputText value="#{nodo.estadia.costototal}"></h:outputText>
+				                  </h:column>
+				                  <h:column>
+				                  	<h:outputText>Costo del tramo:</h:outputText><br />
+				                  	<h:outputText value="#{nodo.costoTotalNodo()}"></h:outputText>               	
+				                  </h:column>
+				                  <h:column>
+				                  	
+					                  	<a:commandButton action="#{ptEdit.quitarNodo(nodo.idNodo)}" value="Eliminar" reRender="panelnodos">
+					                  		<a:actionparam name="idNodo" value="#{nodo.idNodo}"/>
+					                  		<a:actionparam name="paqueteturisticoIdPaqueteturistico"
+                         								value="#{paqueteturisticoHome.instance.idPaqueteturistico}"/>
+					                  	</a:commandButton>	         
+										<br />
+										<a href="#" onclick="centrar(#{nodo.lugar.latitud},#{nodo.lugar.longitud},'#{ptEdit.infoNodo(nodo)}')">centrar</a>
+										<br />
+										<a:commandLink
+											oncomplete="centrar(#{nodo.lugar.latitud},#{nodo.lugar.longitud},'#{ptEdit.getStringPronosticos(nodo)}')"
+											value="Pronostico" >
+												<f:param name="paqueteturisticoIdPaqueteturistico"
+                         								value="#{paqueteturisticoHome.instance.idPaqueteturistico}"/>
+										</a:commandLink> 
+				                  	      	
+				                  </h:column>
+				              </h:dataTable>
+						  </a:outputPanel> 
+			          </rich:panel>
+			          
+		              <script type="text/javascript">
+	 
+					    function centrar(lat,lon,html) {
+					      if (GBrowserIsCompatible()) {
+					        
+					        //map1.setCenter(new GLatLng(lat, lon), 13);
+					        //centro = new GLatLng(lat, lon);
+	   				    //    map1.openInfoWindow(new GLatLng(lat, lon),
+						//        document.createTextNode("Lugar : " + nombreLugar ));
+	   				        map1.openInfoWindow(new GLatLng(lat, lon),
+	   				        		html );
+						
+					        map1.panTo(new GLatLng(lat, lon));
+	
+					      }
+					    }
+	
+				    </script>
+				</h:form>
+	        <s:button id="addnodopt"
+                   value="Nuevo tramo"
+                    view="/elegirCiudadpt.xhtml"
+             propagation="none"
+             rendered="#{usuario.nombre == 'admin'}">
+                 <f:param name="paqueteturisticoIdPaqueteturistico"
+                         value="#{paqueteturisticoHome.instance.idPaqueteturistico}"/>
+            </s:button>
+            
+            <s:button id="comprar"
+                   value="Comprar ticket"
+                    view="/compra.xhtml"
+             propagation="none"
+             rendered="#{usuario.nombre != 'admin'}">
+                 <f:param name="paqueteturisticoIdPaqueteturistico"
+                         value="#{paqueteturisticoHome.instance.idPaqueteturistico}"/>
+                 <f:param name="usuarioIdUsuario"
+                         value="#{usuario.idUsuario}"/>
+            </s:button>
+	
+	    </rich:panel>
+    </h:panelGrid>
+
+</ui:define>
+
+</ui:composition>

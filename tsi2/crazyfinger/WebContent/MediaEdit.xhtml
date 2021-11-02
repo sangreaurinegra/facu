@@ -1,0 +1,165 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich" template="layout/template.xhtml">
+
+	<ui:define name="body">
+
+		<h:form id="media" styleClass="edit" enctype="multipart/form-data">
+
+			<rich:panel>
+				<f:facet name="header">#{mediaHome.managed ? 'Edit' : 'Add'} Media</f:facet>
+
+				<s:decorate id="image" template="layout/display.xhtml">
+				<s:graphicImage
+					value="#{mediaHome.instance.image ne null ? mediaHome.instance.image : ''}"
+					alt="" rendered="#{mediaHome.instance.tipomedia == 'FOTO'}"/>
+					<h:outputText escape="false" value="#{mediaHome.instance.url}" rendered="#{mediaHome.instance.tipomedia == 'VIDEO'}"/>
+				</s:decorate>
+
+				<s:decorate id="tipomediaDecor" template="layout/edit.xhtml">
+					<h:selectOneMenu value="#{mediaHome.instance.tipomedia}">
+					<f:selectItem itemLabel="Foto"  itemValue="FOTO" />
+					<f:selectItem itemLabel="Video" itemValue="VIDEO" />
+					</h:selectOneMenu>
+				</s:decorate>
+
+				<s:decorate id="datosextrasField" template="layout/edit.xhtml">
+					<ui:define name="label">Comentario</ui:define>
+					<h:inputTextarea id="datosextras" cols="80" rows="3"
+						value="#{mediaHome.instance.datosextras}" />
+				</s:decorate>
+
+				<s:decorate id="urlField" template="layout/edit.xhtml">
+					<ui:define name="label">Url</ui:define>
+					<h:inputTextarea id="url" cols="80" rows="3"
+						value="#{mediaHome.instance.url}" />
+				</s:decorate>
+
+				<s:decorate id="urlImage" template="layout/edit.xhtml">
+					<s:fileUpload id="image" accept="image/*"
+						data="#{mediaHome.instance.image}"
+						contentType="#{mediaHome.instance.imageContentType}" />
+				</s:decorate>
+
+				<div style="clear: both"></div>
+
+			</rich:panel>
+
+
+
+			<div class="actionButtons"><h:commandButton id="save"
+				value="Save" action="#{mediaHome.persist}"
+				rendered="#{!mediaHome.managed}" /> <h:commandButton id="update"
+				value="Save" action="#{mediaHome.update}"
+				rendered="#{mediaHome.managed}" /> <h:commandButton id="delete"
+				value="Delete" action="#{mediaHome.remove}" immediate="true"
+				rendered="#{mediaHome.managed}" /> <s:button id="cancelEdit"
+				value="Cancel" propagation="end" view="/Media.xhtml"
+				rendered="#{mediaHome.managed}" /> <s:button id="cancelAdd"
+				value="Cancel" propagation="end"
+				view="/#{empty mediaFrom ? 'MediaList' : mediaFrom}.xhtml"
+				rendered="#{!mediaHome.managed}" /></div>
+		</h:form>
+
+		<rich:tabPanel switchType="ajax"  >
+
+			<rich:tab label="Comentarios">
+				<h:form styleClass="association" id="comentariosChildren">
+
+					<h:outputText
+						value="Sin Comentarios"
+						rendered="#{empty mediaHome.comentarios}" />
+	<a:outputPanel id="ajaxComentario">
+					<rich:dataTable  value="#{mediaHome.comentarios}" var="_comentario"
+						rendered="#{not empty mediaHome.comentarios}"
+						rowClasses="rvgRowOne,rvgRowTwo" id="comentariosTable">
+						<rich:column width="100px" sortBy="#{_comentario.mensaje}">
+							
+								<s:graphicImage
+									width="80px" height="60px"
+									value="#{_comentario.usuario.image ne null ? _comentario.usuario.image : '/img/silueta_persona.jpeg'}"
+									alt="" styleClass="picture" />
+						</rich:column>
+						<rich:column sortBy="#{_comentario.mensaje}">
+						<f:facet name="header">Comentarios</f:facet>
+							<h:outputText value="#{_comentario.fechaEnviadoFormato()} #{_comentario.usuario.nombre} comento:" />
+							<br />
+							<h:outputText value="#{_comentario.mensaje}" />
+						</rich:column>
+					</rich:dataTable>
+		</a:outputPanel>
+					<div>
+					<s:decorate id="nuevoComentario" template="layout/edit.xhtml">
+						<ui:define name="label">Comentar</ui:define>
+						<h:inputText id="impComentario" required="true" size="200"
+							value="#{mediaHome.valueComentario}" />
+							<br/>
+							<a:commandButton action="#{mediaHome.agregarComentario()}" value="Enviar Comentario"
+												reRender="ajaxComentario">
+							</a:commandButton>
+					</s:decorate>
+					
+					</div>
+					
+					
+				</h:form>
+
+			</rich:tab>
+
+			<rich:tab label="Lugar">
+				<div class="association" id="lugarParent"><h:outputText
+					value="There is no lugar associated with this media."
+					rendered="#{mediaHome.instance.lugar == null}" /> <rich:dataTable
+					var="_lugar" value="#{mediaHome.instance.lugar}"
+					rendered="#{mediaHome.instance.lugar != null}"
+					rowClasses="rvgRowOne,rvgRowTwo" id="lugarTable">
+					<h:column>
+						<f:facet name="header">Foto Lugar</f:facet>
+						<s:graphicImage	value="#{_lugar.url}" alt="" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Nombre</f:facet>
+						<h:outputText value="#{_lugar.nombre}" />
+					</h:column>
+				</rich:dataTable>
+
+				<div class="actionButtons"><s:button
+					id="#{mediaHome.instance.lugar != null ? 'changeParentLugar' : 'selectParentLugar'}"
+					value="#{mediaHome.instance.lugar != null ? 'Change' : 'Select'} lugar"
+					view="/LugarList.xhtml">
+					<f:param name="from" value="MediaEdit" />
+				</s:button></div>
+
+				</div>
+			</rich:tab>
+
+			<rich:tab label="Pared" rendered="#{mediaHome.instance.pared == null}">
+				<div class="association" id="paredParent"><h:outputText
+					value="There is no pared associated with this media."
+					rendered="#{mediaHome.instance.pared == null}" />
+					
+				<div class="actionButtons">
+			
+				<h:form id="formAgregarPared">
+				
+					<a:commandButton action="#{mediaHome.publicarEnPared()}"
+					 value="Agregar en Pared" rendered="#{mediaHome.instance.pared == null}">
+
+					</a:commandButton>
+				</h:form>
+				
+				</div>
+
+				</div>
+			</rich:tab>
+
+		</rich:tabPanel>
+	</ui:define>
+
+</ui:composition>

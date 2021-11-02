@@ -1,0 +1,105 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:a="http://richfaces.org/a4j"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <rich:panel>
+        <f:facet name="header">Elegir Llegada</f:facet>
+    
+	    <rich:dragIndicator id="indicator" />
+	
+	    <h:form id="form">
+	
+	        <h:panelGrid columnClasses="panelc" columns="4" width="100%">
+	
+	            <rich:panel style="width:433px"> 
+	                <f:facet name="header">
+	                    <h:outputText value="Elija un traslado" />
+	                </f:facet>
+	                <h:dataTable id="src" columns="1" value="#{itinerario.traslados}"
+	                    var="fm" footerClass="footerClass">
+	
+	                    <h:column>
+	                    	
+	                        <a:outputPanel style="width:100px;border:1px solid gray;padding:2px" layout="block">
+	                            <rich:dragSupport dragIndicator=":indicator"
+	                                dragType="maxi" dragValue="#{fm}">
+	                                <rich:dndParam name="label" type="drag" >
+	                                	<h:graphicImage value="#{fm.urlImagen()}" style="width:100px; padding:2px"  />
+	                                	<h:outputText value="#{fm.toString()}"></h:outputText>
+	                                </rich:dndParam>
+	                            </rich:dragSupport>
+	                            <h:graphicImage value="#{fm.urlImagen()}" height="50%" width="50%" />
+	                        </a:outputPanel>
+	                    </h:column>
+	                    <h:column>
+	                    	<f:facet name="header">
+			                    <h:outputText value="Empresa" />
+			                </f:facet>                        
+	                            <h:outputText value="#{fm.empresa}"/> 
+	                    </h:column>
+	                    <h:column>
+	                    	<f:facet name="header">
+			                    <h:outputText value="Desde" />
+			                </f:facet>                        
+	                            <h:outputText value="#{fm.lugarByOrigen.nombre}"/> 
+	                    </h:column>
+	                    <h:column>
+	                    	<f:facet name="header">
+			                    <h:outputText value="Destino" />
+			                </f:facet>                        
+	                            <h:outputText value="#{fm.lugarByDestino.nombre}"/> 
+	                    </h:column>
+	                    <h:column>
+	                    	<f:facet name="header">
+			                    <h:outputText value="Horario" />
+			                </f:facet>                        
+	                            <h:outputText value="#{fm.horario}"/> 
+	                    </h:column>
+	                    <h:column>
+	                    	<f:facet name="header">
+			                    <h:outputText value="Costo U$S" />
+			                </f:facet>                        
+	                            <h:outputText value="#{fm.costo}"/> 
+	                    </h:column>
+
+	                </h:dataTable>
+	            </rich:panel>
+	
+	            <rich:panel styleClass="dropTargetPanel">
+	                <f:facet name="header">
+	                    <h:outputText value="Tramo" />
+	                </f:facet>
+	                <rich:dropSupport id="php" acceptedTypes="maxi" dropValue="Elemento uno"
+	                    dropListener="#{itinerario.accionDropLlegada}" reRender="phptable, src">
+	                </rich:dropSupport>
+	
+	                <h:dataTable id="phptable" columns="2" value="#{itinerario.llegada}" var="fm" style="width:150px;">
+	                    <h:column>
+	                    	<h:graphicImage value="#{fm.urlImagen()}" style="width:100px; padding:2px"/>
+	                    	
+	                    </h:column>
+	                    <h:column>
+	                    	
+	                    	<h:outputText value="#{fm.toString()}"></h:outputText>
+	                    </h:column>
+	                </h:dataTable>
+	            </rich:panel>
+	        </h:panelGrid>
+	
+	    </h:form>
+	    <h:form>
+			<s:button value="Elegir alojamiento" action="accionEstadia"/>
+		</h:form>
+	</rich:panel>
+</ui:define>
+
+</ui:composition>

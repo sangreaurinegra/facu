@@ -1,0 +1,433 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:a="http://richfaces.org/a4j"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <rich:panel style="width:25%; float:left; margin:2px;  height:400px;">
+        <f:facet name="header">Perfil de Usuario</f:facet>
+
+		<s:decorate id="image" template="layout/display.xhtml">
+				<s:graphicImage width="120px" height="80px"
+					value="#{usuario.image ne null ? usuario.image : '/img/silueta_persona.jpeg'}"
+					alt="[profile image]" styleClass="picture"/>
+					
+		</s:decorate>
+
+        <s:decorate id="nombre" template="layout/display.xhtml">
+            <ui:define name="label">Nombre</ui:define>
+            <h:outputText value="#{usuario.nombre}"/>
+        </s:decorate>
+
+        <s:decorate id="openid" template="layout/display.xhtml">
+            <ui:define name="label">Openid</ui:define>
+            <h:outputText value="#{usuario.openid}"/>
+        </s:decorate>
+
+        <s:decorate id="password" template="layout/display.xhtml">
+            <ui:define name="label">Pais</ui:define>
+            <h:outputText value="#{usuario.pais}"/>
+        </s:decorate>
+        
+        <s:decorate id="password1" template="layout/display.xhtml">
+            <ui:define name="label">Ciudad</ui:define>
+            <h:outputText value="#{usuario.ciudad}"/>
+        </s:decorate>
+        
+        <s:decorate id="password2" template="layout/display.xhtml">
+            <ui:define name="label">Fecha Nacimiento</ui:define>
+            <h:outputText value="#{usuario.fechaNacimiento}"/>
+        </s:decorate>
+        
+        <s:decorate id="password3" template="layout/display.xhtml">
+            <ui:define name="label">Sexo</ui:define>
+            <h:outputText value="#{usuario.sexo}"/>
+        </s:decorate>
+        
+        <s:decorate id="password4" template="layout/display.xhtml">
+            <ui:define name="label">Estado Civil</ui:define>
+            <h:outputText value="#{usuario.estadoCivil}"/>
+        </s:decorate>
+        
+        <s:decorate id="password5" template="layout/display.xhtml">
+            
+            <s:link value="Mi Pared" view="/Pared.xhtml" rendered="#{usuario.nombre != 'admin'}" >
+            	<f:param name="paredIdPared" value="#{usuario.pared.idPared}"/>
+            </s:link>
+        </s:decorate>
+
+        <div style="clear:both"/>
+         <div class="actionButtons">
+
+	        <s:button view="/UsuarioEdit.xhtml"
+	                    id="edit"
+	                 value="Editar Perfil">
+	        	<f:param name="usuarioIdUsuario" value="#{usuario.idUsuario}"/>         
+	        </s:button>
+	
+	    </div>
+
+    </rich:panel>
+    <rich:panel style="width:15%; float:left; margin:2px; height:200px;" rendered="#{usuario.nombre != 'admin'}" height="250px">
+        <f:facet name="header">Usuarios</f:facet>
+		<ul style="margin:-5px;">
+			<li>
+				<s:link value="Buscar Gente" view="/buscarGente.xhtml" propagation="none">	
+		        </s:link>
+		    </li>
+		    <li>	        
+		        <s:link value="Mis Amigos" view="/amigos.xhtml" propagation="none">
+		            <f:param name="idUsuario" value="#{usuario.idUsuario}"/>
+		        </s:link>
+		    </li>
+		    <li>    
+		        <s:link view="/SolicitudList.xhtml"
+		           	value="Ver Solicitudes de amistad"
+		           	
+					includePageParams="false"
+		     		propagation="none"/>
+		     </li>
+		</ul>
+    </rich:panel>
+   
+   <rich:panel style="width:25%; float:left; margin:2px; height:200px;" rendered="#{usuario.nombre != 'admin'}" >
+        <f:facet name="header">
+            <h:panelGroup>Mensajes Recibidos(<h:outputText value="#{mailList.cantMensajesSinLeer(usuario.idUsuario)}" 
+            						style="font-weight:bold;"  />)</h:panelGroup>
+        </f:facet>
+	    <h:form styleClass="association" id="mailsForDestinatarioChildren">
+	
+	        <h:outputText value="No hay mails enviados al usuario."
+	                   rendered="#{empty mailList.recibidos}"/>
+	
+	        <rich:dataTable  value="#{mailList.recibidos}"
+	                       var="_mail"
+	                  rendered="#{not empty mailList.recibidos}"
+	                rowClasses="rvgRowOne,rvgRowTwo"
+	                        id="mailsForDestinatarioTable">
+	            <rich:column sortBy="#{_mail.fechaEnviado}">
+	                <f:facet name="header">Fecha</f:facet>
+	                <h:outputText value="#{_mail.fechaEnviado}" rendered="#{_mail.estado == 2}"/>
+	                <h:outputText value="#{_mail.fechaEnviado}" style="font-weight:bold;" rendered="#{_mail.estado == 1}"/>
+	            </rich:column>
+	            <rich:column sortBy="#{_mail.usuarioByRemitente.nombre}">
+	                <f:facet name="header">De</f:facet>
+	                <h:outputText value="#{_mail.usuarioByRemitente.nombre}" rendered="#{_mail.estado == 2}"/>
+	                <h:outputText value="#{_mail.usuarioByRemitente.nombre}" style="font-weight:bold;" rendered="#{_mail.estado == 1}"/>
+	            </rich:column>
+	            <rich:column sortBy="#{_mail.mensaje}">
+	                <f:facet name="header">Mensaje</f:facet>
+	                <h:outputText value="#{_mail.mensaje.substring(0, 10)}..." rendered="#{_mail.estado == 2}"/>
+	                <h:outputText value="#{_mail.mensaje.substring(0, 10)}..." style="font-weight:bold;" rendered="#{_mail.estado == 1}"/>
+	            </rich:column>
+	            <h:column>
+	                <f:facet name="header">Accion</f:facet>
+	                <s:link id="selectmail"
+	                     value="Ver"
+	                      view="/Mail.xhtml">
+	                    <f:param name="mailIdMail"
+	                            value="#{_mail.idMail}"/>
+	                    <f:param name="mailFrom" value="Usuario"/>
+	                </s:link>
+	            </h:column>
+	        </rich:dataTable>
+	
+	    </h:form>
+    </rich:panel>
+    
+    <rich:panel style="width:25%; float:left; margin:2px; height:200px;" rendered="#{usuario.nombre != 'admin'}">
+        <f:facet name="header">
+            Mensajes enviados
+        </f:facet>
+	    <h:form styleClass="association" id="mailsForRemitenteChildren">
+			
+		        <h:outputText value="El usuario no ha enviado mensajes."
+	                   rendered="#{empty mailList.enviados}"/>
+			<a:region id="mailsEnviados">
+		        <rich:dataTable value="#{mailList.enviados}"
+		                       var="_mail"
+		                  rendered="#{not empty mailList.enviados}"
+		                rowClasses="rvgRowOne,rvgRowTwo"
+		                        id="mailsForRemitenteTable">
+		            <rich:column sortBy="#{_mail.fechaEnviado}">
+		                <f:facet name="header">Fecha</f:facet>
+		                <h:outputText value="#{_mail.fechaEnviado}" />
+		                
+		            </rich:column>
+		            <rich:column sortBy="#{_mail.usuarioByRemitente.nombre}">
+		                <f:facet name="header">De</f:facet>
+		                <h:outputText value="#{_mail.usuarioByRemitente.nombre}" />
+		                
+		            </rich:column>
+		            <rich:column sortBy="#{_mail.mensaje}">
+		                <f:facet name="header">Mensaje</f:facet>
+		                <h:outputText value="#{_mail.mensaje.substring(0, 10)}..." />
+		                
+		            </rich:column>
+		            <h:column>
+		                <f:facet name="header">Accion</f:facet>
+		                <s:link id="selectmailRemitente"
+		                     value="Ver"
+		                      view="/Mail.xhtml">
+		                    <f:param name="mailIdMail"
+		                            value="#{_mail.idMail}"/>
+		                    <f:param name="mailFrom" value="Usuario"/>
+		                </s:link>
+		                #{'      '}
+		                <a:commandLink id="eliminarmailRemitente"
+		                     action="#{mailHome.eliminar(_mail.idMail)}" reRender="mailsEnviados"
+		                     >
+							<h:graphicImage value="/img/false.png" />
+		                </a:commandLink>
+		            </h:column>
+		        </rich:dataTable>
+			</a:region>
+	    </h:form>
+	    <div class="actionButtons">
+	        <s:button
+	               value="Enviar Mail"
+	                view="/amigos.xhtml">
+	        </s:button>
+	    </div>
+    </rich:panel>
+    
+    <rich:panel style="width:25%; float:left; margin:2px; height:200px;" rendered="#{usuario.nombre != 'admin'}">
+        <f:facet name="header">
+            <h:panelGroup>Mis Proyectos de viaje</h:panelGroup>
+        </f:facet>
+	    <h:form styleClass="association" id="proyectoviajesChildren">
+
+	        <h:outputText value="El usuario no tiene proyectos."
+	                   rendered="#{empty usuarioHome.proyectosDeUsuario(usuario.idUsuario)}"/>
+	
+	        <rich:dataTable value="#{usuarioHome.proyectosDeUsuario(usuario.idUsuario)}"
+	                       var="_proyectoviaje"
+	                  rendered="#{not empty usuarioHome.proyectosDeUsuario(usuario.idUsuario)}"
+	                rowClasses="rvgRowOne,rvgRowTwo"
+	                        id="proyectoviajesTable">
+	            <rich:column sortBy="#{_proyectoviaje.descripcion}">
+	                <f:facet name="header">Descripcion</f:facet>
+	                <h:outputText value="#{_proyectoviaje.descripcion}"/>
+	            </rich:column>
+	            <h:column>
+	                <f:facet name="header">Action</f:facet>
+	                <s:link id="selectproyectoviaje"
+	                     value="Ver"
+	                      view="/ProyectoviajeEdit.xhtml">
+	                    <f:param name="proyectoviajeIdProyectoviaje"
+	                            value="#{_proyectoviaje.idProyectoviaje}"/>
+	                    <f:param name="proyectoviajeFrom" value="Usuario"/>
+	                </s:link>
+	            </h:column>
+	        </rich:dataTable>
+	
+	    </h:form>
+
+	    <div class="actionButtons">
+	        <s:button
+	               value="Crear proyecto"
+	                view="/ProyectoviajeEdit.xhtml">
+	        </s:button>
+	    </div>
+    </rich:panel>
+    
+    <rich:panel style="width:25%; float:left; margin:2px; height:200px;" rendered="#{usuario.nombre != 'admin'}">
+        <f:facet name="header">
+            <h:panelGroup>
+            	<h:outputText style="font-weight:bold; color:blue;" value="Invitaciones a proyectos" rendered="#{invitacionProyectoList.invitacionesPendientes.size() > 0}" />
+            	<h:outputText value="Invitaciones a proyectos" rendered="#{invitacionProyectoList.invitacionesPendientes.size() == 0}" />
+            </h:panelGroup>
+        </f:facet>
+	    
+	    <h:form styleClass="association" id="comentariosChildren">
+			<a:outputPanel id="loco">
+	        	<h:outputText value="El usuario no ha sido invitado a proyectos."
+	                   rendered="#{empty invitacionProyectoList.invitacionesPendientes}"/>
+			
+		        <rich:dataTable value="#{invitacionProyectoList.invitacionesPendientes}"
+		                       var="_invitacion"
+		                  rendered="#{not empty invitacionProyectoList.invitacionesPendientes}"
+		                rowClasses="rvgRowOne,rvgRowTwo"
+		                        id="comentariosTable">
+		            <rich:column sortBy="#{_invitacion.fecha}">
+		                <f:facet name="header">Fecha</f:facet>
+		                <h:outputText value="#{_invitacion.fecha}"/>
+		            </rich:column>
+		            <rich:column sortBy="#{_invitacion.usuarioOwner.nombre}">
+		                <f:facet name="header">De parte de</f:facet>
+		                <h:outputText value="#{_invitacion.usuarioOwner.nombre}"/>
+		            </rich:column>
+		            <h:column>
+		                <f:facet name="header">Accion</f:facet>
+		                
+				            <a:commandButton action="#{invitacionProyectoHome.aceptarInvitacion(_invitacion.idInvitacionProyecto)}" value="Aceptar" reRender="loco">
+
+				            </a:commandButton>
+			            
+			            #{' '}
+			            
+				            <a:commandButton action="#{invitacionProyectoHome.declinarInvitacion(_invitacion.idInvitacionProyecto)}" value="Declinar" reRender="loco">
+
+				            </a:commandButton>
+			            
+		                <s:link id="selectcomentario"
+		                     value="Aceptar"
+		                      view="/Comentario.xhtml">
+		                    <f:param name="invitacionProyectoIdInvitacionProyecto"
+		                            value="#{_invitacion.idInvitacionProyecto}"/>
+		                    <f:param name="comentarioFrom" value="Usuario"/>
+		                </s:link>
+		            </h:column>
+		        </rich:dataTable>
+			</a:outputPanel>
+	    </h:form>
+		
+    </rich:panel>
+
+	<rich:panel style="width:25%; float:left; margin:2px;" rendered="#{usuario.nombre != 'admin'}">
+        <f:facet name="header">
+            <h:panelGroup>
+            	Paredes de mis amigos
+            </h:panelGroup>
+        </f:facet>
+    	<h:form styleClass="association" id="paredesamigos">
+
+	        <h:outputText value="Nada para ver."
+	                   rendered="#{empty paredHome.getMediasAmigos(usuario.idUsuario)}"/>
+	
+	        <rich:dataTable value="#{paredHome.getMediasAmigos(usuario.idUsuario)}"
+	                       var="_mediasamigos"
+	                  rendered="#{not empty paredHome.getMediasAmigos(usuario.idUsuario)}"
+	                rowClasses="rvgRowOne,rvgRowTwo"
+	                        id="mediasamigosTable">
+	            <rich:column >
+	               <div style="width:90%; float:left;   height:70px;"> 
+	               
+	               <s:link  view="/Pared.xhtml" propagation="none"> 
+	               
+	               <s:graphicImage  width="80px" height="60px"
+					value="#{_mediasamigos.image ne null ? _mediasamigos.image : ''}"
+					alt="" rendered="#{_mediasamigos.tipomedia == 'FOTO'}"/>
+					
+					<s:graphicImage value="/img/icono_play_video.PNG" rendered="#{_mediasamigos.tipomedia == 'VIDEO'}"/>
+	           		
+	           		<f:param  width="70px" height="70px" name="paredIdPared" value="#{_mediasamigos.usuario.pared.idPared}"/>
+	           		
+	           		</s:link>
+	           		</div>
+	           		
+	            </rich:column>
+	            <h:column>
+	           
+	              <a:outputPanel id="ajaxComentario">
+					<rich:dataTable  value="#{_mediasamigos.comentarios}" var="_comentario"
+						rendered="#{not empty _mediasamigos.comentarios}"
+						rowClasses="rvgRowOne,rvgRowTwo" id="comentariosTable">
+						<rich:column width="100px" sortBy="#{_comentario.mensaje}">
+							
+						<s:graphicImage
+									width="60px" height="40px"
+									value="#{_comentario.usuario.image ne null ? _comentario.usuario.image : '/img/silueta_persona.jpeg'}"
+									alt="" styleClass="picture" />
+						</rich:column>
+						<rich:column >
+						
+							<h:outputText value="#{_comentario.fechaEnviadoFormato()} #{_comentario.usuario.nombre} comento:" />
+							<br />
+							<h:outputText value="#{_comentario.mensaje}" />
+						</rich:column>
+					</rich:dataTable>
+				</a:outputPanel>
+	            </h:column>
+	        </rich:dataTable>
+	
+	    </h:form>
+	    
+    </rich:panel>
+		
+    
+    
+    <rich:panel style="width:25%; float:left; margin:2px; height:200px;" rendered="#{usuario.nombre != 'admin'}">
+        <f:facet name="header">
+            <h:panelGroup>
+            	Proyectos de mis amigos
+            </h:panelGroup>
+        </f:facet>
+        <h:form styleClass="association" id="proyectoviajesamigos">
+
+	        <h:outputText value="No te han invitado a ningun proyecto."
+	                   rendered="#{empty proyectoviajeList.proyectosDeAmigos(usuario.idUsuario)}"/>
+	
+	        <rich:dataTable value="#{proyectoviajeList.proyectosDeAmigos(usuario.idUsuario)}"
+	                       var="_ipv"
+	                  rendered="#{not empty proyectoviajeList.proyectosDeAmigos(usuario.idUsuario)}"
+	                rowClasses="rvgRowOne,rvgRowTwo"
+	                        id="proyectoviajesamigosTable">
+	            <rich:column sortBy="#{_ipv.proyecto.descripcion}">
+	                <f:facet name="header">Descripcion</f:facet>
+	                <h:outputText value="#{_ipv.proyecto.descripcion}"/>
+	            </rich:column>
+	            <h:column>
+	                <f:facet name="header">Action</f:facet>
+	                <s:link id="verproyectoviaje"
+	                     value="Ver"
+	                      view="/Proyectoviaje.xhtml">
+	                    <f:param name="proyectoviajeIdProyectoviaje"
+	                            value="#{_ipv.proyecto.idProyectoviaje}"/>
+	                    <f:param name="proyectoviajeFrom" value="Usuario"/>
+	                </s:link>
+	            </h:column>
+	        </rich:dataTable>
+	
+	    </h:form>
+	    
+    </rich:panel>
+    
+        <rich:panel style="width:25%; float:left; margin:2px; height:200px;" rendered="#{usuario.nombre != 'admin'}">
+        <f:facet name="header">
+            <h:panelGroup>
+            	Mis paquetes comprados
+            </h:panelGroup>
+        </f:facet>
+        <h:form styleClass="association" id="paquetescomprados">
+
+	        <h:outputText value="No tienes paquetes turisticos comprados."
+	                   rendered="#{empty compraList.listaCompras(usuario.nombre)}"/>
+	
+	        <rich:dataTable value="#{compraList.listaCompras(usuario.nombre)}"
+	                       var="_compra"
+	                  rendered="#{not empty compraList.listaCompras(usuario.nombre)}"
+	                rowClasses="rvgRowOne,rvgRowTwo"
+	                        id="paquetesCompradosTable">
+	            <rich:column sortBy="#{_compra.paqueteTuristico.nombre}">
+	                <f:facet name="header">Nombre</f:facet>
+	                <h:outputText value="#{_compra.paqueteTuristico.nombre}"/>
+	            </rich:column>
+	            <h:column>
+	                <f:facet name="header">Action</f:facet>
+	                <s:link id="verpaqueteturistico"
+	                     value="Ver"
+	                      view="/Paqueteturistico.xhtml">
+	                    <f:param name="paqueteturisticoIdPaqueteturistico"
+	                            value="#{_compra.paqueteTuristico.idPaqueteturistico}"/>
+	                    <f:param name="paqueteturisticoFrom" value="Usuario"/>
+	                </s:link>
+	            </h:column>
+	        </rich:dataTable>
+	
+	    </h:form>
+	    
+    </rich:panel>
+    
+    
+	<rich:tabPanel></rich:tabPanel>
+</ui:define>
+
+</ui:composition>

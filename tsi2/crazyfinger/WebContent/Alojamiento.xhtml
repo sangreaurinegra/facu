@@ -1,0 +1,95 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <rich:panel>
+        <f:facet name="header">Alojamiento Details</f:facet>
+
+        <div style="clear:both"/>
+
+    </rich:panel>
+
+    <div class="actionButtons">
+
+        <s:button view="/AlojamientoEdit.xhtml"
+                    id="edit"
+                 value="Edit"/>
+
+        <s:button view="/#{empty alojamientoFrom ? 'AlojamientoList' : alojamientoFrom}.xhtml"
+                    id="done"
+                 value="Done"/>
+
+    </div>
+
+    <rich:tabPanel switchType="ajax">
+
+    <rich:tab>
+        <f:facet name="label">
+            <h:panelGroup><h:graphicImage value="/img/onetomany.gif" style="vertical-align: middle; padding-right: 4px;"/>Estadias</h:panelGroup>
+        </f:facet>
+    <h:form styleClass="association" id="estadiasChildren">
+
+        <h:outputText value="There are no estadias associated with this alojamiento."
+                   rendered="#{empty alojamientoHome.estadias}"/>
+
+        <rich:dataTable value="#{alojamientoHome.estadias}"
+                       var="_estadia"
+                  rendered="#{not empty alojamientoHome.estadias}"
+                rowClasses="rvgRowOne,rvgRowTwo"
+                        id="estadiasTable">
+            <rich:column sortBy="#{_estadia.idEstadia}">
+                <f:facet name="header">Id estadia</f:facet>
+                <h:outputText value="#{_estadia.idEstadia}"/>
+            </rich:column>
+            <rich:column sortBy="#{_estadia.costototal}">
+                <f:facet name="header">Costototal</f:facet>
+                <h:outputText value="#{_estadia.costototal}"/>
+            </rich:column>
+            <rich:column sortBy="#{_estadia.fechaDesde}">
+                <f:facet name="header">Fecha desde</f:facet>
+                <h:outputText value="#{_estadia.fechaDesde}">
+                    <s:convertDateTime type="date" dateStyle="short"/>
+                </h:outputText>
+            </rich:column>
+            <rich:column sortBy="#{_estadia.fechaHasta}">
+                <f:facet name="header">Fecha hasta</f:facet>
+                <h:outputText value="#{_estadia.fechaHasta}">
+                    <s:convertDateTime type="date" dateStyle="short"/>
+                </h:outputText>
+            </rich:column>
+            <h:column>
+                <f:facet name="header">Action</f:facet>
+                <s:link id="selectestadia"
+                     value="Select"
+                      view="/Estadia.xhtml">
+                    <f:param name="estadiaIdEstadia"
+                            value="#{_estadia.idEstadia}"/>
+                    <f:param name="estadiaFrom" value="Alojamiento"/>
+                </s:link>
+            </h:column>
+        </rich:dataTable>
+
+    </h:form>
+
+    <div class="actionButtons">
+        <s:button
+               value="Add estadia"
+                view="/EstadiaEdit.xhtml">
+            <f:param name="alojamientoIdServicio"
+                    value="#{alojamientoHome.instance.idServicio}"/>
+            <f:param name="estadiaFrom" value="Alojamiento"/>
+        </s:button>
+    </div>
+    </rich:tab>
+</rich:tabPanel>
+</ui:define>
+
+</ui:composition>

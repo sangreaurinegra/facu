@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="http://jboss.com/products/seam/pages"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://jboss.com/products/seam/pages http://jboss.com/products/seam/pages-2.2.xsd">
+
+   <param name="firstResult" value="#{mediaList.firstResult}"/>
+   <param name="sort" value="#{mediaList.orderColumn}"/>
+   <param name="dir" value="#{mediaList.orderDirection}"/>
+   <param name="logic" value="#{mediaList.restrictionLogicOperator}"/>
+
+   <param name="from"/>
+   <param name="datosextras" value="#{mediaList.media.datosextras}"/>
+   <param name="url" value="#{mediaList.media.url}"/>
+
+</page>

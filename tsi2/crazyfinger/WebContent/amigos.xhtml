@@ -1,0 +1,70 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:a="http://richfaces.org/a4j"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+		<h:form id="mandarMensaje">
+		<rich:panel>
+            <f:facet name="header">Mensaje</f:facet>
+
+            <s:decorate id="valueField" template="layout/edit.xhtml">
+                <ui:define name="label">Mensaje a enviar</ui:define>
+                <h:inputText id="value" required="true" size="50"
+                             value="#{BuscarGente.value}"/>
+            </s:decorate>
+
+            <div style="clear:both"/>
+
+        </rich:panel>
+		<div class="actionButtons">
+        	
+        		<a:commandButton id="limpiarajax" value="Borrar"
+                    action="#{BuscarGente.limpiarMensaje}" reRender="value">
+						
+				</a:commandButton>
+			
+        </div>
+		       
+        <rich:panel style="width:533px">
+			<f:facet name="header">
+				<h:outputText value="Amigos" />
+			</f:facet>
+			<a:outputPanel id="loco">
+				<h:messages id="mensajeEnviado" globalOnly="true" styleClass="message"
+				          errorClass="errormsg" infoClass="infomsg" warnClass="warnmsg"
+				          rendered="#{showGlobalMessages != 'false'}"/>
+				<h:dataTable id="src" columns="3" value="#{BuscarGente.amigos}"	var="fm" >
+	
+					<h:column >
+						
+						<h:graphicImage value="img/silueta_persona.jpeg" />
+								
+					</h:column>
+					<h:column >
+						
+						<h:outputText value="#{fm.usuarioBySolicitado.nombre}"></h:outputText>
+								
+					</h:column>
+					<h:column >
+						
+							
+							<a:commandButton action="#{BuscarGente.enviarMensaje(fm.usuarioBySolicitado.idUsuario)}" value="Enviar Mensaje"
+												reRender="loco">
+								<a:actionparam name="idUsuario" value="#{fm.usuarioBySolicitado.idUsuario}" />
+							</a:commandButton>
+						
+					</h:column>
+				</h:dataTable>
+			</a:outputPanel>
+		</rich:panel>
+		</h:form>
+</ui:define>
+
+</ui:composition>

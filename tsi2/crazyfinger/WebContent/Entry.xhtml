@@ -1,0 +1,74 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <rich:panel>
+        <f:facet name="header">Entry Details</f:facet>
+
+
+        <s:decorate id="author" template="layout/display.xhtml">
+            <ui:define name="label">Author</ui:define>
+            <h:outputText value="#{entryHome.instance.author}"/>
+        </s:decorate>
+
+        <s:decorate id="link" template="layout/display.xhtml">
+            <ui:define name="label">Link</ui:define>
+            <h:outputText value="#{entryHome.instance.link}"/>
+        </s:decorate>
+
+        <s:decorate id="published" template="layout/display.xhtml">
+            <ui:define name="label">Published</ui:define>
+            <h:outputText value="#{entryHome.instance.published}">
+                <s:convertDateTime type="date" dateStyle="short"/>
+            </h:outputText>
+        </s:decorate>
+
+        <s:decorate id="summary" template="layout/display.xhtml">
+            <ui:define name="label">Summary</ui:define>
+            <h:outputText value="#{entryHome.instance.summary}"/>
+        </s:decorate>
+
+        <s:decorate id="title" template="layout/display.xhtml">
+            <ui:define name="label">Title</ui:define>
+            <h:outputText value="#{entryHome.instance.title}"/>
+        </s:decorate>
+
+        <s:decorate id="uid" template="layout/display.xhtml">
+            <ui:define name="label">Uid</ui:define>
+            <h:outputText value="#{entryHome.instance.uid}"/>
+        </s:decorate>
+
+        <s:decorate id="updated" template="layout/display.xhtml">
+            <ui:define name="label">Updated</ui:define>
+            <h:outputText value="#{entryHome.instance.updated}">
+                <s:convertDateTime type="date" dateStyle="short"/>
+            </h:outputText>
+        </s:decorate>
+
+        <div style="clear:both"/>
+
+    </rich:panel>
+
+    <div class="actionButtons">
+
+        <s:button view="/EntryEdit.xhtml"
+                    id="edit"
+                 value="Edit"/>
+
+        <s:button view="/#{empty entryFrom ? 'EntryList' : entryFrom}.xhtml"
+                    id="done"
+                 value="Done"/>
+
+    </div>
+
+</ui:define>
+
+</ui:composition>

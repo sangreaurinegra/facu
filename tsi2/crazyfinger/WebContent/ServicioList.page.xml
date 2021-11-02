@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="http://jboss.com/products/seam/pages"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://jboss.com/products/seam/pages http://jboss.com/products/seam/pages-2.2.xsd">
+
+   <param name="firstResult" value="#{servicioList.firstResult}"/>
+   <param name="sort" value="#{servicioList.orderColumn}"/>
+   <param name="dir" value="#{servicioList.orderDirection}"/>
+   <param name="logic" value="#{servicioList.restrictionLogicOperator}"/>
+
+   <param name="from"/>
+   <param name="nombre" value="#{servicioList.servicio.nombre}"/>
+   <param name="tipo" value="#{servicioList.servicio.tipo}"/>
+   <param name="url" value="#{servicioList.servicio.url}"/>
+
+</page>

@@ -1,0 +1,69 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <h:form id="noticiasForm">
+
+        <rich:panel>
+            <f:facet name="header">noticias</f:facet>
+
+            <s:decorate id="nameField" template="layout/edit.xhtml">
+                <ui:define name="label">Id</ui:define>
+                <h:inputText id="idnoticia" required="true"
+                             value="#{noticiasHome.instance.id}"/>
+                             
+                <ui:define name="label">Version</ui:define>
+                <h:inputText id="versionnoticia" required="true"
+                             value="#{noticiasHome.instance.version}"/>
+                         
+                <ui:define name="label">Titulo</ui:define>
+                <h:inputText id="titulonoticia" required="true"
+                             value="#{noticiasHome.instance.titulo}"/>
+                             
+                <ui:define name="label">Sub Titulo</ui:define>
+                <h:inputText id="subtitulonoticia" required="true"
+                             value="#{noticiasHome.instance.subtitulo}"/>
+                             
+                 <ui:define name="label">Descripcion</ui:define>
+                <h:inputText id="descripcionnoticia" required="true"
+                             value="#{noticiasHome.instance.descripcion}"/>            
+    
+            </s:decorate>
+
+            <div style="clear:both"/>
+
+        </rich:panel>
+
+        <div class="actionButtons">
+            <h:commandButton id="save"
+                          value="Save"
+                         action="#{noticiasHome.persist}"
+                       rendered="#{!noticiasHome.managed}"/>
+            <h:commandButton id="update"
+                          value="Save"
+                         action="#{noticiasHome.update}"
+                       rendered="#{noticiasHome.managed}"/>
+            <h:commandButton id="delete"
+                          value="Delete"
+                         action="#{noticiasHome.remove}"
+                      immediate="true"
+                       rendered="#{noticiasHome.managed}"/>
+            <s:button propagation="end"
+                               id="cancel"
+                            value="Cancel"
+                             view="/noticiasList.xhtml"/>
+        </div>
+
+    </h:form>
+
+</ui:define>
+
+</ui:composition>

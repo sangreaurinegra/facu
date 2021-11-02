@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="http://jboss.com/products/seam/pages"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://jboss.com/products/seam/pages http://jboss.com/products/seam/pages-2.2.xsd"
+      no-conversation-view-id="/ComentarioList.xhtml"
+      login-required="true">
+
+   <begin-conversation join="true" flush-mode="MANUAL"/>
+
+   <action execute="#{comentarioHome.wire}"/>
+
+   <param name="comentarioFrom"/>
+   <param name="comentarioIdComentario" value="#{comentarioHome.comentarioIdComentario}"/>
+   <param name="mediaFrom"/>
+   <param name="mediaIdMedia" value="#{mediaHome.mediaIdMedia}"/>
+   <param name="lugarFrom"/>
+   <param name="lugarIdLugar" value="#{lugarHome.lugarIdLugar}"/>
+
+   <param name="paredFrom"/>
+   <param name="paredIdPared" value="#{paredHome.paredIdPared}"/>
+   <param name="usuarioFrom"/>
+   <param name="usuarioIdUsuario" value="#{usuarioHome.usuarioIdUsuario}"/>
+
+
+
+
+
+   <navigation from-action="#{comentarioHome.persist}">
+      <rule if-outcome="persisted">
+         <end-conversation/>
+         <redirect view-id="/Comentario.xhtml"/>
+      </rule>
+   </navigation>
+
+   <navigation from-action="#{comentarioHome.update}">
+      <rule if-outcome="updated">
+         <end-conversation/>
+         <redirect view-id="/Comentario.xhtml"/>
+      </rule>
+   </navigation>
+
+   <navigation from-action="#{comentarioHome.remove}">
+      <rule if-outcome="removed">
+         <end-conversation/>
+         <redirect view-id="/ComentarioList.xhtml"/>
+      </rule>
+   </navigation>
+
+</page>

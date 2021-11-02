@@ -1,0 +1,239 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <rich:panel>
+        <f:facet name="header">Traslado Details</f:facet>
+
+
+        <s:decorate id="costo" template="layout/display.xhtml">
+            <ui:define name="label">Costo</ui:define>
+            <h:outputText value="#{trasladoHome.instance.costo}"/>
+        </s:decorate>
+
+        <s:decorate id="empresa" template="layout/display.xhtml">
+            <ui:define name="label">Empresa</ui:define>
+            <h:outputText value="#{trasladoHome.instance.empresa}"/>
+        </s:decorate>
+
+        <s:decorate id="horario" template="layout/display.xhtml">
+            <ui:define name="label">Horario</ui:define>
+            <h:outputText value="#{trasladoHome.instance.horario}"/>
+        </s:decorate>
+
+        <div style="clear:both"/>
+
+    </rich:panel>
+
+    <div class="actionButtons">
+
+        <s:button view="/TrasladoEdit.xhtml"
+                    id="edit"
+                 value="Edit"/>
+
+        <s:button view="/#{empty trasladoFrom ? 'TrasladoList' : trasladoFrom}.xhtml"
+                    id="done"
+                 value="Done"/>
+
+    </div>
+
+    <rich:tabPanel switchType="ajax">
+
+    <rich:tab>
+        <f:facet name="label">
+            <h:panelGroup><h:graphicImage value="/img/manytoone.gif" style="vertical-align: middle; padding-right: 4px;"/>Lugar by destino</h:panelGroup>
+        </f:facet>
+    <div class="association" id="lugarByDestinoParent">
+
+        <h:outputText value="There is no lugarByDestino associated with this traslado."
+                   rendered="#{trasladoHome.instance.lugarByDestino == null}"/>
+
+        <rich:dataTable var="_lugar"
+                   value="#{trasladoHome.instance.lugarByDestino}"
+                rendered="#{trasladoHome.instance.lugarByDestino != null}"
+              rowClasses="rvgRowOne,rvgRowTwo"
+                      id="lugarByDestinoTable">
+            <h:column>
+                <f:facet name="header">Id lugar</f:facet>
+                <h:outputText value="#{_lugar.idLugar}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Latitud</f:facet>
+                <h:outputText value="#{_lugar.latitud}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Longitud</f:facet>
+                <h:outputText value="#{_lugar.longitud}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                <h:outputText value="#{_lugar.nombre}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Url</f:facet>
+                <h:outputText value="#{_lugar.url}"/>
+            </h:column>
+            <h:column styleClass="action">
+                <f:facet name="header">Action</f:facet>
+                <s:link id="viewlugar"
+                     value="View"
+                      view="/Lugar.xhtml">
+                    <f:param name="lugarIdLugar"
+                           value="#{_lugar.idLugar}"/>
+                </s:link>
+            </h:column>
+        </rich:dataTable>
+
+    </div>
+    </rich:tab>
+
+    <rich:tab>
+        <f:facet name="label">
+            <h:panelGroup><h:graphicImage value="/img/manytoone.gif" style="vertical-align: middle; padding-right: 4px;"/>Lugar by origen</h:panelGroup>
+        </f:facet>
+    <div class="association" id="lugarByOrigenParent">
+
+        <h:outputText value="There is no lugarByOrigen associated with this traslado."
+                   rendered="#{trasladoHome.instance.lugarByOrigen == null}"/>
+
+        <rich:dataTable var="_lugar"
+                   value="#{trasladoHome.instance.lugarByOrigen}"
+                rendered="#{trasladoHome.instance.lugarByOrigen != null}"
+              rowClasses="rvgRowOne,rvgRowTwo"
+                      id="lugarByOrigenTable">
+            <h:column>
+                <f:facet name="header">Id lugar</f:facet>
+                <h:outputText value="#{_lugar.idLugar}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Latitud</f:facet>
+                <h:outputText value="#{_lugar.latitud}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Longitud</f:facet>
+                <h:outputText value="#{_lugar.longitud}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                <h:outputText value="#{_lugar.nombre}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Url</f:facet>
+                <h:outputText value="#{_lugar.url}"/>
+            </h:column>
+            <h:column styleClass="action">
+                <f:facet name="header">Action</f:facet>
+                <s:link id="viewlugar"
+                     value="View"
+                      view="/Lugar.xhtml">
+                    <f:param name="lugarIdLugar"
+                           value="#{_lugar.idLugar}"/>
+                </s:link>
+            </h:column>
+        </rich:dataTable>
+
+    </div>
+    </rich:tab>
+
+    <!-- rich:tab>
+        <f:facet name="label">
+            <h:panelGroup><h:graphicImage value="/img/onetomany.gif" style="vertical-align: middle; padding-right: 4px;"/>Pasajes</h:panelGroup>
+        </f:facet>
+    <h:form styleClass="association" id="pasajesChildren">
+
+        <h:outputText value="There are no pasajes associated with this traslado."
+                   rendered="#{empty trasladoHome.pasajes}"/>
+
+        <rich:dataTable value="#{trasladoHome.pasajes}"
+                       var="_pasaje"
+                  rendered="#{not empty trasladoHome.pasajes}"
+                rowClasses="rvgRowOne,rvgRowTwo"
+                        id="pasajesTable">
+            <rich:column sortBy="#{_pasaje.idPasaje}">
+                <f:facet name="header">Id pasaje</f:facet>
+                <h:outputText value="#{_pasaje.idPasaje}"/>
+            </rich:column>
+            <rich:column sortBy="#{_pasaje.fecha}">
+                <f:facet name="header">Fecha</f:facet>
+                <h:outputText value="#{_pasaje.fecha}"/>
+            </rich:column>
+            <h:column>
+                <f:facet name="header">Action</f:facet>
+                <s:link id="selectpasaje"
+                     value="Select"
+                      view="/Pasaje.xhtml">
+                    <f:param name="pasajeIdPasaje"
+                            value="#{_pasaje.idPasaje}"/>
+                    <f:param name="pasajeFrom" value="Traslado"/>
+                </s:link>
+            </h:column>
+        </rich:dataTable>
+
+    </h:form>
+
+    <div class="actionButtons">
+        <s:button
+               value="Add pasaje"
+                view="/PasajeEdit.xhtml">
+            <f:param name="trasladoIdTraslado"
+                    value="#{trasladoHome.instance.idTraslado}"/>
+            <f:param name="pasajeFrom" value="Traslado"/>
+        </s:button>
+    </div>
+    </rich:tab-->
+
+    <rich:tab>
+        <f:facet name="label">
+            <h:panelGroup><h:graphicImage value="/img/manytoone.gif" style="vertical-align: middle; padding-right: 4px;"/>Mediotransporte</h:panelGroup>
+        </f:facet>
+    <div class="association" id="mediotransporteParent">
+
+        <h:outputText value="There is no mediotransporte associated with this traslado."
+                   rendered="#{trasladoHome.instance.mediotransporte == null}"/>
+
+        <rich:dataTable var="_mediotransporte"
+                   value="#{trasladoHome.instance.mediotransporte}"
+                rendered="#{trasladoHome.instance.mediotransporte != null}"
+              rowClasses="rvgRowOne,rvgRowTwo"
+                      id="mediotransporteTable">
+            <h:column>
+                <f:facet name="header">Id mediotransporte</f:facet>
+                <h:outputText value="#{_mediotransporte.idMediotransporte}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Tipo</f:facet>
+                <h:outputText value="#{_mediotransporte.tipo}"/>
+            </h:column>
+            <!-- h:column>
+                <f:facet name="header">Traslado id traslado</f:facet>
+                <h:outputText value="#{_mediotransporte.traslado.idTraslado}"/>
+            </h:column-->
+            <h:column>
+                <f:facet name="header">Url</f:facet>
+                <h:outputText value="#{_mediotransporte.url}"/>
+            </h:column>
+            <h:column styleClass="action">
+                <f:facet name="header">Action</f:facet>
+                <s:link id="viewmediotransporte"
+                     value="View"
+                      view="/Mediotransporte.xhtml">
+                    <f:param name="mediotransporteIdMediotransporte"
+                           value="#{_mediotransporte.idMediotransporte}"/>
+                </s:link>
+            </h:column>
+        </rich:dataTable>
+
+    </div>
+    </rich:tab>
+</rich:tabPanel>
+</ui:define>
+
+</ui:composition>

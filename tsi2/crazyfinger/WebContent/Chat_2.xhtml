@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j" 
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:rich="http://richfaces.org/rich">
+	
+      <body onload="#{conversacion.actualizarChat(param.idOrigen,param.idDestino)}">
+      
+      
+<a4j:region>
+      <h:form>
+            <a4j:poll id="poll" interval="1000" enabled="true" reRender="panelPadre" />
+      </h:form>
+</a4j:region>
+      
+		<rich:panel id="panelPadre">
+		<f:facet name="header">
+			<h:outputText value="Chat con #{conversacion.usuarioDestino.nombre}" />
+		</f:facet>
+			<table width="400">
+				<tbody>
+					<tr>
+						<td height="200px">
+ 							<ui:repeat value="#{conversacion.obtenerMensajes()}" var="msg">
+ 								<h:outputText value="#{msg.toString}" />
+ 							</ui:repeat>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="hidden" id="nombreUsuarioDestino" value="#{conversacion.usuarioDestino.nombre}" />
+							<input type="hidden" id="nombreUsuarioOrigen" value="#{conversacion.usuarioOrigen.nombre}" />
+							
+						</td>
+					</tr>
+					
+				</tbody>
+			</table>
+		</rich:panel>
+		
+		<rich:panel id="panelEnviar">
+		<table>
+			<tbody>
+				<tr>
+					<td>
+						<h:commandButton action="#{conversacion.enviarMensaje}" value="Enviar" />
+					</td>
+					<td>
+						<h:inputText id="mensaje" size="50" value="#{conversacion.inputMensaje}" />
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		</rich:panel>
+	  </body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <rich:panel>
+        <f:facet name="header">Feed Details</f:facet>
+
+
+        <s:decorate id="link" template="layout/display.xhtml">
+            <ui:define name="label">Link</ui:define>
+            <h:outputText value="#{feedHome.instance.link}"/>
+        </s:decorate>
+
+        <s:decorate id="subtitle" template="layout/display.xhtml">
+            <ui:define name="label">Subtitle</ui:define>
+            <h:outputText value="#{feedHome.instance.subtitle}"/>
+        </s:decorate>
+
+        <s:decorate id="title" template="layout/display.xhtml">
+            <ui:define name="label">Title</ui:define>
+            <h:outputText value="#{feedHome.instance.title}"/>
+        </s:decorate>
+
+        <s:decorate id="uid" template="layout/display.xhtml">
+            <ui:define name="label">Uid</ui:define>
+            <h:outputText value="#{feedHome.instance.uid}"/>
+        </s:decorate>
+
+        <s:decorate id="updated" template="layout/display.xhtml">
+            <ui:define name="label">Updated</ui:define>
+            <h:outputText value="#{feedHome.instance.updated}">
+                <s:convertDateTime type="date" dateStyle="short"/>
+            </h:outputText>
+        </s:decorate>
+
+        <div style="clear:both"/>
+
+    </rich:panel>
+
+    <div class="actionButtons">
+
+        <s:button view="/FeedEdit.xhtml"
+                    id="edit"
+                 value="Edit"/>
+
+        <s:button view="/#{empty feedFrom ? 'FeedList' : feedFrom}.xhtml"
+                    id="done"
+                 value="Done"/>
+
+    </div>
+
+<rich:tabPanel switchType="ajax">
+
+    <rich:tab label="Entryes">
+    <div class="association" id="entryParent">
+
+        <h:outputText value="No hay entries"
+                   rendered="#{feedHome.instance.entries == null}"/>
+
+        <rich:dataTable var="_entries"
+                   value="#{feedHome.instance.entries}"
+                rendered="#{feedHome.instance.entries != null}"
+              rowClasses="rvgRowOne,rvgRowTwo"
+                      id="entriesTable">
+            <h:column>
+                <f:facet name="header">Id Entry</f:facet>
+                <h:outputText value="#{_entries.idEntry}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Uid</f:facet>
+                <h:outputText value="#{_entries.uid}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Titulo</f:facet>
+                <h:outputText value="#{_entries.title}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Sub Titulo</f:facet>
+                <h:outputText value="#{_entries.title}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Link</f:facet>
+                <h:outputText value="#{_entries.link}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Autor</f:facet>
+                <h:outputText value="#{_entries.author}"/>
+            </h:column>
+             <h:column>
+                <f:facet name="header">Resumen</f:facet>
+                <h:outputText value="#{_entries.summary}"/>
+            </h:column>
+             <h:column>
+                <f:facet name="header">Publicado</f:facet>
+                <rich:calendar id="publicado"
+                          value="#{_entries.published}" datePattern="MM/dd/yyyy" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Updated</f:facet>
+                <rich:calendar id="updateado"
+                          value="#{_entries.updated}" datePattern="MM/dd/yyyy" />
+            </h:column>
+            <h:column styleClass="action">
+                <f:facet name="header">Action</f:facet>
+                <s:link id="viewEntry"
+                     value="View"
+                      view="/Entry.xhtml">
+                    <f:param name="entryIdEntry"
+                           value="#{_entries.idEntry}"/>
+                </s:link>
+            </h:column>
+        </rich:dataTable>
+
+       
+
+    </div>
+    </rich:tab>
+    
+</rich:tabPanel>
+
+</ui:define>
+
+</ui:composition>

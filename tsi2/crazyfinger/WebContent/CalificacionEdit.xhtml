@@ -1,0 +1,175 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:a="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <h:form id="calificacion" styleClass="edit">
+
+        <rich:panel>
+            <f:facet name="header">#{calificacionHome.managed ? 'Edit' : 'Add'} Calificacion</f:facet>
+
+
+
+            <s:decorate id="comentarioField" template="layout/edit.xhtml">
+                <ui:define name="label">Comentario</ui:define>
+                <h:inputTextarea id="comentario"
+                               cols="80"
+                               rows="3"
+                              value="#{calificacionHome.instance.comentario}"/>
+            </s:decorate>
+
+
+            <s:decorate id="puntajeField" template="layout/edit.xhtml">
+                <ui:define name="label">Puntaje</ui:define>
+                <h:inputText id="puntaje"
+                          value="#{calificacionHome.instance.puntaje}">
+                    <a:support event="onblur" reRender="puntajeField" bypassUpdates="true" ajaxSingle="true"/>
+                </h:inputText>
+            </s:decorate>
+
+
+
+            <div style="clear:both">
+                <span class="required">*</span>
+                required fields
+            </div>
+
+        </rich:panel>
+
+        <div class="actionButtons">
+
+            <h:commandButton id="save"
+                          value="Save"
+                         action="#{calificacionHome.persist}"
+                       disabled="#{!calificacionHome.wired}"
+                       rendered="#{!calificacionHome.managed}"/>
+
+            <h:commandButton id="update"
+                          value="Save"
+                         action="#{calificacionHome.update}"
+                       rendered="#{calificacionHome.managed}"/>
+
+            <h:commandButton id="delete"
+                          value="Delete"
+                         action="#{calificacionHome.remove}"
+                      immediate="true"
+                       rendered="#{calificacionHome.managed}"/>
+
+            <s:button id="cancelEdit"
+                   value="Cancel"
+             propagation="end"
+                    view="/Calificacion.xhtml"
+                rendered="#{calificacionHome.managed}"/>
+
+            <s:button id="cancelAdd"
+                   value="Cancel"
+             propagation="end"
+                    view="/#{empty calificacionFrom ? 'CalificacionList' : calificacionFrom}.xhtml"
+                rendered="#{!calificacionHome.managed}"/>
+
+        </div>
+    </h:form>
+
+<rich:tabPanel switchType="ajax">
+
+    <rich:tab label="Servicio">
+    <div class="association" id="servicioParent">
+
+        <h:outputText value="There is no servicio associated with this calificacion."
+                   rendered="#{calificacionHome.instance.servicio == null}"/>
+
+        <rich:dataTable var="_servicio"
+                   value="#{calificacionHome.instance.servicio}"
+                rendered="#{calificacionHome.instance.servicio != null}"
+              rowClasses="rvgRowOne,rvgRowTwo"
+                      id="servicioTable">
+            <h:column>
+                <f:facet name="header">Id servicio</f:facet>
+                <h:outputText value="#{_servicio.idServicio}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Costo</f:facet>
+                <h:outputText value="#{_servicio.costo}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Lugar id lugar</f:facet>
+                <h:outputText value="#{_servicio.lugar.idLugar}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                <h:outputText value="#{_servicio.nombre}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Tipo</f:facet>
+                <h:outputText value="#{_servicio.tipo}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Url</f:facet>
+                <h:outputText value="#{_servicio.url}"/>
+            </h:column>
+        </rich:dataTable>
+
+        <div class="actionButtons">
+            <s:button id="#{calificacionHome.instance.servicio != null ? 'changeParent' : 'selectParent'}" value="#{calificacionHome.instance.servicio != null ? 'Change' : 'Select'} servicio"
+                       view="/ServicioList.xhtml">
+                <f:param name="from" value="CalificacionEdit"/>
+            </s:button>
+        </div>
+
+    </div>
+    </rich:tab>
+
+    <rich:tab label="Usuario *" labelClass="required">
+    <div class="association" id="usuarioParent">
+
+        <h:outputText value="There is no usuario associated with this calificacion."
+                   rendered="#{calificacionHome.instance.usuario == null}"/>
+
+        <rich:dataTable var="_usuario"
+                   value="#{calificacionHome.instance.usuario}"
+                rendered="#{calificacionHome.instance.usuario != null}"
+              rowClasses="rvgRowOne,rvgRowTwo"
+                      id="usuarioTable">
+            <h:column>
+                <f:facet name="header">Id usuario</f:facet>
+                <h:outputText value="#{_usuario.idUsuario}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                <h:outputText value="#{_usuario.nombre}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Openid</f:facet>
+                <h:outputText value="#{_usuario.openid}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Pared id pared</f:facet>
+                <h:outputText value="#{_usuario.pared.idPared}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Password</f:facet>
+                <h:outputText value="#{_usuario.password}"/>
+            </h:column>
+        </rich:dataTable>
+
+        <div class="actionButtons">
+            <s:button id="#{calificacionHome.instance.usuario != null ? 'changeParent' : 'selectParent'}" value="#{calificacionHome.instance.usuario != null ? 'Change' : 'Select'} usuario"
+                       view="/UsuarioList.xhtml">
+                <f:param name="from" value="CalificacionEdit"/>
+            </s:button>
+        </div>
+
+    </div>
+    </rich:tab>
+</rich:tabPanel>
+</ui:define>
+
+</ui:composition>
