@@ -1,0 +1,49 @@
+
+Desarrollo
+
+Gabriel
+
+- Bluetooth
+- Presentacion
+
+
+
+Maxi
+
+- ws
+- logica del juego
+
+
+
+
+20/10
+
+
+- redactar arq y modelo
+
+- proto lwuit - de cara a la implementacion
+
+- implemtacion BL soporte capa de datos persistencia etc.
+
+- implementacion BL el juego
+
+- preparar presentacion , ppts etc (27/10)
+
+
+
+13/10
+
+
+Maxi
+
+
+- persistencia en arq 
+
+- proto persistencia
+
+-  proto levantar estado, si es necesario  (Depende de proto estado pausa,persistencia )
+
+Gabriel
+
+
+- proto estado pausa    (listo en svn)

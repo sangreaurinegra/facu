@@ -1,0 +1,14 @@
+C:\Users\Gabriel\Desktop\tsi1\Proyectos\cloud\VRK.Controls\bin\Debug\VRK.Controls.dll
+C:\Users\Gabriel\Desktop\tsi1\Proyectos\cloud\VRK.Controls\bin\Debug\VRK.Controls.pdb
+C:\Users\Gabriel\Desktop\tsi1\Proyectos\cloud\VRK.Controls\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Gabriel\Desktop\tsi1\Proyectos\cloud\VRK.Controls\obj\Debug\VRK.Controls.SR.resources
+C:\Users\Gabriel\Desktop\tsi1\Proyectos\cloud\VRK.Controls\obj\Debug\VRK.Controls.csproj.GenerateResource.Cache
+C:\Users\Gabriel\Desktop\tsi1\Proyectos\cloud\VRK.Controls\obj\Debug\VRK.Controls.dll
+C:\Users\Gabriel\Desktop\tsi1\Proyectos\cloud\VRK.Controls\obj\Debug\VRK.Controls.pdb
+C:\Projects\Cloud\VRK.Controls\bin\Debug\VRK.Controls.dll
+C:\Projects\Cloud\VRK.Controls\bin\Debug\VRK.Controls.pdb
+C:\Projects\Cloud\VRK.Controls\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Cloud\VRK.Controls\obj\Debug\VRK.Controls.SR.resources
+C:\Projects\Cloud\VRK.Controls\obj\Debug\VRK.Controls.csproj.GenerateResource.Cache
+C:\Projects\Cloud\VRK.Controls\obj\Debug\VRK.Controls.dll
+C:\Projects\Cloud\VRK.Controls\obj\Debug\VRK.Controls.pdb

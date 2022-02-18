@@ -1,0 +1,29 @@
+Seguir Controlando más casos de comandos ingresados. Aca van una lista de comandos correctos y que el edi ya parsea bien:
+
+d20
+10,20d
+10d
+d
+,d
+;d
+1,$d
+.d
+.,$d
+10,20dasdasfasfasfasd	(toma como argumento solo el 1ero, en este caso a, como debe ser)
+
+
+-Fijate cuando puedas si podes cambiar el Direc.lhs por el Direccion.hs Ya está en svn solo tenes que cambiar en Edi.hs el import (Direc por Direccion). Capaz que vos que estás menos enviciado te das cuenta enseguida. Para mi las estructuras están idénticas. Te va a compilar. Lo que falla es al parsear el Comando (en el leercomando).
+
+	- verificar todo el codigo por copia (GC GM juntos)
+	
+
+	- Si se invoca el edi sin argumentos, tiene que lanzar un error y salirse
+
+	- Ver el tema de la direcci—n 0. Para Apppend e insert ya la devuelve, hay que ver si se esta ejecutando bien.
+
+	- Ver el tema de los parametros para aquellos comandos que lo soportan.
+	
+	- Importante Capturar exepcion generia y en lo alto para que imprima un ? y prosiga con la ejecucion ante cualquier cosa no se puede detener la ejecucion fue aclarado
+	 y en particular me pasó con una entrada invalida que revento y salió
+	
+(*) HEcho a comprobar	

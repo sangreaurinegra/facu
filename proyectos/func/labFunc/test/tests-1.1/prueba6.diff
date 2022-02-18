@@ -1,0 +1,27 @@
+0a1,2
+> Merge Sort
+> 
+2c4
+< }
+---
+> int a[50];
+4c6
+<  if(low<high)
+---
+> void merge_sort(int low,int high)
+6d7
+< 
+7a9
+>  if(low<high)
+13d14
+<    b[i]=a[j];
+15d15
+< void merge_sort(int low,int high)
+32a33
+>    b[i]=a[j];
+88,89c89
+< Merge Sort
+< int a[50];
+---
+> }
+\ No newline at end of file

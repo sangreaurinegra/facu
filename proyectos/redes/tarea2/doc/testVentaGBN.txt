@@ -1,0 +1,88 @@
+Para configuracion netEmulatror
+
+DELAY="100ms 10ms"
+LOSS="10%"
+REORDER="25% 50%"
+DUPLICATE="4%"
+
+con envia file , 5 seg de timeout
+
+Tamaño Ventana 1
+Tiempo total de transmision desde el primer paquete al ultimo Medido con Wireshark 27.79 ultimo ACK 
+ backlog 2141b 0p requeues 8)
+stat  Sent 29691 bytes 179 pkt (dropped 13, overlimits 0 requeues 7) ??
+
+Tamaño Ventana 25
+Tiempo total de transmision desde el primer paquete al ultimo Medido con Wireshark 25.52 Seg
+stat  Sent 29691 bytes 179 pkt (dropped 13, overlimits 0 requeues 7)
+
+
+Tamaño Ventana 50
+Tiempo total de transmision desde el primer paquete al ultimo Medido con Wireshark 25.40 Seg
+ Sent 31189 bytes 174 pkt (dropped 26, overlimits 0 requeues 7)  ??
+ 
+ Tamaño Ventana 100
+Tiempo total de transmision desde el primer paquete al ultimo Medido con Wireshark 25.56 Seg
+ Sent 33241 bytes 193 pkt (dropped 20, overlimits 0 requeues 15) 
+ 
+ Tamaño Ventana 150
+Tiempo total de transmision desde el primer paquete al ultimo Medido con Wireshark 33.49 Seg
+ Sent 37818 bytes 220 pkt (dropped 29, overlimits 0 requeues 25) 
+
+ 
+ Modificando sleep de enviaFile
+ 
+Tamaño Ventana 1 
+9.6 seg al ultimo ACK
+Stat Sent 9412 bytes 60 pkt (dropped 7, overlimits 0 requeues 8) 
+ 
+Tamaño Ventana 1 
+5.6 seg al ultimo ACK
+Sent 21922 bytes 130 pkt (dropped 15, overlimits 0 requeues 12)  
+ 
+Tamaño Ventana 5 
+5.60 seg al ultimo ACK
+Stat Sent 34961 bytes 202 pkt (dropped 18, overlimits 0 requeues 20) 
+ 
+Tamaño Ventana 25
+5.35 seg al ultimo ACK
+Stat Sent 34866 bytes 204 pkt (dropped 16, overlimits 0 requeues 14) 
+ 
+Tamaño Ventana 50
+5.52 seg al ultimo ACK
+Stat Sent 37693 bytes 222 pkt (dropped 20, overlimits 0 requeues 15) 
+
+
+Quito sleep de enviaFile
+
+Tamaño Ventana 1 
+10.74 seg al ultimo ACK
+Stat Sent 10934 bytes 65 pkt (dropped 11, overlimits 0 requeues 2) 
+ 
+Tamaño Ventana 2 
+5.23 seg al ultimo ACK
+Sent 16850 bytes 102 pkt (dropped 8, overlimits 0 requeues 10) 
+
+Tamaño Ventana 5
+5.73 seg al ultimo ACK
+Sent 45867 bytes 269 pkt (dropped 22, overlimits 0 requeues 11) 
+
+Tamaño Ventana 25
+3.74 seg al ultimo ACK
+Sent 59870 bytes 331 pkt (dropped 49, overlimits 0 requeues 15) 
+
+
+Conclusiones
+Si no quitamos el sleep o al menos bajamos a 1 seg su valor de EnviaFile las diferencias de tiempos no son apreciables.
+Notamos que cuanto mas grande es la ventana mas se eliminan mas paquetes por el ruido (generalmente) esto puede deberse a como se decida eliminar los paquetes.
+El Para el caso de que el tamaño de la ventana valga 1 se tiene un retraso apreciable , a partir de 2 los tiempos se emparejan y en algunos
+ casos aumentan independientemente del tamaño de la ventana devido a que hay mas perdida por lo indicado anteriormente.
+En resumen se obtiene como conclusion que para ajustar el tamaño de la vantana del GBN se tendrian que hacer pruebas de acuerdo a el contexto donde se ejecute para conseguir 
+el mejor rendimiento. No siempre mas grande es mejor . Pero sin dudas que el tener una ventana nos da una ventaja en tiempo , y en caso del GBN nos permite
+por ejemplo perder mas ACK sin tener que reenviar paquetes puesto que la probabilidad de que se pierda un ACKs disminuye por lo que generalmente por perdidas de ACK simpre avanzamos.\
+En cuanto a la perdida de paquetes de datos baja la probabilidad d eperder el maquete inicial , dado que estamos enviando mas paquetes tambien.
+
+
+
+ 
+ 

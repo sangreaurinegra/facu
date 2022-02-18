@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<pageflow-definition
+  name="proyectoViaje">
+
+	<start-page name="inicio-Elegir ciudad" view-id="/elegirCiudad.xhtml">
+		<transition to="trasladoLlegada" name="accionTrasladoLlegada"></transition>
+	</start-page>
+	<page name="trasladoLlegada" view-id="/elegirLlegada.xhtml">
+		<transition to="estadia" name="accionEstadia"></transition>
+	</page>
+	<page name="estadia" view-id="/elegirAlojamiento.xhtml">
+		<transition to="actividades" name="accionActividades"></transition>
+	</page>
+	<page name="actividades" view-id="/elegirActividades.xhtml">
+		<transition to="trasladoSalida" name="accionTrasladoSalida">
+		</transition>
+	</page>
+	<page name="trasladoSalida" view-id="/elegirSalida.xhtml">
+		<transition to="Resumen" name="accionResumen"></transition>
+	</page>
+	<page name="Resumen" view-id="/resumenTramo.xhtml">
+		<transition to="fin" name="accionGuardar">
+			<action expression="#{itinerario.salvarTramo()}"/>
+		</transition>
+		<transition name="accionGuardarSiguiente" to="estadia">
+			<action expression="#{itinerario.salvarTramoYSeguir()}"/>
+		</transition>
+	</page>
+	<page name="fin" view-id="/itinerario.xhtml">
+		<end-conversation/>
+		<redirect/>
+	</page>
+</pageflow-definition>

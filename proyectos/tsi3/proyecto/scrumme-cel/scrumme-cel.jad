@@ -1,0 +1,7 @@
+MIDlet-1: ScrummeCel,,edu.tsi3.scrumme.cel.ScrummeCel
+MIDlet-Jar-URL: scrumme-cel.jar
+MIDlet-Name: scrumme-cel Midlet Suite
+MIDlet-Vendor: Midlet Suite Vendor
+MIDlet-Version: 1.0.0
+MicroEdition-Configuration: CLDC-1.1
+MicroEdition-Profile: MIDP-2.0

@@ -1,0 +1,2 @@
+C:\Projects\Cloud\SilverCloud\SilverCloud\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Cloud\SilverCloud\SilverCloud\obj\Debug\Page.g.cs

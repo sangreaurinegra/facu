@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="wmsSoap" soapui-version="3.6.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="WmsSoapBinding" type="wsdl" bindingName="{http://soap.geoserver.tsig.edu/}WmsSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://127.0.0.1:8180/tsigWS/WmsSoap?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://127.0.0.1:8180/tsigWS/WmsSoap?wsdl"><con:part><con:url>http://127.0.0.1:8180/tsigWS/WmsSoap?wsdl</con:url><con:content><![CDATA[<definitions name="WmsSoapService" targetNamespace="http://soap.geoserver.tsig.edu/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://soap.geoserver.tsig.edu/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <types>
+    <xs:schema targetNamespace="http://soap.geoserver.tsig.edu/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getFeatureInfo" type="tns:getFeatureInfo"/>
+      <xs:element name="getFeatureInfoResponse" type="tns:getFeatureInfoResponse"/>
+      <xs:complexType name="getFeatureInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="VERSION" type="xs:string"/>
+          <xs:element minOccurs="0" name="SRS" type="xs:string"/>
+          <xs:element minOccurs="0" name="BBOX" type="xs:string"/>
+          <xs:element minOccurs="0" name="WIDTH" type="xs:string"/>
+          <xs:element minOccurs="0" name="HEIGHT" type="xs:string"/>
+          <xs:element minOccurs="0" name="QUERY_LAYERS" type="xs:string"/>
+          <xs:element minOccurs="0" name="X" type="xs:string"/>
+          <xs:element minOccurs="0" name="Y" type="xs:string"/>
+          <xs:element minOccurs="0" name="LAYERS" type="xs:string"/>
+          <xs:element minOccurs="0" name="FORMAT" type="xs:string"/>
+          <xs:element minOccurs="0" name="INFO_FORMAT" type="xs:string"/>
+          <xs:element minOccurs="0" name="FEATURE_COUNT" type="xs:string"/>
+          <xs:element minOccurs="0" name="EXCEPTIONS" type="xs:string"/>
+          <xs:element minOccurs="0" name="SERVICENAME" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getFeatureInfoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </types>
+  <message name="WmsSoap_getFeatureInfoResponse">
+    <part element="tns:getFeatureInfoResponse" name="getFeatureInfoResponse"/>
+  </message>
+  <message name="WmsSoap_getFeatureInfo">
+    <part element="tns:getFeatureInfo" name="getFeatureInfo"/>
+  </message>
+  <portType name="WmsSoap">
+    <operation name="getFeatureInfo" parameterOrder="getFeatureInfo">
+      <input message="tns:WmsSoap_getFeatureInfo"/>
+      <output message="tns:WmsSoap_getFeatureInfoResponse"/>
+    </operation>
+  </portType>
+  <binding name="WmsSoapBinding" type="tns:WmsSoap">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getFeatureInfo">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="WmsSoapService">
+    <port binding="tns:WmsSoapBinding" name="WmsSoapPort">
+      <soap:address location="http://127.0.0.1:8180/tsigWS/WmsSoap"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://127.0.0.1:8180/tsigWS/WmsSoap</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="getFeatureInfo" bindingOperationName="getFeatureInfo" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8180/tsigWS/WmsSoap</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.geoserver.tsig.edu/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <soap:getFeatureInfo>
+         
+         <VERSION>?</VERSION>
+         
+         <SRS>?</SRS>
+         
+         <BBOX>?</BBOX>
+        
+         <WIDTH>?</WIDTH>
+         
+         <HEIGHT>?</HEIGHT>
+         
+         <QUERY_LAYERS>?</QUERY_LAYERS>
+         
+         <X>?</X>
+        
+         <Y>?</Y>
+
+         <!--Optional:-->
+         <INFO_FORMAT>?</INFO_FORMAT>
+         <!--Optional:-->
+         <FEATURE_COUNT>?</FEATURE_COUNT>
+         <!--Optional:-->
+         <EXCEPTIONS>?</EXCEPTIONS>
+         <!--Optional:-->
+         <SERVICENAME>?</SERVICENAME>
+      </soap:getFeatureInfo>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.geoserver.tsig.edu/WmsSoap/getFeatureInfoRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8180/tsigWS/WmsSoap</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.geoserver.tsig.edu/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <soap:getFeatureInfo>
+         
+         <VERSION>1.1.1</VERSION>
+         
+         <SRS>EPSG:32721</SRS>
+         
+         <BBOX>362816.349141,6122616.444609,862017.955859,6677048.867391</BBOX>
+         
+         <WIDTH>470</WIDTH>
+         
+         <HEIGHT>522</HEIGHT>
+         
+         <QUERY_LAYERS>manzanas</QUERY_LAYERS>
+         
+         <X>228</X>
+         
+         <Y>472</Y>
+        
+         <LAYERS>manzanas</LAYERS>
+        
+         <FORMAT>image/gif</FORMAT>
+
+        
+      </soap:getFeatureInfo>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.geoserver.tsig.edu/WmsSoap/getFeatureInfoRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>

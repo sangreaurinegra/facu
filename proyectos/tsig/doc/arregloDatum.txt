@@ -1,0 +1,1 @@
+update geometry_columns set srid = 32721

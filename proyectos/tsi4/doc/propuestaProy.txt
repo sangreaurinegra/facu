@@ -1,0 +1,66 @@
+Evaluacion de tecnologias J2ME
+
+Se plantea evaluar tecnologias y herramientas sobre la plataforma J2Me.
+Para ello se realizara como caso de estudio un juego de cartas ("Truco").
+
+El mismo permitira que los usuarios jueguen entre si mediante sus telefonos moviles 
+ya sea conectados a travez de bluetooth o de internet.
+
+Tecnologias a utilizar
+
+			J2ME
+			bluetooth 
+				JSR-82 	BTAPI 	Bluetooth API
+					— Search for Bluetooth devices
+					— Query device profiles and capabilities
+					— Open stream connection to device
+				
+				JSR-280 	XML API 	XML API
+					JSR 280 provides subsets of several key XML APIs for the Java ME platform:
+					— Java API for XML Processing (JAXP)
+					— Simple API for XML (SAX)
+					— Streaming API for XML (StAX, defined in JSR 173)
+					— Document Object Model (DOM) Core and Events
+				
+			WS 
+				JSR-118 	MIDP2.0 	Mobile Information Device Profile 2.0
+					Adds the following to MIDP1.0:
+					— UDP/Sockets/Secure Sockets/Server Sockets and access to serial ports
+					— Additional image formats (GIF / JPG / WMB)
+					— PCM (Pulse Code Modulation) wave format and/or additional sampled/synthetic sound formats
+					— Copy protection of MIDlet suites
+					— Discovery/Installation of MIDlets via other mechanisms (InfraRed/Bluetooth/etc)
+					— Custom 'built-from-scratch' UIs (e.g. www.thinlet.com)
+
+				JSR-172 	WSAPI 	J2ME Web Services Specification
+					The purpose of this specification is to define an optional 
+					package that provides standard access from J2ME to web services.
+
+			Interfaz Grafica J2ME 2D, 3D  Audio Video
+
+				
+				JSR-135 	MMAPI 	Mobile Media API
+					— MMAPI provides support for accessing and controlling time-based media such as audio and video
+					— MMAPI is a superset of MIDP 2.0 multimedia capabilities, adding support 
+
+				JSR-184 	M3G 	Mobile 3D Graphics
+					— Provide an efficient 3D Graphics API suitable for the J2ME platform (focused on CLDC/MIDP)
+					— Supports scene graph API (high-level) and immediate API (low-level, subset of OpenGL)
+					— Provides importer functions for textures, meshes, animations, and scene hierarchies
+					— Includes tight integration with MIDP
+
+				JSR-209 	AGUI 	Advanced GUI
+					— Slimming operation of the Swing GUI toolkit from J2SE
+					— Java 2D graphics engine preserved
+					— Imaging API and Image load/save framework preserved
+					— Input Method framework preserved
+					— Pluggable Look And Feel dropped
+
+				JSR-226 	SVGAPI 	Scalable 2D Vector Graphics API
+					This specification defines an optional package API for rendering scalable 2D vector graphics,
+					 including image files in W3C Scalable Vector Graphics (SVG) format.
+
+				JSR-239 	OpenGL ES 	Java bindings for OpenGL ES API
+					This JSR provides bindings to the OpenGL ES (Embedded Subset) native 3D graphics library.
+
+

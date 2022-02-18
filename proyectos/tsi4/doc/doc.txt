@@ -1,0 +1,219 @@
+eclipse , problemas con plug in 1.7.9 bajar 1.8.0
+
+
+ Informe sobre la plataforma J2ME , muestra diferencia entre CDC y CLDC  etc
+ http://www.oracle.com/technetwork/java/javame/tech/index.html
+ 
+ 
+ interesante introduccion con un poco de historia
+ http://java.ciberaula.com/articulo/introduccion_j2me/
+ 
+ 
+ Light Weight User Interface Toolkit version 1.3 - liviano pinta bueno
+ 
+ http://www.oracle.com/technetwork/java/javame/tech/lwuit-141954.html
+ 
+ Arquitectura movil
+ http://www.oracle.com/technetwork/java/javame/tech/msa-139431.html
+ 
+ Arquitectura MIDP español
+ http://grasia.fdi.ucm.es/j2me/_J2METech/MIDP.html
+ 
+ Bluetooth
+ 
+ Api bluetooth
+ http://download-llnw.oracle.com/javame/config/cldc/opt-pkgs/api/bluetooth/jsr082/index.html
+ 
+ Linda Intro
+ http://developers.sun.com/mobility/apis/articles/bluetoothintro/index.html
+ http://developers.sun.com/mobility/midp/articles/bluetooth1/
+ http://developers.sun.com/mobility/midp/articles/bluetooth2/
+ 
+ 
+ Simulador Bluetooth
+ http://rococosoft.com/blue_impronto.html
+ 
+ 
+ 
+ Articulos Tecnicos movil
+ http://developers.sun.com/mobility/allarticles/
+ 
+ 
+ Paquetes opcionales (http://www.dpsoftware.org/api.php)
+ 
+JSR  	Name  	Description
+JSR-75 	PDAP 	PIM & File Data API
+— Add Remove phone contacts
+— Calandar events and recurring events
+— Alarms
+— File access, Secure Digital card, Memory Stick card
+— Ringtone location is platform dependent – but maybe accessible
+— No write access to system filesystem areas
+JSR-82 	BTAPI 	Bluetooth API
+— Search for Bluetooth devices
+— Query device profiles and capabilities
+— Open stream connection to device
+JSR-118 	MIDP2.0 	Mobile Information Device Profile 2.0
+Adds the following to MIDP1.0:
+— UDP/Sockets/Secure Sockets/Server Sockets and access to serial ports
+— Additional image formats (GIF / JPG / WMB)
+— PCM (Pulse Code Modulation) wave format and/or additional sampled/synthetic sound formats
+— Copy protection of MIDlet suites
+— Discovery/Installation of MIDlets via other mechanisms (InfraRed/Bluetooth/etc)
+— Custom 'built-from-scratch' UIs (e.g. www.thinlet.com)
+JSR-120 	WMA1.0 	Wireless Messaging API 1.0
+— Includes support for Short Message Service (SMS), Unstructured Supplementary Service Data (USSD) and Cell Broadcast Service (CBS)
+— Push capabilities (launching a MIDlet on message receipt)
+
+JSR-135 	MMAPI 	Mobile Media API
+— MMAPI provides support for accessing and controlling time-based media such as audio and video
+— MMAPI is a superset of MIDP 2.0 multimedia capabilities, adding support for playback and capture of image and video
+
+JSR-139 	CLDC1.1 	Connected Limited Device Configuration 1.1
+Add the following to CLDC 1.0:
+— Floating point maths support
+— Weak references support
+
+JSR-172 	WSAPI 	J2ME Web Services Specification
+The purpose of this specification is to define an optional package that provides standard access from J2ME to web services.
+
+JSR-177 	SATSA 	Security and Trust API
+— Provides support for the management of user certificates
+— Provides support for user authentication using certificates
+— Allows for J2ME applications to communicate with SmartCard-based applications and also to general purpose encryption functionalities
+— Provides security through the addition of a Security Element usable in operations
+
+JSR-179 	LAPI 	Location API
+An Optional Package that enables developers to write mobile location-based applications for resource-limited devices.
+ The API works on the J2ME CLDC v1.1 and CDC configurations.
+
+JSR-180 	SIPAPI 	SIP API
+SIP API for J2ME defines a multipurpose SIP API for J2ME clients. It enables SIP applications to be executed in memory limited terminals, 
+especially targeting to mobile phones.
+
+JSR-184 	M3G 	Mobile 3D Graphics
+— Provide an efficient 3D Graphics API suitable for the J2ME platform (focused on CLDC/MIDP)
+— Supports scene graph API (high-level) and immediate API (low-level, subset of OpenGL)
+— Provides importer functions for textures, meshes, animations, and scene hierarchies
+— Includes tight integration with MIDP
+
+JSR-185 	JTWI 	Java Technology for the Wireless Industry 1.0
+This JSR provides an overall architectural description as well as an integrated TCK and RI to coordinate selected JCP efforts for the wireless industry.
+
+JSR-205 	WMA2 	Wireless Messaging API 2.0
+— Extends JSR120 with support for Multimedia Message Service (MMS), MIME attachments and multipart messages
+— Allows for MMS content to be protected using Digital Rights Management (DRM)
+
+JSR-209 	AGUI 	Advanced GUI
+— Slimming operation of the Swing GUI toolkit from J2SE
+— Java 2D graphics engine preserved
+— Imaging API and Image load/save framework preserved
+— Input Method framework preserved
+— Pluggable Look And Feel dropped
+
+JSR-211 	CHAPI 	Content Handler API
+Enabling J2ME applications to handle multi-media and web content can give developers and users a seamless and integrated 
+user environment on mobile phones and wireless devices.
+
+JSR-226 	SVGAPI 	Scalable 2D Vector Graphics API
+This specification defines an optional package API for rendering scalable 2D vector graphics,
+ including image files in W3C Scalable Vector Graphics (SVG) format.
+
+JSR-234 	AMMSAPI 	Advanced Multimedia Supplements API
+This specification defines an optional package for advanced multimedia functionality which is targeted to run as an supplement in connection with MMAPI (JSR-135) in J2ME/CLDC environment.
+
+JSR-238 	MIAPI 	Mobile Internationalization API
+This JSR defines an API that provides culturally correct data formatting, sorting of text strings and application resource processing for J2ME MIDlets running in MIDP over CLDC.
+
+JSR-239 	OpenGL ES 	Java bindings for OpenGL ES API
+This JSR provides bindings to the OpenGL ES (Embedded Subset) native 3D graphics library.
+
+JSR-248 	MSA 	MSA Umbrella
+This JSR creates a mobile service architecture and platform definition for the high volume wireless
+ handsets continuing the work started in JSR-185 and enhancing the definition with new technologies.
+JSR-248full 	MSA 	Fully featured MSA
+— JSR 172 Web Services
+— JSR 177 Security & Trust
+— JSR 179 Location
+— JSR 180 SIP (for VoIP, IMS etc)
+— JSR 211 Content Handler
+— JSR 229 Payment
+— JSR 234 Multimedia Supplements
+— JSR 238 Internationalization
+— JSR 248 MSA subset
+
+JSR-256 	MSAPI 	Mobile Sensor API
+The API provides general Sensor API that extends the usability and choice of sensors for J2ME applications. 
+It defines generic sensor functionality optimized for the resource-constrained devices like mobile devices.
+
+JSR-257 	CCAPI 	Contactless Communications API
+This specification defines J2ME Optional Packages for contactless communication,
+ one package for bi-directional communication and the other for accessing read-only information. 
+As currently proposed, JSR 257 would set the stage for both one-way and bi-directional data capture and data integration from RFID,
+ barcode and other existing and standard approaches.
+
+JSR-271 	MIDP 3 	Mobile Information Device Profile 3.
+This JSR will specify the 3rd generation Mobile Information Device Profile,
+ expanding upon the functionality in all areas as well as improving interoperability across devices.
+
+JSR-272 	Broadcast API 	Mobile Broadcast Service API for Handheld Terminals.
+This specification will define an optional package in J2ME/MIDP/CLDC environment to provide functionality
+ to handle broadcast content, e.g. to view digital television and to utilize its rich features and services.
+
+JSR-280 	XML API 	XML API
+JSR 280 provides subsets of several key XML APIs for the Java ME platform:
+— Java API for XML Processing (JAXP)
+— Simple API for XML (SAX)
+— Streaming API for XML (StAX, defined in JSR 173)
+— Document Object Model (DOM) Core and Events
+
+JSR-300 	DRM API 	DRM API
+This specification will define an optional package for developing JavaTM ME applications 
+which utilize or interoperate with DRM agents that separately exist in devices.
+Project Capuchin 	Capuchin API 	Capuchin API
+Project Capuchin is a Java API defining a bridge between Java ME and Adobe Flash Lite technologies.
+ This API makes it possible to use Flash Lite as the front end and Java ME as the back end of applications.
+ Project Capuchin is the base for great looking applications where the UI presentation is designed
+ in Flash Lite while the data logic is provided by Java code. 
+Data transmission is enabled both ways, from Java ME to Flash Lite and from Flash Lite to Java ME.
+ Project Capuchin enables faster UI development and easier collaboration between graphical designers and code developers.
+ Once all interfaces between the presentation and service layers have been defined, UI designers can develop and test the presentation laye
+r in the Flash environment independent of the Java development and testing of the service layer.
+ Project Capuchin makes all services available to Java ME also available to Flash, by extending the ActionScript API in a structured manner.
+ Project Capuchin improves Flash Lite content security, distribution and installation by embedding Flash Lite content as a resource in MIDlet suites (.jar).
+
+ 
+ *	MANIFEST.MF  // http://programaciondevideojuegos.net/
+Obligatorios:
+
+    * MIDlet-Name: El nombre de la MIDlet suite que identifica los MIDlets al usuario.
+    * MIDlet-Version: El n?mero de versi?n de la MIDlet suite.
+    * MIDlet-Vendor: Organizaci?n que proporciona la MIDlet suite.
+    * MIDlet- for each MIDlet: Nombre, icono y clase del n-?simo MIDlet del archivo JAR separados por comas. El valor m?nimo de <n> ser? 1 y se deber?n utilizar ordinales consecutivos.
+         1. El nombre se utiliza para identificar el MIDlet para el usuario.
+         2. El icono es el nombre de una imagen (PNG) dentro del JAR para el icono del n-?simo MIDlet.
+         3. La clase es el nombre de la clase que extiende a la clase MIDlet para el n-?simo MIDlet. La clase deber? tener un constructor p?blico sin argumentos.
+    * MicroEdition-Profile: El perfil J2ME requerido, que utiliza el mismo valor que la propiedad de sistema microedition.profiles (por ejemplo "MIDP-1.0").
+    * MicroEdition-Configuration: La configuraci?n J2ME requerida, que utiliza el mismo valor que la propiedad de sistema microedition.configuration (por ejemplo "CLDC-1.0").
+
+Optativos:
+
+    * MIDlet-Description: Descripci?n de la MIDlet suite.
+    * MIDlet-Icon: Nombre del archivo PNG dentro del JAR que se utiliza para representar la MIDlet suite. Deber?a utilizarlo el software de gesti?n de aplicaci?n para mostrar un icono que identifique a la suite.
+    * MIDlet-Info-URL: URL para informaci?n adicional que describa la MIDlet suite.
+    * MIDlet-Data-Size:N?mero m?nimo de bytes de datos persistentes que requiere el MIDlet. El dispositivo puede proporcionar almacenamiento opcional seg?n su propia pol?tica. El valor predeterminado es cero.
+    * Ejemplo:
+      MIDlet-Name: Navigator
+      MIDlet-Version: 1.6
+      MIDlet-Vendor: UCM
+      MIDlet-1: Navegante, /Ship.png, com.navigation.core.Navigator
+      MIDlet-2: Interfaz, /Window.png, com.navigation.ui.Interface
+      MicroEdition-Profile: MIDP-1.0
+      MicroEdition-Configuration: CLDC-1.0
+ 
+ 
+ 
+ 
+ 
+ 
+ 

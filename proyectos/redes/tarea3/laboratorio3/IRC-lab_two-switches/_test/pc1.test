@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Dump packets
+tcpdump -c 6 -t -e icmp | sed 's/ seq [0-9]//'
+
+touch /hostlab/pc1.testdone
+halt
+

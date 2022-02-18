@@ -1,0 +1,50 @@
+Simple Parser, Type Checker and Interpreter
+
+Written by Alan Macek <www.alanmacek.com>
+Date: May 30, 2001
+
+The program uses 'Bison' and 'Flex' to build a program which type
+checks and interpretes a simple language.
+
+If you are using this program or modifying it, please send me an email at
+<al@alanmacek.com> to let me know (emailware).
+
+On some computers it maybe be necessary to uncomment the 'HFLAGS' line in
+the Makefile.  Try building the program as is.  If for every input, the
+program returns the error 'Variable * not in environment', try
+uncommenting the HFLAGS line in the Makefile.
+
+Here are some examples of the language.
+
+Example 1:
+
+let x = 5
+  in x
+
+Result 1: 5
+***********************
+Example 2:
+
+let p = proc (int a)
+          if =(a, 5) then false else true
+  in call p(6)
+
+Result 2: true
+***********************
+Example 3:
+
+let p = proc ([int - int] q, int a)
+          =(call q(a), a)
+  in call p( proc (int b) b, 5)
+
+Result 3: true
+***********************
+Example 4:
+
+let x = 3
+  in begin
+      set x = 4,
+      x
+     end
+
+Result 4: 4

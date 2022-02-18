@@ -1,0 +1,41 @@
+Postgis
+-- instalacion
+OK
+
+-- importacion de shape files
+> cambiar en opciones, utf 8 por latin1
+> 03parcelas --> del 29/10/2008 no se puede importar: ERROR:  secuencia de bytes no válida para codificación «UTF8»: 0xe2aa72
+> urban/03parcelas --> del 28/10/2008 importacion OK
+
+------------------
+
+Gvsig
+
+-- referenciacion desde vista a shp
+OK
+
+-- referencia desde postgis
+> problema con nombres de tablas, no pueden empezar con numero, quedan asi:
+departamento
+loc_pg
+vias
+ejes01
+esp_libres01
+manzanas
+parcelas01
+usosuelo
+cam_dig03
+ejes03
+esp_libres03
+manza_pl
+parcelas03
+cam_dig00
+
+> problema con nombre de columna en tabla 'departamento'
+cambiar:
+caminer-a_  --> caminera_
+caminer-a2  --> caminera2
+
+> problema 'esp_libres01' no se puede importar:
+ERROR: Error al cargar la capa: ERROR: geometry requires more points
+

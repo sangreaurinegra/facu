@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="ArmazonGr6.ServiceCloud" CodeBehind="ServiceCloud.svc.cs" %>

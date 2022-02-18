@@ -1,0 +1,102 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:a="http://richfaces.org/a4j"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+	<rich:panel>
+        <f:facet name="header"><h:outputText value="La Pared de #{paredHome.instance.usuario.nombre}"/></f:facet>
+        <s:decorate id="image" template="layout/display.xhtml">
+				<s:graphicImage width="120px" height="80px"
+					value="#{paredHome.instance.usuario.image ne null ? paredHome.instance.usuario.image : '/img/silueta_persona.jpeg'}"
+					alt="[profile image]" styleClass="picture"/>
+					
+		</s:decorate>
+		<div style="clear:both"/>
+    </rich:panel>
+
+    <rich:panel switchType="ajax" >
+        <f:facet name="header"><h:outputText value="#{paredHome.instance.titulo}"/></f:facet>
+		<h:form styleClass="association" id="mediasChildren">
+
+	        <h:outputText value="No se han agregado pared."
+	                   rendered="#{empty paredHome.medias}"/>
+	
+	        <rich:dataTable value="#{paredHome.medias}"
+	                       var="_media"
+	                  rendered="#{not empty paredHome.medias}"
+	                rowClasses="rvgRowOne,rvgRowTwo"
+	                        id="mediasTable" columns="1">
+	            <h:column>
+	            	<div align="center">
+		            	  <s:link id="selectfoto"
+			                      view="/Media.xhtml" rendered="#{_media.tipomedia == 'FOTO'}" >
+			                  <f:param name="mediaIdMedia"
+			                            value="#{_media.idMedia}"/>
+			                  <f:param name="mediaFrom" value="Pared"/>
+			                  <s:graphicImage width="180px"
+								value="#{_media.image ne null ? _media.image : '/img/error.gif'}"
+								alt="[profile image]" rendered="#{_media.tipomedia == 'FOTO'}"/>
+						  </s:link>
+						  <h:outputText escape="false" value="#{_media.url}" rendered="#{_media.tipomedia == 'VIDEO'}"/>
+						  <s:link id="selectmedia"
+			                     value="Ampliar"
+			                      view="/Media.xhtml" rendered="#{_media.tipomedia == 'VIDEO'}" >
+			                    <f:param name="mediaIdMedia"
+			                            value="#{_media.idMedia}"/>
+			                    <f:param name="mediaFrom" value="Pared"/>
+			              </s:link>
+			              <br/>
+						  <h:outputText value="#{_media.datosextras}"/>
+						  <br/>	           
+							<a:outputPanel id="ajaxComentario">
+								<rich:dataTable  value="#{_media.comentarios}" var="_comentario"
+									rendered="#{not empty _media.comentarios}"
+									rowClasses="rvgRowOne,rvgRowTwo" id="comentariosTable">
+									<rich:column width="100px" sortBy="#{_comentario.mensaje}">
+										
+									<s:graphicImage
+												width="60px" height="40px"
+												value="#{_comentario.usuario.image ne null ? _comentario.usuario.image : '/img/silueta_persona.jpeg'}"
+												alt="" styleClass="picture" />
+									</rich:column>
+									<rich:column >
+										<h:outputText value="#{_comentario.fechaEnviadoFormato()} #{_comentario.usuario.nombre} comento:" />
+										<br />
+										<h:outputText value="#{_comentario.mensaje}" />
+									</rich:column>
+								</rich:dataTable>
+							</a:outputPanel>
+					</div>
+	            </h:column>
+	        </rich:dataTable>
+	
+	    </h:form>
+
+    </rich:panel>
+
+	<div class="actionButtons">
+	    <s:button
+	           value="Add media"
+	            view="/MediaEdit.xhtml">
+	        <f:param name="paredIdPared"
+	                value="#{paredHome.instance.idPared}"/>
+	        <f:param name="mediaFrom" value="Pared"/>
+	    </s:button>
+	    
+	    <s:button view="/ParedEdit.xhtml"
+	                id="edit"
+	             value="Editar Titulo"
+	             rendered="#{paredHome.instance.usuario.idUsuario == usuario.idUsuario}"
+	             />
+	</div>
+</ui:define>
+
+</ui:composition>

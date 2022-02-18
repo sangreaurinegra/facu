@@ -1,0 +1,121 @@
+
+--reconocer \n en el print de las string
+   --intente con el codigo que esta al final del doc compartido pero me dio problemas despues
+        
+--agregar numero de linea al resto de los nodos, asi tiramos el error con la linea
+
+
+
+--chequear si todos los throws que hacemos nosotros los hace tmb LUA 
+   -por ejemplo el dividir por 0 lua no lo hace. aunque creo q es medio complicado pq le pone inf al valor
+    
+
+
+-- revisar en el codigo donde dice TODO
+  en parser dice: // TODO falta verificar con variables local declaradas , !!! Esto es soobrescribir si hay una global y local?
+en ese caso estaria pronto.
+despues hay otro TODO en Scope.
+
+
+
+--remover los warnings cuando hacemos el make -- saque  los warnings del sintactico agregando 
+sentencia : llamada_a_func {$$ = $<stmt>1;}
+y en exp esto
+| llamada_a_func         {$$ = $<expType>1;} pero no tiene sentido pq llamada a fun es una sentencia no una expresin
+y ese seria el caso de pasarle a una funcion , otra funcion como parametro. Eso anda en LUA pero en el nuestro no.
+Asi que soy de la idea de pelar esa produccion, a menos que alguien tenga otra idea.
+-Los warning del sintactico.cpp ((sintactico.tab.c) no se puede pq son autogenerados
+
+
+
+--en la letra hay un comando ="algo" (en la parte de tablas)
+que es como un return (segun vi probando en el demo online). 
+
+
+
+----------
+
+** LISTOS ** // agregar los que se pasan a listos luego de este titulo para tener un historico y la certeza si algo se hizo o no se anoto
+
+--Cuando se hace un return de un valor este se debe mostrar en pantalla.
+
+-- bug raro con los comentarios, cuando se ejecuta un ejemplo sencillo     El resultado es comentario10 en lugar de 10.
+Esto pasa con cualquier ejemplo q tenga comentarios
+    -- comentario
+    x = 10
+    print(x)
+
+-- en el for y el if falta mostrar el nro de linea si falla el chequeo de tipos, por ahora se muestra la linea cercana
+ al final del bloque
+
+--Switching de valores. Si el primer valor es nulo, se asigna el Segundo
+        Apocalypse = AreWeGonnaDieIn2012 or "2012's a joke."
+Tmb anda esto q imprime hola:
+        if (AreWeGonnaDieIn2012 or "2012's a joke.") then
+            print("hola")
+        else
+            print("pe")
+        end
+
+
+
+--esto tendria que andar , ahora da error. Tiene que chekear que name es distinto de nil (ahora funca)
+name = "Jack"
+if not name then
+        print("Hello Stranger")
+end
+
+-- En la concatenacion no funcionan cosas de la forma (ahora andan todos los que tienen que andar, y manda un error en otros casos)
+    x = 34
+    print("el valor de x es "..x)
+
+
+-- programa con solo un comantario , core dumped , supongo que programa vacio pasa lo mismo (ahora anda esto y tmb llamada a funcion vacia)
+
+
+-Lua no compara numero de parametros en las funciones, asi que tenemos que sacar ese mensaje de error y que no explote
+ cuando se llama a una funcion sin parametros, que en realidad tiene parametros. habria q ponerlas todas en NIL
+
+-- para el siguiente caso no se sobreescribe la variable a  (alvaro - agregue q busque globales duplicadas y sobrescriba)
+a = 2 + 2 + 2 + 2
+a = 2 + 2 + 2
+
+-- si hago a=10, me toma el nombre de la variable como a= (osea esta agarrando el = ) 
+-- si hay mas de una linea (sentencia) tira segmetation faul  (fixed)
+        este programa anda :
+        A=10
+        B=20
+-- los comentarios no andan, se parcea lo que esta dentro  (en esto GC)
+probado con ,, error en la prueba CUAC 
+a=2+2
+--[--
+estaNoVa=123
+--]--
+b=-3
+-- Al reconocer {STRING}+ en lexico.l e; string queda con las " adelante y atras, estas se deben quitar
+
+--ajuste de linea para errores lexicos en los cometarios y testeados
+
+-- CORE DUMPED solo con al centencia c = -((2+3)-(4+5))  (GC esta en esto)
+
+---- esta produccion todavia no tiene en cuenta la asignacion  a,b = 10,20:  varlist ASIGNACION explist    {$$ = new NodoAsignacion($1, $3);
+
+-- No se reconoce la forma de asignacion de la letra: someFunction = function(parameter, anotherParameter) end
+
+-- falta implentear operacion largo (#) para el casod e tablas porque falta tipo , valor y funcion largo de tabla al momento
+
+
+
+--tablas : me dice que t no es una tabla, si saco la linea de t["foo"] anda bien. que es?
+
+t = {1,2}
+t["foo"] = 123 -- assign the value 123 to the key "foo" in the table
+
+for key, value in pairs(t) do
+
+        print(key,":",value)
+
+end
+
+-- reconocer cosas de la forma print(t[1]), print(t.foo) -- no se si esto funciona
+

@@ -1,0 +1,44 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:a="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:c="http://java.sun.com/jstl/core"
+    template="layout/template.xhtml">
+
+    <ui:define name="body" >
+
+        <table border="0" width="96%" cellpadding="4" cellspacing="0" height="416">
+        <tr>
+        
+        <td valign="top" width="264" height="408">
+		
+			
+			<h1 style="background-color:#6495ed;">#{verFeedEntry.noticia.titulo}</h1>
+			<p style="background-color:#e0ffff;">  
+				<h:outputText value="#{verFeedEntry.noticia.descriptionOrSummaryText}"  escape="false" />
+			</p> 
+
+			<p style="background-color:#e0ffff;">  
+				<h:outputText value="#{verFeedEntry.noticia.contenido.toHtml()}"  escape="false" />
+			</p> 
+			
+			<c:if test='#{!noticia.links2html().equals("")}' >
+				<u1>
+					<li>#{noticia.links2html()}</li>
+				</u1>
+			</c:if>
+
+				<p>#{verFeedEntry.noticia.pubDate}</p>
+
+		</td>
+		
+		</tr>
+		</table>
+
+    </ui:define>
+</ui:composition>

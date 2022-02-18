@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : Parte4
+    Created on : 11-sep-2009, 18:27:01
+    Author     : Maxi
+-->
+<f:view  xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+
+            <html>
+                <head>
+                    <title>TSI 2</title>
+                    
+                </head>
+                <body style="background-color:#eeeeff">
+                    <ice:form>
+                    <ice:outputText value="Practico - Parte 4" style="font-size:20; font-family:arial" />
+                    <ice:panelGrid columns="2">
+                        <ice:outputLabel for="BLTxt"
+                                         value="Param A:"/>
+                        <ice:panelGroup>
+                            <ice:inputText id="BLTxt" size="15" maxlength="15"
+                                        valueChangeListener="#{bean.effectChangeListener}"
+                                        value="#{bean.a}"/>
+                            <ice:outputText
+                                    value="#{msgs['page.bean.aNote']}"/>
+                        </ice:panelGroup>
+
+                        <ice:outputLabel for="BLTxtb"
+                                         value="Param B:"/>
+                        <ice:panelGroup>
+                            <ice:inputText id="BLTxtb" size="15" maxlength="15"
+                                        valueChangeListener="#{bean.effectChangeListener}"
+                                        value="#{bean.b}"/>
+                            <ice:outputText
+                                    value="#{msgs['page.bean.aNote']}"/>
+                        </ice:panelGroup>
+
+                        <ice:outputLabel for="BLCmdBtn"
+                                         value="Suma y producto"/>
+                        <ice:commandButton id="BLCmdBtn"
+                                           value="Enviar mensaje"
+                                           actionListener="#{bean.submitButtonListener}"/>
+
+                    </ice:panelGrid>
+
+                    <!-- Display the input value submitted. -->
+                    <ice:panelGroup>
+
+                        <!-- backing bean title box -->
+                        <ice:panelGroup >
+                            <ice:outputText value="#{msgs['page.global.serverFeedback']}"/>
+                        </ice:panelGroup>
+
+                        <!-- actual backing bean values. -->
+                        <ice:panelGroup 
+                                        effect="#{bean.valueChangeEffect}">
+                                <ice:panelGrid columns="2" >
+                                    <ice:outputLabel 
+                                                     value="Resultado"/>
+                                    <ice:outputText id="BLTxtout" escape="false"
+                                                    value="#{bean.respuesta}"/>
+                                </ice:panelGrid>
+                        </ice:panelGroup>
+                    </ice:panelGroup>
+
+                         <br /> <br />
+
+                     <ice:commandButton id="Rbtn"
+                                           value="Recibir respuesta"
+                                           onclick="new Ajax.Updater('load_tweets',
+                                         'recibirMensaje.iface',
+                                         {method: 'post', asynchronous: true});"/>
+
+                    <br />
+                     <div id='load_tweets'> {Respuesta} </div>
+
+                     <hr />
+                      </ice:form>
+                      <ice:form>
+                     <ice:panelGrid columns="2">
+                     <ice:outputLabel for="BLTxt2"
+                                         value="Param A:"/>
+                        <ice:panelGroup>
+                            <ice:inputText id="BLTxt2" size="15" maxlength="15"
+                                        valueChangeListener="#{bean.effectChangeListener}"
+                                        value="#{bean.c}"/>
+                            <ice:outputText
+                                    value="#{msgs['page.bean.aNote']}"/>
+                        </ice:panelGroup>
+
+                        <ice:outputLabel for="BLTxtb2"
+                                         value="Param B:"/>
+                        <ice:panelGroup>
+                            <ice:inputText id="BLTxtb2" size="15" maxlength="15"
+                                        valueChangeListener="#{bean.effectChangeListener}"
+                                        value="#{bean.d}"/>
+                            <ice:outputText
+                                    value="#{msgs['page.bean.aNote']}"/>
+                        </ice:panelGroup>
+
+                        <ice:outputLabel for="BLCmdBtn2"
+                                         value="Suma, resta y producto"/>
+                        <ice:commandButton id="BLCmdBtn2"
+                                           value="Enviar mensaje"
+                                           actionListener="#{bean.submitButtonListener2}"/>
+
+                    </ice:panelGrid>
+
+                    <!-- Display the input value submitted. -->
+                    <ice:panelGroup>
+
+                        <!-- backing bean title box -->
+                        <ice:panelGroup >
+                            <ice:outputText value="#{msgs['page.global.serverFeedback']}"/>
+                        </ice:panelGroup>
+
+                        <!-- actual backing bean values. -->
+                        <ice:panelGroup
+                                        effect="#{bean.valueChangeEffect}">
+                                <ice:panelGrid columns="2" >
+                                    <ice:outputLabel
+                                                     value="Resultado"/>
+                                    <ice:outputText id="BLTxtout2" escape="false"
+                                                    value="#{bean.respuesta2}"/>
+                                </ice:panelGrid>
+                        </ice:panelGroup>
+                    </ice:panelGroup>
+
+                         <br /> <br />
+
+                     <ice:commandButton id="Rbtn2"
+                                           value="Recibir respuesta"
+                                           onclick="new Ajax.Updater('load_tweets2',
+                                         'recibirMensaje.iface',
+                                         {method: 'post', asynchronous: true});"/>
+
+                    <br />
+                     <div id='load_tweets2'> {Respuesta} </div>
+
+
+
+                    </ice:form>
+                    
+                     
+                    
+                </body>
+            </html>
+    </f:view>
+

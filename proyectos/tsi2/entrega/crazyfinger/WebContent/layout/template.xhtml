@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:a="http://richfaces.org/a4j"
+   xmlns:s="http://jboss.com/products/seam/taglib"
+   contentType="text/html">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      <title>crazyfinger</title>
+      <link rel="shortcut icon" href="#{request.contextPath}/favicon.ico"/>
+      <a:loadStyle src="resource:///stylesheet/theme.xcss"/>
+      <a:loadStyle src="/stylesheet/theme.css"/>
+      <ui:insert name="head"/>
+        
+      
+   </head>
+   <body style="width: 90%; padding-left: 60px; background-color: #eeeeee">
+   	  <div style="background-color: #ffffff">
+	      <div style="background-color: #7777dd">
+	      	<h:panelGrid columns="2">
+		      	<h:column>
+					<img src="img/cf_logo.gif" alt="" />
+				</h:column>
+				<h:column>
+					<h1 style="color: #ffbb22; font-family: verdana,arial; font-size: 96;">Crazyfinger</h1>
+				</h:column>
+			</h:panelGrid>
+		  </div>
+	      <ui:include src="menu.xhtml">
+	         <ui:param name="projectName" value=""/>
+	      </ui:include>
+			<s:div rendered="#{!identity.loggedIn}" style="float:right; v-align:center; background-color: #7788ee;">
+				<h:form>
+					<h:outputLabel value="OpenID" style="font-weight:bold;" />&nbsp;&nbsp;&nbsp;
+					<h:inputText value="#{openid.id}" styleClass="openid_input" label="OpenID"/>
+					<h:commandButton action="#{openid.login}" value="Entrar"/>
+				</h:form>
+			</s:div>
+	      <div class="body">
+	         <h:messages id="messages" globalOnly="true" styleClass="message"
+	            errorClass="errormsg" infoClass="infomsg" warnClass="warnmsg"
+	            rendered="#{showGlobalMessages != 'false'}"/>
+	         <ui:insert name="body"/>
+	      </div>
+	      <div class="footer">
+	         <p>Powered by <a href="http://seamframework.org">Seam</a> #{org.jboss.seam.version} and <a href="http://www.jboss.org/jbossrichfaces">RichFaces</a>.</p>
+	         <s:fragment rendered="#{init.debug}">
+	         <a:log hotkey="D"/>
+	         <p style="margin-top: -0.5em;">
+	            TSI 2 Grupo 5 - Maximiliano Felix - Gabriel Centurion - Rodrigo Santana - Alejandro Remiro - 2009
+	         </p>
+	         </s:fragment>
+	      </div>
+	  </div>
+   </body>
+</html>
+</f:view>

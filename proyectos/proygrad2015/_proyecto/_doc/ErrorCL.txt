@@ -1,0 +1,99 @@
+Cl.out
+
+CASO CORRECTO iaa901k2q_raw.fits
+
+setting terminal type to xterm...
+
+   NOAO/IRAF PC-IRAF Revision 2.16 EXPORT Thu May 24 15:41:17 MST 2012
+      This is the EXPORT version of IRAF V2.16 supporting PC systems.
+
+  Welcome to IRAF.  To list the available commands, type ? or ??.  To get
+  detailed information about a command, type `help <command>'.  To run  a
+  command  or  load  a  package,  type  its name.   Type  `bye' to exit a
+  package, or `logout' to get out  of the CL.    Type `news' to find  out
+  what is new in the version of the system you are using.
+
+  Visit http://iraf.net if you have questions or to report problems.
+
+  The following commands or packages are currently defined:
+
+  (Updated on 2015-10-6)
+
+      adccdrom.   deitab.     kepler.     noao.       sqiid.      utilities.
+      apropos     esowfi.     language.   obsolete.   stecf.      vo.
+      cfh12k.     finder.     lists.      optic.      stlocal.    xdimsum.
+      cirred.     fitsutil.   mem0.       plot.       stsdas.     xray.
+      ctio.       gemini.     mscdb.      proto.      system.
+      cutoutpkg.  gmisc.      mscred.     rvsao.      tables.
+      dataio.     guiapps.    mtools.     softools.   ucsclris.
+      dbms.       images.     nfextern.   song.       upsqiid.
+
+ecl>       badpixupdate  maskfix       sigmanorm     xmaskpass     xnslm
+      demos         maskstat      xdshifts      xmosaic       xnzap
+      iterstat      miterstat     xfirstpass    xmshifts      xrshifts
+      makemask      mkmask        xfshifts      xmskcombine   xslm
+      maskdereg     orient        xlist         xnregistar    xzap
+
+xdimsum,> iaa901k2q_raw.fits[1] -> iaa901k2q_raw.fits.conv
+Image: iaa901k2q_raw.fits.conv (ushort) -> Image: iaa901k2q_raw.fits.conv (real)
+Creating cosmic ray corrected image iaa901k2q_raw.fits.conv.fits.crr
+    Computing image statistics
+    Median filtering
+    Data minimum = 2440.  maximum = 48491.
+    Truncating data range 2440.  to 4000.
+    Masking potential CR events
+    Creating object mask
+    Unzapping CRs which are object pixels
+    Cannot find object mask: u5d2012li_bpx.fit
+    Replacing CR hits with local median
+    Done
+xdimsum,>
+
+
+
+
+
+CASO ERROR icfcb3d3q_raw.fits
+
+
+setting terminal type to xterm...
+
+   NOAO/IRAF PC-IRAF Revision 2.16 EXPORT Thu May 24 15:41:17 MST 2012
+      This is the EXPORT version of IRAF V2.16 supporting PC systems.
+
+
+  Welcome to IRAF.  To list the available commands, type ? or ??.  To get
+  detailed information about a command, type `help <command>'.  To run  a
+  command  or  load  a  package,  type  its name.   Type  `bye' to exit a
+  package, or `logout' to get out  of the CL.    Type `news' to find  out
+  what is new in the version of the system you are using.
+
+  Visit http://iraf.net if you have questions or to report problems.
+
+  The following commands or packages are currently defined:
+
+  (Updated on 2015-10-6)
+
+      adccdrom.   deitab.     kepler.     noao.       sqiid.      utilities.
+      apropos     esowfi.     language.   obsolete.   stecf.      vo.
+      cfh12k.     finder.     lists.      optic.      stlocal.    xdimsum.
+      cirred.     fitsutil.   mem0.       plot.       stsdas.     xray.
+      ctio.       gemini.     mscdb.      proto.      system.
+      cutoutpkg.  gmisc.      mscred.     rvsao.      tables.
+      dataio.     guiapps.    mtools.     softools.   ucsclris.
+      dbms.       images.     nfextern.   song.       upsqiid.
+
+ecl>       badpixupdate  maskfix       sigmanorm     xmaskpass     xnslm
+      demos         maskstat      xdshifts      xmosaic       xnzap
+      iterstat      miterstat     xfirstpass    xmshifts      xrshifts
+      makemask      mkmask        xfshifts      xmskcombine   xslm
+      maskdereg     orient        xlist         xnregistar    xzap
+
+xdimsum,> xdimsum,>
+
+
+
+
+
+
+

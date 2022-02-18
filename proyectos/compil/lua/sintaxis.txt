@@ -1,0 +1,207 @@
+﻿
+/// Terminales
+
+%token IF "if"
+%token THEN "then"
+%token ELSE "else"
+%token END "end"
+%token FOR "for"
+
+%token FUNCION "function"
+%token LOCAL "local"
+%token DO "do"
+%token RETURN "return" 
+
+%token PTOCOMA ";"
+%token ASIGNACION "="
+%token COMA ","
+%token PARECIZQ "["
+%token PARECDER "]"
+%token PACURIZQ "("
+%token PACURDER ")"
+%token LLAVEIZQ "{"
+%token LLAVEDER "}"
+
+%token NIL "nil"
+%token FALSE "false"
+%token TRUE "true"
+
+%token PUNTO "."
+%token MAS "+"
+%token MENOS "-"
+%token MUL "*"
+%token DIV "/"
+%token POTENCIA "^"
+%token MODULO "%"
+%token CONCATENACION ".."
+%token MENOR "<"
+%token MAYOR ">"
+%token MENORIGUAL "<="
+%token MAYORIGUAL ">="
+%token IGUAL "=="
+%token DISTINTO "~="
+%token AND "and"
+%token OR "or"
+%token NOT "not"
+%token LARGO "#"
+
+// CON ER (lexico)
+
+NUM = ER para numeros
+NOMBRE = ER para numeros para identificacdor
+STRING = ER para para identificar un string
+
+Sintaxis
+
+bloque :  lista_de_sentencias
+		| lista_de_sentencias ultima_sentencia
+		| ultima_sentencia
+		|  //epsilon
+;
+
+lista_de_sentencias : sentencia 
+			| lista_de_sentencias sentencia
+
+sentencia : llamada_a_func
+		| sentencia_if 
+        | sentencia_for   
+		| sentencia_local
+		| lista_de_nombres ASIGNACION explist
+		| FUNCION NOMBRE cuerpo_de_func
+		| sentencia_forin
+	    //| do bloque END
+  	    //| while exp do bloque END
+	    //| repeat bloque until exp 
+	    //| local function nombre_de_func cuerpo_de_func
+;
+
+sentencia_forin : for lista_de_nombres in explist DO bloque END
+;
+sentencia_for : FOR NOMBRE ASIGNACION exp COMA exp DO bloque END
+			| FOR NOMBRE ASIGNACION exp COMA exp COMA exp DO bloque END
+;
+
+sentencia_local : LOCAL lista_de_nombres
+			| LOCAL lista_de_nombres ASIGNACION explist
+;
+
+sentencia_if : IF exp THEN bloque END 
+			| IF exp THEN bloque ELSE bloque END
+;
+    
+ultima_sentencia : RETURN
+				|RETURN explist 
+				//|  break
+;
+
+lista_de_nombres : NOMBRE 
+		| lista_de_nombres COMA NOMBRE
+;
+
+explist : exp 
+		| explist COMA exp
+;
+
+exp :  NIL
+       | FALSE
+       | TRUE
+       | NUM
+       | STRING
+       | prefixexp
+       | constructor_de_tabla
+       | exp operador_binario exp
+       | operador_unario exp
+	   | func
+	   //| '...'
+;
+
+prefixexp : NOMBRE
+	    | llamada_a_func
+	    | PACURIZQ exp PACURDER
+;
+
+llamada_a_func : prefixexp args_actuales
+		 // | prefixexp ':' NOMBRE args_actuales
+;
+
+args_actuales :  PACURIZQ PACURDER
+			| PACURIZQ explist PACURDER
+			| constructor_de_tabla
+			| STRING 
+;
+
+func : FUNCION cuerpo_de_func 
+;
+
+cuerpo_de_func : PACURIZQ PACURDER bloque END 
+			|PACURIZQ lista_de_nombres PACURDER bloque END  // cambio PACURIZQ [args_formal_list] PACURDER bloque END
+;
+
+constructor_de_tabla :  LLAVEIZQ LLAVEDER 
+					| LLAVEIZQ lista_de_campos LLAVEDER
+;
+
+lista_de_campos : campo 
+				| lista_de_campos COMA campo  // cambie campo , solo coma y no hay separador al final {separador_de_campo campo} [separador_de_campo]
+;
+
+campo : PARECIZQ exp PARECDER ASIGNACION exp
+	| NOMBRE ASIGNACION exp
+	| exp
+;
+
+operador_binario : MAS
+		   |  MENOS
+		   |  MUL
+		   |  DIV
+		   |  POTENCIA
+		   |  MODULO
+		   |  CONCATENACION
+		   |  MENOR
+		   |  MENORIGUAL
+		   |  MAYOR
+		   |  MAYORIGUAL
+		   |  IGUAL
+		   |  DISTINTO
+		   |  AND
+		   |  OR
+;
+
+operador_unario : MENOS
+		  |  NOT
+		  |  LARGO
+;
+
+ // quitolos ptocoma {sentencia [PTOCOMA]} [ultima_sentencia[PTOCOMA]]
+// elimino , solo aceptamos coma.  separador_de_campo : COMA |  PTOCOMA ; 
+// elimino args_formal_list ::= lista_de_nombres 							// [COMA '...']  |  '...'
+// nombre_de_func : NOMBRE //modifique  nombre {'.' nombre} [':' nombre] ;
+ //| modifiqe if exp then bloque {elseif exp then bloque} [else bloque] end
+// var : NOMBRE    //| prefixexp PARECIZQ exp PARECDER    //| prefixexp PUNTO NOMBRE ; suprimo var puestoq eu las variables en nuestro caso son solo nombres 
+// varlist : NOMBRE | varlist COMA NOMBRE ; 
+ 
+Pendientes
+// esta sintaxis no denota la precedecia de operadores , hay que modificar eso , en las ppts recuerdo que hay un ejemplo
+
+Deducciones a consultar (o sea cosas que estamos asumiendo segun la letra de las cuales tenemos que asegurarnos)
+- no hay local function
+- no hay while
+- no hay repeat
+- no hay blockes do (salvo el del for)
+- no hay for ... in ...  o sea no hay terminal IN
+- no hay elseif , solo if then else end
+- no hay break
+- no hay terminal '...' , por ende no hay funciones que tomen  '...'
+****** hasta aca consultado en el news
+
+scopes ? cuantos niveles , por ejemplo solo hay varialbes locales a funciones o pueden ser locales a blockes de if por ejemplo ?
+
+ultima  linea ?  segun lua un programa poede ser "return" tiene esto sentido ?  , lo mismo para programa vacio .
+
+no soportamos ';'  al final de cada sentencia porqeu en el ejemplo no se utiliza  no hay problema ?
+
+local listadevaribles , sin asignacion , aplica tener en cuenta la declaracion de variables locales sin asignarle valores ?
+
+Tipos numericos ? ademas de entero , tambien manejamos reales ? vi una funcion sqrt en el ejemplo pero no me queda claro si tenemso que reconocer
+1.23 por ejemplo , además otros tipos como long tomando en cuenta el tamaño del numero ? 
+

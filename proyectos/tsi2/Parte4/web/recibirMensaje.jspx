@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+    Document   : recibirMensaje
+    Created on : 13-sep-2009, 18:57:13
+    Author     : Maxi
+-->
+
+<f:view  xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+
+        <html xmlns="http://www.w3.org/1999/xhtml">
+            <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+                <title>JSP Page</title>
+            </head>
+            <body>
+                <ice:form>
+                    <ice:outputText escape="false" id="mensaje" value="#{recibir.respuesta}" />
+                </ice:form>
+            </body>
+        </html>
+    </f:view>

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+sleep 1m
+
+sleep 20
+
+touch /hostlab/pc3.testdone
+halt

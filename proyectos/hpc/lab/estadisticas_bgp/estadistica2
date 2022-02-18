@@ -1,0 +1,309 @@
+
+
+Consulta
+SELECT prefix ,count(*) AS cantPath FROM ( SELECT prefix FROM log_bgp WHERE  state='A' GROUP BY prefix, aspath ) mt GROUP BY prefix HAVING cantPath > 1 ORDER BY prefix;
+
+
+
+resultado una maquina
+
+hive> SELECT prefix ,count(*) AS cantPath FROM ( SELECT prefix FROM log_bgp WHERE  state='A' GROUP BY prefix, aspath ) mt GROUP BY prefix HAVING cantPath > 1 ORDER BY prefix;
+Total MapReduce jobs = 2
+Launching Job 1 out of 2
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapred.reduce.tasks=<number>
+Starting Job = job_201311142245_0008, Tracking URL = http://localhost:50030/jobdetails.jsp?jobid=job_201311142245_0008
+Kill Command = /home/gabriel1/hadoop-1.2.1/libexec/../bin/hadoop job  -kill job_201311142245_0008
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+2013-11-15 06:57:41,979 Stage-1 map = 0%,  reduce = 0%
+2013-11-15 06:58:03,647 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 8.16 sec
+2013-11-15 06:58:04,768 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 8.16 sec
+2013-11-15 06:58:06,744 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 8.16 sec
+2013-11-15 06:58:09,930 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 8.16 sec
+2013-11-15 06:58:10,948 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 8.16 sec
+2013-11-15 06:58:11,959 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 8.16 sec
+2013-11-15 06:58:12,983 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 8.16 sec
+2013-11-15 06:58:14,010 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 8.16 sec
+2013-11-15 06:58:15,038 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 8.16 sec
+2013-11-15 06:58:16,075 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 8.16 sec
+2013-11-15 06:58:17,092 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 8.16 sec
+2013-11-15 06:58:18,192 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 8.16 sec
+2013-11-15 06:58:19,204 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 10.8 sec
+2013-11-15 06:58:20,217 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 10.8 sec
+2013-11-15 06:58:21,227 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 10.8 sec
+2013-11-15 06:58:22,238 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 13.75 sec
+2013-11-15 06:58:23,248 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 13.75 sec
+2013-11-15 06:58:24,270 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 13.75 sec
+2013-11-15 06:58:25,279 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 13.75 sec
+2013-11-15 06:58:26,311 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 13.75 sec
+MapReduce Total cumulative CPU time: 13 seconds 750 msec
+Ended Job = job_201311142245_0008
+Launching Job 2 out of 2
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapred.reduce.tasks=<number>
+Starting Job = job_201311142245_0009, Tracking URL = http://localhost:50030/jobdetails.jsp?jobid=job_201311142245_0009
+Kill Command = /home/gabriel1/hadoop-1.2.1/libexec/../bin/hadoop job  -kill job_201311142245_0009
+Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 1
+2013-11-15 06:58:33,462 Stage-2 map = 0%,  reduce = 0%
+2013-11-15 06:58:39,712 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 4.37 sec
+2013-11-15 06:58:40,972 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 4.37 sec
+2013-11-15 06:58:42,526 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 4.37 sec
+2013-11-15 06:58:43,542 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 4.37 sec
+2013-11-15 06:58:44,554 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 4.37 sec
+2013-11-15 06:58:45,568 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 4.37 sec
+2013-11-15 06:58:46,577 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 4.37 sec
+2013-11-15 06:58:47,585 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 4.37 sec
+2013-11-15 06:58:48,595 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 4.37 sec
+2013-11-15 06:58:49,606 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 4.37 sec
+2013-11-15 06:58:50,615 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 4.37 sec
+2013-11-15 06:58:51,635 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 4.37 sec
+2013-11-15 06:58:52,642 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 4.37 sec
+2013-11-15 06:58:53,655 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 8.67 sec
+2013-11-15 06:58:54,664 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 8.67 sec
+2013-11-15 06:58:55,676 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 8.67 sec
+2013-11-15 06:58:56,756 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 8.67 sec
+MapReduce Total cumulative CPU time: 8 seconds 670 msec
+Ended Job = job_201311142245_0009
+MapReduce Jobs Launched: 
+Job 0: Map: 1  Reduce: 1   Cumulative CPU: 13.75 sec   HDFS Read: 139689 HDFS Write: 7825 SUCCESS
+Job 1: Map: 1  Reduce: 1   Cumulative CPU: 8.67 sec   HDFS Read: 8282 HDFS Write: 4069 SUCCESS
+Total MapReduce CPU Time Spent: 22 seconds 420 msec
+OK
+112.203.192.0/19	4
+114.141.56.0/21	2
+114.141.59.0/24	2
+129.7.73.0/24	5
+134.0.128.0/18	5
+143.73.37.0/24	2
+148.108.224.0/19	2
+148.108.32.0/19	2
+149.255.192.0/18	2
+149.255.192.0/19	2
+149.255.224.0/19	2
+173.245.89.0/24	4
+176.15.34.0/24	5
+177.105.0.0/18	2
+177.54.114.0/24	3
+177.54.115.0/24	3
+177.54.116.0/24	3
+177.54.117.0/24	3
+177.54.118.0/24	3
+177.54.119.0/24	3
+177.54.120.0/24	3
+177.54.121.0/24	2
+177.54.122.0/24	3
+177.85.20.0/24	2
+178.61.252.0/23	2
+181.114.231.0/24	2
+181.118.208.0/21	2
+181.118.216.0/22	2
+181.118.220.0/22	2
+186.0.137.0/24	2
+186.0.138.0/24	2
+186.0.139.0/24	2
+186.0.140.0/24	2
+186.1.226.0/24	2
+186.1.233.0/24	2
+186.1.236.0/24	2
+186.1.237.0/24	2
+186.1.238.0/24	2
+186.1.240.0/24	3
+186.1.241.0/24	2
+186.1.242.0/24	3
+186.1.243.0/24	3
+186.1.244.0/24	2
+186.1.245.0/24	2
+186.1.247.0/24	3
+186.194.206.0/24	2
+186.26.64.0/19	3
+186.65.86.0/24	3
+187.18.32.0/20	3
+190.104.197.0/24	3
+190.104.216.0/24	3
+190.104.222.0/24	3
+190.111.207.0/24	3
+190.111.208.0/24	3
+190.111.209.0/24	3
+190.111.210.0/24	3
+190.111.211.0/24	3
+190.111.212.0/24	3
+190.111.213.0/24	3
+190.111.214.0/24	3
+190.111.216.0/24	3
+190.111.218.0/24	3
+190.111.219.0/24	3
+190.111.220.0/24	3
+190.111.221.0/24	3
+190.111.223.0/24	3
+190.111.239.0/24	3
+190.111.246.0/24	5
+190.111.252.0/24	3
+190.111.254.0/24	3
+190.112.216.0/22	3
+190.12.100.0/24	2
+190.12.103.0/24	3
+190.12.104.0/24	3
+190.12.107.0/24	3
+190.12.108.0/24	3
+190.12.109.0/24	3
+190.12.110.0/24	3
+190.12.111.0/24	3
+190.12.113.0/24	3
+190.12.115.0/24	3
+190.12.116.0/24	3
+190.12.117.0/24	3
+190.12.118.0/24	3
+190.12.120.0/24	3
+190.12.121.0/24	3
+190.12.122.0/24	3
+190.12.123.0/24	3
+190.12.124.0/24	3
+190.12.125.0/24	3
+190.12.98.0/24	3
+190.150.162.0/24	2
+190.150.166.0/24	2
+190.150.171.0/24	2
+190.181.100.0/24	2
+190.181.101.0/24	2
+190.181.102.0/24	2
+190.181.103.0/24	2
+190.181.104.0/24	2
+190.181.105.0/24	2
+190.181.106.0/24	3
+190.181.107.0/24	3
+190.181.108.0/24	3
+190.181.109.0/24	3
+190.181.110.0/24	3
+190.181.111.0/24	2
+190.181.112.0/24	3
+190.181.113.0/24	3
+190.181.114.0/24	3
+190.181.115.0/24	2
+190.181.117.0/24	3
+190.181.118.0/24	2
+190.181.119.0/24	2
+190.181.120.0/24	3
+190.181.121.0/24	3
+190.181.122.0/24	3
+190.181.123.0/24	3
+190.181.124.0/24	3
+190.181.69.0/24	2
+190.181.70.0/24	2
+190.181.71.0/24	3
+190.181.72.0/24	3
+190.181.73.0/24	3
+190.181.75.0/24	4
+190.181.76.0/24	3
+190.181.77.0/24	3
+190.181.78.0/24	2
+190.181.79.0/24	3
+190.181.80.0/24	3
+190.181.81.0/24	3
+190.181.82.0/24	4
+190.181.85.0/24	3
+190.181.88.0/24	2
+190.181.89.0/24	2
+190.181.90.0/24	3
+190.181.91.0/24	2
+190.181.92.0/24	3
+190.181.93.0/24	2
+190.181.94.0/24	2
+190.181.95.0/24	2
+190.181.96.0/24	2
+190.181.97.0/24	2
+190.181.98.0/24	2
+190.181.99.0/24	2
+190.184.240.0/22	2
+190.184.248.0/22	2
+190.211.175.0/24	4
+190.53.10.0/24	2
+192.230.240.0/21	4
+192.230.248.0/21	4
+200.34.157.0/24	3
+200.47.159.0/24	3
+200.47.178.0/24	3
+200.47.179.0/24	3
+200.47.184.0/24	3
+200.47.188.0/24	3
+200.47.189.0/24	3
+200.47.190.0/24	3
+200.47.191.0/24	3
+200.47.212.0/24	3
+200.47.222.0/24	3
+200.47.223.0/24	3
+200.47.80.0/24	3
+2001:dd8:24::/47	3
+2001:dd8:24::/48	3
+201.148.192.0/20	3
+201.148.192.0/24	3
+201.148.193.0/24	3
+201.183.188.0/24	4
+201.183.189.0/24	4
+201.183.190.0/24	4
+201.183.191.0/24	4
+201.183.192.0/24	4
+201.183.193.0/24	4
+201.183.194.0/24	4
+201.183.195.0/24	4
+201.183.196.0/24	4
+201.183.197.0/24	4
+201.183.214.0/24	4
+201.183.215.0/24	4
+201.183.216.0/24	4
+201.183.242.0/24	4
+201.220.17.0/24	2
+201.220.18.0/24	2
+201.220.19.0/24	2
+201.220.20.0/24	2
+201.220.21.0/24	2
+202.43.185.0/24	2
+203.118.224.0/21	5
+203.118.232.0/21	2
+203.237.158.0/24	3
+205.132.73.0/24	2
+205.74.192.0/20	2
+205.90.0.0/20	2
+206.105.75.0/24	3
+208.16.110.0/24	3
+208.75.206.0/24	3
+209.124.112.0/24	2
+209.124.119.0/24	2
+213.226.49.0/24	3
+214.15.201.0/24	2
+214.37.144.0/21	2
+2401:c400::/32	4
+2604:7580::/32	2
+2803:e100::/32	2
+2804:548::/32	2
+2804:df0::/32	2
+2806:1::/32	2
+2806:2::/32	2
+2806:3::/32	2
+2806::/32	2
+2a02:381::/48	2
+2a02:ff0::/32	2
+41.209.233.0/24	2
+41.209.252.0/24	2
+41.209.253.0/24	2
+5.32.192.0/18	5
+64.187.64.0/23	2
+64.187.64.0/24	5
+65.90.49.0/24	3
+69.38.178.0/24	2
+81.2.208.0/22	2
+87.110.204.0/24	2
+94.101.128.0/21	2
+94.138.148.0/24	2
+Time taken: 85.11 seconds, Fetched: 225 row(s)
+
+

@@ -1,0 +1,10 @@
+﻿#jHelperTipAttrContainer{ 
+ background:#FFFFCC;
+ border:1px solid #FF3333; 
+ color:#333; 
+ display:none;
+}
+
+#jHelperTipContainer {
+ display:none;
+} 

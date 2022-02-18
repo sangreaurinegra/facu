@@ -1,0 +1,22 @@
+PING 100.1.2.1 (100.1.2.1) 56(84) bytes of data.
+64 bytes from 100.1.2.1: icmp_seq=1 ttl=64 
+64 bytes from 100.1.2.1: icmp_seq=2 ttl=64 
+64 bytes from 100.1.2.1: icmp_seq=3 ttl=64 
+
+PING 100.1.0.1 (100.1.0.1) 56(84) bytes of data.
+64 bytes from 100.1.0.1: icmp_seq=1 ttl=64 
+64 bytes from 100.1.0.1: icmp_seq=2 ttl=64 
+64 bytes from 100.1.0.1: icmp_seq=3 ttl=64 
+
+PING 100.1.0.6 (100.1.0.6) 56(84) bytes of data.
+64 bytes from 100.1.0.6: icmp_seq=1 ttl=64 
+64 bytes from 100.1.0.6: icmp_seq=2 ttl=64 
+64 bytes from 100.1.0.6: icmp_seq=3 ttl=64 
+
+Loading capability module if not yet done.
+Starting Quagga daemons (prio:10): zebra ospfd.
+100.1.0.0
+100.1.0.4
+100.1.2.0
+Destination
+Kernel

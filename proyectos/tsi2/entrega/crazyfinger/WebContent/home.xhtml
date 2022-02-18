@@ -1,0 +1,50 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:a="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+    <ui:define name="body">
+
+        <h1>Bienvenido a CrazyFinguer!</h1>
+
+        <table cellspacing="10" cellpadding="10" border="0">
+			<tr>
+    			<td align="left" valign="top" rowspan="4" width="80%"> 
+			        <rich:panel>
+			            <h:panelGrid columns="3">
+			                <h:graphicImage value="/img/crazyglobo.gif" alt="Seam logo" styleClass="picture"/>
+			                <s:div styleClass="info">
+			                    <p><strong>Crazyfinger es la red social mas grande, de turismo y viajes.</strong></p>
+			                    <ul class="bullets">
+			                    	<li><strong>TSI2 Gr5 !</strong>
+			                    		<ul>
+					                        <li>Dedo</li>
+					                        <li>Ale</li>
+					                        <li>Maxi</li>
+					                        <li>Gabriel</li>
+					                	</ul>
+			                        </li>
+			                    </ul>
+			                </s:div>
+			            </h:panelGrid>
+			        </rich:panel>    
+				</td>
+				<td align="right" title="FEEDS" >
+					<a:outputPanel id="panelfeeds">
+						<a:form>
+							<a:commandButton action="#{feedBean.recargar(feedBean.urlNoticias)}" value=" Ver noticias " reRender="panelfeeds" /> 
+							<a:commandButton action="#{feedBean.recargar(feedBean.urlPaquetes)}" value=" Ver paquetes " reRender="panelfeeds" />
+							<a:include viewId="verFeeds.xhtml"  />
+						</a:form>
+					</a:outputPanel> 
+				</td>
+			</tr>	
+    	</table>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,27 @@
+
+
+SELECT largo , count(*) as cantPrefix FROM (SELECT prefix, size(split(asPath,' ')) as largo FROM log_bgp  where state <> 'W' AND state <> 'STATE') mt GROUP BY largo ORDER BY largo;
+
+hive -e 'SELECT largo , count(*) as cantPrefix FROM (SELECT prefix, size(split(asPath,' ')) as largo FROM log_bgp  where state <> 'W' AND state <> 'STATE') mt GROUP BY largo ORDER BY largo' > salidaEstadistica3.txt
+
+
+
+resultado una maquina
+
+
+3	112
+4	396
+5	283
+6	194
+7	73
+8	33
+9	7
+10	28
+11	34
+13	2
+15	38
+16	23
+17	35
+19	6
+20	12
+27	1

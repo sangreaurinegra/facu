@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="tsi3" resourceRoot="" soapui-version="3.0.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="webHttpBinding" type="wsdl" bindingName="{http://scrumme.tsi3.edu}webHttpBinding" soapVersion="1_1" anonymous="optional" definition="http://192.168.1.102:8080/scrumMe/services/web?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://192.168.1.102:8080/scrumMe/services/web?wsdl"><con:part><con:url>http://192.168.1.102:8080/scrumMe/services/web?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://scrumme.tsi3.edu" xmlns:soapenc12="http://www.w3.org/2003/05/soap-encoding" xmlns:tns="http://scrumme.tsi3.edu" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap11="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc11="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+  <wsdl:types>
+    <xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://scrumme.tsi3.edu">
+      <xsd:element name="proyectosAsignado">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="1" minOccurs="1" name="in0" nillable="true" type="xsd:long"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ArrayOfLong">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="long" nillable="true" type="xsd:long"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="proyectosAsignadoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfLong"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="nombreProyecto">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="1" minOccurs="1" name="in0" nillable="true" type="xsd:long"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="nombreProyectoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="login">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="1" minOccurs="1" name="in0" nillable="true" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="1" name="in1" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="loginResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="xsd:long"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="nombreProyectoRequest">
+    <wsdl:part name="parameters" element="tns:nombreProyecto"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="nombreProyectoResponse">
+    <wsdl:part name="parameters" element="tns:nombreProyectoResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="loginRequest">
+    <wsdl:part name="parameters" element="tns:login"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="loginResponse">
+    <wsdl:part name="parameters" element="tns:loginResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="proyectosAsignadoResponse">
+    <wsdl:part name="parameters" element="tns:proyectosAsignadoResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="proyectosAsignadoRequest">
+    <wsdl:part name="parameters" element="tns:proyectosAsignado"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="web">
+    <wsdl:operation name="proyectosAsignado">
+      <wsdl:input name="proyectosAsignadoRequest" message="tns:proyectosAsignadoRequest"></wsdl:input>
+      <wsdl:output name="proyectosAsignadoResponse" message="tns:proyectosAsignadoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="nombreProyecto">
+      <wsdl:input name="nombreProyectoRequest" message="tns:nombreProyectoRequest"></wsdl:input>
+      <wsdl:output name="nombreProyectoResponse" message="tns:nombreProyectoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <wsdl:input name="loginRequest" message="tns:loginRequest"></wsdl:input>
+      <wsdl:output name="loginResponse" message="tns:loginResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="webHttpBinding" type="tns:web">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="proyectosAsignado">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="proyectosAsignadoRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="proyectosAsignadoResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="nombreProyecto">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="nombreProyectoRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="nombreProyectoResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="loginRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="loginResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="web">
+    <wsdl:port name="webHttpPort" binding="tns:webHttpBinding">
+      <wsdlsoap:address location="http://192.168.1.102:8080/scrumMe/services/web"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/scrumMe/services/web</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="login" bindingOperationName="login" type="Request-Response" outputName="loginResponse" inputName="loginRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/scrumMe/services/web</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:scr="http://scrumme.tsi3.edu">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <scr:login>
+         <scr:in0>maxi</scr:in0>
+         <scr:in1>iy</scr:in1>
+      </scr:login>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://scrumme.tsi3.edu/web/loginRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="nombreProyecto" bindingOperationName="nombreProyecto" type="Request-Response" outputName="nombreProyectoResponse" inputName="nombreProyectoRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/scrumMe/services/web</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:scr="http://scrumme.tsi3.edu">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <scr:nombreProyecto>
+         <scr:in0>?</scr:in0>
+      </scr:nombreProyecto>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://scrumme.tsi3.edu/web/nombreProyectoRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="proyectosAsignado" bindingOperationName="proyectosAsignado" type="Request-Response" outputName="proyectosAsignadoResponse" inputName="proyectosAsignadoRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/scrumMe/services/web</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:scr="http://scrumme.tsi3.edu">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <scr:proyectosAsignado>
+         <scr:in0>1</scr:in0>
+      </scr:proyectosAsignado>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://scrumme.tsi3.edu/web/proyectosAsignadoRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>

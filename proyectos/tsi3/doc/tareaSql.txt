@@ -1,0 +1,1 @@
+update  tarea set fecha_creacion='2010-07-07';

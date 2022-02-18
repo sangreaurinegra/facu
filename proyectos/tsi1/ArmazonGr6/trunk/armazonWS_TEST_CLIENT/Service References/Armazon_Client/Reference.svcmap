@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e6ba49cd-4fc2-4723-a978-00cbdeb74049" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1056/ArmazonInterface/ArmazonWS.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ArmazonWS.wsdl" MetadataType="Wsdl" ID="72de1d2f-8917-4fd8-bba4-c01f6e879f6c" SourceId="1" SourceUrl="http://localhost:1056/ArmazonInterface/ArmazonWS.svc?wsdl" />
+    <MetadataFile FileName="ArmazonWS.xsd" MetadataType="Schema" ID="4086057f-e5e7-4272-b644-27ada70f41ae" SourceId="1" SourceUrl="http://localhost:1056/ArmazonInterface/ArmazonWS.svc?xsd=xsd2" />
+    <MetadataFile FileName="ArmazonWS.disco" MetadataType="Disco" ID="07d34f58-bc6a-4bbe-a9ac-ba7534501b7b" SourceId="1" SourceUrl="http://localhost:1056/ArmazonInterface/ArmazonWS.svc?disco" />
+    <MetadataFile FileName="ArmazonWS1.xsd" MetadataType="Schema" ID="06d3ddf4-3655-4b76-b385-a25d022ba338" SourceId="1" SourceUrl="http://localhost:1056/ArmazonInterface/ArmazonWS.svc?xsd=xsd0" />
+    <MetadataFile FileName="ArmazonWS2.xsd" MetadataType="Schema" ID="eeb8c8f1-8add-401b-aae8-c55a83eecb7e" SourceId="1" SourceUrl="http://localhost:1056/ArmazonInterface/ArmazonWS.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

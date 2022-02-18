@@ -1,0 +1,110 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:a="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <h:form id="alojamiento" styleClass="edit">
+
+        <rich:panel>
+            <f:facet name="header">Hotel</f:facet>
+
+			<s:decorate id="image" template="layout/display.xhtml">
+				<h:graphicImage 
+					value="#{alojamientoHome.instance.url ne null ? alojamientoHome.instance.url : '/img/hotel.jpg'}"
+					/>
+				<h:outputText value="#{alojamientoHome.puntajeEstrellasPromedio(-1)}" escape="false"/>	
+			</s:decorate>
+	
+	        <s:decorate id="nombre" template="layout/display.xhtml">
+	            <ui:define name="label">Nombre</ui:define>
+	            <h:outputText value="#{alojamientoHome.instance.nombre}"/>
+	        </s:decorate>
+	
+	        <s:decorate id="tipo" template="layout/display.xhtml">
+	            <ui:define name="label">Ciudad</ui:define>
+	            <h:outputText value="#{alojamientoHome.instance.lugar.nombre}"/>
+	        </s:decorate>
+	
+	        <s:decorate id="url" template="layout/display.xhtml">
+	            <ui:define name="label">Pais</ui:define>
+	            <h:outputText value="#{alojamientoHome.instance.lugar.pais}"/>
+	        </s:decorate>
+	        
+	        <s:decorate id="costo" template="layout/display.xhtml">
+	            <ui:define name="label">Costo por dia</ui:define>
+	            <h:outputText value="#{alojamientoHome.instance.costo}"/>
+	        </s:decorate>
+	        
+            <div style="clear:both">
+
+            </div>
+
+        </rich:panel>
+
+        <div class="actionButtons">
+
+        </div>
+    </h:form>
+
+<rich:tabPanel switchType="ajax">
+
+    <rich:tab label="Calificacion de usuarios">
+        <h:form styleClass="association" id="calificacionsChildren">
+
+			<h:outputText
+				value="Sin Calificacion"
+				rendered="#{empty alojamientoHome.instance.calificaciones()}" />
+			<a:outputPanel id="ajaxComentario">
+				<rich:dataTable  value="#{alojamientoHome.instance.calificaciones()}" var="_calificacion"
+					rendered="#{not empty alojamientoHome.instance.calificaciones()}"
+					rowClasses="rvgRowOne,rvgRowTwo" id="calificacionTable">
+					<rich:column width="100px">
+						<f:facet name="header">Usuario</f:facet>
+						<s:graphicImage
+							width="80px" height="60px"
+							value="#{_calificacion.usuario.image ne null ? _calificacion.usuario.image : '/img/silueta_persona.jpeg'}"
+							alt="" styleClass="picture" />
+						<h:outputText value="#{_calificacion.usuario.nombre}" />
+					</rich:column>
+					<rich:column>
+						<f:facet name="header">Calificacion</f:facet>
+						<h:outputText value="#{_calificacion.puntajeEstrellas()}" escape="false" />
+					</rich:column>
+					<rich:column>
+					<f:facet name="header">Comentarios</f:facet>
+						<h:outputText value="#{_calificacion.comentario}" />
+					</rich:column>
+				</rich:dataTable>
+			</a:outputPanel>
+			<div>
+			<s:decorate id="nuevoComentario" template="layout/edit.xhtml">
+				<ui:define name="label">Calificar</ui:define>
+				<rich:inputNumberSlider id="calPuntaje" required="true" maxValue="5" minValue="1"
+					value="#{calificacionHome.puntos}" />
+					<br/>
+				<h:inputText id="calComentario" required="true" size="200"
+					value="#{calificacionHome.comentario}" />
+					<br/>
+					<a:commandButton action="#{calificacionHome.agregarCalficacion(alojamientoHome.alojamientoIdServicio,usuario.idUsuario)}" 
+									value="Calificar"
+										reRender="ajaxComentario">
+					</a:commandButton>
+			</s:decorate>
+			
+			</div>
+			
+			
+		</h:form>
+    </rich:tab>
+</rich:tabPanel>
+</ui:define>
+
+</ui:composition>

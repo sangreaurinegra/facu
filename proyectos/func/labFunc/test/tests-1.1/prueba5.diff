@@ -1,0 +1,5 @@
+4c4,5
+< void merge(int,int,int);void merge_sort(int low,int high){
+---
+> void merge(int,int,int);void merge_sort(int low,int high)
+> {

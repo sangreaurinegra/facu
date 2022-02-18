@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Wait for the bridging process to settle
+sleep 1m
+
+# Connectivity test
+ping -c 2 10.0.0.1 | head -n -3 | sed 's/time=.*//'
+
+sleep 10
+
+# Send traffic to check switching capabilities
+ping -c 6 -i 3 10.0.0.3 | head -n -3 | sed 's/time=.*//'
+
+touch /hostlab/pc2.testdone
+halt

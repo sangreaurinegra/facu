@@ -1,0 +1,44 @@
+
+
+
+
+detener procesos dockers
+
+
+docker stop $(docker ps -q)
+
+
+docker exec -it master bash
+docker exec -it slave1 bash
+ 
+ scp gabriel.centurion@nebula.fing.edu.uy:/export/home10/gabriel.centurion/docker/disco1chico/* Documentos
+
+
+HDFS
+
+hadoop fs -ls
+
+hadoop fs -rmr input
+
+//Ejemplos
+hadoop fs -put /path/in/linux /hdfs/path
+or even
+hadoop fs -copyFromLocal /path/in/linux /hdfs/path
+
+http://stackoverflow.com/questions/17837871/how-to-copy-file-from-hdfs-to-the-local-file-system
+
+disco 
+df -h
+
+para montar carpeta home de nebula sshfs user@server:folder localFolder
+sshfs gabriel.centurion@nebula.fing.edu.uy: nebula
+
+
+hadoop dfsadmin -safemode leave
+hdfs dfsadmin -safemode leave
+
+
+
+archivos con espacios tiran errores e el put de hadoop
+ls ./disco1/ | grep -E '\s|\*|\?|\$|%'
+

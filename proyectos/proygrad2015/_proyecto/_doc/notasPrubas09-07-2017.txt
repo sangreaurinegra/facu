@@ -1,0 +1,7 @@
+hadoop jar /root/workingdir/AstroImageProcesor.jar edu.proyecto.Main input/pruebaDisco2-last-10.txt output -Dlog4j.configuration=file:resources/log4j.properties
+
+en vi icfcayxeq_res.txt hay data
+
+
+
+listaImgDisco1-last-5000-input.txt

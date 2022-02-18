@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="95163c0d-52f9-4a2f-95bf-ba00932ddc2f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1056/ServiceSilver.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServiceSilver.xsd" MetadataType="Schema" ID="c0725709-b03c-4d78-bb20-cb86a804e006" SourceId="1" SourceUrl="http://localhost:1056/ServiceSilver.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceSilver.disco" MetadataType="Disco" ID="b93b5e9f-caa3-4aa4-9571-94a48c4c5f29" SourceId="1" SourceUrl="http://localhost:1056/ServiceSilver.svc?disco" />
+    <MetadataFile FileName="ServiceSilver.wsdl" MetadataType="Wsdl" ID="8da712cb-3156-4e71-b94e-62e69c767c45" SourceId="1" SourceUrl="http://localhost:1056/ServiceSilver.svc?wsdl" />
+    <MetadataFile FileName="ServiceSilver11.xsd" MetadataType="Schema" ID="ce1f1a2c-a0dd-40db-841e-4d3f4d7703ad" SourceId="1" SourceUrl="http://localhost:1056/ServiceSilver.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServiceSilver11.wsdl" MetadataType="Wsdl" ID="a85ff7fe-e3a7-4112-91f6-90f90fd6de89" SourceId="1" SourceUrl="http://localhost:1056/ServiceSilver.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="ServiceSilver12.xsd" MetadataType="Schema" ID="557aecf7-52d1-40c5-8b10-de46597d02ca" SourceId="1" SourceUrl="http://localhost:1056/ServiceSilver.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

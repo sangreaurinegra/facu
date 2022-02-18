@@ -1,0 +1,110 @@
+Propuesta
+
+CLDC 1.1
+MIDP 2.0
+LWUIT 1.4
+
+
+Arquitecuta del framework
+
+CLDC sobre KVM (Kilo Virtual Machine)
+
+* MIDP
+	Mobile Information Device Profile, 
+	Nos proporciona un perfil que se apoya en el CLDC y nos brinda 
+	las clases y paquetes necesarios para el desarrollo de nuestras aplicaciones en celulares.
+
+* MIDlet
+	Se denomina así a las aplicaciones Java realizadas usando MIDP como referencia,
+	un MIDlet es una aplicación que va a ejecutarse en un dispositivo móvil
+	
+	La estructura de un MIDlet consta de 3 métodos obligatorios;
+    * startApp()
+    * pauseApp()
+    * destroyApp(boolean unconditional)
+
+* RMS para manejo de base de datos (o mejor dicho simularla) 
+	MIDP proporciona un mecanismo para almacenar datos de forma persistente y poder recuperarlos posteriormente.
+	El mecanismo se llama Sistema de almacenamiento de registros (Record Management System, RMS), 
+	y se basa en el modelo simple de base de datos orientada a registros.
+
+* Qué es CLDC
+
+Esta configuración está diseñada para dispositivos con conexiones de red intermitentes, 
+procesadores lentos y memoria limitada como son teléfonos móviles, asistentes personales (PDAs), etc. 
+Está orientado a dispositivos que cumplan las siguientes características:
+
+    * Procesador:16 bit/16 MHz o más
+    * Memoria: 160-512 KB de memoria total disponible para la plataforma Java
+    * Alimentación: Alimentación limitada, a menudo basada en batería
+    * Trabajo en red: Conectividad a algún tipo de red, con ancho de banda limitado habitualmente
+
+
+
+Sun proporciona la implementación de referencia de CLDC (CLDC Reference implementation, CLDC RI) 
+La CLDC RI es adecuada para dispositivos que cumplan las siguientes características:
+
+    * Procesador:32 bits
+    * Memoria: 512 KB/1 MB de memoria total disponible para la plataforma Java
+    * Alimentación: Alimentación limitada, a menudo basada en batería
+    * Trabajo en red: Conectividad a algún tipo de red, con ancho de banda limitado habitualmente
+
+La máquina virtual K toma la K de Kilobyte, haciendo referencia al poco tamaño que ocupa la plataforma, un mínimo de 70 KB
+
+Existen tres versiones de CLDC:
+
+    * CLDC 1.1 (JSR 139): CLDC 1.1 es una revisión de la especificación CLDC 1.0 
+		incluye nuevas características como son punto flotante o soporte a referencias débil, junto con otras mejoras. 
+		CLDC 1.1 es compatible con versiones anteriores y sigue soportando dispositivos pequeños o con recursos limitados.
+    * Existen implementaciones de referencia.
+    * CLDC 1.0 (JSR 30)
+    * CLDC HotSpot ImplementationTM: Es una máquina virtual muy optimizada que presenta una diferencia de rendimiento muy alta frente a la KVM. 
+		Incluye características que soportan una ejecución más rápida de aplicaciones y una gestión de recursos más eficientes,
+		manteniendo los requisitos en cuanto a plataforma de ejecución
+
+
+
+* LWUIT has been tested on today's mass market devices. Its only requirements are MIDP 2.0 and CLDC 1.1.
+		
+Jsr soportados 
+
+JSR-82 	BTAPI 	Bluetooth API
+				
+JSR-280 XML API 
+— Java API for XML Processing (JAXP)	
+— Simple API for XML (SAX)
+— Streaming API for XML (StAX, defined in JSR 173)
+— Document Object Model (DOM) Core and Events
+				 
+JSR-118 	MIDP2.0 	Mobile Information Device Profile 2.0
+Adds the following to MIDP1.0:
+	— UDP/Sockets/Secure Sockets/Server Sockets and access to serial ports
+	— Additional image formats (GIF / JPG / WMB)
+	— PCM (Pulse Code Modulation) wave format and/or additional sampled/synthetic sound formats
+	— Copy protection of MIDlet suites
+	— Discovery/Installation of MIDlets via other mechanisms (InfraRed/Bluetooth/etc)
+	— Custom 'built-from-scratch' UIs (e.g. www.thinlet.com)
+
+JSR-172 	WSAPI 	J2ME Web Services Specification
+The purpose of this specification is to define an optional 
+package that provides standard access from J2ME to web services.
+
+				
+JSR-135 	MMAPI 	Mobile Media API
+	— MMAPI provides support for accessing and controlling time-based media such as audio and video
+	— MMAPI is a superset of MIDP 2.0 multimedia capabilities, adding support 
+
+JSR-184 	M3G 	Mobile 3D Graphics
+	— Provide an efficient 3D Graphics API suitable for the J2ME platform (focused on CLDC/MIDP)
+	— Supports scene graph API (high-level) and immediate API (low-level, subset of OpenGL)
+	— Provides importer functions for textures, meshes, animations, and scene hierarchies
+	— Includes tight integration with MIDP
+
+JSR-209 	AGUI 	Advanced GUI
+	— Slimming operation of the Swing GUI toolkit from J2SE
+	— Java 2D graphics engine preserved
+	— Imaging API and Image load/save framework preserved
+	— Input Method framework preserved
+	— Pluggable Look And Feel dropped
+
+

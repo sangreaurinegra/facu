@@ -1,0 +1,8 @@
+MIDlet-1: UIDemoMIDlet,,com.sun.lwuit.uidemo.UIDemoMIDlet
+MIDlet-Jar-Size: 746810
+MIDlet-Jar-URL: pru1.jar
+MIDlet-Name: pru1 Midlet Suite
+MIDlet-Vendor: Midlet Suite Vendor
+MIDlet-Version: 1.0.0
+MicroEdition-Configuration: CLDC-1.1
+MicroEdition-Profile: MIDP-2.0

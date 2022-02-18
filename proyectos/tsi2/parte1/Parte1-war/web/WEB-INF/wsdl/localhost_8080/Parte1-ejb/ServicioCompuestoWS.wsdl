@@ -1,0 +1,108 @@
+<definitions name='ServicioCompuestoWSService' targetNamespace='http://ws.gr5.tsi2.edu/' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:tns='http://ws.gr5.tsi2.edu/' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+ <types>
+  <xs:schema targetNamespace='http://ws.gr5.tsi2.edu/' version='1.0' xmlns:tns='http://ws.gr5.tsi2.edu/' xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+   <xs:element name='operationCompuesta1' type='tns:operationCompuesta1'/>
+   <xs:element name='operationCompuesta1Response' type='tns:operationCompuesta1Response'/>
+   <xs:element name='servicioCompuesto1' type='tns:servicioCompuesto1'/>
+   <xs:element name='servicioCompuesto1Response' type='tns:servicioCompuesto1Response'/>
+   <xs:element name='sumaMultiplicacion' type='tns:sumaMultiplicacion'/>
+   <xs:element name='sumaMultiplicacionResponse' type='tns:sumaMultiplicacionResponse'/>
+   <xs:complexType name='servicioCompuesto1'>
+    <xs:sequence/>
+   </xs:complexType>
+   <xs:complexType name='servicioCompuesto1Response'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='return' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='operationCompuesta1'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='arg0' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='operationCompuesta1Response'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='return' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='sumaMultiplicacion'>
+    <xs:sequence>
+     <xs:element name='arg0' type='xs:int'/>
+     <xs:element name='arg1' type='xs:int'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='sumaMultiplicacionResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='return' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+  </xs:schema>
+ </types>
+ <message name='ServicioCompuestoWS_servicioCompuesto1Response'>
+  <part element='tns:servicioCompuesto1Response' name='servicioCompuesto1Response'></part>
+ </message>
+ <message name='ServicioCompuestoWS_servicioCompuesto1'>
+  <part element='tns:servicioCompuesto1' name='servicioCompuesto1'></part>
+ </message>
+ <message name='ServicioCompuestoWS_operationCompuesta1Response'>
+  <part element='tns:operationCompuesta1Response' name='operationCompuesta1Response'></part>
+ </message>
+ <message name='ServicioCompuestoWS_operationCompuesta1'>
+  <part element='tns:operationCompuesta1' name='operationCompuesta1'></part>
+ </message>
+ <message name='ServicioCompuestoWS_sumaMultiplicacionResponse'>
+  <part element='tns:sumaMultiplicacionResponse' name='sumaMultiplicacionResponse'></part>
+ </message>
+ <message name='ServicioCompuestoWS_sumaMultiplicacion'>
+  <part element='tns:sumaMultiplicacion' name='sumaMultiplicacion'></part>
+ </message>
+ <portType name='ServicioCompuestoWS'>
+  <operation name='operationCompuesta1' parameterOrder='operationCompuesta1'>
+   <input message='tns:ServicioCompuestoWS_operationCompuesta1'></input>
+   <output message='tns:ServicioCompuestoWS_operationCompuesta1Response'></output>
+  </operation>
+  <operation name='servicioCompuesto1' parameterOrder='servicioCompuesto1'>
+   <input message='tns:ServicioCompuestoWS_servicioCompuesto1'></input>
+   <output message='tns:ServicioCompuestoWS_servicioCompuesto1Response'></output>
+  </operation>
+  <operation name='sumaMultiplicacion' parameterOrder='sumaMultiplicacion'>
+   <input message='tns:ServicioCompuestoWS_sumaMultiplicacion'></input>
+   <output message='tns:ServicioCompuestoWS_sumaMultiplicacionResponse'></output>
+  </operation>
+ </portType>
+ <binding name='ServicioCompuestoWSBinding' type='tns:ServicioCompuestoWS'>
+  <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http'/>
+  <operation name='operationCompuesta1'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='servicioCompuesto1'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='sumaMultiplicacion'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+ </binding>
+ <service name='ServicioCompuestoWSService'>
+  <port binding='tns:ServicioCompuestoWSBinding' name='ServicioCompuestoWSPort'>
+   <soap:address location='http://127.0.0.1:8080/Parte1-ejb/ServicioCompuestoWS'/>
+  </port>
+ </service>
+</definitions>

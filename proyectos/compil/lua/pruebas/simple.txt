@@ -1,0 +1,6 @@
+function fun (x,y)
+        a = x+y
+        return a
+end
+
+fun(1,2)

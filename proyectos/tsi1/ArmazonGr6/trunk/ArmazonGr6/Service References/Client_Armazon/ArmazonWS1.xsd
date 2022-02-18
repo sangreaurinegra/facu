@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Armazon.DataContracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Armazon.DataContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfDCProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DCProduct" nillable="true" type="tns:DCProduct" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDCProduct" nillable="true" type="tns:ArrayOfDCProduct" />
+  <xs:complexType name="DCProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Attrs" nillable="true" type="tns:ArrayOfDCProductAttr" />
+      <xs:element minOccurs="0" name="ProductId" type="xs:int" />
+      <xs:element minOccurs="0" name="RatingAvg" type="xs:float" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DCProduct" nillable="true" type="tns:DCProduct" />
+  <xs:complexType name="ArrayOfDCProductAttr">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DCProductAttr" nillable="true" type="tns:DCProductAttr" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDCProductAttr" nillable="true" type="tns:ArrayOfDCProductAttr" />
+  <xs:complexType name="DCProductAttr">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsKey" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DCProductAttr" nillable="true" type="tns:DCProductAttr" />
+  <xs:complexType name="DCProductAttrDouble">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DCProductAttr">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Value" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DCProductAttrDouble" nillable="true" type="tns:DCProductAttrDouble" />
+  <xs:complexType name="DCProductAttrString">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DCProductAttr">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DCProductAttrString" nillable="true" type="tns:DCProductAttrString" />
+  <xs:complexType name="DCProductAttrFloat">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DCProductAttr">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Value" type="xs:float" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DCProductAttrFloat" nillable="true" type="tns:DCProductAttrFloat" />
+  <xs:complexType name="DCProductAttrBool">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DCProductAttr">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Value" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DCProductAttrBool" nillable="true" type="tns:DCProductAttrBool" />
+  <xs:complexType name="DCProductAttrInt">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DCProductAttr">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Value" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DCProductAttrInt" nillable="true" type="tns:DCProductAttrInt" />
+  <xs:complexType name="DCProductAttrImage">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DCProductAttr">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DCProductAttrImage" nillable="true" type="tns:DCProductAttrImage" />
+  <xs:complexType name="ArrayOfDCRating">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DCRating" nillable="true" type="tns:DCRating" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDCRating" nillable="true" type="tns:ArrayOfDCRating" />
+  <xs:complexType name="DCRating">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rating" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DCRating" nillable="true" type="tns:DCRating" />
+  <xs:complexType name="ArrayOfDCCartItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DCCartItem" nillable="true" type="tns:DCCartItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDCCartItem" nillable="true" type="tns:ArrayOfDCCartItem" />
+  <xs:complexType name="DCCartItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ProductId" type="xs:int" />
+      <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DCCartItem" nillable="true" type="tns:DCCartItem" />
+</xs:schema>

@@ -1,0 +1,60 @@
+
+*********************** Gabriel - 25/08  *****************************
+Menejo de logueo
+
+int logLevel = 0; // 0 no log , 1 info, 2 debug, 3 trace. 
+// ie if(logLevel>=INFO) se imprime si es info o debug o trace
+
+Manejo de hilos
+http://www.chuidiang.com/clinux/procesos/procesoshilos.php#hilos
+
+Sockets
+
+// SERVIDOR  
+/* http://www.chuidiang.com/clinux/sockets/sockets_simp.php
+    socket() - Apertura de un socket.
+    bind() - asociar nuestro programa a dicho socket. 
+    listen() - Avisar al sistema de que comience a atender dicha conexión de red.
+    accept() - Pedir y aceptar las conexiones de clientes.Si no hay cleintes en la cola se bloquea
+    write() y read() - Escribir y recibir datos del cliente.
+    close() - Cierre de la comunicación y del socket
+*/
+
+//CLIENTE
+/*
+    socket() - Apertura de un socket
+    connect() - Solicitar conexión con el servidor. Se bloquea hasta que el servidor acepte la conexión. 
+    write() y read() - Escribir y recibir datos del cliente.
+    close() - Cierre de la comunicación y del socket
+*/
+
+*****************************************************************************
+
+*********************** Nando - 26/08  *****************************
+PARA UTILIZAR EL ECLIPSE INDIGO C++:
+
+-Usan el instalador que les pase
+-Siguen los pasos que esatn en:
+http://www.banym.de/eclipse/install-eclipse-cdt-on-windows-7
+
+-Tomen en cuenta que las dos primeras intalaciones ahora son una sola,
+es decir que solo tienen que instalar el mingw de este link http://sourceforge.net/projects/mingw/files/latest/download?source=files
+y luego agregar el el c:\mingw\bin al path. 
+
+Luego de eso anda volando.
+
+********************************************************************************
+
+*********************** Nando - 27/08 10:09 *****************************
+Agrege un doc con las bibliotecas que arranca con el resumen de las bibliotecas a utilizar y los componentes de la conexion.
+Para arrancar con alguna idea, tengo pensado como hacer el manejo de sockets con esas rutinas que nombre para arrancar al menos,
+despues la bilbiotecas tenderan a crecer como es natural y/o sufriran modificaciones segun la conveniencia.
+*****************************************************************
+
+*********************** Nando - 01/09 17:51 *****************************
+Notas sobre manejo de tamano de archivos :
+http://ar.answers.yahoo.com/question/index?qid=20080525071053AALeRUX
+http://www.zator.com/Cpp/E4_5_2.htm#Espacio de almacenamiento
+*****************************************************************
+hola
+

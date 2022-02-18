@@ -1,0 +1,29 @@
+\chapter{Introducción}
+\label{cha:intro}
+
+\section{Contexto de trabajo}
+El proyecto se enmarca en la realización del Proyecto de Grado para la graduación de la carrera de Ingeniería en Computación. 
+\\El mismo propone el estudio del paradigma de computación distribuida utilizando infraestructuras cloud y su aplicación para el diseño e implementación de un sistema distribuido que permita resolver de forma eficiente el problema de procesamiento de grandes volúmenes de información astronómica procedentes del telescopio espacial Hubble, para la detección de rayos cósmicos. El trabajo se enmarca en una colaboración con el Departamento de Astronomía de la Facultad de Ciencias, en el contexto del Núcleo Interdisciplinario de Computación Científica de Alto Desempeño.
+\\En un convenio de La Facultad de Ingeniería con Microsoft se brindó una cuenta para la utilización de la plataforma en la nube de Microsoft denominada Azure.Dado que la cuenta caducó se finaliza el trabajo en un entorno proporcionado por la FING llamado Nebula. 
+
+\section{Descripción del problema}
+
+El problema consiste en procesar gran cantidad de imágenes de gran tamaño.
+En cada caso se trabaja no solo con una imagen en particular sino también con la imagen "dark" en cierta posición y la metadata que indica cual es esa posición. De esta manera para cada posición de nuestro dominio obtenemos mediciones sobre los rayos cósmicos y otros elementos cosmológicos\\
+Los pasos a seguir para obtener el resultado deseado son:
+\begin{enumerate}
+\item Obtener imágenes darks del telescopio.\\ 
+Las mismas se obtienen con tapando el lente. Cada imagen se compone de dos partes, la información telemétrica (SPT) y la información cruda (RAW), que son los bytes capturados por el instrumento.
+\item Descartar imágenes que pueden no tener sentido.\\ 
+Esto se logra utilizando ciertos headers con información determinante que indica si la imagen es viable o no.
+\item Limpiar los rayos cósmicos.\\
+Restando el resultado anterior a la imagen original y obteniendo así solo los rayos cósmicos.
+\item Obtener datos estadísticos sobre los rayos en las distintas posiciones del telescopio.
+\item Presentar los resultados.
+\end{enumerate}
+
+\section{Descripción de la solución}
+\todo{agregar referencias , HDFS HADOOP etc}
+Las imágenes son previamente cargadas a un volumen accesible al host que aloja la aplicación . Mediante la utilizacion de Docker se tantas instancias de contenedores como se consideren convenientes de acuerdo a la infraestrucura utilizada . Dichas instancias ofician de maquinas virtuales operando como nodo de un clustar cada una de ellas . Los nodos se comunican utilizando portocolos de red . El claAl ejecutar la aplicación las imágenes son copiadas al volumen distribuido que provee el framework Hadoop (HDFS) 
+Mediante la implementación de algoritmos Map Reduce se distribuye cada imagen a un nodo para que este lo procese.
+En dicho portal el usuario puede cargar las imágenes a procesar, como así solicitar el procesamiento de imágenes cargadas.

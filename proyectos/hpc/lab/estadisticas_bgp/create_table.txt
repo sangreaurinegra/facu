@@ -1,0 +1,10 @@
+Comando maravilloso: hadoop namenode -format
+
+Crear el directorio /home/gabriel1/hadoop-1.2.1/data
+
+// sentencia para crear la tabla
+CREATE EXTERNAL TABLE log_bgp(bgpProtocol STRING, time STRING, state STRING, peerIp STRING, peerAs INT, prefix STRING, asPath STRING, origin STRING, nextHop STRING, localPref INT, med INT, community STRING, atomicAgg STRING, aggregator STRING) COMMENT 'This is the log bgp protocol' ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' STORED AS TEXTFILE LOCATION '/home/gabriel1/hadoop-1.2.1/data';
+
+
+// sentencia para hacer cargar la tabla
+hadoop dfs -put /home/gabriel1/hadoop-1.2.1/updatesBGP.sample.txt /home/gabriel1/hadoop-1.2.1/data

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root-container name="paqueteTuristico" width="1028" height="465">
+  <node name="inicio-Elegir ciudad" x="10" y="20" width="132" height="36">
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+  </node>
+  <node name="trasladoLlegada" x="110" y="86" width="132" height="36">
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+  </node>
+  <node name="estadia" x="233" y="144" width="132" height="36">
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+  </node>
+  <node name="actividades" x="372" y="195" width="132" height="36">
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+  </node>
+  <node name="trasladoSalida" x="480" y="260" width="132" height="36">
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+  </node>
+  <node name="Resumen" x="618" y="319" width="132" height="36">
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+    <edge>
+      <label x="5" y="-10"/>
+      <bendpoint w1="-385" h1="1" w2="0" h2="176"/>
+    </edge>
+  </node>
+  <node name="fin" x="806" y="369" width="132" height="36"/>
+</root-container>

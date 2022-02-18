@@ -1,0 +1,13 @@
+en el caso de procesar UNA SOLA imagen y esta no ser tomada en cta 
+como ser j8vb7afmq el script original queda en loop infinito , el nuevo la descarta
+
+
+
+xdimsum,> -------rayocosmico fits
+------lets compare
+Descargando los keywords en los archivos rawdataC.txt y sptdataC.txt #####
+Headers salvados: 0 
+-----Copiando extension/capa de imagen de los darks #########################
+crmskimglist: Warning: Attempt to delete a nonexistent file (tmp$xzap8875g)
+Generando imagenes con valor de fondo cero, SOLO con rayos cosmicos ####
+xdimsum,> xdimsum,> xdimsum,> xdimsum,> xdimsum,> xdimsum,> xdimsum,> xdimsum,> xdimsum,> xdimsum,> xdimsum,> xdimsum,> xdimsum,> xdimsum,> ....

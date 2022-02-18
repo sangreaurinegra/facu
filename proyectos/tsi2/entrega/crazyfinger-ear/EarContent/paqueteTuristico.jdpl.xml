@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<pageflow-definition
+  name="paqueteTuristico">
+
+	<start-page name="inicio-Elegir ciudad" view-id="/elegirCiudadpt.xhtml">
+		<transition to="trasladoLlegada" name="accionTrasladoLlegada"></transition>
+	</start-page>
+	<page name="trasladoLlegada" view-id="/elegirLlegadapt.xhtml">
+		<transition to="estadia" name="accionEstadia"></transition>
+	</page>
+	<page name="estadia" view-id="/elegirAlojamientopt.xhtml">
+		<transition to="actividades" name="accionActividades"></transition>
+	</page>
+	<page name="actividades" view-id="/elegirActividadespt.xhtml">
+		<transition to="trasladoSalida" name="accionTrasladoSalida">
+		</transition>
+	</page>
+	<page name="trasladoSalida" view-id="/elegirSalidapt.xhtml">
+		<transition to="Resumen" name="accionResumen"></transition>
+	</page>
+	<page name="Resumen" view-id="/resumenTramopt.xhtml">
+		<transition to="fin" name="accionGuardar">
+			<action expression="#{itinerariopt.salvarTramo()}"/>
+		</transition>
+		<transition name="accionGuardarSiguiente" to="estadia">
+			<action expression="#{itinerariopt.salvarTramoYSeguir()}"/>
+		</transition>
+	</page>
+	<page name="fin" view-id="/itinerariopt.xhtml">
+		<end-conversation/>
+		<redirect/>
+	</page>
+</pageflow-definition>

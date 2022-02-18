@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="SilverCloud.Page"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:toolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+    xmlns:ServiceReferenceSilver="clr-namespace:SilverCloud.ServiceReferenceSilver" xmlns:SilverCloud="clr-namespace:SilverCloud" Opacity="0.715" Loaded="UserControl_Loaded">
+
+    <Border BorderBrush="#F3F3F3" CornerRadius="10" BorderThickness="4" Margin="-5">  <!--  Margin="5"-->
+    <toolkit:WrapPanel x:Name="LayoutRoot" Background="#F3F3F3" Orientation="Horizontal" Width="Auto" Height="Auto" >
+         
+    </toolkit:WrapPanel> 
+</Border>
+
+
+</UserControl>

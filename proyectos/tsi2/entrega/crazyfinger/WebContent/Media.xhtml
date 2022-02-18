@@ -1,0 +1,142 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich" template="layout/template.xhtml">
+
+	<ui:define name="body">
+
+		<rich:panel>
+			<f:facet name="header">Media</f:facet>
+
+			<s:decorate id="fecha" template="layout/display.xhtml">
+			<h:outputText value="fechaEnviado" rendered="#{mediaHome.instance.fechaEnviadoFormato()}" />
+			</s:decorate>
+
+			<s:decorate id="tipo" template="layout/display.xhtml">
+				<ui:define name="label">Tipo de Media</ui:define>
+				<h:outputText value="Foto" rendered="#{mediaHome.instance.tipomedia == 'FOTO'}" />
+				<h:outputText value="Video"  rendered="#{mediaHome.instance.tipomedia == 'VIDEO'}" />
+			</s:decorate>
+
+			<s:decorate id="image" template="layout/display.xhtml">
+				<s:graphicImage
+					value="#{mediaHome.instance.image ne null ? mediaHome.instance.image : ''}"
+					alt="" rendered="#{mediaHome.instance.tipomedia == 'FOTO'}"  width="900px" />
+					<h:outputText escape="false" value="#{mediaHome.instance.url}" rendered="#{mediaHome.instance.tipomedia == 'VIDEO'}"/>
+			</s:decorate>
+			
+			 
+			<s:decorate id="datosextras" template="layout/display.xhtml">
+				<ui:define name="label">Datosextras</ui:define>
+				<h:outputText value="#{mediaHome.instance.datosextras}" />
+			</s:decorate>
+
+			<s:decorate id="url" template="layout/display.xhtml">
+				<ui:define name="label">Url</ui:define>
+				<h:outputText value="#{mediaHome.instance.url}" />
+			</s:decorate>
+
+			<div style="clear: both" />
+
+		</rich:panel>
+
+		<div class="actionButtons"><s:button view="/MediaEdit.xhtml"
+			id="edit" value="Edit" /> <s:button
+			view="/#{empty mediaFrom ? 'MediaList' : mediaFrom}.xhtml" id="done"
+			value="Done" /></div>
+
+		<rich:tabPanel switchType="ajax">
+
+			<rich:tab>
+				<f:facet name="label">
+					<h:panelGroup>Comentarios</h:panelGroup>
+				</f:facet>
+			<h:form styleClass="association" id="comentariosChildren">
+
+					<h:outputText
+						value="Sin Comentarios"
+						rendered="#{empty mediaHome.comentarios}" />
+
+				<a:outputPanel id="ajaxComentario">
+					<rich:dataTable  value="#{mediaHome.comentarios}" var="_comentario"
+						rendered="#{not empty mediaHome.comentarios}"
+						rowClasses="rvgRowOne,rvgRowTwo" id="comentariosTable">
+						<rich:column width="100px">
+							
+								<s:graphicImage
+									width="80px" height="60px"
+									value="#{_comentario.usuario.image ne null ? _comentario.usuario.image : '/img/silueta_persona.jpeg'}"
+									alt="" styleClass="picture" />
+						</rich:column>
+						<rich:column sortBy="#{_comentario.mensaje}">
+						<f:facet name="header">Comentarios</f:facet>
+							<h:outputText value="#{_comentario.fechaEnviadoFormato()} #{_comentario.usuario.nombre} comento:" />
+							<br />
+							<h:outputText value="#{_comentario.mensaje}" />
+						</rich:column>
+					</rich:dataTable>
+				</a:outputPanel>
+					<div>
+					<s:decorate id="nuevoComentario" template="layout/edit.xhtml">
+						<ui:define name="label">Comentar</ui:define>
+						<h:inputText id="impComentario" required="true" size="200"
+							value="#{mediaHome.valueComentario}" />
+							<br/>
+							<a:commandButton action="#{mediaHome.agregarComentario()}" value="Enviar Comentario"
+												reRender="ajaxComentario">
+							</a:commandButton>
+					</s:decorate>
+					
+					</div>
+			</h:form>
+			</rich:tab>
+
+			<rich:tab>
+				<f:facet name="label">
+					<h:panelGroup>Lugar</h:panelGroup>
+				</f:facet>
+				<div class="association" id="lugarParent"><h:outputText
+					value="There is no lugar associated with this media."
+					rendered="#{mediaHome.instance.lugar == null}" /> <rich:dataTable
+					var="_lugar" value="#{mediaHome.instance.lugar}"
+					rendered="#{mediaHome.instance.lugar != null}"
+					rowClasses="rvgRowOne,rvgRowTwo" id="lugarTable">
+					
+					<h:column width="100px">
+						<s:graphicImage
+									width="80px" height="60px"
+									value="#{_lugar.url}"
+									alt="" styleClass="picture" />
+					</h:column>
+					<h:column>
+						<h:outputText value="#{_lugar.nombre}" />
+					</h:column>
+					
+					<h:column styleClass="action">
+						<s:link id="viewlugar" value="Ir" view="/Lugar.xhtml">
+							<f:param name="lugarIdLugar" value="#{_lugar.idLugar}" />
+						</s:link>
+					</h:column>
+				</rich:dataTable></div>
+			</rich:tab>
+
+			<rich:tab rendered="#{mediaHome.instance.pared == null}">
+				<f:facet name="label">
+					<h:panelGroup>Pared</h:panelGroup>
+				</f:facet>
+				<div class="association" id="paredParent">
+				<h:form id="formAgregarPared">
+					<a:commandButton action="#{mediaHome.publicarEnPared()}"
+					 value="Agregar en Pared" rendered="#{mediaHome.instance.pared == null}">
+					</a:commandButton>
+				</h:form></div>
+			</rich:tab>
+		</rich:tabPanel>
+	</ui:define>
+
+</ui:composition>

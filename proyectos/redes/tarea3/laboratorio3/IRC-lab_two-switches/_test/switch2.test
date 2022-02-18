@@ -1,0 +1,14 @@
+#!/bin/sh
+
+sleep 1m
+
+sleep 10
+
+# Set learned entries non-persistent
+brctl setageing br0 1
+
+sleep 25
+
+touch /hostlab/switch2.testdone
+halt
+

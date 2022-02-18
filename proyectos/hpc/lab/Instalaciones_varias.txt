@@ -1,0 +1,16 @@
+------ MPICH 1.2.7 ------
+
+En el filtro de busqueda poner: libmpich1.0-dev (en la columna latest version dice 1.2.7-10ubuntu1)
+Seleccionar e instalar (incluyendo dependencias).
+
+En el filtro de busqueda poner: mpich-bin 
+Seleccionar e instalar (incluyendo dependencias).
+
+------ SSH server -------
+En el filtro de busqueda poner: openssh-server
+Seleccionar e instalar (incluyendo dependencias).
+
+------ Soporte RSA ------
+sudo apt-get install libssl-dev
+
+

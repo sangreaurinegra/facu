@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1530/ServiceCloud.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ArmazonGr6" />
+  <xs:element name="GetCloudItems">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCloudItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ArmazonGr6" minOccurs="0" name="GetCloudItemsResult" nillable="true" type="q1:ArrayOfEtiqueta" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

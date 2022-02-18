@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Wait for the bridging process to settle
+sleep 1m
+
+sleep 5
+
+# Collect addresses from the source address tables
+brctl showmacs br0 | sed -n '2,$p' | awk '{print $1,$2}' | sort
+
+# Make learned information non-persistent (this should let packets flow up to
+# pc1)
+brctl setageing br0 1
+
+sleep 25
+
+touch /hostlab/switch1.testdone
+halt
+

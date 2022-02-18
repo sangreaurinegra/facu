@@ -1,0 +1,63 @@
+
+<%@ page import="edu.tsi3.scrumme.Texto" %>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="layout" content="main" />
+        <g:set var="entityName" value="${message(code: 'texto.label', default: 'Texto')}" />
+        <title><g:message code="default.create.label" args="[entityName]" /></title>
+        <ckeditor:resources />
+    </head>
+    <body>
+        <div class="nav">
+            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}">Home</a></span>
+            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
+        </div>
+        <div class="body">
+            <h1><g:message code="default.create.label" args="[entityName]" /></h1>
+            <g:if test="${flash.message}">
+            <div class="message">${flash.message}</div>
+            </g:if>
+            <g:hasErrors bean="${textoInstance}">
+            <div class="errors">
+                <g:renderErrors bean="${textoInstance}" as="list" />
+            </div>
+            </g:hasErrors>
+            <g:form action="save" method="post" >
+                <div class="dialog">
+                    <table>
+                        <tbody>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="texto"><g:message code="texto.texto.label" default="Texto" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: textoInstance, field: 'texto', 'errors')}">
+                           
+                                    
+  								<ckeditor:editor name="texto" height="400px" width="100%" toolbar="Full" >
+										${textoInstance?.texto}
+								</ckeditor:editor>
+									
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="reunion"><g:message code="texto.reunion.label" default="Reunion" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: textoInstance, field: 'reunion', 'errors')}">
+                                    <g:select name="reunion.id" from="${edu.tsi3.scrumme.Reunion.list()}" optionKey="id" value="${textoInstance?.reunion?.id}"  />
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buttons">
+                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
+                </div>
+            </g:form>
+        </div>
+    </body>
+</html>

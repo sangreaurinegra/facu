@@ -1,0 +1,25 @@
+
+para la entrega final tienen que entregar un artículo que presente su solución al laboratorio. A continuación tienen las pautas para el armado del artículo.
+
+El artículo debe incluir al menos las siguientes secciones:
+
+   1- Introducción: breve descripción de la realidad planteada y el contexto (motivación, tipo de trabajo, objetivos del trabajo)
+   2- Marco Conceptual - conceptos técnicos necesarios para entender el trabajo. (definición de los estándares y productos usados)
+   3- Arquitectura Propuesta
+   4- Diseño Realizado y Decisiones tomadas
+   5- Características del producto logrado
+   6- Evaluación de las tecnologías usadas (curva de aprendizaje, grado de madurez, etc.)
+   7- Posibles Extensiones (todas esas cosas que habría estado bueno, pero no dió el tiempo) tanto en tecnologías como en funcionalidades.
+   8- Conclusiones...
+   9- Referencias
+
+
+en el siguiente link pueden encontrar una buena guía sobre cómo (no) escribir un artículo:
+http://www.wisdom.weizmann.ac.il/~oded/PS/re-writing.pdf
+
+el siguiente link es una guía mucho más completa para escribir artículos y trabajos escritos en general:
+http://www.grantadesign.com/download/pdf/How_to_write_a_paper_6th_edition_2005.pdf
+
+
+Saludos,
+Raquels 

@@ -1,0 +1,80 @@
+<definitions name='gr5WSService' targetNamespace='http://ws.gr5.tsi2.edu/' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:tns='http://ws.gr5.tsi2.edu/' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+ <types>
+  <xs:schema targetNamespace='http://ws.gr5.tsi2.edu/' version='1.0' xmlns:tns='http://ws.gr5.tsi2.edu/' xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+   <xs:element name='producto' type='tns:producto'/>
+   <xs:element name='productoResponse' type='tns:productoResponse'/>
+   <xs:element name='suma' type='tns:suma'/>
+   <xs:element name='sumaResponse' type='tns:sumaResponse'/>
+   <xs:complexType name='suma'>
+    <xs:sequence>
+     <xs:element name='a' type='xs:int'/>
+     <xs:element name='b' type='xs:int'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='sumaResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='return' type='xs:int'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='producto'>
+    <xs:sequence>
+     <xs:element name='a' type='xs:int'/>
+     <xs:element name='b' type='xs:int'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='productoResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='return' type='xs:int'/>
+    </xs:sequence>
+   </xs:complexType>
+  </xs:schema>
+ </types>
+ <message name='gr5WS_suma'>
+  <part element='tns:suma' name='suma'></part>
+ </message>
+ <message name='gr5WS_producto'>
+  <part element='tns:producto' name='producto'></part>
+ </message>
+ <message name='gr5WS_productoResponse'>
+  <part element='tns:productoResponse' name='productoResponse'></part>
+ </message>
+ <message name='gr5WS_sumaResponse'>
+  <part element='tns:sumaResponse' name='sumaResponse'></part>
+ </message>
+ <portType name='gr5WS'>
+  <operation name='producto' parameterOrder='producto'>
+   <input message='tns:gr5WS_producto'></input>
+   <output message='tns:gr5WS_productoResponse'></output>
+  </operation>
+  <operation name='suma' parameterOrder='suma'>
+   <input message='tns:gr5WS_suma'></input>
+   <output message='tns:gr5WS_sumaResponse'></output>
+  </operation>
+ </portType>
+ <binding name='gr5WSBinding' type='tns:gr5WS'>
+  <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http'/>
+  <operation name='producto'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='suma'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+ </binding>
+ <service name='gr5WSService'>
+  <port binding='tns:gr5WSBinding' name='gr5WSPort'>
+   <soap:address location='http://127.0.0.1:8080/misWS/gr5WS'/>
+  </port>
+ </service>
+</definitions>

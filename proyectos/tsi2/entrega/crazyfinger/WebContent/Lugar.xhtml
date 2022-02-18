@@ -1,0 +1,277 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <rich:panel>
+        <f:facet name="header">#{lugarHome.instance.nombre}</f:facet>
+
+  
+        <s:decorate id="foto" template="layout/display.xhtml">
+             <h:graphicImage value="#{lugarHome.instance.url ne null ? lugarHome.instance.url : '/img/nofoto.png'}" alt="No Foto"/>
+        </s:decorate>
+
+		<s:decorate id="pais" template="layout/display.xhtml">
+            <ui:define name="label">Pais</ui:define>
+            <h:outputText value="#{lugarHome.instance.pais}"/>
+        </s:decorate>
+
+        <s:decorate id="latitud" template="layout/display.xhtml">
+            <ui:define name="label">Latitud</ui:define>
+            <h:outputText value="#{lugarHome.instance.latitud}"/>
+        </s:decorate>
+
+        <s:decorate id="longitud" template="layout/display.xhtml">
+            <ui:define name="label">Longitud</ui:define>
+            <h:outputText value="#{lugarHome.instance.longitud}"/>
+        </s:decorate>
+
+        
+        <div style="clear:both"/>
+
+    </rich:panel>
+
+    <div class="actionButtons">
+
+        <s:button view="/LugarEdit.xhtml"
+                    id="edit"
+                 value="Edit"/>
+
+        <s:button view="/#{empty lugarFrom ? 'LugarList' : lugarFrom}.xhtml"
+                    id="done"
+                 value="Done"/>
+
+    </div>
+
+    <rich:tabPanel switchType="ajax">
+
+    <rich:tab>
+        <f:facet name="label">
+            <h:panelGroup>Actividades</h:panelGroup>
+        </f:facet>
+    <h:form styleClass="association" id="actividadesChildren">
+
+        <h:outputText value="There are no actividades associated with this lugar."
+                   rendered="#{empty lugarHome.actividades}"/>
+
+        <rich:dataTable value="#{lugarHome.actividades}"
+                       var="_actividad"
+                  rendered="#{not empty lugarHome.actividades}"
+                rowClasses="rvgRowOne,rvgRowTwo"
+                        id="actividadesTable">
+            <rich:column sortBy="#{_actividad.url}">
+                <f:facet name="header">Actividad</f:facet>
+                <h:graphicImage  width="80px" height="60px" value="#{_actividad.url ?  _actividad.url : '/img/nofoto.png'}" alt="No Foto"/>
+                <h:outputText value="#{_actividad.nombre}"/>
+            </rich:column>
+            <rich:column sortBy="#{_actividad.detalle}">
+                <f:facet name="header">Detalle</f:facet>
+                <h:outputText value="#{_actividad.detalle}"/>
+            </rich:column>
+            <rich:column sortBy="#{_actividad.tipo}">
+                <f:facet name="header">Tipo</f:facet>
+                <h:outputText value="#{_actividad.tipo}"/>
+            </rich:column>
+            <h:column>
+                
+                <s:link id="selectactividad"
+                     value="Select"
+                      view="/Actividad.xhtml">
+                    <f:param name="actividadIdActividad"
+                            value="#{_actividad.idActividad}"/>
+                    <f:param name="actividadFrom" value="Lugar"/>
+                </s:link>
+            </h:column>
+        </rich:dataTable>
+
+    </h:form>
+
+    <div class="actionButtons">
+        <s:button
+               value="Add actividad"
+                view="/ActividadEdit.xhtml">
+            <f:param name="lugarIdLugar"
+                    value="#{lugarHome.instance.idLugar}"/>
+            <f:param name="actividadFrom" value="Lugar"/>
+        </s:button>
+    </div>
+    </rich:tab>
+
+    <rich:tab>
+        <f:facet name="label">
+            <h:panelGroup>Medias</h:panelGroup>
+        </f:facet>
+    <h:form styleClass="association" id="mediasChildren">
+
+        <h:outputText value="There are no medias associated with this lugar."
+                   rendered="#{empty lugarHome.medias}"/>
+
+        <rich:dataTable value="#{lugarHome.medias}"
+                       var="_media"
+                  rendered="#{not empty lugarHome.medias}"
+                rowClasses="rvgRowOne,rvgRowTwo"
+                        id="mediasTable">
+            <rich:column >
+                  <s:graphicImage width="80px" height="60px"
+					value="#{_media.image ne null ? _media.image : ''}"
+					alt="[profile image]" rendered="#{_media.tipomedia == 'FOTO'}"/>
+					<h:outputText escape="false" value="#{_media.url}" rendered="#{_media.tipomedia == 'VIDEO'}"/>
+					 <h:outputText value="#{_media.datosextras}"/>
+            </rich:column>
+            <h:column>
+					<rich:dataTable  value="#{_media.comentarios}" var="_comentario"
+						rendered="#{not empty _media.comentarios}"
+						rowClasses="rvgRowOne,rvgRowTwo" id="comentariosTable">
+						<rich:column width="100px" sortBy="#{_comentario.mensaje}">
+						<s:graphicImage
+									width="60px" height="40px"
+									value="#{_comentario.usuario.image ne null ? _comentario.usuario.image : '/img/silueta_persona.jpeg'}"
+									alt="" styleClass="picture" />
+						</rich:column>
+						<rich:column >
+						
+							<h:outputText value="#{_comentario.fechaEnviadoFormato()} #{_comentario.usuario.nombre} comento:" />
+							<br />
+							<h:outputText value="#{_comentario.mensaje}" />
+						</rich:column>
+					</rich:dataTable>
+		
+	            </h:column>
+            <h:column>
+                <f:facet name="header">Action</f:facet>
+                <s:link id="selectmedia"
+                     value="Select"
+                      view="/Media.xhtml">
+                    <f:param name="mediaIdMedia"
+                            value="#{_media.idMedia}"/>
+                    <f:param name="mediaFrom" value="Lugar"/>
+                </s:link>
+            </h:column>
+        </rich:dataTable>
+
+    </h:form>
+
+    <div class="actionButtons">
+        <s:button
+               value="Add media"
+                view="/MediaEdit.xhtml">
+            <f:param name="lugarIdLugar"
+                    value="#{lugarHome.instance.idLugar}"/>
+            <f:param name="mediaFrom" value="Lugar"/>
+        </s:button>
+    </div>
+    </rich:tab>
+
+    
+    <rich:tab>
+        <f:facet name="label">
+            <h:panelGroup>Puntoturisticos</h:panelGroup>
+        </f:facet>
+    <h:form styleClass="association" id="puntoturisticosChildren">
+
+        <h:outputText value="There are no puntoturisticos associated with this lugar."
+                   rendered="#{empty lugarHome.puntoturisticos}"/>
+
+        <rich:dataTable value="#{lugarHome.puntoturisticos}"
+                       var="_puntoturistico"
+                  rendered="#{not empty lugarHome.puntoturisticos}"
+                rowClasses="rvgRowOne,rvgRowTwo"
+                        id="puntoturisticosTable">
+          
+            <rich:column sortBy="#{_puntoturistico.nombre}">
+                
+                <h:outputText value="#{_puntoturistico.nombre}"/>
+                <br/>
+                <h:outputText value="#{_puntoturistico.detalle}"/>
+                
+            </rich:column>
+            
+            
+            <h:column>
+                <f:facet name="header">Action</f:facet>
+                <s:link id="selectpuntoturistico"
+                     value="Select"
+                      view="/Puntoturistico.xhtml">
+                    <f:param name="puntoturisticoIdPuntoturistico"
+                            value="#{_puntoturistico.idPuntoturistico}"/>
+                    <f:param name="puntoturisticoFrom" value="Lugar"/>
+                </s:link>
+            </h:column>
+        </rich:dataTable>
+
+    </h:form>
+
+    <div class="actionButtons">
+        <s:button
+               value="Add puntoturistico"
+                view="/PuntoturisticoEdit.xhtml">
+            <f:param name="lugarIdLugar"
+                    value="#{lugarHome.instance.idLugar}"/>
+            <f:param name="puntoturisticoFrom" value="Lugar"/>
+        </s:button>
+    </div>
+    </rich:tab>
+
+    <rich:tab>
+        <f:facet name="label">
+            <h:panelGroup>Servicios</h:panelGroup>
+        </f:facet>
+    <h:form styleClass="association" id="serviciosChildren">
+
+        <h:outputText value="There are no servicios associated with this lugar."
+                   rendered="#{empty lugarHome.servicios}"/>
+
+        <rich:dataTable value="#{lugarHome.servicios}"
+                       var="_servicio"
+                  rendered="#{not empty lugarHome.servicios}"
+                rowClasses="rvgRowOne,rvgRowTwo"
+                        id="serviciosTable">
+           <rich:column sortBy="#{_servicio.nombre}">
+                
+                <h:outputText value="#{_servicio.nombre}"/>
+                <br/>
+                <h:outputText value="Tipo #{_servicio.tipo}"/> 
+                <br/>
+                <h:graphicImage value="#{_servicio.url ne null ? _servicio.url : '/img/nofoto.png'}" alt="No Foto"  />
+            </rich:column>
+            <rich:column sortBy="#{_servicio.costo}">
+                <f:facet name="header">Costo</f:facet>
+                <h:outputText value="#{_servicio.costo}"/>
+            </rich:column>
+            <h:column>
+                <f:facet name="header">Action</f:facet>
+                <s:link id="selectservicio"
+                     value="Select"
+                      view="/Servicio.xhtml">
+                    <f:param name="servicioIdServicio"
+                            value="#{_servicio.idServicio}"/>
+                    <f:param name="servicioFrom" value="Lugar"/>
+                </s:link>
+            </h:column>
+        </rich:dataTable>
+
+    </h:form>
+
+    <div class="actionButtons">
+        <s:button
+               value="Add servicio"
+                view="/ServicioEdit.xhtml">
+            <f:param name="lugarIdLugar"
+                    value="#{lugarHome.instance.idLugar}"/>
+            <f:param name="servicioFrom" value="Lugar"/>
+        </s:button>
+    </div>
+    </rich:tab>
+
+    
+</rich:tabPanel>
+</ui:define>
+
+</ui:composition>

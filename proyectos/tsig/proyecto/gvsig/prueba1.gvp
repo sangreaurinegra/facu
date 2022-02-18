@@ -1,0 +1,2280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-tag xmlns="http://www.gvsig.gva.es">
+    <property key="className" value="com.iver.cit.gvsig.project.Project"/>
+    <property key="VERSION" value="1.11.0"/>
+    <property key="comments" value=""/>
+    <property key="creationDate" value="07-may-2011"/>
+    <property key="isAbsolutePath" value="true"/>
+    <property key="numExtents" value="0"/>
+    <property key="numCameras" value="0"/>
+    <property key="data-source-count" value="28"/>
+    <property key="numDocuments" value="4"/>
+    <property key="modificationDate" value="07-may-2011"/>
+    <property key="name" value="prueba1.gvp"/>
+    <property key="owner" value=""/>
+    <property key="selectionColor" value="255,255,0,255"/>
+    <property key="projection" value="EPSG:23030"/>
+    <property key="followHeaderEncoding" value="true"/>
+    <xml-tag>
+        <property key="type" value="sameDriverFile"/>
+        <property key="gdbmsname" value="gdbms7c75b4a8_12fcc2353ff__7fea"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="sameDriverFile"/>
+        <property key="gdbmsname" value="gdbms7c75b4a8_12fcc2353ff__7feb"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="otherDriverFile"/>
+        <property key="gdbmsname" value="gdbms_1e983ce7_12fcbdd32ef__7fff"/>
+        <property key="file" value="C:\tsig\shapefiles\datosTSIG\00departamento.dbf"/>
+        <property key="driverName" value="gdbms dbf driver"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="otherDriverFile"/>
+        <property key="gdbmsname" value="gdbms_1e983ce7_12fcbdd32ef__7ffe"/>
+        <property key="file" value="C:\tsig\shapefiles\datosTSIG\00loc_pg.dbf"/>
+        <property key="driverName" value="gdbms dbf driver"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="otherDriverFile"/>
+        <property key="gdbmsname" value="gdbms_1e983ce7_12fcbdd32ef__7ffd"/>
+        <property key="file" value="C:\tsig\shapefiles\datosTSIG\00vias.dbf"/>
+        <property key="driverName" value="gdbms dbf driver"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="otherDriverFile"/>
+        <property key="gdbmsname" value="gdbms_1e983ce7_12fcbdd32ef__7ffc"/>
+        <property key="file" value="C:\tsig\shapefiles\datosTSIG\01_ejes.dbf"/>
+        <property key="driverName" value="gdbms dbf driver"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="otherDriverFile"/>
+        <property key="gdbmsname" value="gdbms_1e983ce7_12fcbdd32ef__7ffb"/>
+        <property key="file" value="C:\tsig\shapefiles\datosTSIG\01esp_libres.dbf"/>
+        <property key="driverName" value="gdbms dbf driver"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="otherDriverFile"/>
+        <property key="gdbmsname" value="gdbms_1e983ce7_12fcbdd32ef__7ffa"/>
+        <property key="file" value="C:\tsig\shapefiles\datosTSIG\01manzanas.dbf"/>
+        <property key="driverName" value="gdbms dbf driver"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="sameDriverFile"/>
+        <property key="gdbmsname" value="gdbms7c75b4a8_12fcc2353ff__7fed"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="sameDriverFile"/>
+        <property key="gdbmsname" value="gdbms7c75b4a8_12fcc2353ff__7fec"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="sameDriverFile"/>
+        <property key="gdbmsname" value="gdbms24bb6697_12fcc092bb5__7ff2"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="sameDriverFile"/>
+        <property key="gdbmsname" value="gdbms6eff8cb4_12fcc0cc825__7fef"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="sameDriverFile"/>
+        <property key="gdbmsname" value="gdbms7c75b4a8_12fcc2353ff__7fe9"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="sameDriverFile"/>
+        <property key="gdbmsname" value="gdbms7c75b4a8_12fcc2353ff__7fe7"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="otherDriverFile"/>
+        <property key="gdbmsname" value="gdbms_1e983ce7_12fcbdd32ef__7ff4"/>
+        <property key="file" value="C:\tsig\shapefiles\datosTSIG\03manza_pl.dbf"/>
+        <property key="driverName" value="gdbms dbf driver"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="sameDriverFile"/>
+        <property key="gdbmsname" value="gdbms7c75b4a8_12fcc2353ff__7fe8"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="otherDriverFile"/>
+        <property key="gdbmsname" value="gdbms_1e983ce7_12fcbdd32ef__7ff3"/>
+        <property key="file" value="C:\tsig\shapefiles\datosTSIG\03parcelas.dbf"/>
+        <property key="driverName" value="gdbms dbf driver"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="sameDriverFile"/>
+        <property key="gdbmsname" value="gdbms6eff8cb4_12fcc0cc825__7fee"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="otherDriverFile"/>
+        <property key="gdbmsname" value="gdbms_1e983ce7_12fcbdd32ef__7ff6"/>
+        <property key="file" value="C:\tsig\shapefiles\datosTSIG\03ejes.dbf"/>
+        <property key="driverName" value="gdbms dbf driver"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="sameDriverFile"/>
+        <property key="gdbmsname" value="gdbms7c75b4a8_12fcc2353ff__7fe6"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="otherDriverFile"/>
+        <property key="gdbmsname" value="gdbms_1e983ce7_12fcbdd32ef__7ff5"/>
+        <property key="file" value="C:\tsig\shapefiles\datosTSIG\03esp_libres.dbf"/>
+        <property key="driverName" value="gdbms dbf driver"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="otherDriverFile"/>
+        <property key="gdbmsname" value="gdbms_1e983ce7_12fcbdd32ef__7ff8"/>
+        <property key="file" value="C:\tsig\shapefiles\datosTSIG\01usosuelo.dbf"/>
+        <property key="driverName" value="gdbms dbf driver"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="otherDriverFile"/>
+        <property key="gdbmsname" value="gdbms_1e983ce7_12fcbdd32ef__7ff7"/>
+        <property key="file" value="C:\tsig\shapefiles\datosTSIG\03cam_dig.dbf"/>
+        <property key="driverName" value="gdbms dbf driver"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="otherDriverFile"/>
+        <property key="gdbmsname" value="gdbms_1e983ce7_12fcbdd32ef__7ff9"/>
+        <property key="file" value="C:\tsig\shapefiles\datosTSIG\01parcelas.dbf"/>
+        <property key="driverName" value="gdbms dbf driver"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="otherDriverFile"/>
+        <property key="gdbmsname" value="ORA_EPSG"/>
+        <property key="file" value="C:/Archivos de programa/gvSIG_1.11.0_final/bin/gvSIG/extensiones/com.iver.cit.gvsig.oracle_spatial/dbf/ORA_EPSG.DBF"/>
+        <property key="driverName" value="gdbms dbf driver"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="otherDriverFile"/>
+        <property key="gdbmsname" value="gdbms_1e983ce7_12fcbdd32ef__8000"/>
+        <property key="file" value="C:\tsig\shapefiles\datosTSIG\00cam_dig.dbf"/>
+        <property key="driverName" value="gdbms dbf driver"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="sameDriverFile"/>
+        <property key="gdbmsname" value="gdbms6eff8cb4_12fcc0cc825__7ff0"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="type" value="sameDriverFile"/>
+        <property key="gdbmsname" value="gdbms6eff8cb4_12fcc0cc825__7ff1"/>
+    </xml-tag>
+    <xml-tag>
+        <property key="className" value="ProjectView"/>
+        <property key="comment" value=""/>
+        <property key="creationDate" value="7/05/11 15:38"/>
+        <property key="name" value="shp directo"/>
+        <property key="owner" value=""/>
+        <property key="numViews" value="3"/>
+        <property key="mapOverView" value="true"/>
+        <xml-tag>
+            <property key="className" value="com.iver.cit.gvsig.fmap.MapContext"/>
+            <xml-tag>
+                <property key="className" value="com.iver.cit.gvsig.fmap.ViewPort"/>
+                <property key="adjustedExtentX" value="574090.6444281494"/>
+                <property key="adjustedExtentY" value="6138048.946199286"/>
+                <property key="adjustedExtentW" value="624.3054161395391"/>
+                <property key="adjustedExtentH" value="466.2020964678377"/>
+                <property key="backColor" value="204,204,0,255"/>
+                <property key="dist1pixel" value="1.0134828090667725"/>
+                <property key="dist3pixel" value="3.0404484272003174"/>
+                <property key="distanceUnits" value="1"/>
+                <property key="extentX" value="574191.3411853214"/>
+                <property key="extentY" value="6138048.946199286"/>
+                <property key="extentW" value="422.9119017954217"/>
+                <property key="extentH" value="466.2020964678377"/>
+                <property key="mapUnits" value="1"/>
+                <property key="offsetX" value="0.0"/>
+                <property key="offsetY" value="0.0"/>
+                <property key="proj" value="EPSG:23030"/>
+                <property key="scale" value="0.0"/>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.ExtentHistory"/>
+                    <property key="num" value="10"/>
+                    <property key="numrec" value="10"/>
+                    <property key="extent0X" value="542487.5669199581"/>
+                    <property key="extent0Y" value="6140545.779764275"/>
+                    <property key="extent0W" value="28398.45359807124"/>
+                    <property key="extent0H" value="24466.36002295371"/>
+                    <property key="extent1X" value="548842.5519709511"/>
+                    <property key="extent1Y" value="6142354.162896405"/>
+                    <property key="extent1W" value="14199.22679903562"/>
+                    <property key="extent1H" value="12233.180011476856"/>
+                    <property key="extent2X" value="546662.8044456143"/>
+                    <property key="extent2Y" value="6130945.392842222"/>
+                    <property key="extent2W" value="28398.45359807124"/>
+                    <property key="extent2H" value="24466.36002295371"/>
+                    <property key="extent3X" value="567776.4373380935"/>
+                    <property key="extent3Y" value="6134828.097802387"/>
+                    <property key="extent3W" value="8084.5363554107025"/>
+                    <property key="extent3H" value="7659.034441967495"/>
+                    <property key="extent4X" value="573899.9648750292"/>
+                    <property key="extent4Y" value="6137808.461204805"/>
+                    <property key="extent4W" value="1248.755615538219"/>
+                    <property key="extent4H" value="1531.8068883931264"/>
+                    <property key="extent5X" value="574074.7906612046"/>
+                    <property key="extent5Y" value="6138231.3731066"/>
+                    <property key="extent5W" value="422.9119017954217"/>
+                    <property key="extent5H" value="466.2020964678377"/>
+                    <property key="extent6X" value="574019.0491061921"/>
+                    <property key="extent6Y" value="6138132.051790396"/>
+                    <property key="extent6W" value="422.9119017954217"/>
+                    <property key="extent6H" value="466.2020964678377"/>
+                    <property key="extent7X" value="573824.4604050576"/>
+                    <property key="extent7Y" value="6138296.236006977"/>
+                    <property key="extent7W" value="422.9119017954217"/>
+                    <property key="extent7H" value="466.2020964678377"/>
+                    <property key="extent8X" value="574030.1974171946"/>
+                    <property key="extent8Y" value="6138129.01134194"/>
+                    <property key="extent8W" value="422.9119017954217"/>
+                    <property key="extent8H" value="466.2020964678377"/>
+                    <property key="extent9X" value="574291.6759843439"/>
+                    <property key="extent9Y" value="6138126.984376303"/>
+                    <property key="extent9W" value="422.9119017954217"/>
+                    <property key="extent9H" value="466.2020964678377"/>
+                </xml-tag>
+            </xml-tag>
+            <xml-tag>
+                <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLayers"/>
+                <property key="active" value="false"/>
+                <property key="name" value="root layer"/>
+                <property key="minScale" value="-1.0"/>
+                <property key="maxScale" value="-1.0"/>
+                <property key="visible" value="true"/>
+                <property key="transparency" value="255"/>
+                <property key="isInTOC" value="true"/>
+                <property key="numLayers" value="14"/>
+                <property key="LayerNames" value="00cam_dig.shp ,00departamento.shp ,00loc_pg.shp ,00vias.shp ,01_ejes.shp ,01esp_libres.shp ,01manzanas.shp ,01parcelas.shp ,01usosuelo.shp ,03cam_dig.shp ,03ejes.shp ,03esp_libres.shp ,03manza_pl.shp ,03parcelas.shp"/>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="false"/>
+                    <property key="name" value="00cam_dig.shp"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="absolutePath" value="C:\tsig\shapefiles\datosTSIG\00cam_dig.shp"/>
+                    <property key="file" value="C:\tsig\shapefiles\datosTSIG\00cam_dig.shp"/>
+                    <property key="recordset-name" value="gdbms_1e983ce7_12fcbdd32ef__8000"/>
+                    <property key="driverName" value="gvSIG shp driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="desc"/>
+                            <property key="unit" value="-1"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                <property key="desc"/>
+                                <property key="lineWidth" value="1.0"/>
+                                <property key="dashPhase" value="0.0"/>
+                                <property key="endCap" value="0"/>
+                                <property key="lineJoin" value="2"/>
+                                <property key="miterLimit" value="10.0"/>
+                                <property key="offset" value="0.0"/>
+                                <property key="unit" value="0"/>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="false"/>
+                    <property key="name" value="00departamento.shp"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="absolutePath" value="C:\tsig\shapefiles\datosTSIG\00departamento.shp"/>
+                    <property key="file" value="C:\tsig\shapefiles\datosTSIG\00departamento.shp"/>
+                    <property key="recordset-name" value="gdbms_1e983ce7_12fcbdd32ef__7fff"/>
+                    <property key="driverName" value="gvSIG shp driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleFillSymbol"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <property key="hasFill" value="true"/>
+                            <property key="desc"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="unit" value="-1"/>
+                            <property key="hasOutline" value="true"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                                <property key="isShapeVisible" value="true"/>
+                                <property key="desc"/>
+                                <property key="unit" value="-1"/>
+                                <property key="referenceSystem" value="0"/>
+                                <property key="color" value="128,128,128,255"/>
+                                <xml-tag>
+                                    <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                    <property key="desc"/>
+                                    <property key="lineWidth" value="1.0"/>
+                                    <property key="dashPhase" value="0.0"/>
+                                    <property key="endCap" value="0"/>
+                                    <property key="lineJoin" value="2"/>
+                                    <property key="miterLimit" value="10.0"/>
+                                    <property key="offset" value="0.0"/>
+                                    <property key="unit" value="0"/>
+                                </xml-tag>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="false"/>
+                    <property key="name" value="00loc_pg.shp"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="absolutePath" value="C:\tsig\shapefiles\datosTSIG\00loc_pg.shp"/>
+                    <property key="file" value="C:\tsig\shapefiles\datosTSIG\00loc_pg.shp"/>
+                    <property key="recordset-name" value="gdbms_1e983ce7_12fcbdd32ef__7ffe"/>
+                    <property key="driverName" value="gvSIG shp driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleFillSymbol"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <property key="hasFill" value="true"/>
+                            <property key="desc"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="unit" value="-1"/>
+                            <property key="hasOutline" value="true"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                                <property key="isShapeVisible" value="true"/>
+                                <property key="desc"/>
+                                <property key="unit" value="-1"/>
+                                <property key="referenceSystem" value="0"/>
+                                <property key="color" value="128,128,128,255"/>
+                                <xml-tag>
+                                    <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                    <property key="desc"/>
+                                    <property key="lineWidth" value="1.0"/>
+                                    <property key="dashPhase" value="0.0"/>
+                                    <property key="endCap" value="0"/>
+                                    <property key="lineJoin" value="2"/>
+                                    <property key="miterLimit" value="10.0"/>
+                                    <property key="offset" value="0.0"/>
+                                    <property key="unit" value="0"/>
+                                </xml-tag>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="false"/>
+                    <property key="name" value="00vias.shp"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="absolutePath" value="C:\tsig\shapefiles\datosTSIG\00vias.shp"/>
+                    <property key="file" value="C:\tsig\shapefiles\datosTSIG\00vias.shp"/>
+                    <property key="recordset-name" value="gdbms_1e983ce7_12fcbdd32ef__7ffd"/>
+                    <property key="driverName" value="gvSIG shp driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="desc"/>
+                            <property key="unit" value="-1"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                <property key="desc"/>
+                                <property key="lineWidth" value="1.0"/>
+                                <property key="dashPhase" value="0.0"/>
+                                <property key="endCap" value="0"/>
+                                <property key="lineJoin" value="2"/>
+                                <property key="miterLimit" value="10.0"/>
+                                <property key="offset" value="0.0"/>
+                                <property key="unit" value="0"/>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="false"/>
+                    <property key="name" value="01_ejes.shp"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="absolutePath" value="C:\tsig\shapefiles\datosTSIG\01_ejes.shp"/>
+                    <property key="file" value="C:\tsig\shapefiles\datosTSIG\01_ejes.shp"/>
+                    <property key="recordset-name" value="gdbms_1e983ce7_12fcbdd32ef__7ffc"/>
+                    <property key="driverName" value="gvSIG shp driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="desc"/>
+                            <property key="unit" value="-1"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                <property key="desc"/>
+                                <property key="lineWidth" value="1.0"/>
+                                <property key="dashPhase" value="0.0"/>
+                                <property key="endCap" value="0"/>
+                                <property key="lineJoin" value="2"/>
+                                <property key="miterLimit" value="10.0"/>
+                                <property key="offset" value="0.0"/>
+                                <property key="unit" value="0"/>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="false"/>
+                    <property key="name" value="01esp_libres.shp"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="absolutePath" value="C:\tsig\shapefiles\datosTSIG\01esp_libres.shp"/>
+                    <property key="file" value="C:\tsig\shapefiles\datosTSIG\01esp_libres.shp"/>
+                    <property key="recordset-name" value="gdbms_1e983ce7_12fcbdd32ef__7ffb"/>
+                    <property key="driverName" value="gvSIG shp driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleFillSymbol"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <property key="hasFill" value="true"/>
+                            <property key="desc"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="unit" value="-1"/>
+                            <property key="hasOutline" value="true"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                                <property key="isShapeVisible" value="true"/>
+                                <property key="desc"/>
+                                <property key="unit" value="-1"/>
+                                <property key="referenceSystem" value="0"/>
+                                <property key="color" value="128,128,128,255"/>
+                                <xml-tag>
+                                    <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                    <property key="desc"/>
+                                    <property key="lineWidth" value="1.0"/>
+                                    <property key="dashPhase" value="0.0"/>
+                                    <property key="endCap" value="0"/>
+                                    <property key="lineJoin" value="2"/>
+                                    <property key="miterLimit" value="10.0"/>
+                                    <property key="offset" value="0.0"/>
+                                    <property key="unit" value="0"/>
+                                </xml-tag>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="false"/>
+                    <property key="name" value="01manzanas.shp"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="absolutePath" value="C:\tsig\shapefiles\datosTSIG\01manzanas.shp"/>
+                    <property key="file" value="C:\tsig\shapefiles\datosTSIG\01manzanas.shp"/>
+                    <property key="recordset-name" value="gdbms_1e983ce7_12fcbdd32ef__7ffa"/>
+                    <property key="driverName" value="gvSIG shp driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleFillSymbol"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <property key="hasFill" value="true"/>
+                            <property key="desc"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="unit" value="-1"/>
+                            <property key="hasOutline" value="true"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                                <property key="isShapeVisible" value="true"/>
+                                <property key="desc"/>
+                                <property key="unit" value="-1"/>
+                                <property key="referenceSystem" value="0"/>
+                                <property key="color" value="128,128,128,255"/>
+                                <xml-tag>
+                                    <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                    <property key="desc"/>
+                                    <property key="lineWidth" value="1.0"/>
+                                    <property key="dashPhase" value="0.0"/>
+                                    <property key="endCap" value="0"/>
+                                    <property key="lineJoin" value="2"/>
+                                    <property key="miterLimit" value="10.0"/>
+                                    <property key="offset" value="0.0"/>
+                                    <property key="unit" value="0"/>
+                                </xml-tag>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="false"/>
+                    <property key="name" value="01parcelas.shp"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="absolutePath" value="C:\tsig\shapefiles\datosTSIG\01parcelas.shp"/>
+                    <property key="file" value="C:\tsig\shapefiles\datosTSIG\01parcelas.shp"/>
+                    <property key="recordset-name" value="gdbms_1e983ce7_12fcbdd32ef__7ff9"/>
+                    <property key="driverName" value="gvSIG shp driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleFillSymbol"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <property key="hasFill" value="true"/>
+                            <property key="desc"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="unit" value="-1"/>
+                            <property key="hasOutline" value="true"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                                <property key="isShapeVisible" value="true"/>
+                                <property key="desc"/>
+                                <property key="unit" value="-1"/>
+                                <property key="referenceSystem" value="0"/>
+                                <property key="color" value="128,128,128,255"/>
+                                <xml-tag>
+                                    <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                    <property key="desc"/>
+                                    <property key="lineWidth" value="1.0"/>
+                                    <property key="dashPhase" value="0.0"/>
+                                    <property key="endCap" value="0"/>
+                                    <property key="lineJoin" value="2"/>
+                                    <property key="miterLimit" value="10.0"/>
+                                    <property key="offset" value="0.0"/>
+                                    <property key="unit" value="0"/>
+                                </xml-tag>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="false"/>
+                    <property key="name" value="01usosuelo.shp"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="absolutePath" value="C:\tsig\shapefiles\datosTSIG\01usosuelo.shp"/>
+                    <property key="file" value="C:\tsig\shapefiles\datosTSIG\01usosuelo.shp"/>
+                    <property key="recordset-name" value="gdbms_1e983ce7_12fcbdd32ef__7ff8"/>
+                    <property key="driverName" value="gvSIG shp driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleFillSymbol"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <property key="hasFill" value="true"/>
+                            <property key="desc"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="unit" value="-1"/>
+                            <property key="hasOutline" value="true"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                                <property key="isShapeVisible" value="true"/>
+                                <property key="desc"/>
+                                <property key="unit" value="-1"/>
+                                <property key="referenceSystem" value="0"/>
+                                <property key="color" value="128,128,128,255"/>
+                                <xml-tag>
+                                    <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                    <property key="desc"/>
+                                    <property key="lineWidth" value="1.0"/>
+                                    <property key="dashPhase" value="0.0"/>
+                                    <property key="endCap" value="0"/>
+                                    <property key="lineJoin" value="2"/>
+                                    <property key="miterLimit" value="10.0"/>
+                                    <property key="offset" value="0.0"/>
+                                    <property key="unit" value="0"/>
+                                </xml-tag>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="false"/>
+                    <property key="name" value="03cam_dig.shp"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="absolutePath" value="C:\tsig\shapefiles\datosTSIG\03cam_dig.shp"/>
+                    <property key="file" value="C:\tsig\shapefiles\datosTSIG\03cam_dig.shp"/>
+                    <property key="recordset-name" value="gdbms_1e983ce7_12fcbdd32ef__7ff7"/>
+                    <property key="driverName" value="gvSIG shp driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="desc"/>
+                            <property key="unit" value="-1"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                <property key="desc"/>
+                                <property key="lineWidth" value="1.0"/>
+                                <property key="dashPhase" value="0.0"/>
+                                <property key="endCap" value="0"/>
+                                <property key="lineJoin" value="2"/>
+                                <property key="miterLimit" value="10.0"/>
+                                <property key="offset" value="0.0"/>
+                                <property key="unit" value="0"/>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="false"/>
+                    <property key="name" value="03ejes.shp"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="absolutePath" value="C:\tsig\shapefiles\datosTSIG\03ejes.shp"/>
+                    <property key="file" value="C:\tsig\shapefiles\datosTSIG\03ejes.shp"/>
+                    <property key="recordset-name" value="gdbms_1e983ce7_12fcbdd32ef__7ff6"/>
+                    <property key="driverName" value="gvSIG shp driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="desc"/>
+                            <property key="unit" value="-1"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                <property key="desc"/>
+                                <property key="lineWidth" value="1.0"/>
+                                <property key="dashPhase" value="0.0"/>
+                                <property key="endCap" value="0"/>
+                                <property key="lineJoin" value="2"/>
+                                <property key="miterLimit" value="10.0"/>
+                                <property key="offset" value="0.0"/>
+                                <property key="unit" value="0"/>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="false"/>
+                    <property key="name" value="03esp_libres.shp"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="absolutePath" value="C:\tsig\shapefiles\datosTSIG\03esp_libres.shp"/>
+                    <property key="file" value="C:\tsig\shapefiles\datosTSIG\03esp_libres.shp"/>
+                    <property key="recordset-name" value="gdbms_1e983ce7_12fcbdd32ef__7ff5"/>
+                    <property key="driverName" value="gvSIG shp driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleFillSymbol"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <property key="hasFill" value="true"/>
+                            <property key="desc"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="unit" value="-1"/>
+                            <property key="hasOutline" value="true"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                                <property key="isShapeVisible" value="true"/>
+                                <property key="desc"/>
+                                <property key="unit" value="-1"/>
+                                <property key="referenceSystem" value="0"/>
+                                <property key="color" value="128,128,128,255"/>
+                                <xml-tag>
+                                    <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                    <property key="desc"/>
+                                    <property key="lineWidth" value="1.0"/>
+                                    <property key="dashPhase" value="0.0"/>
+                                    <property key="endCap" value="0"/>
+                                    <property key="lineJoin" value="2"/>
+                                    <property key="miterLimit" value="10.0"/>
+                                    <property key="offset" value="0.0"/>
+                                    <property key="unit" value="0"/>
+                                </xml-tag>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="false"/>
+                    <property key="name" value="03manza_pl.shp"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="absolutePath" value="C:\tsig\shapefiles\datosTSIG\03manza_pl.shp"/>
+                    <property key="file" value="C:\tsig\shapefiles\datosTSIG\03manza_pl.shp"/>
+                    <property key="recordset-name" value="gdbms_1e983ce7_12fcbdd32ef__7ff4"/>
+                    <property key="driverName" value="gvSIG shp driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="desc"/>
+                            <property key="unit" value="-1"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                <property key="desc"/>
+                                <property key="lineWidth" value="1.0"/>
+                                <property key="dashPhase" value="0.0"/>
+                                <property key="endCap" value="0"/>
+                                <property key="lineJoin" value="2"/>
+                                <property key="miterLimit" value="10.0"/>
+                                <property key="offset" value="0.0"/>
+                                <property key="unit" value="0"/>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="true"/>
+                    <property key="name" value="03parcelas.shp"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="absolutePath" value="C:\tsig\shapefiles\datosTSIG\03parcelas.shp"/>
+                    <property key="file" value="C:\tsig\shapefiles\datosTSIG\03parcelas.shp"/>
+                    <property key="recordset-name" value="gdbms_1e983ce7_12fcbdd32ef__7ff3"/>
+                    <property key="driverName" value="gvSIG shp driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleFillSymbol"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <property key="hasFill" value="true"/>
+                            <property key="desc"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="unit" value="-1"/>
+                            <property key="hasOutline" value="true"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                                <property key="isShapeVisible" value="true"/>
+                                <property key="desc"/>
+                                <property key="unit" value="-1"/>
+                                <property key="referenceSystem" value="0"/>
+                                <property key="color" value="128,128,128,255"/>
+                                <xml-tag>
+                                    <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                    <property key="desc"/>
+                                    <property key="lineWidth" value="1.0"/>
+                                    <property key="dashPhase" value="0.0"/>
+                                    <property key="endCap" value="0"/>
+                                    <property key="lineJoin" value="2"/>
+                                    <property key="miterLimit" value="10.0"/>
+                                    <property key="offset" value="0.0"/>
+                                    <property key="unit" value="0"/>
+                                </xml-tag>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+            </xml-tag>
+        </xml-tag>
+        <xml-tag>
+            <property key="className" value="com.iver.cit.gvsig.fmap.MapContext"/>
+            <xml-tag>
+                <property key="className" value="com.iver.cit.gvsig.fmap.ViewPort"/>
+                <property key="backColor" value="255,255,255,255"/>
+                <property key="dist1pixel" value="0.0"/>
+                <property key="dist3pixel" value="0.0"/>
+                <property key="distanceUnits" value="1"/>
+                <property key="mapUnits" value="1"/>
+                <property key="offsetX" value="0.0"/>
+                <property key="offsetY" value="0.0"/>
+                <property key="proj" value="EPSG:23030"/>
+                <property key="scale" value="0.0"/>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.ExtentHistory"/>
+                    <property key="num" value="0"/>
+                    <property key="numrec" value="10"/>
+                </xml-tag>
+            </xml-tag>
+            <xml-tag>
+                <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLayers"/>
+                <property key="active" value="false"/>
+                <property key="name" value="root layer"/>
+                <property key="minScale" value="-1.0"/>
+                <property key="maxScale" value="-1.0"/>
+                <property key="visible" value="true"/>
+                <property key="transparency" value="255"/>
+                <property key="isInTOC" value="true"/>
+                <property key="numLayers" value="0"/>
+                <property key="LayerNames" value=""/>
+            </xml-tag>
+        </xml-tag>
+    </xml-tag>
+    <xml-tag>
+        <property key="className" value="ProjectMap"/>
+        <property key="comment" value=""/>
+        <property key="creationDate" value="7/05/11 16:00"/>
+        <property key="name" value="Sin título - 0"/>
+        <property key="owner" value=""/>
+        <property key="numMaps" value="1"/>
+        <xml-tag>
+            <property key="className" value="com.iver.cit.gvsig.project.documents.layout.gui.Layout"/>
+            <property key="name" value="layout"/>
+            <property key="isCuadricula" value="false"/>
+            <property key="isEditable" value="true"/>
+            <property key="numBehind" value="0"/>
+            <property key="numBefore" value="0"/>
+            <xml-tag>
+                <property key="className" value="com.iver.cit.gvsig.project.documents.layout.Attributes"/>
+                <property key="DPI" value="300"/>
+                <property key="DPISCREEN" value="72"/>
+                <property key="m_TypeUnit" value="1.0"/>
+                <property key="m_numX" value="1.0"/>
+                <property key="m_numY" value="1.0"/>
+                <property key="m_unitX" value="13.131313131313131"/>
+                <property key="m_unitY" value="13.131313131313131"/>
+                <property key="hasmargin" value="false"/>
+                <property key="m_resolutionSel" value="1"/>
+                <property key="m_typeSel" value="0"/>
+                <property key="m_selTypeUnit" value="2"/>
+                <property key="m_area" value="2.54 ,2.54 ,2.54 ,2.54"/>
+                <property key="anchoXalto" value="1.4142857142857141"/>
+                <property key="m_isLandSel" value="true"/>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.project.documents.layout.Size"/>
+                    <property key="ancho" value="29.7"/>
+                    <property key="alto" value="21.0"/>
+                </xml-tag>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.project.documents.layout.Size"/>
+                    <property key="ancho" value="29.7"/>
+                    <property key="alto" value="21.0"/>
+                </xml-tag>
+            </xml-tag>
+        </xml-tag>
+    </xml-tag>
+    <xml-tag>
+        <property key="className" value="ProjectView"/>
+        <property key="comment" value=""/>
+        <property key="creationDate" value="7/05/11 16:18"/>
+        <property key="name" value="desde postgis"/>
+        <property key="owner" value=""/>
+        <property key="numViews" value="3"/>
+        <property key="mapOverView" value="true"/>
+        <xml-tag>
+            <property key="className" value="com.iver.cit.gvsig.fmap.MapContext"/>
+            <xml-tag>
+                <property key="className" value="com.iver.cit.gvsig.fmap.ViewPort"/>
+                <property key="backColor" value="255,255,255,255"/>
+                <property key="dist1pixel" value="0.0"/>
+                <property key="dist3pixel" value="0.0"/>
+                <property key="distanceUnits" value="1"/>
+                <property key="mapUnits" value="1"/>
+                <property key="offsetX" value="0.0"/>
+                <property key="offsetY" value="0.0"/>
+                <property key="proj" value="EPSG:23030"/>
+                <property key="scale" value="0.0"/>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.ExtentHistory"/>
+                    <property key="num" value="0"/>
+                    <property key="numrec" value="10"/>
+                </xml-tag>
+            </xml-tag>
+            <xml-tag>
+                <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLayers"/>
+                <property key="active" value="false"/>
+                <property key="name" value="root layer"/>
+                <property key="minScale" value="-1.0"/>
+                <property key="maxScale" value="-1.0"/>
+                <property key="visible" value="true"/>
+                <property key="transparency" value="255"/>
+                <property key="isInTOC" value="true"/>
+                <property key="numLayers" value="0"/>
+                <property key="LayerNames" value=""/>
+            </xml-tag>
+        </xml-tag>
+        <xml-tag>
+            <property key="className" value="com.iver.cit.gvsig.fmap.MapContext"/>
+            <xml-tag>
+                <property key="className" value="com.iver.cit.gvsig.fmap.ViewPort"/>
+                <property key="backColor" value="255,255,255,255"/>
+                <property key="dist1pixel" value="0.0"/>
+                <property key="dist3pixel" value="0.0"/>
+                <property key="distanceUnits" value="1"/>
+                <property key="mapUnits" value="1"/>
+                <property key="offsetX" value="0.0"/>
+                <property key="offsetY" value="0.0"/>
+                <property key="proj" value="EPSG:23030"/>
+                <property key="scale" value="0.0"/>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.ExtentHistory"/>
+                    <property key="num" value="0"/>
+                    <property key="numrec" value="10"/>
+                </xml-tag>
+            </xml-tag>
+            <xml-tag>
+                <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLayers"/>
+                <property key="active" value="false"/>
+                <property key="name" value="root layer"/>
+                <property key="minScale" value="-1.0"/>
+                <property key="maxScale" value="-1.0"/>
+                <property key="visible" value="true"/>
+                <property key="transparency" value="255"/>
+                <property key="isInTOC" value="true"/>
+                <property key="numLayers" value="0"/>
+                <property key="LayerNames" value=""/>
+            </xml-tag>
+        </xml-tag>
+    </xml-tag>
+    <xml-tag>
+        <property key="className" value="ProjectView"/>
+        <property key="comment" value=""/>
+        <property key="creationDate" value="7/05/11 16:57"/>
+        <property key="name" value="postgis-2"/>
+        <property key="owner" value=""/>
+        <property key="numViews" value="3"/>
+        <property key="mapOverView" value="true"/>
+        <xml-tag>
+            <property key="className" value="com.iver.cit.gvsig.fmap.MapContext"/>
+            <xml-tag>
+                <property key="className" value="com.iver.cit.gvsig.fmap.ViewPort"/>
+                <property key="adjustedExtentX" value="569412.9844236732"/>
+                <property key="adjustedExtentY" value="6162279.574581135"/>
+                <property key="adjustedExtentW" value="5618.982431066979"/>
+                <property key="adjustedExtentH" value="3155.9361268999055"/>
+                <property key="backColor" value="255,255,255,255"/>
+                <property key="dist1pixel" value="5.057590007781982"/>
+                <property key="dist3pixel" value="15.172769546508789"/>
+                <property key="distanceUnits" value="1"/>
+                <property key="extentX" value="570995.1671454125"/>
+                <property key="extentY" value="6162279.574581135"/>
+                <property key="extentW" value="2454.6169875883497"/>
+                <property key="extentH" value="3155.9361268999055"/>
+                <property key="mapUnits" value="1"/>
+                <property key="offsetX" value="0.0"/>
+                <property key="offsetY" value="0.0"/>
+                <property key="proj" value="EPSG:23030"/>
+                <property key="scale" value="0.19772263281290134"/>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.ExtentHistory"/>
+                    <property key="num" value="10"/>
+                    <property key="numrec" value="10"/>
+                    <property key="extent0X" value="574146.1293557287"/>
+                    <property key="extent0Y" value="6136278.188564475"/>
+                    <property key="extent0W" value="1256.9598544624168"/>
+                    <property key="extent0H" value="854.7327010352165"/>
+                    <property key="extent1X" value="573062.2029171286"/>
+                    <property key="extent1Y" value="6136137.102878246"/>
+                    <property key="extent1W" value="2513.9197089248337"/>
+                    <property key="extent1H" value="1709.465402070433"/>
+                    <property key="extent2X" value="570894.3500399283"/>
+                    <property key="extent2Y" value="6135854.931505788"/>
+                    <property key="extent2W" value="5027.839417849667"/>
+                    <property key="extent2H" value="3418.930804140866"/>
+                    <property key="extent3X" value="566558.6442855278"/>
+                    <property key="extent3Y" value="6135290.588760873"/>
+                    <property key="extent3W" value="10055.678835699335"/>
+                    <property key="extent3H" value="6837.861608281732"/>
+                    <property key="extent4X" value="561525.3258119022"/>
+                    <property key="extent4Y" value="6131871.657956732"/>
+                    <property key="extent4W" value="20111.35767139867"/>
+                    <property key="extent4H" value="13675.723216563463"/>
+                    <property key="extent5X" value="551458.6888646511"/>
+                    <property key="extent5Y" value="6125033.796348451"/>
+                    <property key="extent5W" value="40222.71534279734"/>
+                    <property key="extent5H" value="27351.446433126926"/>
+                    <property key="extent6X" value="531325.4149701489"/>
+                    <property key="extent6Y" value="6111358.073131887"/>
+                    <property key="extent6W" value="80445.43068559468"/>
+                    <property key="extent6H" value="54702.89286625385"/>
+                    <property key="extent7X" value="491058.86718114465"/>
+                    <property key="extent7Y" value="6084006.62669876"/>
+                    <property key="extent7W" value="160890.86137118936"/>
+                    <property key="extent7H" value="109405.7857325077"/>
+                    <property key="extent8X" value="571065.97340467"/>
+                    <property key="extent8Y" value="6161677.721377447"/>
+                    <property key="extent8W" value="2454.6169875883497"/>
+                    <property key="extent8H" value="3155.9361268999055"/>
+                    <property key="extent9X" value="570393.313941725"/>
+                    <property key="extent9Y" value="6162744.872856255"/>
+                    <property key="extent9W" value="2454.6169875883497"/>
+                    <property key="extent9H" value="3155.9361268999055"/>
+                </xml-tag>
+            </xml-tag>
+            <xml-tag>
+                <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLayers"/>
+                <property key="active" value="false"/>
+                <property key="name" value="root layer"/>
+                <property key="minScale" value="-1.0"/>
+                <property key="maxScale" value="-1.0"/>
+                <property key="visible" value="true"/>
+                <property key="transparency" value="255"/>
+                <property key="isInTOC" value="true"/>
+                <property key="numLayers" value="13"/>
+                <property key="LayerNames" value="public.departamento ,public.cam_dig00 ,public.cam_dig03 ,public.ejes01 ,public.ejes03 ,public.esp_libres03 ,public.loc_pg ,public.manza_pl ,public.manzanas ,public.parcelas01 ,public.parcelas03 ,public.usosuelo ,public.vias"/>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="false"/>
+                    <property key="name" value="public.departamento"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="db" value="PostGIS JDBC Driver"/>
+                    <property key="recordset-name" value="gdbms24bb6697_12fcc092bb5__7ff2"/>
+                    <property key="driverName" value="PostGIS JDBC Driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleFillSymbol"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <property key="hasFill" value="true"/>
+                            <property key="desc"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="unit" value="-1"/>
+                            <property key="hasOutline" value="true"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                                <property key="isShapeVisible" value="true"/>
+                                <property key="desc"/>
+                                <property key="unit" value="-1"/>
+                                <property key="referenceSystem" value="0"/>
+                                <property key="color" value="128,128,128,255"/>
+                                <xml-tag>
+                                    <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                    <property key="desc"/>
+                                    <property key="lineWidth" value="1.0"/>
+                                    <property key="dashPhase" value="0.0"/>
+                                    <property key="endCap" value="0"/>
+                                    <property key="lineJoin" value="2"/>
+                                    <property key="miterLimit" value="10.0"/>
+                                    <property key="offset" value="0.0"/>
+                                    <property key="unit" value="0"/>
+                                </xml-tag>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.drivers.jdbc.postgis.PostGisDriver"/>
+                        <property key="catalog"/>
+                        <property key="username" value="postgres"/>
+                        <property key="driverclass" value="org.postgresql.Driver"/>
+                        <property key="schema" value="public"/>
+                        <property key="tablename" value="departamento"/>
+                        <property key="fields" value="gid ,area ,perimeter ,uruguay_ ,x ,y ,nombre ,relevado ,caminera_ ,caminera2"/>
+                        <property key="FID" value="gid"/>
+                        <property key="THE_GEOM" value="the_geom"/>
+                        <property key="whereclause" value=""/>
+                        <property key="SRID" value="-1"/>
+                        <property key="host" value="localhost"/>
+                        <property key="port" value="5432"/>
+                        <property key="dbName" value="postgis"/>
+                        <property key="literalDBName" value="true"/>
+                        <property key="connName" value="postigs"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="true"/>
+                    <property key="name" value="public.cam_dig00"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="db" value="PostGIS JDBC Driver"/>
+                    <property key="recordset-name" value="gdbms6eff8cb4_12fcc0cc825__7ff1"/>
+                    <property key="driverName" value="PostGIS JDBC Driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="desc"/>
+                            <property key="unit" value="-1"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                <property key="desc"/>
+                                <property key="lineWidth" value="1.0"/>
+                                <property key="dashPhase" value="0.0"/>
+                                <property key="endCap" value="0"/>
+                                <property key="lineJoin" value="2"/>
+                                <property key="miterLimit" value="10.0"/>
+                                <property key="offset" value="0.0"/>
+                                <property key="unit" value="0"/>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.drivers.jdbc.postgis.PostGisDriver"/>
+                        <property key="catalog"/>
+                        <property key="username" value="postgres"/>
+                        <property key="driverclass" value="org.postgresql.Driver"/>
+                        <property key="schema" value="public"/>
+                        <property key="tablename" value="cam_dig00"/>
+                        <property key="fields" value="gid ,fnode_ ,tnode_ ,lpoly_ ,rpoly_ ,length ,ulcami_ ,ulcami_id ,map ,numero ,nombre ,descriptor"/>
+                        <property key="FID" value="gid"/>
+                        <property key="THE_GEOM" value="the_geom"/>
+                        <property key="whereclause" value=""/>
+                        <property key="SRID" value="-1"/>
+                        <property key="host" value="localhost"/>
+                        <property key="port" value="5432"/>
+                        <property key="dbName" value="postgis"/>
+                        <property key="literalDBName" value="true"/>
+                        <property key="connName" value="postigs"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="false"/>
+                    <property key="name" value="public.cam_dig03"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="db" value="PostGIS JDBC Driver"/>
+                    <property key="recordset-name" value="gdbms6eff8cb4_12fcc0cc825__7ff0"/>
+                    <property key="driverName" value="PostGIS JDBC Driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="desc"/>
+                            <property key="unit" value="-1"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                <property key="desc"/>
+                                <property key="lineWidth" value="1.0"/>
+                                <property key="dashPhase" value="0.0"/>
+                                <property key="endCap" value="0"/>
+                                <property key="lineJoin" value="2"/>
+                                <property key="miterLimit" value="10.0"/>
+                                <property key="offset" value="0.0"/>
+                                <property key="unit" value="0"/>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.drivers.jdbc.postgis.PostGisDriver"/>
+                        <property key="catalog"/>
+                        <property key="username" value="postgres"/>
+                        <property key="driverclass" value="org.postgresql.Driver"/>
+                        <property key="schema" value="public"/>
+                        <property key="tablename" value="cam_dig03"/>
+                        <property key="fields" value="gid ,fnode_ ,tnode_ ,lpoly_ ,rpoly_ ,length ,alcami_ ,alcami_id ,map ,numero ,nombre ,descriptor"/>
+                        <property key="FID" value="gid"/>
+                        <property key="THE_GEOM" value="the_geom"/>
+                        <property key="whereclause" value=""/>
+                        <property key="SRID" value="-1"/>
+                        <property key="host" value="localhost"/>
+                        <property key="port" value="5432"/>
+                        <property key="dbName" value="postgis"/>
+                        <property key="literalDBName" value="true"/>
+                        <property key="connName" value="postigs"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="false"/>
+                    <property key="name" value="public.ejes01"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="db" value="PostGIS JDBC Driver"/>
+                    <property key="recordset-name" value="gdbms6eff8cb4_12fcc0cc825__7fef"/>
+                    <property key="driverName" value="PostGIS JDBC Driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="desc"/>
+                            <property key="unit" value="-1"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                <property key="desc"/>
+                                <property key="lineWidth" value="1.0"/>
+                                <property key="dashPhase" value="0.0"/>
+                                <property key="endCap" value="0"/>
+                                <property key="lineJoin" value="2"/>
+                                <property key="miterLimit" value="10.0"/>
+                                <property key="offset" value="0.0"/>
+                                <property key="unit" value="0"/>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.drivers.jdbc.postgis.PostGisDriver"/>
+                        <property key="catalog"/>
+                        <property key="username" value="postgres"/>
+                        <property key="driverclass" value="org.postgresql.Driver"/>
+                        <property key="schema" value="public"/>
+                        <property key="tablename" value="ejes01"/>
+                        <property key="fields" value="gid ,nom_calle ,cod_nombre"/>
+                        <property key="FID" value="gid"/>
+                        <property key="THE_GEOM" value="the_geom"/>
+                        <property key="whereclause" value=""/>
+                        <property key="SRID" value="-1"/>
+                        <property key="host" value="localhost"/>
+                        <property key="port" value="5432"/>
+                        <property key="dbName" value="postgis"/>
+                        <property key="literalDBName" value="true"/>
+                        <property key="connName" value="postigs"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="false"/>
+                    <property key="name" value="public.ejes03"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="db" value="PostGIS JDBC Driver"/>
+                    <property key="recordset-name" value="gdbms6eff8cb4_12fcc0cc825__7fee"/>
+                    <property key="driverName" value="PostGIS JDBC Driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="desc"/>
+                            <property key="unit" value="-1"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                <property key="desc"/>
+                                <property key="lineWidth" value="1.0"/>
+                                <property key="dashPhase" value="0.0"/>
+                                <property key="endCap" value="0"/>
+                                <property key="lineJoin" value="2"/>
+                                <property key="miterLimit" value="10.0"/>
+                                <property key="offset" value="0.0"/>
+                                <property key="unit" value="0"/>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.drivers.jdbc.postgis.PostGisDriver"/>
+                        <property key="catalog"/>
+                        <property key="username" value="postgres"/>
+                        <property key="driverclass" value="org.postgresql.Driver"/>
+                        <property key="schema" value="public"/>
+                        <property key="tablename" value="ejes03"/>
+                        <property key="fields" value="gid ,length ,cod_clasif ,n_clasif ,codloc ,nombloc ,cod_ine ,nombre_ine ,marca ,nombre ,cgh"/>
+                        <property key="FID" value="gid"/>
+                        <property key="THE_GEOM" value="the_geom"/>
+                        <property key="whereclause" value=""/>
+                        <property key="SRID" value="-1"/>
+                        <property key="host" value="localhost"/>
+                        <property key="port" value="5432"/>
+                        <property key="dbName" value="postgis"/>
+                        <property key="literalDBName" value="true"/>
+                        <property key="connName" value="postigs"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="false"/>
+                    <property key="name" value="public.esp_libres03"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="db" value="PostGIS JDBC Driver"/>
+                    <property key="recordset-name" value="gdbms7c75b4a8_12fcc2353ff__7fed"/>
+                    <property key="driverName" value="PostGIS JDBC Driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleFillSymbol"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <property key="hasFill" value="true"/>
+                            <property key="desc"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="unit" value="-1"/>
+                            <property key="hasOutline" value="true"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                                <property key="isShapeVisible" value="true"/>
+                                <property key="desc"/>
+                                <property key="unit" value="-1"/>
+                                <property key="referenceSystem" value="0"/>
+                                <property key="color" value="128,128,128,255"/>
+                                <xml-tag>
+                                    <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                    <property key="desc"/>
+                                    <property key="lineWidth" value="1.0"/>
+                                    <property key="dashPhase" value="0.0"/>
+                                    <property key="endCap" value="0"/>
+                                    <property key="lineJoin" value="2"/>
+                                    <property key="miterLimit" value="10.0"/>
+                                    <property key="offset" value="0.0"/>
+                                    <property key="unit" value="0"/>
+                                </xml-tag>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.drivers.jdbc.postgis.PostGisDriver"/>
+                        <property key="catalog"/>
+                        <property key="username" value="postgres"/>
+                        <property key="driverclass" value="org.postgresql.Driver"/>
+                        <property key="schema" value="public"/>
+                        <property key="tablename" value="esp_libres03"/>
+                        <property key="fields" value="gid ,origen ,length ,codloc ,nombloc ,cod_ine ,id ,lenght"/>
+                        <property key="FID" value="gid"/>
+                        <property key="THE_GEOM" value="the_geom"/>
+                        <property key="whereclause" value=""/>
+                        <property key="SRID" value="-1"/>
+                        <property key="host" value="localhost"/>
+                        <property key="port" value="5432"/>
+                        <property key="dbName" value="postgis"/>
+                        <property key="literalDBName" value="true"/>
+                        <property key="connName" value="postigs"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="false"/>
+                    <property key="name" value="public.loc_pg"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="db" value="PostGIS JDBC Driver"/>
+                    <property key="recordset-name" value="gdbms7c75b4a8_12fcc2353ff__7fec"/>
+                    <property key="driverName" value="PostGIS JDBC Driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleFillSymbol"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <property key="hasFill" value="true"/>
+                            <property key="desc"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="unit" value="-1"/>
+                            <property key="hasOutline" value="true"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                                <property key="isShapeVisible" value="true"/>
+                                <property key="desc"/>
+                                <property key="unit" value="-1"/>
+                                <property key="referenceSystem" value="0"/>
+                                <property key="color" value="128,128,128,255"/>
+                                <xml-tag>
+                                    <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                    <property key="desc"/>
+                                    <property key="lineWidth" value="1.0"/>
+                                    <property key="dashPhase" value="0.0"/>
+                                    <property key="endCap" value="0"/>
+                                    <property key="lineJoin" value="2"/>
+                                    <property key="miterLimit" value="10.0"/>
+                                    <property key="offset" value="0.0"/>
+                                    <property key="unit" value="0"/>
+                                </xml-tag>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.drivers.jdbc.postgis.PostGisDriver"/>
+                        <property key="catalog"/>
+                        <property key="username" value="postgres"/>
+                        <property key="driverclass" value="org.postgresql.Driver"/>
+                        <property key="schema" value="public"/>
+                        <property key="tablename" value="loc_pg"/>
+                        <property key="fields" value="gid ,area ,perimeter ,ugcepo_ ,ugcepo_id ,uy_id ,rings_ok ,rings_nok ,map ,x ,y ,nombre ,num_cp"/>
+                        <property key="FID" value="gid"/>
+                        <property key="THE_GEOM" value="the_geom"/>
+                        <property key="whereclause" value=""/>
+                        <property key="SRID" value="-1"/>
+                        <property key="host" value="localhost"/>
+                        <property key="port" value="5432"/>
+                        <property key="dbName" value="postgis"/>
+                        <property key="literalDBName" value="true"/>
+                        <property key="connName" value="postigs"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="false"/>
+                    <property key="name" value="public.manza_pl"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="db" value="PostGIS JDBC Driver"/>
+                    <property key="recordset-name" value="gdbms7c75b4a8_12fcc2353ff__7feb"/>
+                    <property key="driverName" value="PostGIS JDBC Driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="desc"/>
+                            <property key="unit" value="-1"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                <property key="desc"/>
+                                <property key="lineWidth" value="1.0"/>
+                                <property key="dashPhase" value="0.0"/>
+                                <property key="endCap" value="0"/>
+                                <property key="lineJoin" value="2"/>
+                                <property key="miterLimit" value="10.0"/>
+                                <property key="offset" value="0.0"/>
+                                <property key="unit" value="0"/>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.drivers.jdbc.postgis.PostGisDriver"/>
+                        <property key="catalog"/>
+                        <property key="username" value="postgres"/>
+                        <property key="driverclass" value="org.postgresql.Driver"/>
+                        <property key="schema" value="public"/>
+                        <property key="tablename" value="manza_pl"/>
+                        <property key="fields" value="gid ,origen ,length ,codloc ,nombloc"/>
+                        <property key="FID" value="gid"/>
+                        <property key="THE_GEOM" value="the_geom"/>
+                        <property key="whereclause" value=""/>
+                        <property key="SRID" value="-1"/>
+                        <property key="host" value="localhost"/>
+                        <property key="port" value="5432"/>
+                        <property key="dbName" value="postgis"/>
+                        <property key="literalDBName" value="true"/>
+                        <property key="connName" value="postigs"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="false"/>
+                    <property key="name" value="public.manzanas"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="db" value="PostGIS JDBC Driver"/>
+                    <property key="recordset-name" value="gdbms7c75b4a8_12fcc2353ff__7fea"/>
+                    <property key="driverName" value="PostGIS JDBC Driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleFillSymbol"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <property key="hasFill" value="true"/>
+                            <property key="desc"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="unit" value="-1"/>
+                            <property key="hasOutline" value="true"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                                <property key="isShapeVisible" value="true"/>
+                                <property key="desc"/>
+                                <property key="unit" value="-1"/>
+                                <property key="referenceSystem" value="0"/>
+                                <property key="color" value="128,128,128,255"/>
+                                <xml-tag>
+                                    <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                    <property key="desc"/>
+                                    <property key="lineWidth" value="1.0"/>
+                                    <property key="dashPhase" value="0.0"/>
+                                    <property key="endCap" value="0"/>
+                                    <property key="lineJoin" value="2"/>
+                                    <property key="miterLimit" value="10.0"/>
+                                    <property key="offset" value="0.0"/>
+                                    <property key="unit" value="0"/>
+                                </xml-tag>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.drivers.jdbc.postgis.PostGisDriver"/>
+                        <property key="catalog"/>
+                        <property key="username" value="postgres"/>
+                        <property key="driverclass" value="org.postgresql.Driver"/>
+                        <property key="schema" value="public"/>
+                        <property key="tablename" value="manzanas"/>
+                        <property key="fields" value="gid ,carpeta_ca"/>
+                        <property key="FID" value="gid"/>
+                        <property key="THE_GEOM" value="the_geom"/>
+                        <property key="whereclause" value=""/>
+                        <property key="SRID" value="-1"/>
+                        <property key="host" value="localhost"/>
+                        <property key="port" value="5432"/>
+                        <property key="dbName" value="postgis"/>
+                        <property key="literalDBName" value="true"/>
+                        <property key="connName" value="postigs"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="false"/>
+                    <property key="name" value="public.parcelas01"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="db" value="PostGIS JDBC Driver"/>
+                    <property key="recordset-name" value="gdbms7c75b4a8_12fcc2353ff__7fe9"/>
+                    <property key="driverName" value="PostGIS JDBC Driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleFillSymbol"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <property key="hasFill" value="true"/>
+                            <property key="desc"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="unit" value="-1"/>
+                            <property key="hasOutline" value="true"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                                <property key="isShapeVisible" value="true"/>
+                                <property key="desc"/>
+                                <property key="unit" value="-1"/>
+                                <property key="referenceSystem" value="0"/>
+                                <property key="color" value="128,128,128,255"/>
+                                <xml-tag>
+                                    <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                    <property key="desc"/>
+                                    <property key="lineWidth" value="1.0"/>
+                                    <property key="dashPhase" value="0.0"/>
+                                    <property key="endCap" value="0"/>
+                                    <property key="lineJoin" value="2"/>
+                                    <property key="miterLimit" value="10.0"/>
+                                    <property key="offset" value="0.0"/>
+                                    <property key="unit" value="0"/>
+                                </xml-tag>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.drivers.jdbc.postgis.PostGisDriver"/>
+                        <property key="catalog"/>
+                        <property key="username" value="postgres"/>
+                        <property key="driverclass" value="org.postgresql.Driver"/>
+                        <property key="schema" value="public"/>
+                        <property key="tablename" value="parcelas01"/>
+                        <property key="fields" value="gid ,padron ,cod_pri ,desc_pri"/>
+                        <property key="FID" value="gid"/>
+                        <property key="THE_GEOM" value="the_geom"/>
+                        <property key="whereclause" value=""/>
+                        <property key="SRID" value="-1"/>
+                        <property key="host" value="localhost"/>
+                        <property key="port" value="5432"/>
+                        <property key="dbName" value="postgis"/>
+                        <property key="literalDBName" value="true"/>
+                        <property key="connName" value="postigs"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="false"/>
+                    <property key="name" value="public.parcelas03"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="db" value="PostGIS JDBC Driver"/>
+                    <property key="recordset-name" value="gdbms7c75b4a8_12fcc2353ff__7fe8"/>
+                    <property key="driverName" value="PostGIS JDBC Driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleFillSymbol"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <property key="hasFill" value="true"/>
+                            <property key="desc"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="unit" value="-1"/>
+                            <property key="hasOutline" value="true"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                                <property key="isShapeVisible" value="true"/>
+                                <property key="desc"/>
+                                <property key="unit" value="-1"/>
+                                <property key="referenceSystem" value="0"/>
+                                <property key="color" value="128,128,128,255"/>
+                                <xml-tag>
+                                    <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                    <property key="desc"/>
+                                    <property key="lineWidth" value="1.0"/>
+                                    <property key="dashPhase" value="0.0"/>
+                                    <property key="endCap" value="0"/>
+                                    <property key="lineJoin" value="2"/>
+                                    <property key="miterLimit" value="10.0"/>
+                                    <property key="offset" value="0.0"/>
+                                    <property key="unit" value="0"/>
+                                </xml-tag>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.drivers.jdbc.postgis.PostGisDriver"/>
+                        <property key="catalog"/>
+                        <property key="username" value="postgres"/>
+                        <property key="driverclass" value="org.postgresql.Driver"/>
+                        <property key="schema" value="public"/>
+                        <property key="tablename" value="parcelas03"/>
+                        <property key="fields" value="gid ,padron ,solar ,manzana ,localidad ,depto"/>
+                        <property key="FID" value="gid"/>
+                        <property key="THE_GEOM" value="the_geom"/>
+                        <property key="whereclause" value=""/>
+                        <property key="SRID" value="-1"/>
+                        <property key="host" value="localhost"/>
+                        <property key="port" value="5432"/>
+                        <property key="dbName" value="postgis"/>
+                        <property key="literalDBName" value="true"/>
+                        <property key="connName" value="postigs"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="false"/>
+                    <property key="name" value="public.usosuelo"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="db" value="PostGIS JDBC Driver"/>
+                    <property key="recordset-name" value="gdbms7c75b4a8_12fcc2353ff__7fe7"/>
+                    <property key="driverName" value="PostGIS JDBC Driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleFillSymbol"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <property key="hasFill" value="true"/>
+                            <property key="desc"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="unit" value="-1"/>
+                            <property key="hasOutline" value="true"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                                <property key="isShapeVisible" value="true"/>
+                                <property key="desc"/>
+                                <property key="unit" value="-1"/>
+                                <property key="referenceSystem" value="0"/>
+                                <property key="color" value="128,128,128,255"/>
+                                <xml-tag>
+                                    <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                    <property key="desc"/>
+                                    <property key="lineWidth" value="1.0"/>
+                                    <property key="dashPhase" value="0.0"/>
+                                    <property key="endCap" value="0"/>
+                                    <property key="lineJoin" value="2"/>
+                                    <property key="miterLimit" value="10.0"/>
+                                    <property key="offset" value="0.0"/>
+                                    <property key="unit" value="0"/>
+                                </xml-tag>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.drivers.jdbc.postgis.PostGisDriver"/>
+                        <property key="catalog"/>
+                        <property key="username" value="postgres"/>
+                        <property key="driverclass" value="org.postgresql.Driver"/>
+                        <property key="schema" value="public"/>
+                        <property key="tablename" value="usosuelo"/>
+                        <property key="fields" value="gid ,id ,gridcode ,clase"/>
+                        <property key="FID" value="gid"/>
+                        <property key="THE_GEOM" value="the_geom"/>
+                        <property key="whereclause" value=""/>
+                        <property key="SRID" value="-1"/>
+                        <property key="host" value="localhost"/>
+                        <property key="port" value="5432"/>
+                        <property key="dbName" value="postgis"/>
+                        <property key="literalDBName" value="true"/>
+                        <property key="connName" value="postigs"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLyrVect"/>
+                    <property key="active" value="false"/>
+                    <property key="name" value="public.vias"/>
+                    <property key="minScale" value="-1.0"/>
+                    <property key="maxScale" value="-1.0"/>
+                    <property key="visible" value="true"/>
+                    <property key="proj" value="EPSG:23030"/>
+                    <property key="transparency" value="255"/>
+                    <property key="isInTOC" value="true"/>
+                    <property key="type" value="vectorial"/>
+                    <property key="db" value="PostGIS JDBC Driver"/>
+                    <property key="recordset-name" value="gdbms7c75b4a8_12fcc2353ff__7fe6"/>
+                    <property key="driverName" value="PostGIS JDBC Driver"/>
+                    <property key="isLabeled" value="false"/>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.rendering.SingleSymbolLegend"/>
+                        <xml-tag>
+                            <property key="className" value="com.iver.cit.gvsig.fmap.core.symbols.SimpleLineSymbol"/>
+                            <property key="isShapeVisible" value="true"/>
+                            <property key="desc"/>
+                            <property key="unit" value="-1"/>
+                            <property key="referenceSystem" value="0"/>
+                            <property key="color" value="60,235,235,255"/>
+                            <xml-tag>
+                                <property key="className" value="com.iver.cit.gvsig.fmap.core.styles.SimpleLineStyle"/>
+                                <property key="desc"/>
+                                <property key="lineWidth" value="1.0"/>
+                                <property key="dashPhase" value="0.0"/>
+                                <property key="endCap" value="0"/>
+                                <property key="lineJoin" value="2"/>
+                                <property key="miterLimit" value="10.0"/>
+                                <property key="offset" value="0.0"/>
+                                <property key="unit" value="0"/>
+                            </xml-tag>
+                        </xml-tag>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.layers.SelectionSupport"/>
+                        <property key="numBitSet" value="0"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="className" value="com.iver.cit.gvsig.fmap.drivers.jdbc.postgis.PostGisDriver"/>
+                        <property key="catalog"/>
+                        <property key="username" value="postgres"/>
+                        <property key="driverclass" value="org.postgresql.Driver"/>
+                        <property key="schema" value="public"/>
+                        <property key="tablename" value="vias"/>
+                        <property key="fields" value="gid ,fnode_ ,tnode_ ,lpoly_ ,rpoly_ ,length ,ulferr_ ,ulferr_id ,map"/>
+                        <property key="FID" value="gid"/>
+                        <property key="THE_GEOM" value="the_geom"/>
+                        <property key="whereclause" value=""/>
+                        <property key="SRID" value="-1"/>
+                        <property key="host" value="localhost"/>
+                        <property key="port" value="5432"/>
+                        <property key="dbName" value="postgis"/>
+                        <property key="literalDBName" value="true"/>
+                        <property key="connName" value="postigs"/>
+                    </xml-tag>
+                    <xml-tag>
+                        <property key="typeChild" value="linkProperties"/>
+                        <property key="extName"/>
+                        <property key="fieldName"/>
+                        <property key="typeLink" value="0"/>
+                    </xml-tag>
+                </xml-tag>
+            </xml-tag>
+        </xml-tag>
+        <xml-tag>
+            <property key="className" value="com.iver.cit.gvsig.fmap.MapContext"/>
+            <xml-tag>
+                <property key="className" value="com.iver.cit.gvsig.fmap.ViewPort"/>
+                <property key="backColor" value="255,255,255,255"/>
+                <property key="dist1pixel" value="0.0"/>
+                <property key="dist3pixel" value="0.0"/>
+                <property key="distanceUnits" value="1"/>
+                <property key="mapUnits" value="1"/>
+                <property key="offsetX" value="0.0"/>
+                <property key="offsetY" value="0.0"/>
+                <property key="proj" value="EPSG:23030"/>
+                <property key="scale" value="0.0"/>
+                <xml-tag>
+                    <property key="className" value="com.iver.cit.gvsig.fmap.ExtentHistory"/>
+                    <property key="num" value="0"/>
+                    <property key="numrec" value="10"/>
+                </xml-tag>
+            </xml-tag>
+            <xml-tag>
+                <property key="className" value="com.iver.cit.gvsig.fmap.layers.FLayers"/>
+                <property key="active" value="false"/>
+                <property key="name" value="root layer"/>
+                <property key="minScale" value="-1.0"/>
+                <property key="maxScale" value="-1.0"/>
+                <property key="visible" value="true"/>
+                <property key="transparency" value="255"/>
+                <property key="isInTOC" value="true"/>
+                <property key="numLayers" value="0"/>
+                <property key="LayerNames" value=""/>
+            </xml-tag>
+        </xml-tag>
+    </xml-tag>
+    <xml-tag>
+        <property key="name" value="AndamiPersistence"/>
+        <property key="className" value="com.iver.cit.gvsig.project.Project"/>
+        <xml-tag>
+            <property key="name" value="ViewInfoProperties"/>
+            <property key="X" value="11"/>
+            <property key="Y" value="32"/>
+            <property key="Width" value="430"/>
+            <property key="Height" value="594"/>
+            <property key="isVisible" value="true"/>
+            <property key="isResizable" value="false"/>
+            <property key="isMaximizable" value="true"/>
+            <property key="isModal" value="false"/>
+            <property key="isModeless" value="false"/>
+            <property key="isClosed" value="false"/>
+            <property key="isNotClosable" value="false"/>
+            <property key="AdditionalInfo"/>
+            <property key="className" value="com.iver.cit.gvsig.project.document.gui.ProjectWindow"/>
+            <property key="zPosition" value="2"/>
+        </xml-tag>
+        <xml-tag>
+            <property key="name" value="ViewInfoProperties"/>
+            <property key="X" value="193"/>
+            <property key="Y" value="25"/>
+            <property key="Width" value="500"/>
+            <property key="Height" value="340"/>
+            <property key="isVisible" value="true"/>
+            <property key="isResizable" value="true"/>
+            <property key="isMaximizable" value="true"/>
+            <property key="isModal" value="false"/>
+            <property key="isModeless" value="false"/>
+            <property key="isClosed" value="false"/>
+            <property key="isNotClosable" value="false"/>
+            <property key="AdditionalInfo"/>
+            <property key="isMaximized" value="true"/>
+            <property key="normalX" value="193"/>
+            <property key="normalY" value="25"/>
+            <property key="normalWidth" value="500"/>
+            <property key="normalHeight" value="340"/>
+            <property key="documentType" value="ProjectView"/>
+            <property key="documentName" value="postgis-2"/>
+            <property key="zPosition" value="1"/>
+            <xml-tag>
+                <property key="name" value="windowData"/>
+                <property key="GraphicLocator.isPalette" value="false"/>
+                <property key="GraphicLocator.Height" value="334"/>
+                <property key="MainDivider.Y" value="0"/>
+                <property key="MainDivider.X" value="0"/>
+                <property key="MapControl.Height" value="624"/>
+                <property key="TOCDivider.Location" value="284"/>
+                <property key="TOC.Height" value="283"/>
+                <property key="TOCDivider.Y" value="1"/>
+                <property key="TOCDivider.X" value="1"/>
+                <property key="MainDivider.Location" value="153"/>
+                <property key="MainDivider.Width" value="1270"/>
+                <property key="MainWindow.X" value="0"/>
+                <property key="TOCDivider.Height" value="624"/>
+                <property key="MainWindow.Width" value="1270"/>
+                <property key="TOC.Width" value="150"/>
+                <property key="MainWindow.Y" value="0"/>
+                <property key="TOCDivider.Width" value="152"/>
+                <property key="MapControl.Width" value="1111"/>
+                <property key="GraphicLocator.Width" value="150"/>
+                <property key="MainDivider.Height" value="626"/>
+                <property key="MainWindow.Height" value="626"/>
+            </xml-tag>
+        </xml-tag>
+    </xml-tag>
+</xml-tag>

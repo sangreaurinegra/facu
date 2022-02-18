@@ -1,0 +1,1 @@
+mysqldump  -h localhost -u root -p scrumme [nombres de las tablas, separados por espacio,  sacar corchetes] > c:\dump.sql

@@ -1,0 +1,13 @@
+﻿#key para acceder a los servicios de google maps
+GoogleKey=ABQIAAAASt4t0WsPmrf12rfI9OtQ1BQvWpzOGqHt7iimNLMnsLzY-k_IIBRXdAIMS2pMRVrPJWaJ4yttK6nXjw
+
+PathImage=C:\Projects\ArmazonGr6\ArmazonGr6\Content\ArticulosImg
+
+PathImageRelativo=Content\ArticulosImg
+
+UrlActual=http://localhost:1056/
+
+IdProveedorAmazon=3
+
+
+

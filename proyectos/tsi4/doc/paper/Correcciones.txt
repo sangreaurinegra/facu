@@ -1,0 +1,38 @@
+Van mis recomendaciones:
+
+Generales
+
+
+
+
+
+
+Mi recomendación: imprimanlo y leanlo en papel. Van a encontrar algún detallecito interesante. 
+Sean un poco más formales o por lo menos cuando lo lean, ponganse ese chip.
+Me parece que en ese sentido pueden trabajar el paper un poco más. Estaría bueno que lo hicieran.
+
+Saludos,
+Gustavo.-
+
+Puntos Finalizados
+-* Compraron los celulares en Ciudad del Este? Porque compraron un Nokkia :)
+-* En implementación, comiencen diciendo: "en esta sección..." Queda más amigable.
+-* La primera frase de Midlet, les quedó larguisima. Creo que hay algun lugar en donde colocar algún punto.
+-* En JSR 169 les falta el parentesis de cierre.
+-* La descripción del truco está buena, pero dejenla para el final de la sección. Es la que menos aporta de todas las descripciones que hacen en esa sección.
+-* Cuando describen los paquetes de MIDP, a lo mejor sería bueno que los puntuaran (es decir, que no los pusieran todo de corrido).
+-* Los sitios web referenciados deberían tener ahí un mensaje que digan la fecha de última visita. Asimismo, pongan entero el nombre del artículo y no solo la tecnología a la que aplica la referencia.
+-* Ojo con usar colores para definir flujos y esas cosas. Generalmente esto se imprime en monocromático y eso se pierde. Acá si quieren dejenlo, pero tenganlo en cuenta.
+-* La parte de los problemas encontrados, la pondría más versito, no tan punto tras punto. Creo que es un tema principalmente de formato.
+-* La descripción de Java2D me parece que les quedó media pobre. Sería bueno discutir un poquito más que es lo que brinda (y que es lo que no).
+-* Ojo con algunos puntos que son seguidos de letras minúsculas.
+-* Despersonalicen el paper. Hablen de se hizo, se planteó, no de hicimos, nos planteamos...
+-* Formalidad del paper. Sería bueno que algunas frases sean más formales, como por ejemplo, "lo interesante de esta tecnología".
+
+
+
+
+
+
+
+

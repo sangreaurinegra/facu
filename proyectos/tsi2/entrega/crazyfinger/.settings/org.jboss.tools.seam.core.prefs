@@ -1,0 +1,18 @@
+#Mon Oct 05 20:46:37 UYST 2009
+#Fri Oct 09 22:23:55 UYST 2009
+action.package=edu.tsi1.gr5.crazyfinger.session
+action.sources=/crazyfinger-ejb/ejbModule
+eclipse.preferences.version=1
+model.package=edu.tsi1.gr5.crazyfinger.entity
+model.sources=/crazyfinger-ejb/ejbModule
+seam.ear.project=crazyfinger-ear
+seam.ejb.project=crazyfinger-ejb
+seam.project.connection.profile=Maferoga
+seam.project.deployment.type=ear
+seam.project.settings.version=1.1
+seam.project.web.root.folder=/crazyfinger/WebContent
+seam.runtime.name=jboss-seam
+seam.test.creating=false
+seam.test.project=crazyfinger-test
+test.package=edu.tsi1.gr5.crazyfinger.test
+test.sources=/crazyfinger-test/test-src

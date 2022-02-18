@@ -1,0 +1,48 @@
+<definitions name='gr5WS2Service' targetNamespace='http://ws.gr5.tsi2.edu/' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:tns='http://ws.gr5.tsi2.edu/' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+ <types>
+  <xs:schema targetNamespace='http://ws.gr5.tsi2.edu/' version='1.0' xmlns:tns='http://ws.gr5.tsi2.edu/' xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+   <xs:element name='resta' type='tns:resta'/>
+   <xs:element name='restaResponse' type='tns:restaResponse'/>
+   <xs:complexType name='resta'>
+    <xs:sequence>
+     <xs:element name='a' type='xs:int'/>
+     <xs:element name='b' type='xs:int'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='restaResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='return' type='xs:int'/>
+    </xs:sequence>
+   </xs:complexType>
+  </xs:schema>
+ </types>
+ <message name='gr5WS2_resta'>
+  <part element='tns:resta' name='resta'></part>
+ </message>
+ <message name='gr5WS2_restaResponse'>
+  <part element='tns:restaResponse' name='restaResponse'></part>
+ </message>
+ <portType name='gr5WS2'>
+  <operation name='resta' parameterOrder='resta'>
+   <input message='tns:gr5WS2_resta'></input>
+   <output message='tns:gr5WS2_restaResponse'></output>
+  </operation>
+ </portType>
+ <binding name='gr5WS2Binding' type='tns:gr5WS2'>
+  <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http'/>
+  <operation name='resta'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+ </binding>
+ <service name='gr5WS2Service'>
+  <port binding='tns:gr5WS2Binding' name='gr5WS2Port'>
+   <soap:address location='http://127.0.0.1:8080/misWS/gr5WS2'/>
+  </port>
+ </service>
+</definitions>

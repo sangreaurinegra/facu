@@ -1,0 +1,18 @@
+﻿<configuration>
+<system.serviceModel>
+  <bindings>
+    <basicHttpBinding>
+      <binding name="BasicHttpBinding_ServiceSilver" maxBufferSize="2147483647"
+        maxReceivedMessageSize="2147483647">
+        <security mode="None" />
+      </binding>
+    </basicHttpBinding>
+  </bindings>
+  <client>
+    <endpoint binding="basicHttpBinding"
+      bindingConfiguration="BasicHttpBinding_ServiceSilver" contract="ServiceReferenceSilver.ServiceSilver"
+      name="BasicHttpBinding_ServiceSilver" />
+  </client>
+</system.serviceModel>
+</configuration>
+

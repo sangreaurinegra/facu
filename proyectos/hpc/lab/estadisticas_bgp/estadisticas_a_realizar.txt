@@ -1,0 +1,37 @@
+1) updates (o "announcements") duplicados; esto puede dar indicio de
+anomalías en el funcionamiento del sistema autónomo (AS) que produce los
+duplicados.
+
+se refleja en lineas duplicadas ???? es el campo (de log) "A" del siguiente ejemplo ?
+
+2) existencia de múltiples rutas para un prefijo; esto da idea de la
+diversidad de conectividad del AS origen del prefijo.
+
+BGP4MP|07/31/13 23:55:08|A|202.249.2.185|25152|177.54.121.0/24|25152 2914 6762 7738 53142|IGP
+BGP4MP|07/31/13 23:55:08|A|202.249.2.185|25152|177.54.121.0/24|25152 6939 7738 53142|IGP
+BGP4MP|07/31/13 23:55:09|A|202.249.2.185|25152|177.54.121.0/24|25152 2914 6762 7738 53142|IGP
+
+El prefijo: 177.54.121.0/24
+
+Esto podria ser para este mismo numero distintas listas AS-PATH ?
+
+
+
+3) estadísticas de los "AS_PATH lenght"; esto permite aproximarse a estudiar
+el diámetro de internet.
+
+"Si se quisiera utilizar el AS-PATH como método de selección de rutas se escogería el que tuviera una lista AS-PATH más pequeña. Esto es una forma de medir que haya menos saltos hacia el destino aunque no es exactamente así porque no se tienen en cuenta los posibles saltos debidos a los routers dentro de un sistema autónomo."
+
+El length podria ser la cantidad de los elementos de la lista de AS-PATH. ?
+
+
+
+4) "top talkers": que ASes generan más prefijos y/o son más "habladores"
+por unidad de tiempo. si además se correlacionan updates y withrawals, se
+pueden detectar ASes que tienen problemas de configuración del routing
+interno que se reflejan en el BGP.
+
+
+el AS en este caso es 202.249.2.185 ?
+
+

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/Parte1-ejb/AritmeticasWS?wsdl" uri="src/conf/xml-resources/web-service-references/AritmeticasWS/wsdl/localhost_8080/Parte1-ejb/AritmeticasWS.wsdl"/>
+    <system systemId="http://localhost:8080/misWS/gr5WS?wsdl" uri="src/conf/xml-resources/web-service-references/gr5WS/wsdl/localhost_8080/misWS/gr5WS.wsdl"/>
+    <system systemId="http://localhost:8080/misWS/gr5WS2?wsdl" uri="src/conf/xml-resources/web-service-references/gr5WS2/wsdl/localhost_8080/misWS/gr5WS2.wsdl"/>
+</catalog>
+
+

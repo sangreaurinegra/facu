@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+<table-filter match-name="actividades" match-schema="public" match-catalog=".*"></table-filter>
+<table-filter match-name="alojamiento" match-schema="public" match-catalog=".*"></table-filter>
+<table-filter match-name="calificacion" match-schema="public" match-catalog=".*"></table-filter>
+<table-filter match-name="comentario" match-schema="public" match-catalog=".*"></table-filter>
+<table-filter match-name="estadia" match-schema="public" match-catalog=".*"></table-filter>
+<table-filter match-name="lugar" match-schema="public" match-catalog=".*"></table-filter>
+<table-filter match-name="mail" match-schema="public" match-catalog=".*"></table-filter>
+<table-filter match-name="media" match-schema="public" match-catalog=".*"></table-filter>
+<table-filter match-name="mediotransporte" match-schema="public" match-catalog=".*"></table-filter>
+<table-filter match-name="nodo" match-schema="public" match-catalog=".*"></table-filter>
+<table-filter match-name="nodopt" match-schema="public" match-catalog=".*"></table-filter>
+<table-filter match-name="nodopv" match-schema="public" match-catalog=".*"></table-filter>
+<table-filter match-name="paqueteturistico" match-schema="public" match-catalog=".*"></table-filter>
+<table-filter match-name="pared" match-schema="public" match-catalog=".*"></table-filter>
+<table-filter match-name="pasaje" match-schema="public" match-catalog=".*"></table-filter>
+<table-filter match-name="proyectoviaje" match-schema="public" match-catalog=".*"></table-filter>
+<table-filter match-name="puntoturistico" match-schema="public" match-catalog=".*"></table-filter>
+<table-filter match-name="servicio" match-schema="public" match-catalog=".*"></table-filter>
+<table-filter match-name="solicitud" match-schema="public" match-catalog=".*"></table-filter>
+<table-filter match-name="translado" match-schema="public" match-catalog=".*"></table-filter>
+<table-filter match-name="usuario" match-schema="public" match-catalog=".*"></table-filter>
+</hibernate-reverse-engineering>

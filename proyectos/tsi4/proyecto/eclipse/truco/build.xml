@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="truco" default="post-compile" basedir=".">
+    <description>Builds, tests, and runs the project .</description>
+    <!--import file="nbproject/build-impl.xml"/-->
+	<property name="build.classes.dir" location="res"/>
+    <target name="post-compile">
+        <!--delete dir="build" includes="**/Thumbs.db" /-->
+        <taskdef classpath="editor.jar" classname="com.sun.lwuit.tools.resourcebuilder.LWUITTask" name="build" />
+        <build dest="${build.classes.dir}/resources.res">
+            <l10n name="localize">
+                <locale name="en" file="images/l10n/localize.properties" />
+            </l10n>
+            <font logicalName="SansSerif" size="20" charset=" ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-02" />
+            <font logicalName="Monospaced" size="10" />
+            <font logicalName="DialogInput" />
+            <font logicalName="Dialog" />
+            <image file="images/icons/Configuracion_sel.png" indexed="true" />
+        	<image file="images/icons/Nuevo_sel.png" indexed="true" />
+        	<image file="images/icons/Unirse_sel.png" indexed="true" />
+        	<image file="images/icons/Transitions_sel.png" indexed="true" />
+        	
+            <image file="images/icons/Configuracion_unsel.png" indexed="true" />
+        	<image file="images/icons/Nuevo_unsel.png" indexed="true" />
+        	<image file="images/icons/Unirse_unsel.png" indexed="true" />
+        	<image file="images/icons/Transitions_unsel.png" indexed="true" />
+        	
+        	<image file="images/images/maso.jpg" />
+        </build>
+        <build dest="${build.classes.dir}/images.res">
+            <image file="images/images/people.jpg" />
+            <image file="images/images/progress0.png" />
+            <image file="images/images/progress1.png" />
+            <image file="images/images/progress2.png" />
+            <image file="images/images/sady.png" indexed="true" />
+            <image file="images/images/smily.png" indexed="true" />
+        </build>
+    </target>
+
+</project>
