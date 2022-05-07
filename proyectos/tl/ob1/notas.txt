@@ -1,0 +1,15 @@
+in - Entradas del programa
+out- Salidas generadas por el programa 
+outRef- Salidas de referencia para comparar
+diff - diferencias entre losout y outRef
+src - los fuentes
+
+Cond aprobacion
+
+    *  Este trabajo es obligatorio. Por lo tanto su no aprobación equivale a la pérdida del curso, independientemente del puntaje obtenido en los parciales.
+    * El trabajo se compone de dos partes principales: la resolución en máquina de un problema y la contestación a preguntas relativas a éste en los parciales. Existe un nivel mínimo de aceptabilidad en ambas partes. El trabajo de máquina será aceptable si es capaz de resolver el problema planteado de manera correcta.
+    * Los grupos serán de dos a cuatro personas. No es posible realizarlo de manera individual. Es admisible el intercambio de conocimiento entre grupos. No es admisible compartir entre grupos el total o parte del código generado. La codificación de los archivos fuente que conformarán la solución, se restringirá a cada grupo. En caso de detectarse dos o más trabajos similares, en cuanto a código fuente y/o documentación, todos los miembros de los grupos afectados perderán indistintamente el curso.
+    * Se realizarán dos entregas. El plazo para la primera entrega vence el jueves 22 de abril hasta las 21:00 hs. El plazo para la segunda entrega se confirmará. No se realizarán prórrogas sobre esos plazos.
+      La entrega se realizará via web. Se comunicará oportunamente la dirección de la misma. 
+
+

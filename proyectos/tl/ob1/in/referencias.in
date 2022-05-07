@@ -1,0 +1,253 @@
+
+@book{Hopcroft1979,
+   author = {Hopcroft,JE and Ullman,JD},
+   year = {1979},
+   title = {Introduction to Automata Theory, Languages, and Computation},
+   publisher = {Addison-Wesley},
+   address = {Reading, Massachusetts}
+}
+
+@inproceedings{ karttunen95replace,
+    author = "Lauri Karttunen",
+    title = "The Replace Operator",
+    booktitle = "Meeting of the Association for Computational Linguistics",
+    pages = "16-23",
+    year = "1995",
+    url = "citeseer.nj.nec.com/karttunen95replace.html" }
+    
+
+@inproceedings{ kaplankay,
+    author = "Ronald Kaplan and Martin Kay",
+    title = "Regular models of phonological rule systems",
+    booktitle = "Computational Linguistics, 20(3)",
+    pages = "331-379",
+    year = "1994",
+}
+
+@misc{ abney96partial,
+  author = "S. Abney",
+  title = "Partial parsing via finite-state cascades",
+  text = "Steven Abney. 1996. Partial parsing via finite-state cascades. In 
+Workshop
+    on Robust Parsing, 8th European Summer School in Logic, Language and 
+Information,
+    Prague, Czech Republic, pages 8--15.",
+  year = "1996",
+  url = "citeseer.nj.nec.com/abney96partial.html" }
+  
+  
+@misc{ aitmokhtar97incremental,
+  author = "S. Ait-Mokhtar and J. Chanod",
+  title = "Incremental finite state parsing",
+  text = "Salah Ait-Mokhtar and J.P Chanod. Incremental finite state parsing. In
+    ANLP'97, 1997.",
+  year = "1997",
+  url = "citeseer.nj.nec.com/article/ait-mokhtar97incremental.html" }  
+  
+   
+@inproceedings{ karttunendirected,
+    author = "Lauri Karttunen",
+    title = "Directed Replacement",
+    booktitle = "Proceedings of the Thirty-Fourth Annual Meeting of the 
+Association for Computational Linguistics",
+    publisher = "Morgan Kaufmann Publishers",
+    address = "San Francisco",
+    editor = "Arivind Joshi and Martha Palmer",
+    pages = "108--115",
+    year = "1996",
+    url = "citeseer.nj.nec.com/article/karttunen96directed.html" }
+    
+
+@misc{dale99transducers,
+  author = "G. Dale and G. van Noord",
+  title = "Transducers from rewrite rules with backreferences",
+  text = "Gerdemann, Dale and Gertjan van Noord. 1999. Transducers from rewrite 
+rules
+    with backreferences.",
+  year = "1999",
+  url = "citeseer.nj.nec.com/563714.html" }
+  
+  
+@book{ pollard94headdriven,
+    author = "Carl Pollard and Ivan A. Sag",
+    title = "Head-Driven Phrase Structure Grammar",
+    publisher = "University of Chicago Press and {CSLI} Publications",
+    address = "Chicago, Illinois",
+    year = "1994",
+    url = "citeseer.nj.nec.com/pollard94headdriven.html" }
+    
+@book{carpenter92logic,
+    author = "Bob Carpenter",
+    title = "The Logic of Typed Feature Structures",
+    publisher = "Cambridge University Press",
+    address = "Cambridge, England",
+    year = "1992",
+    url = "citeseer.nj.nec.com/carpenter92logic.html" }    
+
+  @inproceedings{carpenter91specification,
+      author = "Bob Carpenter and Carl Pollard and Alex Franz",
+      title = "The Specification and Implementation of Constraint-Based 
+Unification Grammars",
+      booktitle = "Proceedings of the Second International Workshop on Parsing 
+Technologies",
+      year = "1991",
+    url = "citeseer.nj.nec.com/carpenter91specification.html" }
+    
+@book{ eilenberg,
+    author = "Samuel Eilenberg",
+    title = "Automata, Languages and Machines",
+    publisher = "Academic Press",
+    year = "1974",
+}    
+
+@article{mohri97finitestate,
+    author = "Mehryar Mohri",
+    title = "Finite-State Transducers in Language and Speech Processing",
+    journal = "Computational Linguistics",
+    volume = "23",
+    number = "2",
+    pages = "269-311",
+    year = "1997",
+    url = "citeseer.nj.nec.com/mohri97finitestate.html" }
+
+@article{mohri00minimization,
+    author = "Mehryar Mohri",
+    title = "Minimization algorithms for sequential transducers",
+    journal = "Theoretical Computer Science",
+    volume = "234",
+    number = "1--2",
+    pages = "177--201",
+    year = "2000",
+    url = "citeseer.nj.nec.com/mohri00minimization.html" }
+    
+@misc{vannoordpred,
+  author = "Gertjan van Noord and Dale Gerdemann",
+  title = "Finite State Transducers with Predicates and Identities",
+  url = "citeseer.nj.nec.com/vannoord01finite.html" }    
+    
+@book{thebook,
+    author = "Kenneth R. Beesley and Lauri Karttunen",
+    title = "Finite State Morphology",
+    publisher = "CSLI Publications",
+    address = "Cambridge, England",
+    year = "2003",
+}    
+    
+@article{mohri96some,
+   author = "Mehryar Mohri",
+   title = "On Some Applications of Finite-State Automata Theory to Natural
+      Language Processing",
+   journal = "Natural Language Engineering",
+   month = mar,
+   year = "1996",
+   volume = 2,
+   number = 01,
+   pages = {61--80},
+   url = "citeseer.nj.nec.com/mohri96some.html" }    
+   
+   
+@misc{nlpprolog,
+author = "Patrick Blackburn and Kristina Striegnitz",
+title = "Natural Language Processing Techniques in Prolog",
+howpublished="http://www.coli.uni-sb.de/~kris/nlp-with-prolog/html/"
+}    
+   
+   
+@inproceedings{vannoord96fsa,
+    author = "Gertjan van Noord",
+    title = "{FSA} Utilities: A Toolbox to Manipulate Finite-State Automata",
+    booktitle = "Workshop on Implementing Automata",
+    pages = "87-108",
+    year = "1996",
+    url = "citeseer.nj.nec.com/vannoord97fsa.html" }
+    
+@article{wonsever01contextual,
+    author = "Dina Wonsever and Jean-Luc Minel",
+    title = "Contextual Rules for Text Analysis",
+    journal = "Lecture Notes in Computer Science",
+    volume = "2004",
+    pages = "509--??",
+    year = "2001",
+    url = "citeseer.nj.nec.com/wonsever01contextual.html" }
+    
+
+
+@incollection{roche96,
+  author =       {Emmanuel Roche and Yves Schabes}, 
+  title =        {Introduction},
+  booktitle =    {Finite-State Language Processing},
+  publisher =    {MIT Press},
+  year =         1996,
+  editor =       {Emmanuel Roche and Yves Schabes},
+}    
+
+@misc{abney91parsing,
+  author = "S. Abney",
+  title = "Parsing by Chunks",
+  text = "Steven P. Abney. Parsing by Chunks. In Robert C. Berwick, Steven P. 
+Abney,
+    and Carol Tenny, editors, Principle-Based Parsing: Computation and 
+Psycholinguistics,
+    pages 257--278. Kluwer Academic Publishers, Boston, 1991.",
+  year = "1991",
+  url = "citeseer.ist.psu.edu/abney91parsing.html" }
+
+
+@incollection{karttunen92twolevel,
+  author = "L. Karttunen and R. Kaplan and A. Zaenen",
+  title = "Two-level morphology with composition",
+  text = "Lauri Karttunen, Ronald M. Kaplan, and Annie Zaenen. 1992. Two-level 
+morphology
+    with composition.",
+  year = "1992",
+  url = "citeseer.nj.nec.com/137882.html" }
+
+@incollection{silberz,
+  author =       {Max D. Silberztein}, 
+  title =        {The Lexical Analysis of Natural Languages},
+  booktitle =    {Finite-State Language Processing},
+  publisher =    {MIT Press},
+  year =         1996,
+  editor =       {Emmanuel Roche and Yves Schabes},
+}    
+
+@incollection{clemenceau96,
+  author =       {David Clemenceau}, 
+  title =        {Finite-State Morphology: Inflections and Derivations in a 
+Single Framework Using Dictionaries and Rules},
+  booktitle =    {Finite-State Language Processing},
+  publisher =    {MIT Press},
+  year =         1996,
+  editor =       {Emmanuel Roche and Yves Schabes},
+}    
+
+@incollection{rochepos,
+  author =       {Emmanuel Roche and Yves Schabes}, 
+  title =        {Deterministic Part-of-Speech Taggin with Finite-State 
+Transducers},
+  booktitle =    {Finite-State Language Processing},
+  publisher =    {MIT Press},
+  year =         1996,
+  editor =       {Emmanuel Roche and Yves Schabes},
+}    
+
+@article{karttunen01applications,
+    author = "Lauri Karttunen",
+    title = "Applications of Finite-State Transducers in Natural Language 
+Processing",
+    journal = "Lecture Notes in Computer Science",
+    volume = "2088",
+    pages = "34--??",
+    year = "2001",
+    url = "citeseer.nj.nec.com/409462.html" }
+
+@misc{grefenstette96light,
+  author = "G. Grefenstette",
+  title = "Light parsing as finite state filtering",
+  text = "G. Grefenstette. Light parsing as finite state filtering. In Workshop 
+on
+    Extended finite state models of language, Budapest, Hungary, Aug 11--12
+    1996. ECAI'96.",
+  year = "1996",
+  url = "citeseer.nj.nec.com/grefenstette96light.html" }
+

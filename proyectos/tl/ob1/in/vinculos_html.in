@@ -1,0 +1,52 @@
+<html>
+
+<title> Pagina un obligatorio de teoria</title>
+
+<body bgcolor="#FFFFC0" text="#000000" link="#0000FF" vlink="#800080" alink="#FF00FF">
+
+<h1 align="center">Obligatorio</h1>
+
+<p align="center">&nbsp;</p>
+
+<blockquote>
+  <hr>
+  <ul>
+    <li><h2>Letra del obligatorio: <a href="letra.doc">DOC</a> y <a href="letra.rtf">RTF</a></h2>
+    </li>
+   <li><h2>Notas: <a href="NotasLetra.doc">DOC</a> y <a href="Notasletra.rtf">RTF</a></h2>
+    </li>
+<li><h2>Seteos en la instalacion de las herramientas: <a href="seteos.txt">Seteos</a>		   
+</h2></li></ul>
+<ul>
+   <li><h2><a href="Condiciones.html">Condiciones para aprobar el obligatorio</a></h2>
+    </li>
+  </ul>
+  <hr>
+  <ul>
+    <li><h2>
+<a href="Instalacion.html">Instalaci0n de herramientas para su resolucion</a></h2>
+    </li>
+  </ul>
+  <hr>
+
+<h2>Sintáctico</h2>:
+ <ul>
+    <li><h2>Tests de prueba: <a href="http://www.fing.edu.uy/inco/t1.ent">t1.ent</a> <a href="www.fing.edu.uy/inco/sint_pag/t1.sal">t1.sal</a>
+			     <a href="http://www.fing.edu.uy/inco/t2.ent">t2.ent</a> <a href="www.fing.edu.uy/inco/sint_pag/t2.sal">t2.sal</a>
+			     <a href="http://www.fing.edu.uy/inco/t3.ent">t3.ent</a> <a href="www.fing.edu.uy/inco/sint_pag/t3.sal">t3.sal</a>
+			     
+			     <a href="http://www.fing.edu.uy/inco/notastest">Notas de los tests</a>
+	</h2>
+    </li>
+
+    <li><h2>Scripts de compilación y ejecución: <a href="http://www.fing.edu.uy/inco/c.bat">c.bat</a>
+			     <a href="http://www.fing.edu.uy/inco/e.bat">e.bat</a>  
+	</h2>
+    </li>
+    <li><h2><a href="http://www.fing.edu.uy/inco/principal.java">Ejemplo de programa principal</a></h2>
+    </li>
+</ul>
+<hr>
+
+</body>
+</html>
